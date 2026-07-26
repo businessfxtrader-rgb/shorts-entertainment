@@ -67,12 +67,13 @@ const row = [
   description,
   hashtags,
   `https://youtube.com/shorts/${latestEntry.videoId}`,
+  latestScript.seoNotes ?? `タイトル・タグに固有名詞を含め、タグは${(latestScript.tags ?? []).length}個設定`,
 ];
 
 // B列から書き込み、A列(管理No.)には一切触れない。
 await sheets.spreadsheets.values.update({
   spreadsheetId: SPREADSHEET_ID,
-  range: `${SHEET_NAME}!B${targetRow}:H${targetRow}`,
+  range: `${SHEET_NAME}!B${targetRow}:I${targetRow}`,
   valueInputOption: "USER_ENTERED",
   requestBody: { values: [row] },
 });
