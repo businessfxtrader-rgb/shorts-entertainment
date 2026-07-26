@@ -75,10 +75,11 @@ try {
   log("========== パイプライン正常終了 ==========");
 } catch (err) {
   log(`エラーで停止しました: ${err.message}`);
-  const report = spawnSync("node", [path.join(root, "scripts", "report-error.mjs"), err.message], {
-    cwd: root,
-    encoding: "utf-8",
-  });
+  const report = spawnSync(
+    "node",
+    [path.join(root, "scripts", "report-status.mjs"), "エラー", err.message],
+    { cwd: root, encoding: "utf-8" }
+  );
   if (report.stdout) fs.appendFileSync(logPath, report.stdout);
   if (report.stderr) fs.appendFileSync(logPath, report.stderr);
   log("========== パイプライン異常終了 ==========");

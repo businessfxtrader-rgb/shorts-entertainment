@@ -6,7 +6,9 @@ import { google } from "googleapis";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
 
-const errorMessage = process.argv[2] || "詳細不明のエラー";
+// 使い方: node report-status.mjs <ステータス:エラー|保留> <詳細メッセージ>
+const status = process.argv[2] === "保留" ? "保留" : "エラー";
+const message = process.argv[3] || "詳細不明";
 
 const SPREADSHEET_ID = "1oyuIHE27xiOGppc3QOdP7fA0pNczDI14MTb5wnDQq4c";
 
@@ -53,7 +55,7 @@ const dateStr = `${jst.getUTCFullYear()}/${jst.getUTCMonth() + 1}/${jst.getUTCDa
 
 const row = [
   "ショート",
-  "エラー",
+  status,
   genreLabel,
   dateStr,
   title,
@@ -61,7 +63,7 @@ const row = [
   "", // 検索キーワード
   "", // 動画URL
   "", // SEO対策
-  errorMessage.slice(0, 500),
+  message.slice(0, 500),
 ];
 
 await sheets.spreadsheets.values.update({
@@ -71,4 +73,4 @@ await sheets.spreadsheets.values.update({
   requestBody: { values: [row] },
 });
 
-console.log(`OK: ${targetRow}行目にエラーを記録しました`);
+console.log(`OK: ${targetRow}行目に「${status}」を記録しました`);
