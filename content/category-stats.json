@@ -1,0 +1,26 @@
+{
+  "雑学": {
+    "totalViews": 336,
+    "videoCount": 2,
+    "format": "ranking",
+    "avgViews": 168
+  },
+  "世界の文化雑学": {
+    "totalViews": 2,
+    "videoCount": 1,
+    "format": "ranking",
+    "avgViews": 2
+  },
+  "語源・ことわざ": {
+    "totalViews": 1,
+    "videoCount": 1,
+    "format": "ranking",
+    "avgViews": 1
+  },
+  "もしも歴史の発明が消えたら": {
+    "totalViews": 0,
+    "videoCount": 1,
+    "format": "simulation",
+    "avgViews": 0
+  }
+}

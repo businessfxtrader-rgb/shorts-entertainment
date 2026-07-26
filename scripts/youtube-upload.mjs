@@ -58,6 +58,8 @@ usedTopics.push({
   date: new Date().toISOString().slice(0, 10),
   publishedAt,
   videoId,
+  category: latestScript.category,
+  format: latestScript.format,
 });
 fs.writeFileSync(usedTopicsPath, JSON.stringify(usedTopics, null, 2));
 console.log("OK: used-topics.json を更新しました");

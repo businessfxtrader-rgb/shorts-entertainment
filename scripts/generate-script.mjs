@@ -39,7 +39,27 @@ const misreadingList = Object.entries(misreadingDict)
 
 const categoriesPath = path.join(root, "scripts", "categories.json");
 const CATEGORIES = JSON.parse(fs.readFileSync(categoriesPath, "utf-8"));
-const category = CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)];
+
+const categoryStatsPath = path.join(root, "content", "category-stats.json");
+const categoryStats = fs.existsSync(categoryStatsPath)
+  ? JSON.parse(fs.readFileSync(categoryStatsPath, "utf-8"))
+  : {};
+
+// 過去の平均再生数が高いジャンルほど選ばれやすくする(ただし実績が無い/少ないジャンルにも
+// 一定の確率を残し、開拓した新ジャンルが試される機会を確保する)
+const BASELINE_WEIGHT = 30;
+const weights = CATEGORIES.map((c) => (categoryStats[c.name]?.avgViews ?? 0) + BASELINE_WEIGHT);
+const totalWeight = weights.reduce((a, b) => a + b, 0);
+let pick = Math.random() * totalWeight;
+let categoryIndex = 0;
+for (let i = 0; i < weights.length; i++) {
+  pick -= weights[i];
+  if (pick <= 0) {
+    categoryIndex = i;
+    break;
+  }
+}
+const category = CATEGORIES[categoryIndex];
 
 const formatInstructions =
   category.format === "simulation"

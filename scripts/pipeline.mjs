@@ -28,6 +28,21 @@ function runNode(scriptName) {
   log(`完了: ${scriptName}`);
 }
 
+function runNodeSoft(scriptName) {
+  log(`開始(失敗しても継続): ${scriptName}`);
+  const result = spawnSync("node", [path.join(root, "scripts", scriptName)], {
+    cwd: root,
+    encoding: "utf-8",
+  });
+  if (result.stdout) fs.appendFileSync(logPath, result.stdout);
+  if (result.stderr) fs.appendFileSync(logPath, result.stderr);
+  if (result.status !== 0) {
+    log(`警告: ${scriptName} が失敗しましたが、パイプラインは継続します (exit code ${result.status})`);
+  } else {
+    log(`完了: ${scriptName}`);
+  }
+}
+
 function runRender() {
   log("開始: remotion render");
   const result = spawnSync(
@@ -54,7 +69,9 @@ try {
   runNode("write-description.mjs");
   runRender();
   runNode("youtube-upload.mjs");
+  runNodeSoft("set-thumbnail.mjs");
   runNode("append-sheet.mjs");
+  runNodeSoft("reply-comments.mjs");
   log("========== パイプライン正常終了 ==========");
 } catch (err) {
   log(`エラーで停止しました: ${err.message}`);

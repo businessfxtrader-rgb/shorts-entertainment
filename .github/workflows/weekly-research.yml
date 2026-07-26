@@ -19,19 +19,28 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Install Claude Code CLI
         run: npm install -g @anthropic-ai/claude-code
 
-      - name: Set Claude token
-        run: echo "CLAUDE_CODE_OAUTH_TOKEN=${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}" >> .env
+      - name: Reconstruct secret files
+        run: |
+          echo "CLAUDE_CODE_OAUTH_TOKEN=${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}" >> .env
+          echo '${{ secrets.GOOGLE_CLIENT_SECRET_JSON }}' > client_secret.json
+          echo '${{ secrets.YOUTUBE_TOKEN_JSON }}' > youtube-token.json
+
+      - name: Track video performance
+        run: node scripts/track-performance.mjs
 
       - name: Research new genres
         run: node scripts/research-genres.mjs
 
-      - name: Commit updated categories
+      - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scripts/categories.json
-          git diff --staged --quiet || git commit -m "chore: weekly genre research [skip ci]"
+          git add scripts/categories.json content/category-stats.json
+          git diff --staged --quiet || git commit -m "chore: weekly genre research + performance tracking [skip ci]"
           git push

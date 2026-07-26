@@ -6,7 +6,9 @@
       "ハチミツは腐らない",
       "脳の消費エネルギー"
     ],
-    "date": "2026-07-26"
+    "date": "2026-07-26",
+    "category": "雑学",
+    "format": "ranking"
   },
   {
     "title": "誰も知らない雑学ベスト3",
@@ -16,7 +18,9 @@
       "虹の色の数は国で違う"
     ],
     "date": "2026-07-26",
-    "videoId": "7WNQDhhd0Po"
+    "videoId": "7WNQDhhd0Po",
+    "category": "雑学",
+    "format": "ranking"
   },
   {
     "title": "99%が知らない雑学ベスト3",
@@ -26,7 +30,9 @@
       "クレオパトラは月面着陸に近い時代の人"
     ],
     "date": "2026-07-26",
-    "videoId": "VlAKHT0CNrU"
+    "videoId": "VlAKHT0CNrU",
+    "category": "雑学",
+    "format": "ranking"
   },
   {
     "title": "世界の非常識マナーベスト3",
@@ -37,7 +43,9 @@
     ],
     "date": "2026-07-26",
     "publishedAt": "2026-07-26T10:39:25Z",
-    "videoId": "KcvGYX-4lYU"
+    "videoId": "KcvGYX-4lYU",
+    "category": "世界の文化雑学",
+    "format": "ranking"
   },
   {
     "title": "その言葉の語源、知ってる?ベスト3",
@@ -48,7 +56,9 @@
     ],
     "date": "2026-07-26",
     "publishedAt": "2026-07-26T12:50:59Z",
-    "videoId": "0-WR1m5X9pE"
+    "videoId": "0-WR1m5X9pE",
+    "category": "語源・ことわざ",
+    "format": "ranking"
   },
   {
     "title": "もし『ゼロ』が発明されていなかったら",
@@ -59,6 +69,8 @@
     ],
     "date": "2026-07-26",
     "publishedAt": "2026-07-26T14:34:23Z",
-    "videoId": "IxGsYkSbL9A"
+    "videoId": "IxGsYkSbL9A",
+    "category": "もしも歴史の発明が消えたら",
+    "format": "simulation"
   }
 ]

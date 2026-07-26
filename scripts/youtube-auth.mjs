@@ -18,7 +18,7 @@ const REDIRECT_URI = `http://localhost:${PORT}`;
 
 const oauth2Client = new google.auth.OAuth2(client_id, client_secret, REDIRECT_URI);
 
-const SCOPES = ["https://www.googleapis.com/auth/youtube.upload"];
+const SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"];
 
 const authUrl = oauth2Client.generateAuthUrl({
   access_type: "offline",
