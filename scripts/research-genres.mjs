@@ -36,12 +36,15 @@ const prompt = `あなたはYouTubeショートの企画リサーチャーです
 # 既存のジャンル(これらとは違う新しいものを提案すること)
 ${existingNames}
 
-# 新ジャンル候補の絶対条件
+# 新ジャンル候補の絶対条件(fictionがtrueでも変わらず適用される)
 - 著作権のあるキャラクター・作品(アニメ・漫画・映画・ゲーム等)への言及や、それらに基づくランキングは絶対に禁止
-- 実在の人物(有名人・YouTuber等)を扱う内容は絶対に禁止(なりすまし・肖像権のリスクがあるため)
+- 実在の人物(有名人・YouTuber等)の実名・私生活を扱う内容は絶対に禁止(なりすまし・肖像権のリスクがあるため)
 - 投資・金融商品の売買助言、個別の医療・法律相談に該当する内容は絶対に禁止
-- 誰でも当てはまる一般的な知識・雑学・科学的な事実に基づく内容に限る
 - ナレーション(音声)とシンプルな背景動画だけで成立する内容にすること(実写の人物出演やアニメーション制作が必須なものは不可)
+
+# fictionフィールドについて
+- 雑学・科学的事実など、事実性が重要なジャンルは fiction: false にする
+- 怖い話・ショートストーリーなど、エンタメ・創作として成立するジャンルは fiction: true にしてよい(創作物語だが、実話であるかのように装わないこと)
 
 # nameの命名ルール(重要)
 - nameは「雑学」「宇宙」「歴史」のように、2〜4文字程度の単語1つだけにすること
@@ -53,7 +56,8 @@ ${existingNames}
   {
     "name": "ジャンル名(上記の命名ルールに従った短い単語1つ)",
     "brief": "台本作家への指示となる説明文。何を扱うか、何を避けるべきかを具体的に",
-    "format": "ranking か simulation のどちらか(ranking=ベスト3形式、simulation=もしも〜だったら形式)"
+    "format": "ranking か simulation のどちらか(ranking=ベスト3形式、simulation=もしも〜だったら形式)",
+    "fiction": "true か false(true=創作フィクションを許可するジャンル、false=事実に基づく内容限定)"
   }
 ]`;
 
@@ -106,9 +110,10 @@ for (const c of candidates) {
     console.log(`スキップ(既存と重複): ${c.name}`);
     continue;
   }
-  categories.push({ name: c.name, brief: c.brief, format: c.format });
+  const fiction = c.fiction === true || c.fiction === "true";
+  categories.push({ name: c.name, brief: c.brief, format: c.format, fiction });
   added++;
-  console.log(`追加: ${c.name} (${c.format})`);
+  console.log(`追加: ${c.name} (${c.format}, fiction: ${fiction})`);
 }
 
 if (added > 0) {
