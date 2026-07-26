@@ -37,11 +37,11 @@ const sheets = google.sheets({ version: "v4", auth });
 const meta = await sheets.spreadsheets.get({ spreadsheetId: SPREADSHEET_ID });
 const SHEET_NAME = meta.data.sheets[0].properties.title;
 
-// タイトル列(E列)を見て、実際にデータが入っている最後の行を探す。
+// タイトル列(F列)を見て、実際にデータが入っている最後の行を探す。
 // A列(管理No.)は事前に大量の連番が入っているため、この検出には使わない。
 const titleColumn = await sheets.spreadsheets.values.get({
   spreadsheetId: SPREADSHEET_ID,
-  range: `${SHEET_NAME}!E:E`,
+  range: `${SHEET_NAME}!F:F`,
 });
 const titleValues = titleColumn.data.values ?? [];
 let lastRow = 1;
@@ -63,6 +63,7 @@ const genreLabel = latestScript.format === "simulation" ? "シミュレーショ
 
 const row = [
   "ショート",
+  "投稿完了",
   genreLabel,
   dateStr,
   latestScript.title,
@@ -75,7 +76,7 @@ const row = [
 // B列から書き込み、A列(管理No.)には一切触れない。
 await sheets.spreadsheets.values.update({
   spreadsheetId: SPREADSHEET_ID,
-  range: `${SHEET_NAME}!B${targetRow}:I${targetRow}`,
+  range: `${SHEET_NAME}!B${targetRow}:J${targetRow}`,
   valueInputOption: "USER_ENTERED",
   requestBody: { values: [row] },
 });
