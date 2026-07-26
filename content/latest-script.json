@@ -1,72 +1,73 @@
 {
-  "title": "世界の非常識マナーベスト3",
+  "title": "太陽を1mmに縮めたら地球は10cm先だった",
   "topics": [
-    "ブルガリアの首振りは逆の意味",
-    "食事は右手だけが常識な国がある",
-    "麺をすする音は世界では非常識"
+    "地球までは10センチ",
+    "太陽系の果て海王星まで3メートル",
+    "最も近い恒星まで29キロ"
   ],
-  "descriptionHook": "国が変われば常識も真逆に。知らないと恥をかく世界の文化マナーを紹介します。",
+  "descriptionHook": "太陽を1mmまで縮めたら、地球や恒星までの距離はどれくらいになるのか、実際のスケールで計算してみました。",
   "tags": [
+    "宇宙雑学",
+    "スケール比較",
+    "太陽系",
+    "プロキシマケンタウリ",
+    "天文学",
     "雑学",
-    "豆知識",
-    "世界の文化",
-    "マナー",
-    "海外の常識",
-    "トリビア",
-    "海外生活",
-    "文化の違い"
+    "科学",
+    "宇宙"
   ],
   "segments": [
     {
       "id": "hook",
       "badge": null,
       "caption": [
-        "その常識、実は",
-        "世界の非常識かも?"
+        "太陽を",
+        "1mmにしたら?"
       ],
-      "narration": "あなたが当たり前だと思っている仕草、海外では全く違う意味かもしれません。今日は世界の文化雑学ベスト3を紹介します。",
-      "pexelsQuery": "world map global culture travel"
+      "narration": "もし太陽を、1ミリの砂粒サイズまで縮めたら、いったい何が起きると思いますか?",
+      "pexelsQuery": "tiny sand grain macro close up"
     },
     {
       "id": "rank3",
-      "badge": "第3位",
+      "badge": null,
       "caption": [
-        "首振りが",
-        "真逆の国がある"
+        "地球まで",
+        "わずか10cm"
       ],
-      "narration": "ブルガリアでは、首を縦に振ると「いいえ」、横に振ると「はい」の意味になります。日本と真逆なので、現地では驚く人が多いそうです。",
-      "pexelsQuery": "person shaking head gesture confused"
+      "narration": "その小さすぎる太陽から、地球までの距離は、わずか10センチメートル。手のひらの中に、太陽系が収まってしまいます。",
+      "pexelsQuery": "solar system earth sun space animation"
     },
     {
       "id": "rank2",
-      "badge": "第2位",
+      "badge": null,
       "caption": [
-        "食事は",
-        "右手だけが常識"
+        "海王星まで",
+        "たった3m"
       ],
-      "narration": "インドや中東の一部の国では、左手は不浄とされていて、食事や物の受け渡しは右手を使うのがマナーとされています。",
-      "pexelsQuery": "eating with hand traditional meal"
+      "narration": "海王星までスケールを伸ばすと、距離は約3メートル。太陽系の果てでも、部屋の端から端くらいの近さなんです。",
+      "pexelsQuery": "neptune planet space blue"
     },
     {
       "id": "rank1",
-      "badge": "第1位",
+      "badge": null,
       "caption": [
-        "麺をすする音は",
-        "世界では非常識?"
+        "最も近い恒星まで",
+        "約29km"
       ],
-      "narration": "日本では麺をすする音は美味しさの表現ですが、欧米や多くの国では、食事中に音を立てることはマナー違反とされています。",
-      "pexelsQuery": "eating noodles ramen close up"
+      "narration": "では、一番近い恒星プロキシマ・ケンタウリまでは?その距離、なんと約29キロメートル。1ミリの粒からたった29キロ先に、次の星があるんです。",
+      "pexelsQuery": "milky way stars night sky space"
     },
     {
       "id": "outro",
       "badge": null,
       "caption": [
-        "世界はもっと",
-        "おもしろい"
+        "スケールで見る宇宙",
+        "チャンネル登録で応援を"
       ],
-      "narration": "国によって常識は本当にさまざまです。もっと世界の雑学を知りたい人は、チャンネル登録してぜひ次の動画も見てくださいね。",
-      "pexelsQuery": "world travel montage sunset"
+      "narration": "広大に見える宇宙も、スケールを変えるとこんなに近く感じられます。もっと驚きの宇宙雑学を知りたい方は、ぜひチャンネル登録しておいてくださいね。",
+      "pexelsQuery": "galaxy stars space background"
     }
   ],
-  "category": "世界の文化雑学"
+  "category": "宇宙・スケールのシミュレーション仮説",
+  "format": "simulation"
 }

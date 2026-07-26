@@ -37,20 +37,48 @@ const misreadingList = Object.entries(misreadingDict)
   .map(([kanji, kana]) => `${kanji}→${kana}`)
   .join("、");
 
-const CATEGORIES = [
-  { name: "雑学", brief: "科学・歴史・動物・食べ物・人体・宇宙など、一般的に広く知られている正確な雑学" },
-  { name: "語源・ことわざ", brief: "普段使う言葉やことわざの意外な由来・語源" },
-  { name: "都市伝説の真相", brief: "有名な都市伝説やウワサについて、事実に基づいた真相解説(不確かな内容やオカルト的な断定は避け、あくまで一般に知られている情報の紹介に留める)" },
-  { name: "世界の文化雑学", brief: "国や地域による習慣・文化の違いにまつわる雑学" },
-  { name: "心理学の豆知識", brief: "一般に知られている心理学の効果・現象の紹介(個別の悩み相談や断定的なアドバイスにはしない)" },
-];
+const categoriesPath = path.join(root, "scripts", "categories.json");
+const CATEGORIES = JSON.parse(fs.readFileSync(categoriesPath, "utf-8"));
 const category = CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)];
+
+const formatInstructions =
+  category.format === "simulation"
+    ? `- フォーマット: フック(極端な仮定を提示)→段階1→段階2→クライマックス、の5パート構成(シミュレーション仮説型)。badgeはすべてnullにする(順位表示はしない)
+- 「もし〜だったら」「〜を1mmにしたら」のような、実在の科学的知見に基づく計算・比較を使った極端な思考実験にする。話が段階的にスケールアップしていく構成にする`
+    : `- フォーマット: フック→第3位→第2位→第1位→締め、の5パート構成(ランキング型)`;
+
+const titleInstructions =
+  category.format === "simulation"
+    ? "動画タイトル(30字以内、「もし〜だったら」「〜を1mmにしたら」のような極端な仮定が伝わる、事実に反しないキャッチーなもの)"
+    : "動画タイトル(30字以内、ベスト3形式が伝わる魅力的なもの)";
+
+const topicsInstructions =
+  category.format === "simulation"
+    ? "各段階の一言要約(3つ、話が進むにつれてスケールアップする)"
+    : "3位/2位/1位の一言要約";
+
+const segmentsExample =
+  category.format === "simulation"
+    ? `  "segments": [
+    { "id": "hook", "badge": null, "caption": ["画面表示1行目", "画面表示2行目"], "narration": "極端な仮定を提示する読み上げ文", "pexelsQuery": "背景動画検索用の英語キーワード" },
+    { "id": "rank3", "badge": null, "caption": ["...", "..."], "narration": "段階1の説明", "pexelsQuery": "..." },
+    { "id": "rank2", "badge": null, "caption": ["...", "..."], "narration": "段階2の説明(スケールアップ)", "pexelsQuery": "..." },
+    { "id": "rank1", "badge": null, "caption": ["...", "..."], "narration": "クライマックス(最も極端な結末)", "pexelsQuery": "..." },
+    { "id": "outro", "badge": null, "caption": ["...", "..."], "narration": "チャンネル登録を促す文", "pexelsQuery": "..." }
+  ]`
+    : `  "segments": [
+    { "id": "hook", "badge": null, "caption": ["画面表示1行目", "画面表示2行目"], "narration": "読み上げ文", "pexelsQuery": "背景動画検索用の英語キーワード" },
+    { "id": "rank3", "badge": "第3位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
+    { "id": "rank2", "badge": "第2位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
+    { "id": "rank1", "badge": "第1位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
+    { "id": "outro", "badge": null, "caption": ["...", "..."], "narration": "チャンネル登録を促す文", "pexelsQuery": "..." }
+  ]`;
 
 const prompt = `あなたはYouTubeショート動画の台本作家です。エンタメ・雑学系チャンネル用に、新しい1本分の台本をJSON形式だけで出力してください。説明文やコードフェンス(\`\`\`)は一切つけず、JSONのみを出力してください。
 
 # チャンネル設定
 - ナレーター: 20代女性の落ち着いたトーン
-- フォーマット: フック→第3位→第2位→第1位→締め、の5パート構成(ランキング型)
+${formatInstructions}
 - 締めのセリフは必ず「チャンネル登録」を促す言葉を含める(「フォロー」ではなく「チャンネル登録」)
 
 # 過去に使ったネタ(絶対に重複させないこと)
@@ -61,7 +89,7 @@ ${category.name}: ${category.brief}
 
 # ネタの条件
 - 上記ジャンルの範囲内で作ること。悩み相談・個別相談への誘導・アフィリエイト誘導は絶対に含めない
-- 3つの内容は、事実として一般的に広く知られている正確な内容にする(不確かな内容や誇張は避ける)
+- 内容は、事実として一般的に広く知られている正確な内容、または実在の科学的知見に基づく計算にする(不確かな内容や誇張は避ける)
 - 全体で読み上げ時間40〜60秒程度になるよう、各narrationは短く
 
 # 重複コンテンツ判定を避けるための工夫(重要)
@@ -77,17 +105,11 @@ ${category.name}: ${category.brief}
 
 # 出力JSON形式(このスキーマに厳密に従うこと)
 {
-  "title": "動画タイトル(30字以内、ベスト3形式が伝わる魅力的なもの)",
-  "topics": ["3位の一言要約", "2位の一言要約", "1位の一言要約"],
+  "title": "${titleInstructions}",
+  "topics": ["${topicsInstructions}"],
   "descriptionHook": "概要欄の1行目。動画の内容を要約した1文",
   "tags": ["タグ1", "タグ2", "... 具体的なキーワードを8個程度"],
-  "segments": [
-    { "id": "hook", "badge": null, "caption": ["画面表示1行目", "画面表示2行目"], "narration": "読み上げ文", "pexelsQuery": "背景動画検索用の英語キーワード" },
-    { "id": "rank3", "badge": "第3位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
-    { "id": "rank2", "badge": "第2位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
-    { "id": "rank1", "badge": "第1位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
-    { "id": "outro", "badge": null, "caption": ["...", "..."], "narration": "チャンネル登録を促す文", "pexelsQuery": "..." }
-  ]
+${segmentsExample}
 }`;
 
 function runClaude(promptText) {
@@ -129,6 +151,7 @@ console.log(`claude -p で新しい台本を生成中...(ジャンル: ${categor
 const raw = await runClaude(prompt);
 const script = extractJson(raw);
 script.category = category.name;
+script.format = category.format;
 
 const requiredIds = ["hook", "rank3", "rank2", "rank1", "outro"];
 const gotIds = script.segments.map((s) => s.id);
