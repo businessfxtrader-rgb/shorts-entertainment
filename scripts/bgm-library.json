@@ -1,0 +1,56 @@
+[
+  {
+    "id": "sneaky-snitch",
+    "file": "bgm/library/sneaky-snitch.mp3",
+    "title": "Sneaky Snitch",
+    "author": "Kevin MacLeod",
+    "source": "incompetech.com",
+    "license": "CC BY 3.0",
+    "mood": "コミカル・軽快"
+  },
+  {
+    "id": "monkeys-spinning-monkeys",
+    "file": "bgm/library/monkeys-spinning-monkeys.mp3",
+    "title": "Monkeys Spinning Monkeys",
+    "author": "Kevin MacLeod",
+    "source": "incompetech.com",
+    "license": "CC BY 3.0",
+    "mood": "コミカル・ドタバタ"
+  },
+  {
+    "id": "wallpaper",
+    "file": "bgm/library/wallpaper.mp3",
+    "title": "Wallpaper",
+    "author": "Kevin MacLeod",
+    "source": "incompetech.com",
+    "license": "CC BY 3.0",
+    "mood": "明るいコーポレート系"
+  },
+  {
+    "id": "mysterioso-march",
+    "file": "bgm/library/mysterioso-march.mp3",
+    "title": "Mysterioso March",
+    "author": "Kevin MacLeod",
+    "source": "incompetech.com",
+    "license": "CC BY 3.0",
+    "mood": "ミステリアス"
+  },
+  {
+    "id": "level-up",
+    "file": "bgm/library/level-up.mp3",
+    "title": "Level Up",
+    "author": "Kevin MacLeod",
+    "source": "incompetech.com",
+    "license": "CC BY 3.0",
+    "mood": "エネルギッシュ・ランキング向け"
+  },
+  {
+    "id": "deliberate-thought",
+    "file": "bgm/library/deliberate-thought.mp3",
+    "title": "Deliberate Thought",
+    "author": "Kevin MacLeod",
+    "source": "incompetech.com",
+    "license": "CC BY 3.0",
+    "mood": "落ち着いた・思考系"
+  }
+]

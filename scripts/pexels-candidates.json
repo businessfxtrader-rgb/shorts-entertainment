@@ -1,0 +1,47 @@
+[
+  {
+    "id": "hook",
+    "query": "abstract particles blue",
+    "pageUrl": "https://www.pexels.com/video/vibrant-blue-and-purple-abstract-background-animation-35641289/",
+    "fileUrl": "https://videos.pexels.com/video-files/35641289/15104517_1080_1920_30fps.mp4",
+    "width": 1080,
+    "height": 1920,
+    "size": "30.3MB"
+  },
+  {
+    "id": "rank3",
+    "query": "banana",
+    "pageUrl": "https://www.pexels.com/video/person-pelling-a-banana-5944805/",
+    "fileUrl": "https://videos.pexels.com/video-files/5944805/5944805-hd_1080_1920_25fps.mp4",
+    "width": 1080,
+    "height": 1920,
+    "size": "5.8MB"
+  },
+  {
+    "id": "rank2",
+    "query": "honey",
+    "pageUrl": "https://www.pexels.com/video/a-person-holding-a-honey-dipper-8802329/",
+    "fileUrl": "https://videos.pexels.com/video-files/8802329/8802329-hd_1080_1920_30fps.mp4",
+    "width": 1080,
+    "height": 1920,
+    "size": "4.4MB"
+  },
+  {
+    "id": "rank1",
+    "query": "brain 3d animation",
+    "pageUrl": "https://www.pexels.com/video/futuristic-neural-network-visualization-35010179/",
+    "fileUrl": "https://videos.pexels.com/video-files/35010179/14831284_1080_1920_30fps.mp4",
+    "width": 1080,
+    "height": 1920,
+    "size": "25.0MB"
+  },
+  {
+    "id": "outro",
+    "query": "social media phone",
+    "pageUrl": "https://www.pexels.com/video/scrolling-through-social-media-on-smartphone-38410501/",
+    "fileUrl": "https://videos.pexels.com/video-files/38410501/16310021_1080_1920_25fps.mp4",
+    "width": 1080,
+    "height": 1920,
+    "size": "8.3MB"
+  }
+]
