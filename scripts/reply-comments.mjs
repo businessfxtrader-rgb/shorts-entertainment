@@ -8,23 +8,35 @@ const root = path.join(__dirname, "..");
 
 const MAX_REPLIES_PER_RUN = 3;
 
-const TEMPLATES = [
+const X_URL = "https://x.com/kyukei_sokuho";
+
+// Xへの案内を含む返信(言い回しを変えたパターン。毎回同じ文面だとスパム判定のリスクがあるため)
+const TEMPLATES_WITH_LINK = [
+  `コメントありがとうございます!\nぜひ、感想・お問い合わせはX(Twitter)までお送りください!\n\n▼X(Twitter)はこちら\n${X_URL}`,
+  `見てくださってありがとうございます!感想はXでもお待ちしています。\n\n▼X(Twitter)はこちら\n${X_URL}`,
+  `コメント嬉しいです!よかったらXでも感想聞かせてください。\n\n▼X(Twitter)はこちら\n${X_URL}`,
+  `ありがとうございます!お問い合わせ等はXからお願いします。\n\n▼X(Twitter)はこちら\n${X_URL}`,
+  `コメントありがとうございます😊 感想はXでもぜひ!\n\n▼X(Twitter)はこちら\n${X_URL}`,
+  `見ていただき感謝です!Xでも発信しているので、よければ覗いてみてください。\n\n▼X(Twitter)はこちら\n${X_URL}`,
+  `ありがとうございます!ご意見・ご感想はXまでお寄せください。\n\n▼X(Twitter)はこちら\n${X_URL}`,
+  `コメント嬉しいです!Xでも交流しているので、ぜひ見てみてください。\n\n▼X(Twitter)はこちら\n${X_URL}`,
+  `見てくださりありがとうございます!感想・お問い合わせはXまでどうぞ。\n\n▼X(Twitter)はこちら\n${X_URL}`,
+  `ありがとうございます!Xでも雑学を発信しています、ぜひ覗いてみてください。\n\n▼X(Twitter)はこちら\n${X_URL}`,
+];
+
+// リンクなしの返信(毎回リンクを貼ると宣伝色が強すぎて凍結リスクが上がるため、一部混ぜる)
+const TEMPLATES_PLAIN = [
   "コメントありがとうございます!励みになります。",
   "見てくださってありがとうございます!また面白い雑学お届けしますね。",
   "コメント嬉しいです!今後もよろしくお願いします。",
-  "ありがとうございます!他の動画もぜひ見てみてください。",
-  "コメントありがとうございます😊 引き続き頑張ります!",
-  "見ていただけて嬉しいです!チャンネル登録もお待ちしています。",
-  "ありがとうございます!次回の投稿もお楽しみに。",
-  "コメント感謝です!また新しい雑学を紹介しますね。",
   "うれしいコメントありがとうございます!",
-  "見てくださってありがとうございます、参考になれば幸いです!",
-  "コメントありがとうございます!今後も面白い内容をお届けします。",
-  "ありがとうございます!よかったら他の動画も覗いてみてください。",
-  "コメント嬉しいです😊 これからもよろしくお願いします!",
-  "見ていただき感謝です!また次の動画でお会いしましょう。",
-  "ありがとうございます!励みになります、これからも頑張ります。",
 ];
+
+function pickTemplate() {
+  // 7割はXへの案内あり、3割はプレーンな返信
+  const pool = Math.random() < 0.7 ? TEMPLATES_WITH_LINK : TEMPLATES_PLAIN;
+  return pool[Math.floor(Math.random() * pool.length)];
+}
 
 const { installed } = JSON.parse(fs.readFileSync(path.join(root, "client_secret.json"), "utf-8"));
 const tokens = JSON.parse(fs.readFileSync(path.join(root, "youtube-token.json"), "utf-8"));
@@ -69,7 +81,7 @@ for (const videoId of videoIds) {
     const authorChannelId = thread.snippet.topLevelComment.snippet.authorChannelId?.value;
     if (authorChannelId === tokens.channelId) continue;
 
-    const text = TEMPLATES[Math.floor(Math.random() * TEMPLATES.length)];
+    const text = pickTemplate();
     try {
       await youtube.comments.insert({
         part: ["snippet"],
