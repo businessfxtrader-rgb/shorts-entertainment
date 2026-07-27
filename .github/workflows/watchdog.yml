@@ -1,0 +1,53 @@
+name: Schedule Watchdog
+
+# daily-pipeline.yml の定期実行が、予定時刻に本当に発火したかを確認する。
+# GitHub Actions側の理由でcronイベント自体が発火しなかった場合、daily-pipeline.yml
+# 側では何も検知できない(そもそも何も起動していないため)ので、この監視役が代わりに
+# シートへエラーを記録する。
+#
+# 注意: daily-pipeline.yml のスケジュール時刻を変更したら、ここも15分後ろの時刻に
+# 合わせて変更すること。
+
+on:
+  schedule:
+    - cron: "18 3 * * *" # 12:18 JST(12:03の定期実行を確認)
+    - cron: "48 7 * * *" # 16:48 JST(16:33の定期実行を確認・動作確認用の一時設定)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check whether the scheduled pipeline run fired
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SINCE=$(date -u -d '35 minutes ago' +%Y-%m-%dT%H:%M:%S)
+          COUNT=$(gh run list --repo "${{ github.repository }}" --workflow=daily-pipeline.yml \
+            --event schedule --created "${SINCE}..$(date -u +%Y-%m-%dT%H:%M:%S)" \
+            --json databaseId --jq 'length')
+          echo "count=$COUNT"
+          echo "SCHEDULE_COUNT=$COUNT" >> "$GITHUB_ENV"
+
+      - name: Reconstruct service account secret
+        if: env.SCHEDULE_COUNT == '0'
+        run: echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service-account.json
+
+      - name: Report missed schedule to sheet
+        if: env.SCHEDULE_COUNT == '0'
+        run: node scripts/report-status.mjs エラー "定期実行(daily-pipeline.yml)が予定時刻に発火しませんでした。GitHub Actions側のスケジュール遅延・スキップの可能性があります。Actionsタブから手動実行(Run workflow)してください。" "(定期実行が未発火)"

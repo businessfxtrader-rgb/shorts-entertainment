@@ -6,23 +6,26 @@ import { google } from "googleapis";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
 
-// 使い方: node report-status.mjs <ステータス:エラー|保留> <詳細メッセージ>
+// 使い方: node report-status.mjs <ステータス:エラー|保留> <詳細メッセージ> [タイトル上書き]
 const status = process.argv[2] === "保留" ? "保留" : "エラー";
 const message = process.argv[3] || "詳細不明";
+const titleOverride = process.argv[4];
 
 const SPREADSHEET_ID = "1oyuIHE27xiOGppc3QOdP7fA0pNczDI14MTb5wnDQq4c";
 
 // 失敗した段階までに latest-script.json が作られていれば、分かる範囲の情報を使う
-let title = "(生成失敗)";
+let title = titleOverride || "(生成失敗)";
 let genreLabel = "-";
-try {
-  const latestScript = JSON.parse(
-    fs.readFileSync(path.join(root, "content", "latest-script.json"), "utf-8")
-  );
-  title = latestScript.title ?? title;
-  genreLabel = latestScript.format === "simulation" ? "シミュレーション" : "雑学";
-} catch {
-  // 台本生成前に失敗した場合は情報なしのまま
+if (!titleOverride) {
+  try {
+    const latestScript = JSON.parse(
+      fs.readFileSync(path.join(root, "content", "latest-script.json"), "utf-8")
+    );
+    title = latestScript.title ?? title;
+    genreLabel = latestScript.format === "simulation" ? "シミュレーション" : "雑学";
+  } catch {
+    // 台本生成前に失敗した場合は情報なしのまま
+  }
 }
 
 const auth = new google.auth.GoogleAuth({
