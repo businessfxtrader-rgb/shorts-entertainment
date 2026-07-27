@@ -1,26 +1,44 @@
 {
   "雑学": {
-    "totalViews": 336,
-    "videoCount": 2,
+    "totalViews": 566,
+    "videoCount": 5,
     "format": "ranking",
-    "avgViews": 168
+    "avgViews": 113
   },
-  "世界の文化雑学": {
+  "文化": {
     "totalViews": 2,
     "videoCount": 1,
     "format": "ranking",
     "avgViews": 2
   },
-  "語源・ことわざ": {
+  "語源": {
     "totalViews": 1,
     "videoCount": 1,
     "format": "ranking",
     "avgViews": 1
   },
-  "もしも歴史の発明が消えたら": {
+  "歴史": {
     "totalViews": 0,
     "videoCount": 1,
     "format": "simulation",
+    "avgViews": 0
+  },
+  "ショートストーリー": {
+    "totalViews": 0,
+    "videoCount": 1,
+    "format": "simulation",
+    "avgViews": 0
+  },
+  "都市伝説": {
+    "totalViews": 0,
+    "videoCount": 1,
+    "format": "ranking",
+    "avgViews": 0
+  },
+  "ライフハック": {
+    "totalViews": 0,
+    "videoCount": 1,
+    "format": "ranking",
     "avgViews": 0
   }
 }
