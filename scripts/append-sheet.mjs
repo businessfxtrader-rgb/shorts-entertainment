@@ -59,11 +59,11 @@ const dateStr = `${jst.getUTCFullYear()}/${jst.getUTCMonth() + 1}/${jst.getUTCDa
   jst.getUTCHours()
 ).padStart(2, "0")}:${String(jst.getUTCMinutes()).padStart(2, "0")}`;
 
-const genreLabel = latestScript.format === "simulation" ? "シミュレーション" : "雑学";
+const genreLabel = latestScript.category ?? "-";
 
 const row = [
   "ショート",
-  "投稿完了",
+  "予約済み",
   genreLabel,
   dateStr,
   latestScript.title,
