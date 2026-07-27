@@ -1,6 +1,6 @@
 # YouTubeショート動画 自走化システム仕様書
 
-最終更新: 2026-07-27(2回目)
+最終更新: 2026-07-27(3回目)
 
 ## 1. 概要
 
@@ -45,10 +45,26 @@ GitHub Actionsの`schedule`(cron)は、公式ドキュメントにも明記さ�
 - **公開失敗チェック**(`scripts/check-published.mjs`): 予約公開の予定時刻(30分の猶予込み)を過ぎたのに、YouTube側でまだ`privacyStatus: public`になっていない動画がないかを確認する。見つかった場合、その動画の管理シート上の該当行(動画URL列から特定)を「予約済み」→「エラー」に直接書き換え、K列に理由を記載する。アップロード自体は成功しているため、`report-status.mjs`による新規行追加ではなく既存行の更新になる点が上記と異なる
 - **運用上の注意**: cron設定を変更した直後は、GitHub Actions側に新しい設定が反映されるまでにタイムラグがある(体感で1時間以上かかることもある)ため、変更直後の1〜2回分の実行結果だけでは「発火した/しなかった」の判断材料にしない
 
+### 3-3. 外部トリガーによる二重化(cron-job.org)
+バッファ方式・watchdogを導入した後も、GitHub Actionsの`schedule`が長時間(週次リサーチで12時間以上、daily-pipeline/watchdogでは数時間)発火しない事象が実測で確認されたため、GitHub外部の無料サービスから確実にトリガーする仕組みを追加している。
+
+- **サービス**: [cron-job.org](https://cron-job.org/)(無料、ユーザー本人のアカウント)
+- **仕組み**: GitHubのREST API(`POST /repos/{owner}/{repo}/actions/workflows/{workflow}/dispatches`)を、cron-job.org側のスケジュールから直接叩く。`workflow_dispatch`イベントとして実行されるため、GitHub自身の`schedule`とは独立して動作する
+- **認証**: GitHub Fine-grained Personal Access Token(リポジトリを`shorts-entertainment`のみに限定、権限は`Actions: Read and write`のみ)。**このトークンはリポジトリやGitHub Secretsには保存されていない**。cron-job.org側のジョブ設定(リクエストヘッダー)にのみ保持されており、失効・再発行が必要な場合はユーザー本人がGitHubの[Fine-grained tokens設定画面](https://github.com/settings/tokens?type=beta)から行う
+- **設定済みジョブ**(cron-job.orgのダッシュボードで管理):
+  | ジョブ名 | 対象ワークフロー | スケジュール(UTC) | JST換算 |
+  |---|---|---|---|
+  | `shorts-daily-pipeline-trigger` | `daily-pipeline.yml` | `20 3,9,15,21 * * *` | 12:20・18:20・0:20・6:20 |
+  | `shorts-watchdog-trigger` | `watchdog.yml` | `50 23 * * *` | 8:50 |
+- GitHub自身の`schedule`設定(3章の表)は削除せず併存させている。同時刻付近に二重発火しても、バッファが足りていれば何もせず終了するだけなので無害
+- 動作確認済み(2026-07-27、両ジョブとも「TEST RUN」でGitHub側から`204 No Content`を確認)
+
 ## 4. コンテンツ生成の仕組み
 
-### ジャンル(2026-07-27時点で12種、`scripts/categories.json`で管理)
-雑学 / 語源 / 都市伝説 / 文化 / 心理学 / 宇宙(simulation) / 人体 / 歴史(simulation) / 怖い話(ranking・創作可) / ショートストーリー(simulation・創作可) / 誕生秘話(qa) / ライフハック
+### ジャンル(2026-07-27時点で14種、`scripts/categories.json`で管理)
+雑学 / 語源 / 都市伝説 / 文化 / 心理学 / 宇宙(simulation) / 人体 / 歴史(simulation) / 怖い話(ranking・創作可) / ショートストーリー(simulation・創作可) / 誕生秘話(qa) / ライフハック / 動物 / 建築(qa)
+
+週次リサーチ(`weekly-research.yml`)により今後も自動で増える想定。
 
 - ジャンル名は2〜4文字程度の短い単語1つに統一(助詞・接続詞を含む長い名称は不可)
 - 詳細な生成ルールは各ジャンルの`brief`フィールドに記述
