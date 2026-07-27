@@ -111,7 +111,9 @@ for (const c of candidates) {
     continue;
   }
   const fiction = c.fiction === true || c.fiction === "true";
-  categories.push({ name: c.name, brief: c.brief, format: c.format, fiction });
+  // displayGenreは管理シート表示用のグループ名。デフォルトは自分自身の名前(必要なら手動で
+  // 既存の似た系統のジャンルにまとめて表示できる。例: 宇宙・人体・歴史→シミュレーション)
+  categories.push({ name: c.name, brief: c.brief, format: c.format, fiction, displayGenre: c.name });
   added++;
   console.log(`追加: ${c.name} (${c.format}, fiction: ${fiction})`);
 }

@@ -59,7 +59,7 @@ const dateStr = `${jst.getUTCFullYear()}/${jst.getUTCMonth() + 1}/${jst.getUTCDa
   jst.getUTCHours()
 ).padStart(2, "0")}:${String(jst.getUTCMinutes()).padStart(2, "0")}`;
 
-const genreLabel = latestScript.category ?? "-";
+const genreLabel = latestScript.displayGenre ?? latestScript.category ?? "-";
 
 const row = [
   "ショート",

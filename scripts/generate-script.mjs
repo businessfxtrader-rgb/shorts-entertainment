@@ -200,6 +200,7 @@ const raw = await runClaude(prompt);
 const script = extractJson(raw);
 script.category = category.name;
 script.format = category.format;
+script.displayGenre = category.displayGenre ?? category.name;
 
 const requiredIds = ["hook", "rank3", "rank2", "rank1", "outro"];
 const gotIds = script.segments.map((s) => s.id);

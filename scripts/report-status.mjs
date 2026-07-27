@@ -22,7 +22,7 @@ if (!titleOverride) {
       fs.readFileSync(path.join(root, "content", "latest-script.json"), "utf-8")
     );
     title = latestScript.title ?? title;
-    genreLabel = latestScript.category ?? "-";
+    genreLabel = latestScript.displayGenre ?? latestScript.category ?? "-";
   } catch {
     // 台本生成前に失敗した場合は情報なしのまま
   }
