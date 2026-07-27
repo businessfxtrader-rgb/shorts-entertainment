@@ -61,38 +61,53 @@ for (let i = 0; i < weights.length; i++) {
 }
 const category = CATEGORIES[categoryIndex];
 
-const formatInstructions =
-  category.format === "simulation"
-    ? `- フォーマット: フック(極端な仮定を提示)→段階1→段階2→クライマックス、の5パート構成(シミュレーション仮説型)。badgeはすべてnullにする(順位表示はしない)
-- 「もし〜だったら」「〜を1mmにしたら」のような、実在の科学的知見に基づく計算・比較を使った極端な思考実験にする。話が段階的にスケールアップしていく構成にする`
-    : `- フォーマット: フック→第3位→第2位→第1位→締め、の5パート構成(ランキング型)`;
-
-const titleInstructions =
-  category.format === "simulation"
-    ? "動画タイトル(30字以内、「もし〜だったら」「〜を1mmにしたら」のような極端な仮定が伝わる、事実に反しないキャッチーなもの)"
-    : "動画タイトル(30字以内、ベスト3形式が伝わる魅力的なもの)";
-
-const topicsInstructions =
-  category.format === "simulation"
-    ? "各段階の一言要約(3つ、話が進むにつれてスケールアップする)"
-    : "3位/2位/1位の一言要約";
-
-const segmentsExample =
-  category.format === "simulation"
-    ? `  "segments": [
+const FORMAT_SPECS = {
+  simulation: {
+    formatInstructions: `- フォーマット: フック(極端な仮定を提示)→段階1→段階2→クライマックス、の5パート構成(シミュレーション仮説型)。badgeはすべてnullにする(順位表示はしない)
+- 「もし〜だったら」「〜を1mmにしたら」のような、実在の科学的知見に基づく計算・比較を使った極端な思考実験にする。話が段階的にスケールアップしていく構成にする`,
+    titleInstructions:
+      "動画タイトル(30字以内、「もし〜だったら」「〜を1mmにしたら」のような極端な仮定が伝わる、事実に反しないキャッチーなもの)",
+    topicsInstructions: "各段階の一言要約(3つ、話が進むにつれてスケールアップする)",
+    segmentsExample: `  "segments": [
     { "id": "hook", "badge": null, "caption": ["画面表示1行目", "画面表示2行目"], "narration": "極端な仮定を提示する読み上げ文", "pexelsQuery": "背景動画検索用の英語キーワード" },
     { "id": "rank3", "badge": null, "caption": ["...", "..."], "narration": "段階1の説明", "pexelsQuery": "..." },
     { "id": "rank2", "badge": null, "caption": ["...", "..."], "narration": "段階2の説明(スケールアップ)", "pexelsQuery": "..." },
     { "id": "rank1", "badge": null, "caption": ["...", "..."], "narration": "クライマックス(最も極端な結末)", "pexelsQuery": "..." },
     { "id": "outro", "badge": null, "caption": ["...", "..."], "narration": "チャンネル登録を促す文", "pexelsQuery": "..." }
-  ]`
-    : `  "segments": [
+  ]`,
+  },
+  qa: {
+    formatInstructions: `- フォーマット: フック(問いかけ)→振り1→振り2→結論(答え)→締め、の5パート構成(問いかけ→結論型)。badgeはすべてnullにする(順位表示はしない)
+- フックは「〜って知っていますか?」「なぜ〜なのか知っていますか?」のような、視聴者に直接問いかける形にする
+- rank3・rank2では、答えに関連する背景・伏線・意外な事実を小出しにしながら期待を高める(答えをまだ明かさない)
+- rank1で、意外性のある結論・理由を明快に明かす(ここが動画の核心)`,
+    titleInstructions:
+      "動画タイトル(30字以内、「〜な理由」「〜って知ってる?」のように、答えを知りたくなる問いかけ・断定調のもの)",
+    topicsInstructions: "振り1/振り2/結論の一言要約",
+    segmentsExample: `  "segments": [
+    { "id": "hook", "badge": null, "caption": ["画面表示1行目", "画面表示2行目"], "narration": "視聴者への問いかけ", "pexelsQuery": "背景動画検索用の英語キーワード" },
+    { "id": "rank3", "badge": null, "caption": ["...", "..."], "narration": "背景・伏線1(答えはまだ明かさない)", "pexelsQuery": "..." },
+    { "id": "rank2", "badge": null, "caption": ["...", "..."], "narration": "背景・伏線2(期待を高める)", "pexelsQuery": "..." },
+    { "id": "rank1", "badge": null, "caption": ["...", "..."], "narration": "意外性のある結論・理由を明かす", "pexelsQuery": "..." },
+    { "id": "outro", "badge": null, "caption": ["...", "..."], "narration": "チャンネル登録を促す文", "pexelsQuery": "..." }
+  ]`,
+  },
+  ranking: {
+    formatInstructions: `- フォーマット: フック→第3位→第2位→第1位→締め、の5パート構成(ランキング型)`,
+    titleInstructions: "動画タイトル(30字以内、ベスト3形式が伝わる魅力的なもの)",
+    topicsInstructions: "3位/2位/1位の一言要約",
+    segmentsExample: `  "segments": [
     { "id": "hook", "badge": null, "caption": ["画面表示1行目", "画面表示2行目"], "narration": "読み上げ文", "pexelsQuery": "背景動画検索用の英語キーワード" },
     { "id": "rank3", "badge": "第3位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
     { "id": "rank2", "badge": "第2位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
     { "id": "rank1", "badge": "第1位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
     { "id": "outro", "badge": null, "caption": ["...", "..."], "narration": "チャンネル登録を促す文", "pexelsQuery": "..." }
-  ]`;
+  ]`,
+  },
+};
+
+const spec = FORMAT_SPECS[category.format] ?? FORMAT_SPECS.ranking;
+const { formatInstructions, titleInstructions, topicsInstructions, segmentsExample } = spec;
 
 const prompt = `あなたはYouTubeショート動画の台本作家です。エンタメ・雑学系チャンネル用に、新しい1本分の台本をJSON形式だけで出力してください。説明文やコードフェンス(\`\`\`)は一切つけず、JSONのみを出力してください。
 
@@ -115,7 +130,9 @@ ${category.name}: ${category.brief}
     : "内容は、事実として一般的に広く知られている正確な内容、または実在の科学的知見に基づく計算にする(不確かな内容や誇張、フィクションは避ける)"
 }
 - 実在の人物(有名人・YouTuber等)の実名・私生活を扱う内容、著作権のあるキャラクター・作品への言及は、フィクションであっても絶対に含めない
-- 全体で読み上げ時間40〜60秒程度になるよう、各narrationは短く
+- 情報密度を高くすること。前置き・相槌・当たり障りのない一般論を削り、具体的な数字・固有名詞・比較を積極的に使って、短い時間により多くの情報を詰め込む
+- 各narrationは1〜2文で簡潔にしつつも、内容が薄くならないよう具体性を重視する(「〜と言われています」のような曖昧な言い回しより、断定的で情報量のある言い方を優先する)
+- 動画の尺は54〜59秒が目標。narration(読み上げ文)の合計文字数が320〜345字程度になるようにすること(目安: hook 50〜55字、rank3/rank2/rank1は各65〜85字、outroは50〜55字)。文字数が少なすぎても多すぎても尺がずれるので、この範囲を必ず守ること
 
 # 重複コンテンツ判定を避けるための工夫(重要)
 - フックの言い回し・構成の型は、過去のネタと違うパターンにすること(問いかけ型・数字型・逆張り型など毎回変える)

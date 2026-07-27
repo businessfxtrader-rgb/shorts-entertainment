@@ -56,7 +56,7 @@ ${existingNames}
   {
     "name": "ジャンル名(上記の命名ルールに従った短い単語1つ)",
     "brief": "台本作家への指示となる説明文。何を扱うか、何を避けるべきかを具体的に",
-    "format": "ranking か simulation のどちらか(ranking=ベスト3形式、simulation=もしも〜だったら形式)",
+    "format": "ranking・simulation・qaのいずれか(ranking=ベスト3形式、simulation=もしも〜だったら形式、qa=問いかけ→結論形式)",
     "fiction": "true か false(true=創作フィクションを許可するジャンル、false=事実に基づく内容限定)"
   }
 ]`;
@@ -102,7 +102,7 @@ const candidates = extractJson(raw);
 
 let added = 0;
 for (const c of candidates) {
-  if (!c.name || !c.brief || !["ranking", "simulation"].includes(c.format)) {
+  if (!c.name || !c.brief || !["ranking", "simulation", "qa"].includes(c.format)) {
     console.log(`スキップ(形式が不正): ${JSON.stringify(c)}`);
     continue;
   }

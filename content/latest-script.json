@@ -1,73 +1,76 @@
 {
-  "title": "太陽を1mmに縮めたら地球は10cm先だった",
+  "title": "眠れなくなる怖い話ベスト3【閲覧注意】",
   "topics": [
-    "地球までは10センチ",
-    "太陽系の果て海王星まで3メートル",
-    "最も近い恒星まで29キロ"
+    "深夜のエレベーターの怪異",
+    "鏡の中の自分の異変",
+    "山道でついてくる足音"
   ],
-  "descriptionHook": "太陽を1mmまで縮めたら、地球や恒星までの距離はどれくらいになるのか、実際のスケールで計算してみました。",
+  "descriptionHook": "今夜眠れなくなるかもしれない、背筋が凍る創作の怖い話を3つ紹介します。",
   "tags": [
-    "宇宙雑学",
-    "スケール比較",
-    "太陽系",
-    "プロキシマケンタウリ",
-    "天文学",
-    "雑学",
-    "科学",
-    "宇宙"
+    "怖い話",
+    "都市伝説",
+    "ホラー",
+    "怪談",
+    "短編ホラー",
+    "閲覧注意",
+    "背筋が凍る話",
+    "ゾッとする話",
+    "ホラーストーリー",
+    "オカルト"
   ],
+  "seoNotes": "タイトルに検索されやすい『怖い話』『ベスト3』『閲覧注意』というキーワードを組み合わせ、タグには一般的な『雑学』枠の代わりにホラー系の定番検索語『都市伝説』『怪談』『オカルト』を追加して関連動画からの流入を狙った。",
   "segments": [
     {
       "id": "hook",
       "badge": null,
       "caption": [
-        "太陽を",
-        "1mmにしたら?"
+        "今夜、一人の時は",
+        "見ないでください"
       ],
-      "narration": "もし太陽を、1ミリの砂粒サイズまで縮めたら、いったい何が起きると思いますか?",
-      "pexelsQuery": "tiny sand grain macro close up"
+      "narration": "今夜、一人でいるあなたへ。この動画は見ない方がいいかもしれません。背筋が凍る話を3つだけ、お伝えします。",
+      "pexelsQuery": "dark hallway horror atmosphere night"
     },
     {
       "id": "rank3",
-      "badge": null,
+      "badge": "第3位",
       "caption": [
-        "地球まで",
-        "わずか10cm"
+        "深夜のエレベーター",
+        "止まった階に誰かいる"
       ],
-      "narration": "その小さすぎる太陽から、地球までの距離は、わずか10センチメートル。手のひらの中に、太陽系が収まってしまいます。",
-      "pexelsQuery": "solar system earth sun space animation"
+      "narration": "ある女性が深夜、マンションのエレベーターに乗ると、押していない5階で扉が開いた。誰もいないはずのそこに、女性が一人立ってこちらを見ていた。",
+      "pexelsQuery": "elevator door opening dark corridor"
     },
     {
       "id": "rank2",
-      "badge": null,
+      "badge": "第2位",
       "caption": [
-        "海王星まで",
-        "たった3m"
+        "鏡の中の自分が",
+        "少し遅れて動く"
       ],
-      "narration": "海王星までスケールを伸ばすと、距離は約3メートル。太陽系の果てでも、部屋の端から端くらいの近さなんです。",
-      "pexelsQuery": "neptune planet space blue"
+      "narration": "一人暮らしの部屋。鏡を見ると、自分の動きより一瞬遅れて鏡の中の自分が動く。数日後、鏡の中の自分だけがふっと微笑んだという。",
+      "pexelsQuery": "mirror reflection dark room eerie"
     },
     {
       "id": "rank1",
-      "badge": null,
+      "badge": "第1位",
       "caption": [
-        "最も近い恒星まで",
-        "約29km"
+        "山道で後ろから",
+        "足音が近づいてくる"
       ],
-      "narration": "では、一番近い恒星プロキシマ・ケンタウリまでは?その距離、なんと約29キロメートル。1ミリの粒からたった29キロ先に、次の星があるんです。",
-      "pexelsQuery": "milky way stars night sky space"
+      "narration": "深夜、山道を一人で歩く男性。後ろから足音が聞こえるが振り返っても誰もいない。足を速めると足音も速くなる。家に着いて振り返ると、暗闇の奥に人影がじっと立っていたという。",
+      "pexelsQuery": "dark forest path night mysterious figure"
     },
     {
       "id": "outro",
       "badge": null,
       "caption": [
-        "スケールで見る宇宙",
-        "チャンネル登録で応援を"
+        "続きが気になるなら",
+        "チャンネル登録して"
       ],
-      "narration": "広大に見える宇宙も、スケールを変えるとこんなに近く感じられます。もっと驚きの宇宙雑学を知りたい方は、ぜひチャンネル登録しておいてくださいね。",
-      "pexelsQuery": "galaxy stars space background"
+      "narration": "今夜は電気を消して眠れそうですか?もっと怖い話が知りたい人は、チャンネル登録して次の話を待っていてください。",
+      "pexelsQuery": "candle flame dark room mysterious"
     }
   ],
-  "category": "宇宙・スケールのシミュレーション仮説",
-  "format": "simulation"
+  "category": "怖い話",
+  "format": "ranking"
 }

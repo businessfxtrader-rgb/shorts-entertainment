@@ -42,7 +42,7 @@ async function synthesize(segment) {
       body: JSON.stringify({
         input: { text: segment.text },
         voice: { languageCode: "ja-JP", name: "ja-JP-Chirp3-HD-Orus" },
-        audioConfig: { audioEncoding: "MP3" },
+        audioConfig: { audioEncoding: "MP3", speakingRate: 1.15 },
       }),
     }
   );
