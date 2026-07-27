@@ -25,7 +25,16 @@ if (!fs.existsSync(videoPath)) {
   process.exit(1);
 }
 
-console.log(`アップロード中: ${latestScript.title}`);
+// 予約枠(TARGET_PUBLISH_AT, ISO日時)が指定されていれば、その日時に自動で全体公開される
+// 「予約公開」としてアップロードする(privacyStatus: private + publishAt)。
+// 指定がなければ即時全体公開(手動テスト実行時などのフォールバック)。
+const targetPublishAt = process.env.TARGET_PUBLISH_AT;
+
+console.log(
+  targetPublishAt
+    ? `アップロード中(予約公開: ${targetPublishAt}): ${latestScript.title}`
+    : `アップロード中(即時公開): ${latestScript.title}`
+);
 
 const res = await youtube.videos.insert({
   part: ["snippet", "status"],
@@ -36,10 +45,16 @@ const res = await youtube.videos.insert({
       tags: latestScript.tags,
       categoryId: "24",
     },
-    status: {
-      privacyStatus: "public",
-      selfDeclaredMadeForKids: false,
-    },
+    status: targetPublishAt
+      ? {
+          privacyStatus: "private",
+          publishAt: targetPublishAt,
+          selfDeclaredMadeForKids: false,
+        }
+      : {
+          privacyStatus: "public",
+          selfDeclaredMadeForKids: false,
+        },
   },
   media: {
     body: fs.createReadStream(videoPath),
@@ -47,7 +62,8 @@ const res = await youtube.videos.insert({
 });
 
 const videoId = res.data.id;
-const publishedAt = res.data.snippet.publishedAt;
+// 予約公開の場合、実際に公開されるのはpublishAt時刻なのでそちらを正とする。
+const publishedAt = targetPublishAt || res.data.snippet.publishedAt;
 console.log(`OK: https://youtube.com/shorts/${videoId}`);
 
 const usedTopicsPath = path.join(root, "content", "used-topics.json");

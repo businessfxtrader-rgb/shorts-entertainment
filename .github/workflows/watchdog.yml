@@ -1,22 +1,18 @@
 name: Schedule Watchdog
 
-# daily-pipeline.yml の定期実行が、予定時刻に本当に発火したかを確認する。
-# GitHub Actions側の理由でcronイベント自体が発火しなかった場合、daily-pipeline.yml
-# 側では何も検知できない(そもそも何も起動していないため)ので、この監視役が代わりに
+# daily-pipeline.yml(バッファ方式)によって、常に一定本数の予約投稿がストックできて
+# いるかを確認する監視役。GitHub Actions側のcronが遅延・スキップされて daily-pipeline.yml
+# が実行されなかった場合でも、daily-pipeline.yml自身は起動すらしていないため自己検知
+# できない。そのためバッファの残数そのものを直接チェックし、枯渇の危険があれば
 # シートへエラーを記録する。
-#
-# 注意: daily-pipeline.yml のスケジュール時刻を変更したら、ここも15分後ろの時刻に
-# 合わせて変更すること。
 
 on:
   schedule:
-    - cron: "18 3 * * *" # 12:18 JST(12:03の定期実行を確認)
-    - cron: "18 9 * * *" # 18:18 JST(18:03の定期実行を確認)
+    - cron: "33 23 * * *" # 08:33 JST(1日1回、バッファ残量を確認)
   workflow_dispatch: {}
 
 permissions:
   contents: read
-  actions: read
 
 jobs:
   check:
@@ -29,25 +25,19 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Check whether the scheduled pipeline run fired
+      - name: Check remaining buffer of scheduled videos
         id: check
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          SINCE=$(date -u -d '35 minutes ago' +%Y-%m-%dT%H:%M:%S)
-          COUNT=$(gh run list --repo "${{ github.repository }}" --workflow=daily-pipeline.yml \
-            --event schedule --created "${SINCE}..$(date -u +%Y-%m-%dT%H:%M:%S)" \
-            --json databaseId --jq 'length')
-          echo "count=$COUNT"
-          echo "SCHEDULE_COUNT=$COUNT" >> "$GITHUB_ENV"
+        run: node scripts/check-buffer.mjs
+        continue-on-error: true
 
       - name: Reconstruct service account secret
-        if: env.SCHEDULE_COUNT == '0'
+        if: steps.check.outcome == 'failure'
         run: echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service-account.json
 
-      - name: Report missed schedule to sheet
-        if: env.SCHEDULE_COUNT == '0'
-        run: node scripts/report-status.mjs エラー "定期実行(daily-pipeline.yml)が予定時刻に発火しませんでした。GitHub Actions側のスケジュール遅延・スキップの可能性があります。Actionsタブから手動実行(Run workflow)してください。" "(定期実行が未発火)"
+      - name: Install dependencies (for report-status.mjs)
+        if: steps.check.outcome == 'failure'
+        run: npm ci
+
+      - name: Report low buffer to sheet
+        if: steps.check.outcome == 'failure'
+        run: node scripts/report-status.mjs エラー "予約投稿のバッファが少なくなっています。daily-pipeline.ymlが正常に実行されていない可能性があります。Actionsタブから手動実行(Run workflow)して状況を確認してください。" "(バッファ残量警告)"
