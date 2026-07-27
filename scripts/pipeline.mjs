@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
 
 const logPath = path.join(root, "pipeline.log");
-const MAX_ATTEMPTS = 3;
+const MAX_ATTEMPTS = 10;
 
 function log(message) {
   const line = `[${new Date().toISOString()}] ${message}`;
