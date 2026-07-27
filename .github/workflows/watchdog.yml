@@ -1,14 +1,15 @@
 name: Schedule Watchdog
 
-# daily-pipeline.yml(バッファ方式)によって、常に一定本数の予約投稿がストックできて
-# いるかを確認する監視役。GitHub Actions側のcronが遅延・スキップされて daily-pipeline.yml
-# が実行されなかった場合でも、daily-pipeline.yml自身は起動すらしていないため自己検知
-# できない。そのためバッファの残数そのものを直接チェックし、枯渇の危険があれば
-# シートへエラーを記録する。
+# daily-pipeline.yml(バッファ方式)が正常に機能しているかを2つの観点で確認する監視役。
+# GitHub Actions側のcronが遅延・スキップされても daily-pipeline.yml 自身は起動すらして
+# いないため自己検知できない。そのため「結果」そのものを直接チェックする。
+#   1) 予約投稿のバッファ(在庫)が十分にあるか(scripts/check-buffer.mjs)
+#   2) 予約公開の予定時刻を過ぎたのに、YouTube側でまだ公開されていない動画がないか
+#      (scripts/check-published.mjs)
 
 on:
   schedule:
-    - cron: "33 23 * * *" # 08:33 JST(1日1回、バッファ残量を確認)
+    - cron: "33 23 * * *" # 08:33 JST(1日1回)
   workflow_dispatch: {}
 
 permissions:
@@ -25,19 +26,23 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Reconstruct secret files
+        run: |
+          echo '${{ secrets.GOOGLE_CLIENT_SECRET_JSON }}' > client_secret.json
+          echo '${{ secrets.YOUTUBE_TOKEN_JSON }}' > youtube-token.json
+          echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service-account.json
+
       - name: Check remaining buffer of scheduled videos
-        id: check
+        id: buffer
         run: node scripts/check-buffer.mjs
         continue-on-error: true
 
-      - name: Reconstruct service account secret
-        if: steps.check.outcome == 'failure'
-        run: echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service-account.json
-
-      - name: Install dependencies (for report-status.mjs)
-        if: steps.check.outcome == 'failure'
-        run: npm ci
-
       - name: Report low buffer to sheet
-        if: steps.check.outcome == 'failure'
+        if: steps.buffer.outcome == 'failure'
         run: node scripts/report-status.mjs エラー "予約投稿のバッファが少なくなっています。daily-pipeline.ymlが正常に実行されていない可能性があります。Actionsタブから手動実行(Run workflow)して状況を確認してください。" "(バッファ残量警告)"
+
+      - name: Check for overdue unpublished videos
+        run: node scripts/check-published.mjs
