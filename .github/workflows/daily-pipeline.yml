@@ -3,7 +3,7 @@ name: Daily Shorts Pipeline
 on:
   schedule:
     - cron: "3 3 * * *" # 03:03 UTC = 12:03 JST(区切りの良い分は他のジョブと重なりやすいためあえて3分ずらす)
-    - cron: "3 9 * * *" # 09:03 UTC = 18:03 JST
+    - cron: "33 7 * * *" # 07:33 UTC = 16:33 JST(動作確認のため一時的にこの時刻。確認後18:03に戻す想定)
   workflow_dispatch: {}
 
 permissions:
