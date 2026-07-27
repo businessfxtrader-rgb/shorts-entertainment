@@ -11,7 +11,7 @@ name: Schedule Watchdog
 on:
   schedule:
     - cron: "18 3 * * *" # 12:18 JST(12:03の定期実行を確認)
-    - cron: "48 7 * * *" # 16:48 JST(16:33の定期実行を確認・動作確認用の一時設定)
+    - cron: "18 9 * * *" # 18:18 JST(18:03の定期実行を確認)
   workflow_dispatch: {}
 
 permissions:
