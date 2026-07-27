@@ -2,8 +2,8 @@ name: Daily Shorts Pipeline
 
 on:
   schedule:
-    - cron: "5 3 * * *" # 03:05 UTC = 12:05 JST(ちょうど毎時0分は混雑・遅延しやすいため5分ずらす)
-    - cron: "5 9 * * *" # 09:05 UTC = 18:05 JST
+    - cron: "3 3 * * *" # 03:03 UTC = 12:03 JST(区切りの良い分は他のジョブと重なりやすいためあえて3分ずらす)
+    - cron: "3 9 * * *" # 09:03 UTC = 18:03 JST
   workflow_dispatch: {}
 
 permissions:
