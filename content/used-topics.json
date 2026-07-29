@@ -214,5 +214,38 @@
     "videoId": "aH_AP5kK76A",
     "category": "雑学",
     "format": "ranking"
+  },
+  {
+    "title": "都市伝説の真相ベスト3!長城・雷・ナポレオン",
+    "topics": [
+      "都市伝説の真相ベスト3!長城・雷・ナポレオン"
+    ],
+    "date": "2026-07-27",
+    "publishedAt": "2026-08-01T09:00:00.000Z",
+    "videoId": "U7_Ainn5WCI",
+    "category": "都市伝説",
+    "format": "ranking"
+  },
+  {
+    "title": "行動を操る心理学効果ベスト3",
+    "topics": [
+      "行動を操る心理学効果ベスト3"
+    ],
+    "date": "2026-07-27",
+    "publishedAt": "2026-08-02T03:00:00.000Z",
+    "videoId": "XmT21-htesI",
+    "category": "心理学",
+    "format": "ranking"
+  },
+  {
+    "title": "毎晩23時に届く謎の小箱、差出人の正体に涙",
+    "topics": [
+      "毎晩23時に届く謎の小箱、差出人の正体に涙"
+    ],
+    "date": "2026-07-27",
+    "publishedAt": "2026-08-02T09:00:00.000Z",
+    "videoId": "l3gP9xHFjt4",
+    "category": "ショートストーリー",
+    "format": "simulation"
   }
 ]
