@@ -1,44 +1,72 @@
 {
   "雑学": {
-    "totalViews": 566,
-    "videoCount": 5,
+    "totalViews": 561,
+    "videoCount": 6,
     "format": "ranking",
-    "avgViews": 113
+    "avgViews": 94,
+    "avgRetentionPercentage": 24.6
   },
   "文化": {
     "totalViews": 2,
     "videoCount": 1,
     "format": "ranking",
-    "avgViews": 2
+    "avgViews": 2,
+    "avgRetentionPercentage": 18.5
   },
   "語源": {
+    "totalViews": 2,
+    "videoCount": 1,
+    "format": "ranking",
+    "avgViews": 2,
+    "avgRetentionPercentage": 26.7
+  },
+  "歴史": {
+    "totalViews": 1,
+    "videoCount": 1,
+    "format": "simulation",
+    "avgViews": 1,
+    "avgRetentionPercentage": null
+  },
+  "ショートストーリー": {
+    "totalViews": 3,
+    "videoCount": 4,
+    "format": "simulation",
+    "avgViews": 1,
+    "avgRetentionPercentage": 0
+  },
+  "都市伝説": {
+    "totalViews": 1,
+    "videoCount": 2,
+    "format": "ranking",
+    "avgViews": 1,
+    "avgRetentionPercentage": null
+  },
+  "ライフハック": {
     "totalViews": 1,
     "videoCount": 1,
     "format": "ranking",
-    "avgViews": 1
+    "avgViews": 1,
+    "avgRetentionPercentage": null
   },
-  "歴史": {
+  "心理学": {
+    "totalViews": 0,
+    "videoCount": 2,
+    "format": "ranking",
+    "avgViews": 0,
+    "avgRetentionPercentage": null
+  },
+  "建築": {
     "totalViews": 0,
     "videoCount": 1,
-    "format": "simulation",
-    "avgViews": 0
+    "format": "qa",
+    "avgViews": 0,
+    "avgRetentionPercentage": null
   },
-  "ショートストーリー": {
-    "totalViews": 0,
-    "videoCount": 1,
-    "format": "simulation",
-    "avgViews": 0
-  },
-  "都市伝説": {
+  "人体": {
     "totalViews": 0,
     "videoCount": 1,
     "format": "ranking",
-    "avgViews": 0
-  },
-  "ライフハック": {
-    "totalViews": 0,
-    "videoCount": 1,
-    "format": "ranking",
-    "avgViews": 0
+    "avgViews": 0,
+    "avgRetentionPercentage": null
   }
 }
