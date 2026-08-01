@@ -8,8 +8,10 @@ name: Schedule Watchdog
 #      (scripts/check-published.mjs)
 
 on:
+  # メインの13:03・19:03 JSTトリガーは外部cron-job.org側で担っている(GitHub Actions側の
+  # scheduleは過去に長時間発火しない事象を確認済みのため)。ここは保険用に12分後にずらしてある。
   schedule:
-    - cron: "3 4,10 * * *" # 13:03・19:03 JST(投稿時刻12:00・18:00の約1時間後、1日2回)
+    - cron: "15 4,10 * * *" # 13:15・19:15 JST(投稿時刻12:00・18:00の約1時間15分後、1日2回、保険用)
   workflow_dispatch: {}
 
 permissions:
