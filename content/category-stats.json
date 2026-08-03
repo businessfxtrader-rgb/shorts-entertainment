@@ -1,71 +1,78 @@
 {
   "雑学": {
-    "totalViews": 561,
-    "videoCount": 6,
+    "totalViews": 767,
+    "videoCount": 9,
     "format": "ranking",
-    "avgViews": 94,
-    "avgRetentionPercentage": 24.6
+    "avgViews": 85,
+    "avgRetentionPercentage": 25
   },
   "文化": {
-    "totalViews": 2,
+    "totalViews": 3,
     "videoCount": 1,
     "format": "ranking",
-    "avgViews": 2,
+    "avgViews": 3,
     "avgRetentionPercentage": 18.5
   },
   "語源": {
+    "totalViews": 3,
+    "videoCount": 2,
+    "format": "ranking",
+    "avgViews": 2,
+    "avgRetentionPercentage": 43.3
+  },
+  "歴史": {
+    "totalViews": 1,
+    "videoCount": 2,
+    "format": "simulation",
+    "avgViews": 1,
+    "avgRetentionPercentage": 65.2
+  },
+  "ショートストーリー": {
+    "totalViews": 90,
+    "videoCount": 4,
+    "format": "simulation",
+    "avgViews": 23,
+    "avgRetentionPercentage": 15.5
+  },
+  "都市伝説": {
+    "totalViews": 1200,
+    "videoCount": 2,
+    "format": "ranking",
+    "avgViews": 600,
+    "avgRetentionPercentage": 0
+  },
+  "ライフハック": {
     "totalViews": 2,
     "videoCount": 1,
     "format": "ranking",
     "avgViews": 2,
-    "avgRetentionPercentage": 26.7
-  },
-  "歴史": {
-    "totalViews": 1,
-    "videoCount": 1,
-    "format": "simulation",
-    "avgViews": 1,
-    "avgRetentionPercentage": null
-  },
-  "ショートストーリー": {
-    "totalViews": 3,
-    "videoCount": 4,
-    "format": "simulation",
-    "avgViews": 1,
     "avgRetentionPercentage": 0
   },
-  "都市伝説": {
-    "totalViews": 1,
-    "videoCount": 2,
-    "format": "ranking",
-    "avgViews": 1,
-    "avgRetentionPercentage": null
-  },
-  "ライフハック": {
-    "totalViews": 1,
-    "videoCount": 1,
-    "format": "ranking",
-    "avgViews": 1,
-    "avgRetentionPercentage": null
-  },
   "心理学": {
-    "totalViews": 0,
+    "totalViews": 7,
     "videoCount": 2,
     "format": "ranking",
-    "avgViews": 0,
-    "avgRetentionPercentage": null
+    "avgViews": 4,
+    "avgRetentionPercentage": 29
   },
   "建築": {
-    "totalViews": 0,
-    "videoCount": 1,
+    "totalViews": 4,
+    "videoCount": 2,
     "format": "qa",
-    "avgViews": 0,
+    "avgViews": 2,
     "avgRetentionPercentage": null
   },
   "人体": {
+    "totalViews": 1425,
+    "videoCount": 2,
+    "format": "ranking",
+    "avgViews": 713,
+    "avgRetentionPercentage": null
+  },
+  "誕生秘話": {
     "totalViews": 0,
     "videoCount": 1,
-    "format": "ranking",
+    "format": "qa",
     "avgViews": 0,
     "avgRetentionPercentage": null
   }
