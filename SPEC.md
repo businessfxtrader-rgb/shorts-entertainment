@@ -94,13 +94,24 @@ GitHub Actionsの`schedule`(cron)は、公式ドキュメントにも明記さ�
 - **データ取得**(`scripts/track-performance.mjs`、`weekly-research.yml`で週次実行):
   - `youtube.videos.list`で各動画の再生数を取得(従来通り)
   - `youtubeAnalytics.reports.query`で各動画の`averageViewDuration`・`averageViewPercentage`を取得。**このAPIは`dimensions=video`単体では"not supported"エラーになる**ため、必ず`filters=video==id1,id2,...`と組み合わせて呼び出す(検証済みの制約)
-  - なお、インプレッション数・クリック率(CTR)は一般クリエイター向けにはAPIで取得できない(YouTube Studio画面上でのみ確認可能)ため使用していない
+  - なお、通常のYouTube Analytics API(`reports.query`)ではインプレッション数・クリック率(CTR)は取得できない。**別のAPIである YouTube Reporting API(`youtubereporting.googleapis.com`)経由でのみ取得可能**(詳細は4-2章)
   - 結果を`content/category-stats.json`(ジャンル別平均視聴維持率)と`content/retention-summary.json`(チャンネル全体平均)に保存
 - **台本生成へのフィードバック**(`scripts/generate-script.mjs`):
   - ジャンル選定の重み = 平均再生数 × min(2.0, max(0.5, ジャンル別視聴維持率 ÷ チャンネル全体平均維持率))
   - チャンネル全体の平均視聴維持率が40%未満の場合、プロンプトに追加の強化指示(フックの具体性・情報密度・尻すぼみ防止)を自動挿入
   - 常時適用のルールとして、フック最初の1文の惹きつけ・前置き厳禁を明文化
   - 外部SEO記事の調査結果を反映: タイトル冒頭10〜15字以内にキーワード配置、タグは重要度順に並べる、descriptionHookは検索結果に表示される想定で具体的に、outroにコメント誘導の一言を追加
+
+### 4-2. 伸び悩み動画の自動SEO再試行・トレンド調査・インプレッション取得
+`weekly-research.yml`に以下3つを追加(2026-08-04)。いずれも人の判断を待たず自走する。
+
+- **伸び悩み動画への自動再SEO**(`scripts/auto-retry-seo.mjs`):
+  - 公開から4日以上経過し、かつ`content/used-topics.json`の`seoRetriedAt`が未設定の動画を対象に、1日あたり再生数を算出
+  - 対象動画群(4日以上経過分)の**中央値**を基準に、その50%を下回る動画を「伸び悩み」と判定(平均ではなく中央値を使うのは、一部の動画が突出して伸びた場合に平均が引っ張られて閾値が狂うのを防ぐため)
+  - 該当動画のうち再生数が低い順に最大3本まで、タイトル・タグ・概要欄冒頭をclaude -pで再生成しYouTube・管理シートに反映。動画の内容(トピック)自体は変更しない
+  - 一度再試行した動画は`seoRetriedAt`にタイムスタンプを記録し、二度と対象にしない(無限リトライ防止)
+- **トレンドパターン調査**(`scripts/research-trends.mjs`): claude -p(Web検索)で直近のYouTube Shorts市場で伸びやすいタイトル・フックの型を週次調査し、`content/trend-insights.json`に保存。特定動画の内容そのものは書き写さず、抽象化した「型」として記録する(著作権配慮)。`generate-script.mjs`が台本生成のたびにこの中からランダムで1パターンを参考として提示する(強制ではなく「使えそうなら使う」扱い)
+- **インプレッション・CTR取得**(`scripts/track-reach.mjs`): YouTube Reporting API(通常のAnalytics APIとは別物)でのみ、一般クリエイター向けにもインプレッション数・CTRを含むバルクレポート(CSV、1〜2日遅れで生成)を取得できることが判明。`reportTypeId: "channel_reach_basic_a1"`のジョブを手動で一度だけ作成済み(ジョブIDはスクリプト内にハードコード)。週次でジョブに新しいレポートがないか確認し、あれば`content/reach-stats.json`に取り込む。列名が未確認のため、想定と異なる形式だった場合は`content/reach-raw-<reportId>.csv`に生データを保存して後日調整する設計にしている
 
 ### 新ジャンルの自動開拓
 週次で`claude -p`(Web検索込み)がトレンドを調査し、以下の条件を満たす新ジャンルのみ自動追加:

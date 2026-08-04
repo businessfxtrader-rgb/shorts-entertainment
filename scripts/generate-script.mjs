@@ -51,6 +51,15 @@ const retentionSummary = fs.existsSync(retentionSummaryPath)
   : { overallRetentionPercentage: null };
 const overallRetention = retentionSummary.overallRetentionPercentage;
 
+// 週次のトレンド調査結果(scripts/research-trends.mjs)。存在すればランダムに1パターンだけ
+// プロンプトに混ぜる(毎回同じパターンに偏らないように)
+const trendInsightsPath = path.join(root, "content", "trend-insights.json");
+const trendPatterns = fs.existsSync(trendInsightsPath)
+  ? (JSON.parse(fs.readFileSync(trendInsightsPath, "utf-8")).patterns ?? [])
+  : [];
+const trendPattern =
+  trendPatterns.length > 0 ? trendPatterns[Math.floor(Math.random() * trendPatterns.length)] : null;
+
 // 過去の平均再生数が高いジャンルほど選ばれやすくする(ただし実績が無い/少ないジャンルにも
 // 一定の確率を残し、開拓した新ジャンルが試される機会を確保する)。
 // さらに、視聴維持率がチャンネル平均より高いジャンルは重みを増やし、低いジャンルは減らす
@@ -165,6 +174,11 @@ ${category.name}: ${category.brief}
 - (視聴維持率対策・常時適用)フックの最初の1文だけで惹きつけること。「〜について紹介します」のような前置きは厳禁で、具体的な数字・意外な事実・断定的な一言から入る。前半で間延びさせず、後半に行くほど情報の意外性・インパクトが強くなる(尻すぼみにならない)構成にする
 - (視聴維持率対策・常時適用)タイトルだけでなく、可能な場面ではnarrationの構成自体も「核心を先に明かさず、少し焦らしてから明かす」形にする(例:「〜な理由」「実は〜」のように、結論を保留してから見せる)。ランキング形式であっても、各順位の紹介文の冒頭で結論を言い切らず、一言タメを作ってから核心に入るとよい
 ${retentionInstructions}
+${
+  trendPattern
+    ? `- (今週のトレンド調査より)可能であれば次のパターンを今回の台本に取り入れてみること: 『${trendPattern.pattern}』── ${trendPattern.description}(参考例: ${trendPattern.example})。無理に当てはめて不自然にならない場合のみ採用すること`
+    : ""
+}
 
 # テロップ(caption)のルール(重要)
 - captionは画面に大きく表示される文字情報であり、音声を聞かなくても内容が伝わる密度にすること。narrationの単なる短縮ではなく、そのシーンの核心となる数字・固有名詞を必ず含めること
