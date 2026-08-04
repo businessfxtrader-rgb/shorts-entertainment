@@ -52,11 +52,14 @@ const retentionSummary = fs.existsSync(retentionSummaryPath)
 const overallRetention = retentionSummary.overallRetentionPercentage;
 
 // 週次のトレンド調査結果(scripts/research-trends.mjs)。存在すればランダムに1パターンだけ
-// プロンプトに混ぜる(毎回同じパターンに偏らないように)
+// プロンプトに混ぜる(毎回同じパターンに偏らないように)。構造パターン(patterns)と
+// テーマ・内容の傾向(themes)の両方を持つ
 const trendInsightsPath = path.join(root, "content", "trend-insights.json");
-const trendPatterns = fs.existsSync(trendInsightsPath)
-  ? (JSON.parse(fs.readFileSync(trendInsightsPath, "utf-8")).patterns ?? [])
-  : [];
+const trendInsights = fs.existsSync(trendInsightsPath)
+  ? JSON.parse(fs.readFileSync(trendInsightsPath, "utf-8"))
+  : { patterns: [], themes: [] };
+const trendPatterns = trendInsights.patterns ?? [];
+const trendThemes = trendInsights.themes ?? [];
 const trendPattern =
   trendPatterns.length > 0 ? trendPatterns[Math.floor(Math.random() * trendPatterns.length)] : null;
 
@@ -87,6 +90,11 @@ for (let i = 0; i < weights.length; i++) {
   }
 }
 const category = CATEGORIES[categoryIndex];
+
+// 選ばれたジャンルに関連するテーマ傾向があれば優先し、無ければランダムに1件だけ採用する
+const matchingThemes = trendThemes.filter((t) => t.relatedGenre === category.name);
+const themePool = matchingThemes.length > 0 ? matchingThemes : trendThemes;
+const trendTheme = themePool.length > 0 ? themePool[Math.floor(Math.random() * themePool.length)] : null;
 
 const FORMAT_SPECS = {
   simulation: {
@@ -177,6 +185,11 @@ ${retentionInstructions}
 ${
   trendPattern
     ? `- (今週のトレンド調査より)可能であれば次のパターンを今回の台本に取り入れてみること: 『${trendPattern.pattern}』── ${trendPattern.description}(参考例: ${trendPattern.example})。無理に当てはめて不自然にならない場合のみ採用すること`
+    : ""
+}
+${
+  trendTheme
+    ? `- (今週のトレンド調査より)可能であれば次のテーマ・切り口を今回のトピック選定に取り入れてみること: 『${trendTheme.theme}』── ${trendTheme.description}。このジャンル(${category.name})の内容として不自然にならない場合のみ採用すること`
     : ""
 }
 

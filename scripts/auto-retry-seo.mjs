@@ -15,6 +15,9 @@ const GENERIC_WORDS = new Set([...CORE_TAGS, "ランキング", "雑学クイズ
 const MIN_AGE_DAYS = 4; // これより新しい動画は判断が早すぎるので対象外
 const MAX_RETRIES_PER_RUN = 3; // 1回の実行での上限(API消費・コストの安全策)
 const UNDERPERFORM_RATIO = 0.5; // 「1日あたり再生数」がチャンネル中央値のこの割合を下回れば対象
+const RETRY_COOLDOWN_DAYS = 7; // 前回の再試行からこの日数が経つまでは同じ動画を再対象にしない
+// (動画そのものの削除・再作成は行わない。伸び悩みが続く限り、タイトル・タグ・概要欄など
+// 投稿完了後も編集可能な範囲で何度でも再試行を繰り返す)
 
 function loadEnv() {
   const text = fs.readFileSync(path.join(root, ".env"), "utf-8");
@@ -83,10 +86,15 @@ const usedTopicsPath = path.join(root, "content", "used-topics.json");
 const usedTopics = JSON.parse(fs.readFileSync(usedTopicsPath, "utf-8"));
 
 const now = new Date();
-const candidates = usedTopics.filter((t) => t.videoId && t.publishedAt && !t.seoRetriedAt);
+const candidates = usedTopics.filter((t) => {
+  if (!t.videoId || !t.publishedAt) return false;
+  if (!t.seoRetriedAt) return true; // 未リトライ
+  const daysSinceRetry = (now - new Date(t.seoRetriedAt)) / 86400000;
+  return daysSinceRetry >= RETRY_COOLDOWN_DAYS; // クールダウン明けなら再対象
+});
 
 if (candidates.length === 0) {
-  console.log("対象動画がありません(全件リトライ済み、または動画がまだありません)");
+  console.log("対象動画がありません(クールダウン中、または動画がまだありません)");
   process.exit(0);
 }
 
@@ -135,7 +143,9 @@ const urlValues = urlColumn.data.values ?? [];
 
 for (const { entry, viewsPerDay } of targets) {
   const videoId = entry.videoId;
-  console.log(`\n===== ${videoId}(1日あたり${viewsPerDay.toFixed(1)}回再生) =====`);
+  console.log(
+    `\n===== ${videoId}(1日あたり${viewsPerDay.toFixed(1)}回再生、これまでの再試行回数: ${entry.seoRetryCount ?? 0}) =====`
+  );
 
   const videoRes = await youtube.videos.list({ part: ["snippet"], id: [videoId] });
   const video = videoRes.data.items[0];
@@ -211,6 +221,7 @@ ${oldSnippet.title}
 
   entry.title = result.title;
   entry.seoRetriedAt = now.toISOString();
+  entry.seoRetryCount = (entry.seoRetryCount ?? 0) + 1;
   fs.writeFileSync(usedTopicsPath, JSON.stringify(usedTopics, null, 2));
 }
 
