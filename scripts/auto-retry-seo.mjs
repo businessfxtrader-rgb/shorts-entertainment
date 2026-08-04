@@ -145,11 +145,19 @@ if (targets.length === 0) {
   process.exit(0);
 }
 
-const urlColumn = await sheets.spreadsheets.values.get({
-  spreadsheetId: SPREADSHEET_ID,
-  range: `${SHEET_NAME}!I:I`,
-});
+const [urlColumn, remarksColumn] = await Promise.all([
+  sheets.spreadsheets.values.get({ spreadsheetId: SPREADSHEET_ID, range: `${SHEET_NAME}!I:I` }),
+  sheets.spreadsheets.values.get({ spreadsheetId: SPREADSHEET_ID, range: `${SHEET_NAME}!K:K` }),
+]);
 const urlValues = urlColumn.data.values ?? [];
+const remarksValues = remarksColumn.data.values ?? [];
+
+function formatJst(date) {
+  const jst = new Date(date.getTime() + 9 * 60 * 60 * 1000);
+  return `${jst.getUTCFullYear()}/${jst.getUTCMonth() + 1}/${jst.getUTCDate()} ${String(
+    jst.getUTCHours()
+  ).padStart(2, "0")}:${String(jst.getUTCMinutes()).padStart(2, "0")}`;
+}
 
 for (const { entry, viewsPerDay, views } of targets) {
   const videoId = entry.videoId;
@@ -224,6 +232,19 @@ ${oldSnippet.title}
       valueInputOption: "USER_ENTERED",
       requestBody: { values: [[result.seoNotes]] },
     });
+
+    const retryNote = `[${formatJst(now)}] SEO自動再試行(${entry.seoRetryCount}回目): 1日あたり${viewsPerDay.toFixed(
+      1
+    )}回再生(チャンネル中央値の${(UNDERPERFORM_RATIO * 100).toFixed(0)}%未満)のため、タイトル・タグ・概要欄冒頭を再生成しました`;
+    const existingRemark = remarksValues[row - 1]?.[0]?.trim();
+    const newRemark = existingRemark ? `${existingRemark}\n${retryNote}` : retryNote;
+    await sheets.spreadsheets.values.update({
+      spreadsheetId: SPREADSHEET_ID,
+      range: `${SHEET_NAME}!K${row}:K${row}`,
+      valueInputOption: "USER_ENTERED",
+      requestBody: { values: [[newRemark]] },
+    });
+
     console.log(`シート更新: row ${row}`);
   } else {
     console.error("シート上の行が見つかりませんでした:", videoId);
