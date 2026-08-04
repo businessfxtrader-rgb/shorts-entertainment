@@ -33,9 +33,9 @@ const auth = new google.auth.GoogleAuth({
 
 const sheets = google.sheets({ version: "v4", auth });
 
-// タブ名は変更される可能性があるため、毎回スプレッドシートの1番目のタブ名を取得する。
-const meta = await sheets.spreadsheets.get({ spreadsheetId: SPREADSHEET_ID });
-const SHEET_NAME = meta.data.sheets[0].properties.title;
+// 「1番目のタブ」で判定すると、他のタブ(チャンネル管理・TACグループ等)が追加されて
+// 順番が変わった際に誤ったタブへ書き込んでしまうため、タブ名を直接指定する。
+const SHEET_NAME = "ほっと一息チャンネル";
 
 // タイトル列(F列)を見て、実際にデータが入っている最後の行を探す。
 // A列(管理No.)は事前に大量の連番が入っているため、この検出には使わない。

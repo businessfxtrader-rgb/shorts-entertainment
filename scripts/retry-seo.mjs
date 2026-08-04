@@ -85,8 +85,9 @@ const sheets = google.sheets({ version: "v4", auth: sheetsAuth });
 const usedTopicsPath = path.join(root, "content", "used-topics.json");
 const usedTopics = JSON.parse(fs.readFileSync(usedTopicsPath, "utf-8"));
 
-const meta = await sheets.spreadsheets.get({ spreadsheetId: SPREADSHEET_ID });
-const SHEET_NAME = meta.data.sheets[0].properties.title;
+// 「1番目のタブ」で判定すると、他のタブが追加されて順番が変わった際に誤ったタブへ
+// 書き込んでしまうため、タブ名を直接指定する。
+const SHEET_NAME = "ほっと一息チャンネル";
 const urlColumn = await sheets.spreadsheets.values.get({
   spreadsheetId: SPREADSHEET_ID,
   range: `${SHEET_NAME}!I:I`,
