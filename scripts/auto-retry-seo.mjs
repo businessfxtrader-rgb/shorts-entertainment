@@ -111,7 +111,17 @@ const withStats = candidates
     if (!v || v.status.privacyStatus !== "public") return null;
     const ageDays = Math.max(0.5, (now - new Date(t.publishedAt)) / 86400000);
     const views = Number(v.statistics.viewCount ?? 0);
-    return { entry: t, ageDays, viewsPerDay: views / ageDays };
+    let viewsPerDay;
+    if (t.seoRetriedAt && t.viewsAtRetry != null) {
+      // 前回リトライ「後」の増分ペースで判定する。公開時からの累計平均のままだと
+      // 変更前の(伸び悩んでいた)データでいつまでも薄まってしまい、変更の効果を判別できないため
+      const daysSinceRetry = Math.max(0.5, (now - new Date(t.seoRetriedAt)) / 86400000);
+      const viewsSinceRetry = Math.max(0, views - t.viewsAtRetry);
+      viewsPerDay = viewsSinceRetry / daysSinceRetry;
+    } else {
+      viewsPerDay = views / ageDays;
+    }
+    return { entry: t, ageDays, views, viewsPerDay };
   })
   .filter(Boolean);
 
@@ -141,7 +151,7 @@ const urlColumn = await sheets.spreadsheets.values.get({
 });
 const urlValues = urlColumn.data.values ?? [];
 
-for (const { entry, viewsPerDay } of targets) {
+for (const { entry, viewsPerDay, views } of targets) {
   const videoId = entry.videoId;
   console.log(
     `\n===== ${videoId}(1日あたり${viewsPerDay.toFixed(1)}回再生、これまでの再試行回数: ${entry.seoRetryCount ?? 0}) =====`
@@ -222,6 +232,7 @@ ${oldSnippet.title}
   entry.title = result.title;
   entry.seoRetriedAt = now.toISOString();
   entry.seoRetryCount = (entry.seoRetryCount ?? 0) + 1;
+  entry.viewsAtRetry = views; // 次回評価時に「このリトライ後どれだけ伸びたか」を計算するための基準値
   fs.writeFileSync(usedTopicsPath, JSON.stringify(usedTopics, null, 2));
 }
 
