@@ -59,7 +59,7 @@ ${existingNames}
   {
     "name": "ジャンル名(上記の命名ルールに従った短い単語1つ)",
     "brief": "台本作家への指示となる説明文。何を扱うか、何を避けるべきかを具体的に",
-    "format": "ranking・simulation・qaのいずれか(ranking=ベスト3形式、simulation=もしも〜だったら形式、qa=問いかけ→結論形式)",
+    "format": "ranking・simulation・qa・reversalのいずれか(ranking=ベスト3形式、simulation=もしも〜だったら形式、qa=問いかけ→結論形式、reversal=見下す発言の引用から始まり架空の人物の体験を通じて価値観が覆る掌返しストーリー形式。人物・題材が実在の個人を特定しない場合のみ使ってよい)",
     "fiction": "true か false(true=創作フィクションを許可するジャンル、false=事実に基づく内容限定)"
   }
 ]`;
@@ -105,7 +105,7 @@ const candidates = extractJson(raw);
 
 let added = 0;
 for (const c of candidates) {
-  if (!c.name || !c.brief || !["ranking", "simulation", "qa"].includes(c.format)) {
+  if (!c.name || !c.brief || !["ranking", "simulation", "qa", "reversal"].includes(c.format)) {
     console.log(`スキップ(形式が不正): ${JSON.stringify(c)}`);
     continue;
   }

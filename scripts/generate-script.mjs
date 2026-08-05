@@ -129,13 +129,30 @@ const FORMAT_SPECS = {
   },
   ranking: {
     formatInstructions: `- フォーマット: フック→第3位→第2位→第1位→締め、の5パート構成(ランキング型)`,
-    titleInstructions: "動画タイトル(30字以内、ベスト3形式が伝わる魅力的なもの)",
+    titleInstructions:
+      "動画タイトル(30字以内、ベスト3形式が伝わる魅力的なもの。可能であれば『史上最高の』『歴代最強の』のような、このジャンルで繰り返し使える定番の枕詞を先頭に置くと、シリーズものとして視聴者に認識されやすい)",
     topicsInstructions: "3位/2位/1位の一言要約",
     segmentsExample: `  "segments": [
     { "id": "hook", "badge": null, "caption": ["画面表示1行目", "画面表示2行目"], "narration": "読み上げ文", "pexelsQuery": "背景動画検索用の英語キーワード" },
     { "id": "rank3", "badge": "第3位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
     { "id": "rank2", "badge": "第2位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
     { "id": "rank1", "badge": "第1位", "caption": ["...", "..."], "narration": "...", "pexelsQuery": "..." },
+    { "id": "outro", "badge": null, "caption": ["...", "..."], "narration": "チャンネル登録を促す文", "pexelsQuery": "..." }
+  ]`,
+  },
+  reversal: {
+    formatInstructions: `- フォーマット: フック(見下す・疑うセリフの引用+人物紹介)→変化1→変化2→結末(価値観が覆る)→締め、の5パート構成(掌返しストーリー型)。badgeはすべてnullにする(順位表示はしない)
+- フックは「日本の〇〇なんて〜でしょ」のような懐疑的・見下すセリフの引用から始め、直後にそれを言う人物像(職業・立場などの一般的な属性。実在しない架空の一般人)を一言で示す
+- 変化1・変化2では、その人物が実際に日本の物事を体験し、少しずつ認識が変わっていく過程を段階的に描く(結論を急がない)
+- 結末(rank1)で、価値観が完全に覆る瞬間と、それに伴う強い感情(驚き・感動)を描く`,
+    titleInstructions:
+      "動画タイトル(50〜70字程度。冒頭を「日本の〇〇なんて〜」のような見下す・疑うセリフの引用『」』で始め→それを言う人物像(外国人記者/○○が苦手な人物、など実在しない一般的な設定)→体験した日本の物事→最後に強い結果を示す言葉(例:価値観が崩壊、涙腺崩壊、異常事態に発展)で締める、一連の物語が伝わる長めのタイトルにする。実在の個人名・SNSアカウント名は使わない)",
+    topicsInstructions: "見下す発言の内容/体験した日本の物事/価値観が変わった結末、の一言要約(3つ)",
+    segmentsExample: `  "segments": [
+    { "id": "hook", "badge": null, "caption": ["画面表示1行目", "画面表示2行目"], "narration": "見下す・疑うセリフの引用と人物紹介", "pexelsQuery": "背景動画検索用の英語キーワード" },
+    { "id": "rank3", "badge": null, "caption": ["...", "..."], "narration": "変化1(体験し始める)", "pexelsQuery": "..." },
+    { "id": "rank2", "badge": null, "caption": ["...", "..."], "narration": "変化2(認識が変わり始める)", "pexelsQuery": "..." },
+    { "id": "rank1", "badge": null, "caption": ["...", "..."], "narration": "結末(価値観が覆る瞬間と強い感情)", "pexelsQuery": "..." },
     { "id": "outro", "badge": null, "caption": ["...", "..."], "narration": "チャンネル登録を促す文", "pexelsQuery": "..." }
   ]`,
   },
