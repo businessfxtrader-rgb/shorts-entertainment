@@ -59,7 +59,7 @@ ${existingNames}
   {
     "name": "ジャンル名(上記の命名ルールに従った短い単語1つ)",
     "brief": "台本作家への指示となる説明文。何を扱うか、何を避けるべきかを具体的に",
-    "format": "ranking・simulation・qa・reversalのいずれか(ranking=ベスト3形式、simulation=もしも〜だったら形式、qa=問いかけ→結論形式、reversal=見下す発言の引用から始まり架空の人物の体験を通じて価値観が覆る掌返しストーリー形式。人物・題材が実在の個人を特定しない場合のみ使ってよい)",
+    "formats": "['ranking','simulation','qa','reversal']から1〜2個選んだ配列(ranking=ベスト3形式、simulation=もしも〜だったら形式、qa=問いかけ→結論形式、reversal=見下す発言の引用から始まり架空の人物の体験を通じて価値観が覆る掌返しストーリー形式。人物・題材が実在の個人を特定しない場合のみ使ってよい)。ジャンルとフォーマットは独立した軸なので、同じ題材を複数の切り口で語れる場合は2個選んでよい(生成のたびにランダムでどちらかが使われる)",
     "fiction": "true か false(true=創作フィクションを許可するジャンル、false=事実に基づく内容限定)"
   }
 ]`;
@@ -103,9 +103,12 @@ console.log("新ジャンルをリサーチ中...");
 const raw = await runClaude(prompt);
 const candidates = extractJson(raw);
 
+const VALID_FORMATS = ["ranking", "simulation", "qa", "reversal"];
+
 let added = 0;
 for (const c of candidates) {
-  if (!c.name || !c.brief || !["ranking", "simulation", "qa", "reversal"].includes(c.format)) {
+  const formats = Array.isArray(c.formats) ? c.formats.filter((f) => VALID_FORMATS.includes(f)) : [];
+  if (!c.name || !c.brief || formats.length === 0) {
     console.log(`スキップ(形式が不正): ${JSON.stringify(c)}`);
     continue;
   }
@@ -116,9 +119,9 @@ for (const c of candidates) {
   const fiction = c.fiction === true || c.fiction === "true";
   // displayGenreは管理シート表示用のグループ名。デフォルトは自分自身の名前(必要なら手動で
   // 既存の似た系統のジャンルにまとめて表示できる。例: 宇宙・人体・歴史→シミュレーション)
-  categories.push({ name: c.name, brief: c.brief, format: c.format, fiction, displayGenre: c.name });
+  categories.push({ name: c.name, brief: c.brief, formats, fiction, displayGenre: c.name });
   added++;
-  console.log(`追加: ${c.name} (${c.format}, fiction: ${fiction})`);
+  console.log(`追加: ${c.name} (${formats.join("/")}, fiction: ${fiction})`);
 }
 
 if (added > 0) {

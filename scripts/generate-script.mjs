@@ -91,6 +91,10 @@ for (let i = 0; i < weights.length; i++) {
 }
 const category = CATEGORIES[categoryIndex];
 
+// ジャンルとフォーマットは独立した軸として扱う(1ジャンルが複数フォーマットを持てる)。
+// 同じジャンルでも毎回どのフォーマットで語るかをランダムに選ぶ
+const chosenFormat = category.formats[Math.floor(Math.random() * category.formats.length)];
+
 // 選ばれたジャンルに関連するテーマ傾向があれば優先し、無ければランダムに1件だけ採用する
 const matchingThemes = trendThemes.filter((t) => t.relatedGenre === category.name);
 const themePool = matchingThemes.length > 0 ? matchingThemes : trendThemes;
@@ -158,7 +162,7 @@ const FORMAT_SPECS = {
   },
 };
 
-const spec = FORMAT_SPECS[category.format] ?? FORMAT_SPECS.ranking;
+const spec = FORMAT_SPECS[chosenFormat] ?? FORMAT_SPECS.ranking;
 const { formatInstructions, titleInstructions, topicsInstructions, segmentsExample } = spec;
 
 // YouTube Analyticsの実測データ(視聴維持率)を踏まえた指示。維持率が低いほど、
@@ -278,11 +282,11 @@ function extractJson(text) {
   return JSON.parse(text.slice(start, end + 1));
 }
 
-console.log(`claude -p で新しい台本を生成中...(ジャンル: ${category.name})`);
+console.log(`claude -p で新しい台本を生成中...(ジャンル: ${category.name}, フォーマット: ${chosenFormat})`);
 const raw = await runClaude(prompt);
 const script = extractJson(raw);
 script.category = category.name;
-script.format = category.format;
+script.format = chosenFormat;
 script.displayGenre = category.displayGenre ?? category.name;
 
 const requiredIds = ["hook", "rank3", "rank2", "rank1", "outro"];
