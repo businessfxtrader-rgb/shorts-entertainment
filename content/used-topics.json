@@ -452,5 +452,18 @@
     "videoId": "x0MaJupzcEs",
     "category": "都市伝説",
     "format": "ranking"
+  },
+  {
+    "title": "気圧が0に近づくと人体に起きるまさかの変化",
+    "topics": [
+      "高度7500mで意識は3〜5分に短縮",
+      "旅客機巡航高度で意識は30〜60秒に激減",
+      "気圧ほぼゼロで体液沸騰、意識はわずか数秒"
+    ],
+    "date": "2026-08-07",
+    "publishedAt": "2026-08-10T09:00:00.000Z",
+    "videoId": "qRlqHOD0Ugo",
+    "category": "人体",
+    "format": "simulation"
   }
 ]
