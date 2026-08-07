@@ -52,16 +52,19 @@ const retentionSummary = fs.existsSync(retentionSummaryPath)
 const overallRetention = retentionSummary.overallRetentionPercentage;
 
 // 週次のトレンド調査結果(scripts/research-trends.mjs)。存在すればランダムに1パターンだけ
-// プロンプトに混ぜる(毎回同じパターンに偏らないように)。構造パターン(patterns)と
-// テーマ・内容の傾向(themes)の両方を持つ
+// プロンプトに混ぜる(毎回同じパターンに偏らないように)。構造パターン(patterns)・
+// テーマ・内容の傾向(themes)・検索キーワード選定の傾向(keywords)の3種類を持つ
 const trendInsightsPath = path.join(root, "content", "trend-insights.json");
 const trendInsights = fs.existsSync(trendInsightsPath)
   ? JSON.parse(fs.readFileSync(trendInsightsPath, "utf-8"))
-  : { patterns: [], themes: [] };
+  : { patterns: [], themes: [], keywords: [] };
 const trendPatterns = trendInsights.patterns ?? [];
 const trendThemes = trendInsights.themes ?? [];
+const trendKeywords = trendInsights.keywords ?? [];
 const trendPattern =
   trendPatterns.length > 0 ? trendPatterns[Math.floor(Math.random() * trendPatterns.length)] : null;
+const trendKeyword =
+  trendKeywords.length > 0 ? trendKeywords[Math.floor(Math.random() * trendKeywords.length)] : null;
 
 // 過去の平均再生数が高いジャンルほど選ばれやすくする(ただし実績が無い/少ないジャンルにも
 // 一定の確率を残し、開拓した新ジャンルが試される機会を確保する)。
@@ -227,10 +230,14 @@ ${
 - telop(画面表示用テキスト)は通常の漢字表記のままでよい
 
 # SEO対策のルール(重要・2026-08-07改訂)
-- (最重要)Shorts再生の9割以上は「おすすめフィード」経由で、検索経由は1割未満というデータがある。つまりSEOの主戦場はタイトルの検索キーワードではなく、視聴維持率・視聴完了率・ループ回数(=フィードのアルゴリズム評価指標)である。タイトルを検索キーワードで埋めることよりも、最後まで見たくなる・見返したくなる内容にすることを優先すること
-- titleは「答え・核心のネタバレ」を避けること。具体的な数字や結論を先に言い切ってしまうと(例:「〜は3つ！」「〜382日」のような断定)、見る前に満足してしまい視聴完了率が下がる。数字を使う場合も、答えではなく「信じがたい・矛盾している」という疑問形の引っかかりとして使うこと(例:「〜という記録がある?」ではなく「まさかの理由」「想定外の結末」のように、核心は動画を見ないとわからない状態を保つ)
-- ただし検索経由(1割未満だが存在する)のために、tagsには具体的キーワード(固有名詞・専門用語)と一般的キーワード(雑学,豆知識等)を両方含めること。titleほどキーワード最適化を優先しなくてよい
-- descriptionHookは、検索結果・スマホ画面で最初に表示される部分なので、動画の内容が一目で伝わる1文にすること(ただしtitle同様、核心の答えまでは書かない)
+- 検索キーワード最適化(tags・descriptionHookに具体的キーワードを含める)は引き続きSEOの中心的な柱として重視すること
+- ただしtitleについては、具体的すぎる数字・結論を言い切ってしまう「ネタバレ」は避けること(例:「〜は3つ！」「〜382日」のような断定)。見る前に答えが分かってしまうと視聴完了率が下がりスキップされやすくなるため。数字を使う場合も、答えそのものではなく「信じがたい・矛盾している」という引っかかりとして使うこと(例:「まさかの理由」「想定外の結末」のように、核心は動画を見ないとわからない状態を保つ)。検索キーワードは主にtags・descriptionHook側で担い、titleは視聴完了率(クリック後に最後まで見てもらえるか)を優先する役割分担にすること
+${
+  trendKeyword
+    ? `- (今週のトレンド調査より)可能であれば次の検索キーワード選定の傾向を参考にすること: 『${trendKeyword.pattern}』── ${trendKeyword.description}(参考例: ${trendKeyword.example})。tags・descriptionHookへの反映を優先し、titleでのネタバレには使わないこと`
+    : ""
+}
+- descriptionHookは、検索結果・スマホ画面で最初に表示される部分なので、動画の内容とキーワードが一目で伝わる1文にすること(ただしtitle同様、核心の答えまでは書かない)
 - outro(締め)のnarrationには、「チャンネル登録」の呼びかけに加えて、コメント欄でのやり取りを促す一言(例:「あなたはどう思う？コメントで教えて」)も自然な形で含めること(エンゲージメントはアルゴリズム評価に直結するため)
 - title・caption・descriptionHookを含む全てのテキストで、感嘆符・疑問符は必ず全角(！／？)を使うこと。半角(!／?)は使わない
 - seoNotesには、今回どう視聴維持率・エンゲージメントを意識したかを、日本語1〜2文で具体的に説明すること(例:「タイトルでは結論の数字を伏せて『まさかの理由』とだけ示し、動画内で明かす構成にした」)。抽象的な説明ではなく、実際の工夫を挙げて説明すること

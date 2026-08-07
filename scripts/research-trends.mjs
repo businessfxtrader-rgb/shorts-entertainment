@@ -30,12 +30,12 @@ const categoriesPath = path.join(root, "scripts", "categories.json");
 const categories = JSON.parse(fs.readFileSync(categoriesPath, "utf-8"));
 const genreNames = categories.map((c) => c.name).join("、");
 
-const prompt = `あなたはYouTube Shorts市場調査の専門家です。Web検索を使って、直近1〜2週間で日本語圏で伸びているYouTube Shortsに共通する「構造的なパターン」と「よく伸びているテーマ・内容の傾向」を調査してください。
+const prompt = `あなたはYouTube Shorts市場調査の専門家です。Web検索を使って、直近1〜2週間で日本語圏で伸びているYouTube Shortsに共通する「構造的なパターン」「よく伸びているテーマ・内容の傾向」「概要欄・タグの検索キーワード選定の傾向」を調査してください。
 
 # 調査対象の絞り込み
 うちのチャンネルは顔出し・声出しなしで、雑学・都市伝説・動物・心理学・文化・人体・生態・日本といったジャンル(現在の全ジャンル: ${genreNames})を扱っています。これに近い、ナレーション+シンプルな背景映像だけで成立するジャンルの動画を対象に調査してください。
 
-# 調査すべき観点(2種類)
+# 調査すべき観点(3種類)
 
 ## A. 構造パターン(タイトル・フック・構成の「型」)
 - タイトルの型(疑問形/断定形/数字型/伏せ字型/「〜理由」型など)で、今伸びやすいもの
@@ -47,8 +47,12 @@ const prompt = `あなたはYouTube Shorts市場調査の専門家です。Web�
 - うちの既存ジャンル(${genreNames})それぞれについて、今特に反応が良さそうな切り口があれば挙げる
 - 「日本人・日本文化を褒める系」「動物の見た目とのギャップ系」のような一般的なテーマ・カテゴリ自体は特定の誰かの著作物ではなく、同ジャンル内で複数の動画が同じテーマを扱うのは自然なことなので、遠慮せず具体的なテーマ名で報告してよい
 
+## C. 概要欄・タグの検索キーワード選定の傾向
+- 同ジャンルの伸びている動画が、概要欄冒頭やタグにどんな種類のキーワードを入れているか(例:一般語+固有名詞の組み合わせ方、季節性のあるキーワード、複合語での検索意図の拾い方など)
+- タイトルでは核心を明かさない代わりに、概要欄・タグでどう検索性を補っているか(タイトルはネタバレを避けるべきだが、概要欄・タグは検索キーワードを積極的に含めるべき、という前提で調査すること)
+
 # 重要な制約(著作権配慮)
-特定の動画の台本・セリフ・ナレーション文言をそのまま書き写さないこと(構造パターンのexampleも、テーマのexampleも、実在動画の引用ではなく一般化した例にすること)。ただし上記の通り、抽象度の高い「一般的なテーマ・題材のカテゴリ」を報告すること自体は問題ない。
+特定の動画の台本・セリフ・ナレーション文言をそのまま書き写さないこと(いずれの項目のexampleも、実在動画の引用ではなく一般化した例にすること)。ただし上記の通り、抽象度の高い「一般的なテーマ・題材のカテゴリ」や「キーワード選定の傾向」を報告すること自体は問題ない。
 
 # 出力JSON形式(このスキーマに厳密に従うこと。説明文やコードフェンスは一切つけず、JSONのみ出力)
 {
@@ -57,6 +61,9 @@ const prompt = `あなたはYouTube Shorts市場調査の専門家です。Web�
   ],
   "themes": [
     { "theme": "テーマ名(短い名前)", "description": "なぜ今反応が良いのかの説明(1〜2文)", "relatedGenre": "最も近い既存ジャンル名(なければ空文字)" }
+  ],
+  "keywords": [
+    { "pattern": "キーワード選定パターン名(短い名前)", "description": "何がなぜ効果的なのかの説明(1〜2文)", "example": "抽象化した一般的な例(実在動画の引用ではない)" }
   ],
   "summary": "全体的な傾向のまとめ(1〜2文)"
 }`;
@@ -103,6 +110,7 @@ if (!Array.isArray(result.patterns) || result.patterns.length === 0) {
 const output = {
   patterns: result.patterns.slice(0, 5),
   themes: Array.isArray(result.themes) ? result.themes.slice(0, 5) : [],
+  keywords: Array.isArray(result.keywords) ? result.keywords.slice(0, 5) : [],
   summary: result.summary ?? "",
   updatedAt: new Date().toISOString(),
 };
@@ -112,6 +120,9 @@ fs.writeFileSync(
   JSON.stringify(output, null, 2)
 );
 
-console.log(`OK: ${output.patterns.length}件のパターン・${output.themes.length}件のテーマを content/trend-insights.json に保存しました`);
+console.log(
+  `OK: ${output.patterns.length}件のパターン・${output.themes.length}件のテーマ・${output.keywords.length}件のキーワード傾向を content/trend-insights.json に保存しました`
+);
 output.patterns.forEach((p) => console.log(`  - [型] ${p.pattern}: ${p.description}`));
 output.themes.forEach((t) => console.log(`  - [テーマ] ${t.theme}: ${t.description}`));
+output.keywords.forEach((k) => console.log(`  - [キーワード] ${k.pattern}: ${k.description}`));
