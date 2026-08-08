@@ -66,13 +66,26 @@ const trendPattern =
 const trendKeyword =
   trendKeywords.length > 0 ? trendKeywords[Math.floor(Math.random() * trendKeywords.length)] : null;
 
-// 過去の平均再生数が高いジャンルほど選ばれやすくする(ただし実績が無い/少ないジャンルにも
-// 一定の確率を残し、開拓した新ジャンルが試される機会を確保する)。
+// ローテーション対策(2026-08-08追加): 直近(全ジャンル数-1)本以内に使われたジャンルは
+// 今回の抽選から除外する。こうすることで、一度伸びたジャンルの重みがどれだけ大きくても
+// 「必ず一巡してから次の巡目に入る」ことが保証される。実績が無い/一度も使われていない
+// ジャンルは当然この除外対象に入らないため、自動的に優先的な候補になる(コールドスタート対策も兼ねる)。
+// 以前は重み(下記)だけでジャンルを決めていたが、一度ヒットしたジャンルの重みが数百に達する
+// 一方で未使用ジャンルは基礎重みのままのため、実質的に一部ジャンルへ生成が偏る問題があった。
+const ROTATION_WINDOW = Math.max(0, CATEGORIES.length - 1);
+const recentlyUsedGenres = new Set(
+  usedTopics.slice(-ROTATION_WINDOW).map((t) => t.category)
+);
+const rotationEligible = CATEGORIES.filter((c) => !recentlyUsedGenres.has(c.name));
+const candidateCategories = rotationEligible.length > 0 ? rotationEligible : CATEGORIES;
+
+// 過去の平均再生数が高いジャンルほど選ばれやすくする(候補は上記でローテーション制御済みのため、
+// ここでの重み付けは「どの巡目内候補を優先するか」の役割に限定される)。
 // さらに、視聴維持率がチャンネル平均より高いジャンルは重みを増やし、低いジャンルは減らす
 // (再生数だけだと初期のアルゴリズム的な偏りに引っ張られやすいが、視聴維持率はコンテンツの
 // 質そのものを示すより安定した指標のため)。倍率は0.5〜2.0倍に制限してノイズの影響を抑える。
 const BASELINE_WEIGHT = 30;
-const weights = CATEGORIES.map((c) => {
+const weights = candidateCategories.map((c) => {
   const stat = categoryStats[c.name];
   const avgViews = stat?.avgViews ?? 0;
   const retention = stat?.avgRetentionPercentage;
@@ -92,7 +105,7 @@ for (let i = 0; i < weights.length; i++) {
     break;
   }
 }
-const category = CATEGORIES[categoryIndex];
+const category = candidateCategories[categoryIndex];
 
 // ジャンルとフォーマットは独立した軸として扱う(1ジャンルが複数フォーマットを持てる)。
 // 同じジャンルでも毎回どのフォーマットで語るかをランダムに選ぶ
