@@ -504,5 +504,18 @@
     "videoId": "VuXMwgHUXF0",
     "category": "文化",
     "format": "ranking"
+  },
+  {
+    "title": "太陽を1ミリにしたら地球はどうなる？",
+    "topics": [
+      "太陽1ミリなら地球は目に見えない大きさに",
+      "同じ縮尺で最も近い恒星まで約29メートル",
+      "天の川銀河全体は680キロの範囲に凝縮"
+    ],
+    "date": "2026-08-09",
+    "publishedAt": "2026-08-12T09:00:00.000Z",
+    "videoId": "T1QfXcPxni4",
+    "category": "宇宙",
+    "format": "simulation"
   }
 ]
