@@ -528,5 +528,18 @@
     "videoId": "4HAKM_PrKiA",
     "category": "ライフハック",
     "format": "qa"
+  },
+  {
+    "title": "失敗から生まれた発明ベスト3",
+    "topics": [
+      "マジックテープ誕生の意外なきっかけ",
+      "チョコチップクッキーはミスから誕生",
+      "電子レンジは軍事技術の副産物"
+    ],
+    "date": "2026-08-10",
+    "publishedAt": "2026-08-13T09:00:00.000Z",
+    "videoId": "z4Q6piPFw1o",
+    "category": "誕生秘話",
+    "format": "ranking"
   }
 ]
