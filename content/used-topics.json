@@ -613,5 +613,38 @@
     "videoId": "oVvLnErKTAs",
     "category": "生態",
     "format": "qa"
+  },
+  {
+    "title": "世界の傾いた建築、まさかの理由とは？",
+    "topics": [
+      "アムステルダムの家/タージ・マハルの塔/ピサの斜塔の傾きに隠された建築の理由"
+    ],
+    "date": "2026-08-20",
+    "publishedAt": "2026-08-21T03:00:00.000Z",
+    "videoId": "XcinrItaA9g",
+    "category": "建築",
+    "format": "qa"
+  },
+  {
+    "title": "なぜ満腹でも甘い物は入るのか？",
+    "topics": [
+      "「別腹」は気のせいではなく脳内物質オレキシンが満腹中枢を上書きする現象と判明"
+    ],
+    "date": "2026-08-20",
+    "publishedAt": "2026-08-21T09:00:00.000Z",
+    "videoId": "7E4N4qgyWIA",
+    "category": "グルメ",
+    "format": "qa"
+  },
+  {
+    "title": "深海は死の世界って本当？まさかの理由",
+    "topics": [
+      "水深200mで光が届かなくなる/マリアナ海溝は水圧1100気圧/鯨骨生物群集が深海の生態系を支える"
+    ],
+    "date": "2026-08-20",
+    "publishedAt": "2026-08-22T03:00:00.000Z",
+    "videoId": "GtShLaAjHQY",
+    "category": "深海",
+    "format": "qa"
   }
 ]
