@@ -56,6 +56,19 @@ GitHub Actionsの`schedule`(cron)は、公式ドキュメントにも明記さ�
   |---|---|---|---|
   | `shorts-daily-pipeline-trigger` | `daily-pipeline.yml` | `20 3,9,15,21 * * *` | 12:20・18:20・0:20・6:20 |
   | `shorts-watchdog-trigger` | `watchdog.yml` | `3 4,10 * * *` | 13:03・19:03 |
+
+### 3-4. 重複実行の防止(concurrency、2026-08-19追加)
+上記3-3の通り、`daily-pipeline.yml`は内部cron(12:13等)と外部cron-job.org(12:20等)がわずか7分差で二重に設定されている。動画生成は実測で1本あたり13〜35分、リトライが絡むと1時間以上かかることもあるため、前の実行が終わる前に次のトリガーが来て**同じジョブが同時に2つ動く**ケースが実際に起きていたとみられる(GitHub Actionsの請求分数が想定より早く尽きたことから発覚。ユーザー運用の別チャンネル(TACグループ)側の調査で先に指摘された)。
+
+対策として、3つのワークフロー(`daily-pipeline.yml`、`watchdog.yml`、`weekly-research.yml`)すべてに`concurrency`設定を追加した。
+
+```yaml
+concurrency:
+  group: <ワークフロー固有の名前>
+  cancel-in-progress: false
+```
+
+`cancel-in-progress: false`にしているのは、動画のアップロード処理中に強制終了させると中途半端な状態(部分的にアップロード済みだがシート未反映、等)が残りうるため。新しいトリガーは前の実行が終わるまでキューで待機する。
 - GitHub自身の`schedule`設定(3章の表)は削除せず併存させている。同時刻付近に二重発火しても、バッファが足りていれば何もせず終了するだけなので無害
 - 動作確認済み(2026-07-27、両ジョブとも「TEST RUN」でGitHub側から`204 No Content`を確認)
 

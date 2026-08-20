@@ -9,6 +9,15 @@ on:
     - cron: "13 3,9,15,21 * * *" # 毎日 12:13 / 18:13 / 0:13 / 6:13 JST
   workflow_dispatch: {}
 
+# 重複実行防止(2026-08-19追加): このパイプラインは最大3時間かかることがあり、内部cron(6時間おき)・
+# 外部cron-job.org・手動実行が重なるタイミングがあると、同じバッファに対して複数のジョブが同時に
+# 動画生成・YouTubeアップロードを行ってしまう恐れがある(Actions分数の浪費、意図しない重複投稿の
+# リスク)。cancel-in-progressはfalseにし、実行中のジョブを強制終了せず、新しいトリガーは
+# 前の実行が終わるまでキュー待ちにする(アップロード処理を中断させないため)。
+concurrency:
+  group: daily-pipeline
+  cancel-in-progress: false
+
 permissions:
   contents: write
 

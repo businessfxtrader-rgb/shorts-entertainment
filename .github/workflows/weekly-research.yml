@@ -5,6 +5,10 @@ on:
     - cron: "0 0 * * 1" # 00:00 UTC Monday = 09:00 JST Monday
   workflow_dispatch: {}
 
+concurrency:
+  group: weekly-research
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
