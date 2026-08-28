@@ -646,5 +646,44 @@
     "videoId": "GtShLaAjHQY",
     "category": "深海",
     "format": "qa"
+  },
+  {
+    "title": "身近な物に隠された想定外の理由ベスト3",
+    "topics": [
+      "QRコードの隅の四角の正体",
+      "缶コーヒーの底がへこむ理由",
+      "1円玉の製造費が示す衝撃の事実"
+    ],
+    "date": "2026-08-28",
+    "publishedAt": "2026-08-29T03:00:00.000Z",
+    "videoId": "cS2_c5HKxSg",
+    "category": "雑学",
+    "format": "ranking"
+  },
+  {
+    "title": "都市伝説、まさかの発端ベスト3",
+    "topics": [
+      "ポップキャンディとコーラで胃が破裂する噂",
+      "5秒ルールに科学的根拠なし",
+      "ニューヨーク下水道のワニ伝説の発端"
+    ],
+    "date": "2026-08-28",
+    "publishedAt": "2026-08-29T09:00:00.000Z",
+    "videoId": "U9-839NGxok",
+    "category": "都市伝説",
+    "format": "ranking"
+  },
+  {
+    "title": "人体はどこまで耐えられる？限界の記録3選",
+    "topics": [
+      "灼熱下での発汗量の記録",
+      "全身の9割熱傷からの生存記録",
+      "エベレストでの血中酸素記録"
+    ],
+    "date": "2026-08-28",
+    "publishedAt": "2026-08-30T03:00:00.000Z",
+    "videoId": "tYNzPSFF3hk",
+    "category": "人体",
+    "format": "ranking"
   }
 ]
