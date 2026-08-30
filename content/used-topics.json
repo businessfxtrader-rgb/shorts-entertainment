@@ -742,5 +742,18 @@
     "videoId": "FxS4f62GA1Q",
     "category": "ライフハック",
     "format": "qa"
+  },
+  {
+    "title": "世界的商品のまさかの誕生秘話ベスト3",
+    "topics": [
+      "絆創膏は妻のための手作り品だった",
+      "ジーンズは鉱夫のズボンの特許品だった",
+      "コカ・コーラは元々頭痛薬だった"
+    ],
+    "date": "2026-08-30",
+    "publishedAt": "2026-09-02T03:00:00.000Z",
+    "videoId": "PTm-anUBXTk",
+    "category": "誕生秘話",
+    "format": "ranking"
   }
 ]
