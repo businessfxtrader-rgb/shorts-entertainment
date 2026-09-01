@@ -69,7 +69,7 @@ jobs:
           for i in 1 2 3 4 5; do
             git push && exit 0
             echo "push rejected (attempt $i/5), rebasing onto latest main..."
-            git pull --rebase origin main
+            git pull --rebase --autostash origin main || true
             sleep 5
           done
           echo "::error::used-topics.json の push が5回失敗しました。手動でのマージが必要です。"
