@@ -829,5 +829,18 @@
     "videoId": "47YkTGEIH5k",
     "category": "生態",
     "format": "ranking"
+  },
+  {
+    "title": "直感は罠 扉を選んでください Pick a door!",
+    "topics": [
+      "地下施設で赤と青の扉から脱出方法を選ぶ設定",
+      "赤い扉の手形は内側からの痕跡という伏線",
+      "青い扉の低い唸り音は発電機か不穏な気配かという伏線"
+    ],
+    "date": "2026-09-02",
+    "publishedAt": "2026-09-05T09:00:00.000Z",
+    "videoId": "qwHQc_pqmFc",
+    "category": "二択扉",
+    "format": "choice"
   }
 ]
