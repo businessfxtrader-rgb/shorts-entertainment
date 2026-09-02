@@ -3,6 +3,7 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { google } from "googleapis";
+import { extractJson } from "./lib/extract-json.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -56,13 +57,6 @@ function runClaude(promptText) {
   });
 }
 
-function extractJson(text) {
-  const start = text.indexOf("{");
-  const end = text.lastIndexOf("}");
-  if (start === -1 || end === -1) throw new Error(`JSONが見つかりませんでした: ${text}`);
-  return JSON.parse(text.slice(start, end + 1));
-}
-
 function median(nums) {
   if (nums.length === 0) return 0;
   const sorted = [...nums].sort((a, b) => a - b);
@@ -98,12 +92,15 @@ if (candidates.length === 0) {
   process.exit(0);
 }
 
-// 再生数を一括取得
-const statsRes = await youtube.videos.list({
-  part: ["statistics", "status"],
-  id: candidates.map((t) => t.videoId),
-});
-const statsById = new Map(statsRes.data.items.map((v) => [v.id, v]));
+// 再生数を一括取得(YouTube Data APIのvideos.listは1回あたり最大50件までのため、
+// チャンネル成長で対象動画が増えるとまとめて渡せなくなる。50件ずつに分割して取得する)
+const statsById = new Map();
+const allVideoIds = candidates.map((t) => t.videoId);
+for (let i = 0; i < allVideoIds.length; i += 50) {
+  const chunk = allVideoIds.slice(i, i + 50);
+  const statsRes = await youtube.videos.list({ part: ["statistics", "status"], id: chunk });
+  statsRes.data.items.forEach((v) => statsById.set(v.id, v));
+}
 
 const withStats = candidates
   .map((t) => {

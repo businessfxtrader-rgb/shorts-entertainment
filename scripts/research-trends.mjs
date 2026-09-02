@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { extractJson } from "./lib/extract-json.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -70,7 +71,7 @@ const prompt = `あなたはYouTube Shorts市場調査の専門家です。Web�
 
 function runClaude(promptText) {
   return new Promise((resolve, reject) => {
-    const child = spawn("claude", ["-p", "--output-format", "text"], {
+    const child = spawn("claude", ["-p", "--output-format", "text", "--allowedTools", "WebSearch"], {
       shell: true,
       stdio: ["pipe", "pipe", "pipe"],
       env,
@@ -91,12 +92,6 @@ function runClaude(promptText) {
   });
 }
 
-function extractJson(text) {
-  const start = text.indexOf("{");
-  const end = text.lastIndexOf("}");
-  if (start === -1 || end === -1) throw new Error(`JSONが見つかりませんでした。出力: ${text}`);
-  return JSON.parse(text.slice(start, end + 1));
-}
 
 console.log("トレンドパターンを調査中...");
 const raw = await runClaude(prompt);

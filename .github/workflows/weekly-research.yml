@@ -36,22 +36,31 @@ jobs:
           echo '${{ secrets.YOUTUBE_TOKEN_JSON }}' > youtube-token.json
           echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service-account.json
 
+      # 以下5ステップは互いに独立した機能なので、それぞれ continue-on-error: true にしている。
+      # 以前はどれか1つが失敗すると後続が全てスキップされ、特に「SEO自動再試行」が
+      # 1ヶ月以上まったく実行されないという事態が起きていた(2026-09-01発覚・修正)。
       - name: Track video performance
+        continue-on-error: true
         run: node scripts/track-performance.mjs
 
       - name: Research new genres
+        continue-on-error: true
         run: node scripts/research-genres.mjs
 
       - name: Research trending Shorts patterns
+        continue-on-error: true
         run: node scripts/research-trends.mjs
 
       - name: Fetch impressions/CTR reports if available
+        continue-on-error: true
         run: node scripts/track-reach.mjs
 
       - name: Auto-retry SEO for underperforming videos
+        continue-on-error: true
         run: node scripts/auto-retry-seo.mjs
 
       - name: Commit updated data
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

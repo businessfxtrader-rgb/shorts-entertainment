@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { extractJson } from "./lib/extract-json.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -309,15 +310,6 @@ function runClaude(promptText) {
     child.stdin.write(promptText);
     child.stdin.end();
   });
-}
-
-function extractJson(text) {
-  const start = text.indexOf("{");
-  const end = text.lastIndexOf("}");
-  if (start === -1 || end === -1) {
-    throw new Error(`JSONが見つかりませんでした。出力: ${text}`);
-  }
-  return JSON.parse(text.slice(start, end + 1));
 }
 
 console.log(`claude -p で新しい台本を生成中...(ジャンル: ${category.name}, フォーマット: ${chosenFormat})`);

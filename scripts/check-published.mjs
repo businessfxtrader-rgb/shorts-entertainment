@@ -67,11 +67,15 @@ const oauth2Client = new google.auth.OAuth2(installed.client_id, installed.clien
 oauth2Client.setCredentials(tokens);
 const youtube = google.youtube({ version: "v3", auth: oauth2Client });
 
-const res = await youtube.videos.list({
-  part: ["status"],
-  id: candidates.map((t) => t.videoId),
-});
-const statusById = new Map(res.data.items.map((v) => [v.id, v.status.privacyStatus]));
+// videos.listは1回あたり最大50件まで(auto-retry-seo.mjsで同じ制限に実際に引っかかったため、
+// ここも念のため分割しておく。Watchdogが長期間止まると「予約済み」の滞留が50件を超えうる)
+const statusById = new Map();
+const candidateIds = candidates.map((t) => t.videoId);
+for (let i = 0; i < candidateIds.length; i += 50) {
+  const chunk = candidateIds.slice(i, i + 50);
+  const res = await youtube.videos.list({ part: ["status"], id: chunk });
+  res.data.items.forEach((v) => statusById.set(v.id, v.status.privacyStatus));
+}
 
 let publishedCount = 0;
 let errorCount = 0;
