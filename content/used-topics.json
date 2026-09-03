@@ -895,5 +895,18 @@
     "videoId": "qwHQc_pqmFc",
     "category": "二択扉",
     "format": "choice"
+  },
+  {
+    "title": "史上最大の建築ミステリー、まさかの真相",
+    "topics": [
+      "ローマ・パンテオンの無筋ドーム",
+      "トルコ・地下都市デリンクユ",
+      "レバノン・バールベック神殿の巨石"
+    ],
+    "date": "2026-09-03",
+    "publishedAt": "2026-09-06T03:00:00.000Z",
+    "videoId": "abzzg6kXbn4",
+    "category": "建築",
+    "format": "ranking"
   }
 ]
