@@ -921,5 +921,18 @@
     "videoId": "6XhE8TSs9F4",
     "category": "グルメ",
     "format": "ranking"
+  },
+  {
+    "title": "深海に潜む想定外の雑学ベスト3",
+    "topics": [
+      "深海魚の目が巨大化する理由",
+      "深海生物の発光する割合",
+      "人類の潜水艇最深記録"
+    ],
+    "date": "2026-09-04",
+    "publishedAt": "2026-09-07T03:00:00.000Z",
+    "videoId": "kT3GHriAZ6Y",
+    "category": "深海",
+    "format": "ranking"
   }
 ]
