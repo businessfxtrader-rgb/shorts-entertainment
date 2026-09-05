@@ -945,5 +945,18 @@
     "videoId": "Zmh-K9Evs7g",
     "category": "雑学",
     "format": "qa"
+  },
+  {
+    "title": "体にまつわる都市伝説、まさかの真相とは？",
+    "topics": [
+      "舌地図(味覚地図)は誤訳から生まれた俗説だった",
+      "スイカの種を飲み込んでも胃の中で発芽しない",
+      "静脈が青く見えるのは血が青いからではない"
+    ],
+    "date": "2026-09-05",
+    "publishedAt": "2026-09-08T03:00:00.000Z",
+    "videoId": "TtgAKTtXfUQ",
+    "category": "都市伝説",
+    "format": "ranking"
   }
 ]
