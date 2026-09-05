@@ -1,11 +1,17 @@
 name: Schedule Watchdog
 
-# daily-pipeline.yml(バッファ方式)が正常に機能しているかを2つの観点で確認する監視役。
+# daily-pipeline.yml(バッファ方式)が正常に機能しているかを3つの観点で確認する監視役。
 # GitHub Actions側のcronが遅延・スキップされても daily-pipeline.yml 自身は起動すらして
 # いないため自己検知できない。そのため「結果」そのものを直接チェックする。
 #   1) 予約投稿のバッファ(在庫)が十分にあるか(scripts/check-buffer.mjs)
 #   2) 予約公開の予定時刻を過ぎたのに、YouTube側でまだ公開されていない動画がないか
 #      (scripts/check-published.mjs)
+#   3) YouTube OAuthトークンが有効か(scripts/check-token.mjs、2026-09-05追加)
+#
+# 3は元々ローカルPC上のClaude Codeスケジュールタスクとして監視していたが、
+# 「PCが起動している時しか動かない」ため、クラウドで完結する自走化の方針と矛盾していた
+# (ユーザー指摘により、ここに移設)。GitHub Actions上で完結させることで、PCの起動状態に
+# 一切依存しない監視にしている。
 
 on:
   # メインの13:03・19:03 JSTトリガーは外部cron-job.org側で担っている(GitHub Actions側の
@@ -41,14 +47,30 @@ jobs:
           echo '${{ secrets.YOUTUBE_TOKEN_JSON }}' > youtube-token.json
           echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service-account.json
 
+      # 以下は互いに独立したチェックなので、それぞれ continue-on-error: true + if: always() にし、
+      # どれか1つが失敗しても他のチェックが必ず実行されるようにしている
+      # (weekly-research.ymlで同様の直列失敗バグを踏んだため、ここも同じ形にしてある)。
+      - name: Check YouTube OAuth token validity
+        id: token
+        if: always()
+        run: node scripts/check-token.mjs
+        continue-on-error: true
+
+      - name: Report expired token to sheet
+        if: always() && steps.token.outcome == 'failure'
+        run: node scripts/report-status.mjs エラー "YouTube OAuthトークンが失効している可能性があります。ローカルPCでnode scripts/youtube-auth.mjsを実行して再認証し、新しいトークンをGitHub Secrets(YOUTUBE_TOKEN_JSON)に反映してください。" "(トークン失効警告)"
+
       - name: Check remaining buffer of scheduled videos
         id: buffer
+        if: always()
         run: node scripts/check-buffer.mjs
         continue-on-error: true
 
       - name: Report low buffer to sheet
-        if: steps.buffer.outcome == 'failure'
+        if: always() && steps.buffer.outcome == 'failure'
         run: node scripts/report-status.mjs エラー "予約投稿のバッファが少なくなっています。daily-pipeline.ymlが正常に実行されていない可能性があります。Actionsタブから手動実行(Run workflow)して状況を確認してください。" "(バッファ残量警告)"
 
       - name: Check for overdue unpublished videos
+        if: always()
         run: node scripts/check-published.mjs
+        continue-on-error: true
