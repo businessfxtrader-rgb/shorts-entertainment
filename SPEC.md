@@ -254,7 +254,7 @@ git pull --rebase --autostash origin main || true
 - **コメント自動返信**(`scripts/reply-comments.mjs`)
   - 1回の実行で最大3件まで返信
   - 返信文は15パターン(X誘導あり10パターン/なし4パターン)からランダム選択、確率はX誘導あり70%・なし30%
-  - X誘導文言には`https://x.com/kyukei_sokuho`を記載
+  - X誘導文言には`https://x.com/sakanachan_love`を記載
   - 返信済みコメントは`content/replied-comments.json`で管理し、二重返信を防止
   - 同一文面の連投・大量返信を避けることで凍結リスクを低減
 

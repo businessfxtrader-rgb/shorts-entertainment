@@ -8,7 +8,7 @@ const root = path.join(__dirname, "..");
 
 const MAX_REPLIES_PER_RUN = 3;
 
-const X_URL = "https://x.com/kyukei_sokuho";
+const X_URL = "https://x.com/sakanachan_love";
 
 // Xへの案内を含む返信(言い回しを変えたパターン。毎回同じ文面だとスパム判定のリスクがあるため)
 const TEMPLATES_WITH_LINK = [
