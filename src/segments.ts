@@ -7,9 +7,9 @@ export type Segment = {
 };
 
 export const segments: Segment[] = [
-  { id: "hook", caption: ["その常識、実は","世界の非常識かも?"] },
-  { id: "rank3", badge: "第3位", caption: ["首振りが","真逆の国がある"] },
-  { id: "rank2", badge: "第2位", caption: ["食事は","右手だけが常識"] },
-  { id: "rank1", badge: "第1位", caption: ["麺をすする音は","世界では非常識?"] },
-  { id: "outro", caption: ["世界はもっと","おもしろい"] },
+  { id: "hook", caption: ["数学最難関のテストで","正答率97%超えの新型AI"] },
+  { id: "rank3", caption: ["開発元はOpenAI","ARC-AGI-3で99.9%"] },
+  { id: "rank2", caption: ["複数アプリをまたいで","自動操作するAI機能"] },
+  { id: "rank1", caption: ["GPT-6 Astra誕生","入力10ドル・出力50ドル"] },
+  { id: "outro", caption: ["SFではなく実在するAI","チャンネル登録お願い！"] },
 ];

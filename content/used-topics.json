@@ -930,7 +930,7 @@
       "人類の潜水艇最深記録"
     ],
     "date": "2026-09-04",
-    "publishedAt": "2026-09-07T03:00:00.000Z",
+    "publishedAt": "2026-09-10T03:00:00.000Z",
     "videoId": "kT3GHriAZ6Y",
     "category": "深海",
     "format": "ranking"
@@ -997,5 +997,16 @@
     "videoId": "FeM1noz7vTM",
     "category": "歴史",
     "format": "simulation"
+  },
+  {
+    "title": "GPT-6 Astra、人間超えの真相とは？",
+    "topics": [
+      "FrontierMath97%超え/ARC-AGI-3 99.9%/GPT-6 Astra誕生"
+    ],
+    "date": "2026-09-06",
+    "publishedAt": "2026-09-07T03:00:00.000Z",
+    "videoId": "a_wUna9mWpM",
+    "category": "テック速報",
+    "format": "qa"
   }
 ]
