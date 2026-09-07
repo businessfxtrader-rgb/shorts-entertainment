@@ -282,7 +282,7 @@
     "viewsAtRetry": 133
   },
   {
-    "title": "毎晩23時に届く謎の小箱、差出人の正体に涙",
+    "title": "毎晩23時に届く謎の小箱、まさかの差出人に涙",
     "topics": [
       "毎晩23時に届く謎の小箱、差出人の正体に涙"
     ],
@@ -290,7 +290,10 @@
     "publishedAt": "2026-08-02T09:00:00.000Z",
     "videoId": "l3gP9xHFjt4",
     "category": "ショートストーリー",
-    "format": "simulation"
+    "format": "simulation",
+    "seoRetriedAt": "2026-09-07T03:27:07.658Z",
+    "seoRetryCount": 1,
+    "viewsAtRetry": 447
   },
   {
     "title": "「だめ」の語源に驚愕！日本語ベスト3",
@@ -593,7 +596,7 @@
     "viewsAtRetry": 118
   },
   {
-    "title": "史上最恐の一夜に潜む怪異ベスト3",
+    "title": "エレベーターと写真、そして声の話",
     "topics": [
       "存在しない階で止まるエレベーター",
       "写真に写り込むもう一人の影",
@@ -603,7 +606,10 @@
     "publishedAt": "2026-08-14T03:00:00.000Z",
     "videoId": "_weRn9T4xxU",
     "category": "怖い話",
-    "format": "ranking"
+    "format": "ranking",
+    "seoRetriedAt": "2026-09-07T03:27:07.658Z",
+    "seoRetryCount": 1,
+    "viewsAtRetry": 281
   },
   {
     "title": "「古い時計修理店なんて時代遅れでしょ」と鼻で笑ったデザイナーが、亡き父の腕時計を託して知った衝撃の真実に涙腺崩壊",
@@ -751,7 +757,7 @@
     "format": "qa"
   },
   {
-    "title": "なぜチューリップが家より高く売れたのか",
+    "title": "チューリップが家より高くなったまさかの理由とは？",
     "topics": [
       "オスマン帝国伝来のチューリップブーム/先物取引で価格が数十倍に高騰/美しい模様の正体はウイルス感染だった"
     ],
@@ -759,7 +765,10 @@
     "publishedAt": "2026-08-31T03:00:00.000Z",
     "videoId": "OmbWXyaTLqU",
     "category": "歴史",
-    "format": "qa"
+    "format": "qa",
+    "seoRetriedAt": "2026-09-07T03:27:07.658Z",
+    "seoRetryCount": 1,
+    "viewsAtRetry": 7
   },
   {
     "title": "世界の「これはアウト」な習慣とは？",
