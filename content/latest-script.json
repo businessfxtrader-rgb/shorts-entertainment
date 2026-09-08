@@ -1,29 +1,29 @@
 {
-  "title": "GPT-6 Astraの使い方ガイド！料金・機能を解説",
+  "title": "GPT-6 Astraで何ができる？性能・料金まとめ",
   "topics": [
-    "FrontierMath97%超え/ARC-AGI-3 99.9%/GPT-6 Astra誕生"
+    "できること/性能/料金"
   ],
-  "descriptionHook": "2026年9月3日登場の最新AIモデル「GPT-6 Astra」の使い方・料金・特徴を解説します。",
+  "descriptionHook": "2026年9月3日登場のGPT-6 Astraで何ができるのか、性能・料金をまとめて解説します。",
   "tags": [
     "GPT-6 Astra",
-    "GPT-6 Astra 使い方",
+    "GPT-6 Astra できること",
+    "GPT-6 Astra 性能",
     "GPT-6 Astra 料金",
     "OpenAI",
     "ChatGPT",
     "最新AI",
-    "AIモデル",
     "テック速報"
   ],
-  "seoNotes": "タイトルと冒頭ではモデル名や正答率の桁を伏せ気味にし「人間超えの真相」とだけ示して核心はrank1まで保留、outroでは実在サービスであることの強調とコメント誘導を入れてエンゲージメントを高めた。",
+  "seoNotes": "話題性が高く検索意図が『詳しく知りたい』側にあるトピックのため、謎解き型で名称を伏せず、タイトル・冒頭で『GPT-6 Astra』と明示して使い方・料金にすぐ辿り着ける実用重視の構成にした。",
   "segments": [
     {
       "id": "hook",
       "badge": null,
       "caption": [
-        "数学最難関のテストで",
-        "正答率97%超えの新型AI"
+        "GPT-6 Astra登場",
+        "使い方まるごと解説"
       ],
-      "narration": "数学の最難関テストで正答率97%超えを記録した新型AIが2026年9月3日に登場したって知っていますか？",
+      "narration": "2026年9月3日に登場した最新AIモデル、GPT-6 Astraの使い方や料金までまとめて解説します。",
       "pexelsQuery": "futuristic artificial intelligence technology"
     },
     {
@@ -33,7 +33,7 @@
         "開発元はOpenAI",
         "ARC-AGI-3で99.9%"
       ],
-      "narration": "開発したのはOpenAI。前世代のGPT-5.6 Solの後継として、パズル推論の最難関ARC-AGI-3で99.9%というほぼ満点を記録しました。",
+      "narration": "開発したのはOpenAI。前世代のGPT-5.6 Solの後継として、パズル推論の最難関ARC-AGI-3で99.9%というほぼ満点を記録する性能を持っています。",
       "pexelsQuery": "computer programming code screen close up"
     },
     {
@@ -43,17 +43,17 @@
         "複数アプリをまたいで",
         "自動操作するAI機能"
       ],
-      "narration": "人が使うようにソフトを操作し、複数のアプリをまたいで作業を代行するコンピュータユース機能も、この新型AIでは大幅に強化されています。",
+      "narration": "人が使うようにソフトを操作し、複数のアプリをまたいで作業を代行するコンピュータユース機能も大幅に強化されています。",
       "pexelsQuery": "person using laptop multiple windows work"
     },
     {
       "id": "rank1",
       "badge": null,
       "caption": [
-        "GPT-6 Astra誕生",
+        "気になる料金は？",
         "入力10ドル・出力50ドル"
       ],
-      "narration": "その正体は2026年9月3日登場のGPT-6 Astra。API料金は入力100万トークン10ドル、出力50ドルで、ChatGPTのPlusプランなどで使えます。",
+      "narration": "気になる料金はAPI経由で入力100万トークン10ドル、出力50ドル。ChatGPTのPlusプランなどからもすぐ使い始められます。",
       "pexelsQuery": "AI chatbot interface futuristic screen"
     },
     {
@@ -63,7 +63,7 @@
         "SFではなく実在するAI",
         "チャンネル登録お願い！"
       ],
-      "narration": "SFではなく実在するサービスです。あなたはどう思う？コメントで教えて。チャンネル登録もお願いします。",
+      "narration": "SFではなく、もう使える実在のサービスです。あなたはどう使ってみたい？コメントで教えて。チャンネル登録もお願いします。",
       "pexelsQuery": "subscribe button social media notification"
     }
   ],

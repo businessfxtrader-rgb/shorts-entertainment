@@ -982,7 +982,7 @@
     "format": "ranking"
   },
   {
-    "title": "実は物騒だった日本語の語源ベスト3",
+    "title": "意外な日本語の語源3選",
     "topics": [
       "「ぼんくら」は賭博の暗い盆が由来",
       "「グレる」は貝の名前が由来",
@@ -1056,5 +1056,16 @@
     "videoId": "dy5uQcskPlE",
     "category": "宇宙",
     "format": "simulation"
+  },
+  {
+    "title": "GPT-6 Astraで何ができる？性能・料金まとめ",
+    "topics": [
+      "できること/性能/料金"
+    ],
+    "date": "2026-09-07",
+    "publishedAt": "2026-09-07T05:34:43.555Z",
+    "videoId": "4KgAv41WjUE",
+    "category": "テック速報",
+    "format": "qa"
   }
 ]
