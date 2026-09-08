@@ -67,6 +67,21 @@ const trendPattern =
 const trendKeyword =
   trendKeywords.length > 0 ? trendKeywords[Math.floor(Math.random() * trendKeywords.length)] : null;
 
+// 競合リサーチ結果(scripts/research-competitors.mjs)。実在の伸びているショート動画から
+// 抽出したタイトル型・フック型・テーマ傾向。存在すればランダムに1件ずつプロンプトに混ぜる
+// (youtube-seo-skillsのyoutube-seo-competitorスキルの考え方を軽量に取り込んだもの)
+const competitorInsightsPath = path.join(root, "content", "competitor-insights.json");
+const competitorInsights = fs.existsSync(competitorInsightsPath)
+  ? JSON.parse(fs.readFileSync(competitorInsightsPath, "utf-8"))
+  : { titleFormulas: [], hookPatterns: [], themePatterns: [] };
+const titleFormulas = competitorInsights.titleFormulas ?? [];
+const hookPatternsList = competitorInsights.hookPatterns ?? [];
+const themePatternsList = competitorInsights.themePatterns ?? [];
+const titleFormula =
+  titleFormulas.length > 0 ? titleFormulas[Math.floor(Math.random() * titleFormulas.length)] : null;
+const hookPattern =
+  hookPatternsList.length > 0 ? hookPatternsList[Math.floor(Math.random() * hookPatternsList.length)] : null;
+
 // ローテーション対策(2026-08-08追加): 直近(全ジャンル数-1)本以内に使われたジャンルは
 // 今回の抽選から除外する。こうすることで、一度伸びたジャンルの重みがどれだけ大きくても
 // 「必ず一巡してから次の巡目に入る」ことが保証される。実績が無い/一度も使われていない
@@ -116,6 +131,12 @@ const chosenFormat = category.formats[Math.floor(Math.random() * category.format
 const matchingThemes = trendThemes.filter((t) => t.relatedGenre === category.name);
 const themePool = matchingThemes.length > 0 ? matchingThemes : trendThemes;
 const trendTheme = themePool.length > 0 ? themePool[Math.floor(Math.random() * themePool.length)] : null;
+
+// 競合テーマ傾向も同様に、選ばれたジャンルに一致するものを優先する
+const matchingCompetitorThemes = themePatternsList.filter((t) => t.genre === category.displayGenre || t.genre === category.name);
+const competitorThemePool = matchingCompetitorThemes.length > 0 ? matchingCompetitorThemes : themePatternsList;
+const competitorTheme =
+  competitorThemePool.length > 0 ? competitorThemePool[Math.floor(Math.random() * competitorThemePool.length)] : null;
 
 const FORMAT_SPECS = {
   simulation: {
@@ -245,6 +266,21 @@ ${
 ${
   trendTheme
     ? `- (今週のトレンド調査より)可能であれば次のテーマ・切り口を今回のトピック選定に取り入れてみること: 『${trendTheme.theme}』── ${trendTheme.description}。このジャンル(${category.name})の内容として不自然にならない場合のみ採用すること`
+    : ""
+}
+${
+  titleFormula
+    ? `- (競合リサーチより。実在の伸びているショート動画のタイトルから抽出した型で、参考例も実在のタイトルだが、コピーではなく型として応用すること)可能であればtitleに次の型を取り入れてみること: 『${titleFormula.pattern}』── ${titleFormula.description}(参考例: ${titleFormula.example})。上記のネタバレ禁止ルールと矛盾する場合はネタバレ禁止ルールを優先すること`
+    : ""
+}
+${
+  hookPattern
+    ? `- (競合リサーチより)可能であればフック(hookセグメント)の作り方に次の型を取り入れてみること: 『${hookPattern.pattern}』── ${hookPattern.description}`
+    : ""
+}
+${
+  competitorTheme
+    ? `- (競合リサーチより)参考情報: このジャンル・近縁ジャンルでは現在『${competitorTheme.insight}』という傾向が見られる。著作権のあるキャラクター・作品への言及が絶対禁止という制約は変わらず適用した上で、参考にできる場合のみ取り入れること`
     : ""
 }
 

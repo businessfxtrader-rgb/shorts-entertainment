@@ -1,73 +1,75 @@
 {
-  "title": "GPT-6 Astraで何ができる？性能・料金まとめ",
+  "title": "史上最高に得する裏技ベスト3",
   "topics": [
-    "できること/性能/料金"
+    "靴の消臭は新聞紙で解決",
+    "機内モードで充電が加速",
+    "お湯の方が早く凍ることがある"
   ],
-  "descriptionHook": "2026年9月3日登場のGPT-6 Astraで何ができるのか、性能・料金をまとめて解説します。",
+  "descriptionHook": "靴の消臭・充電速度・氷の凍る速さ、今日から使える裏技ベスト3を一気に紹介。",
   "tags": [
-    "GPT-6 Astra",
-    "GPT-6 Astra できること",
-    "GPT-6 Astra 性能",
-    "GPT-6 Astra 料金",
-    "OpenAI",
-    "ChatGPT",
-    "最新AI",
-    "テック速報"
+    "裏技",
+    "ライフハック",
+    "生活の知恵",
+    "時短術",
+    "便利技",
+    "豆知識",
+    "雑学",
+    "得する情報"
   ],
-  "seoNotes": "話題性が高く検索意図が『詳しく知りたい』側にあるトピックのため、謎解き型で名称を伏せず、タイトル・冒頭で『GPT-6 Astra』と明示して使い方・料金にすぐ辿り着ける実用重視の構成にした。",
+  "seoNotes": "タイトルでは結論の数字や具体的な方法を伏せて『得する裏技』とだけ示し、動画内で明かす構成にした。また終盤でお湯派か常温派かを問いかけるコメント誘導を入れ、エンゲージメントを狙った。",
   "segments": [
     {
       "id": "hook",
       "badge": null,
       "caption": [
-        "GPT-6 Astra登場",
-        "使い方まるごと解説"
+        "面倒な家事が一瞬に",
+        "今日から得する裏技3選"
       ],
-      "narration": "2026年9月3日に登場した最新AIモデル、GPT-6 Astraの使い方や料金までまとめて解説します。",
-      "pexelsQuery": "futuristic artificial intelligence technology"
+      "narration": "面倒な家事も一瞬で変わる、今日から使える裏技があります。知らないと損する3つを最後まで見てください。",
+      "pexelsQuery": "person doing household chores time lapse"
     },
     {
       "id": "rank3",
-      "badge": null,
+      "badge": "第3位",
       "caption": [
-        "開発元はOpenAI",
-        "ARC-AGI-3で99.9%"
+        "丸めた新聞紙で靴を消臭",
+        "一晩でにおいが激減"
       ],
-      "narration": "開発したのはOpenAI。前世代のGPT-5.6 Solの後継として、パズル推論の最難関ARC-AGI-3で99.9%というほぼ満点を記録する性能を持っています。",
-      "pexelsQuery": "computer programming code screen close up"
+      "narration": "第3位、実は靴の臭いを消すのに特別な消臭剤は要りません。丸めた新聞紙を靴の中に入れて一晩置くだけで、湿気とにおいを吸収し翌朝には軽減します。",
+      "pexelsQuery": "shoes with newspaper inside closet"
     },
     {
       "id": "rank2",
-      "badge": null,
+      "badge": "第2位",
       "caption": [
-        "複数アプリをまたいで",
-        "自動操作するAI機能"
+        "機内モードで充電速度アップ",
+        "通信オフで消費電力減"
       ],
-      "narration": "人が使うようにソフトを操作し、複数のアプリをまたいで作業を代行するコンピュータユース機能も大幅に強化されています。",
-      "pexelsQuery": "person using laptop multiple windows work"
+      "narration": "第2位、充電を急ぐときはコンセントの種類より先に見直すべき設定があります。機内モードにすると通信機能が止まり、消費電力が減るぶん充電速度が体感できるほど上がります。",
+      "pexelsQuery": "smartphone airplane mode charging"
     },
     {
       "id": "rank1",
-      "badge": null,
+      "badge": "第1位",
       "caption": [
-        "気になる料金は？",
-        "入力10ドル・出力50ドル"
+        "常温水よりお湯が先に凍る",
+        "ムペンバ効果という現象"
       ],
-      "narration": "気になる料金はAPI経由で入力100万トークン10ドル、出力50ドル。ChatGPTのPlusプランなどからもすぐ使い始められます。",
-      "pexelsQuery": "AI chatbot interface futuristic screen"
+      "narration": "第1位、氷を早く作りたいなら常温水よりお湯を使うほうが有利です。条件がそろえば、高温の水が低温の水より先に凍るムペンバ効果と呼ばれる現象が実際に観測されています。",
+      "pexelsQuery": "ice cube freezing water close up"
     },
     {
       "id": "outro",
       "badge": null,
       "caption": [
-        "SFではなく実在するAI",
-        "チャンネル登録お願い！"
+        "お湯派？常温派？",
+        "チャンネル登録して待ってます"
       ],
-      "narration": "SFではなく、もう使える実在のサービスです。あなたはどう使ってみたい？コメントで教えて。チャンネル登録もお願いします。",
-      "pexelsQuery": "subscribe button social media notification"
+      "narration": "氷を作るなら、お湯派？常温派？コメントで教えてください。もっと知りたい人はチャンネル登録して待っています。",
+      "pexelsQuery": "young woman smiling talking to camera"
     }
   ],
-  "category": "テック速報",
-  "format": "qa",
-  "displayGenre": "テック速報"
+  "category": "ライフハック",
+  "format": "ranking",
+  "displayGenre": "ライフハック"
 }

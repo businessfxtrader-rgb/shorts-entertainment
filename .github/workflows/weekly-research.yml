@@ -51,6 +51,10 @@ jobs:
         continue-on-error: true
         run: node scripts/research-trends.mjs
 
+      - name: Research competitor title/hook patterns
+        continue-on-error: true
+        run: node scripts/research-competitors.mjs
+
       - name: Fetch impressions/CTR reports if available
         continue-on-error: true
         run: node scripts/track-reach.mjs
