@@ -13,3 +13,5 @@ out
 # Generated per-run media (regenerated fresh every pipeline run)
 public/audio/*.mp3
 public/bg/*.mp4
+public/bg/*.jpg
+public/bg/*.png

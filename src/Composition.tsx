@@ -3,11 +3,14 @@ import {
   Audio,
   CalculateMetadataFunction,
   Composition,
+  Img,
   Loop,
   OffthreadVideo,
   Sequence,
   Series,
+  interpolate,
   staticFile,
+  useCurrentFrame,
 } from "remotion";
 import { parseMedia } from "@remotion/media-parser";
 import { webReader } from "@remotion/media-parser/web";
@@ -44,19 +47,25 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async () => {
       fields: { durationInSeconds: true },
       reader: webReader,
     });
-    const { durationInSeconds: videoDuration } = await parseMedia({
-      src: staticFile(`bg/${seg.id}.mp4`),
-      fields: { durationInSeconds: true },
-      reader: webReader,
-    });
 
     const segmentDurationInSeconds = LEAD_IN_SEC + (audioDuration ?? 2) + TAIL_SEC;
+
+    // 実写真(静止画)の場合はループ不要。Pexels動画のみ尺を調べてループフレーム数を決める
+    let bgLoopFrames = Math.round(segmentDurationInSeconds * FPS);
+    if (seg.bgType === "video") {
+      const { durationInSeconds: videoDuration } = await parseMedia({
+        src: staticFile(`bg/${seg.id}.${seg.bgExt}`),
+        fields: { durationInSeconds: true },
+        reader: webReader,
+      });
+      bgLoopFrames = Math.max(1, Math.round((videoDuration ?? 5) * FPS));
+    }
 
     timings.push({
       id: seg.id,
       durationInFrames: Math.round(segmentDurationInSeconds * FPS),
       narrationStartFrame: Math.round(LEAD_IN_SEC * FPS),
-      bgLoopFrames: Math.max(1, Math.round((videoDuration ?? 5) * FPS)),
+      bgLoopFrames,
     });
   }
 
@@ -88,6 +97,32 @@ export const ShortsVideo = () => {
   );
 };
 
+// 実写真(静止画)用のゆっくりズームイン効果(いわゆるケンバーンズ効果)。
+// ストック動画のような動きが無いと静止画は間延びして見えるための対策
+const KenBurnsImage: React.FC<{ src: string; durationInFrames: number }> = ({
+  src,
+  durationInFrames,
+}) => {
+  const frame = useCurrentFrame();
+  const scale = interpolate(frame, [0, durationInFrames], [1, 1.12], {
+    extrapolateRight: "clamp",
+  });
+  const translateX = interpolate(frame, [0, durationInFrames], [0, -12], {
+    extrapolateRight: "clamp",
+  });
+  return (
+    <Img
+      src={src}
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        transform: `scale(${scale}) translateX(${translateX}px)`,
+      }}
+    />
+  );
+};
+
 const ShortsVideoComponent: React.FC<Props> = ({ timings }) => {
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
@@ -97,13 +132,20 @@ const ShortsVideoComponent: React.FC<Props> = ({ timings }) => {
           return (
             <Series.Sequence key={timing.id} durationInFrames={timing.durationInFrames}>
               <AbsoluteFill>
-                <Loop durationInFrames={timing.bgLoopFrames}>
-                  <OffthreadVideo
-                    src={staticFile(`bg/${timing.id}.mp4`)}
-                    muted
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                {seg.bgType === "image" ? (
+                  <KenBurnsImage
+                    src={staticFile(`bg/${timing.id}.${seg.bgExt}`)}
+                    durationInFrames={timing.durationInFrames}
                   />
-                </Loop>
+                ) : (
+                  <Loop durationInFrames={timing.bgLoopFrames}>
+                    <OffthreadVideo
+                      src={staticFile(`bg/${timing.id}.${seg.bgExt}`)}
+                      muted
+                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                  </Loop>
+                )}
                 <AbsoluteFill
                   style={{
                     background:

@@ -127,6 +127,7 @@ for (const slot of slotsToFill) {
   try {
     await runWithRetry("generate-script.mjs", () => runOnce("generate-script.mjs"));
     await runWithRetry("generate-tts.mjs", () => runOnce("generate-tts.mjs"));
+    runNodeSoft("fetch-real-photo.mjs");
     await runWithRetry("auto-fetch-bg.mjs", () => runOnce("auto-fetch-bg.mjs"));
     await runWithRetry("select-bgm.mjs", () => runOnce("select-bgm.mjs"));
     await runWithRetry("write-segments.mjs", () => runOnce("write-segments.mjs"));

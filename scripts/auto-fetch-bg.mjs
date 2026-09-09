@@ -50,6 +50,13 @@ const outDir = path.join(root, "public", "bg");
 fs.mkdirSync(outDir, { recursive: true });
 
 for (const seg of latestScript.segments) {
+  // fetch-real-photo.mjsが実写真を取得済みなら、Pexelsの取得はスキップする
+  const hasRealPhoto = fs.existsSync(path.join(outDir, `${seg.id}.jpg`)) || fs.existsSync(path.join(outDir, `${seg.id}.png`));
+  if (hasRealPhoto) {
+    console.log(`SKIP: ${seg.id} は実写真を使用するためPexels映像は取得しません`);
+    continue;
+  }
+
   const data = await search(seg.pexelsQuery);
   const video = data.videos?.[0];
   if (!video) {

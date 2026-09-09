@@ -4,12 +4,14 @@ export type Segment = {
   id: SegmentId;
   badge?: string;
   caption: string[];
+  bgType: "image" | "video";
+  bgExt: "jpg" | "png" | "mp4";
 };
 
 export const segments: Segment[] = [
-  { id: "hook", caption: ["GPT-6 Astra登場","使い方まるごと解説"] },
-  { id: "rank3", caption: ["開発元はOpenAI","ARC-AGI-3で99.9%"] },
-  { id: "rank2", caption: ["複数アプリをまたいで","自動操作するAI機能"] },
-  { id: "rank1", caption: ["気になる料金は？","入力10ドル・出力50ドル"] },
-  { id: "outro", caption: ["SFではなく実在するAI","チャンネル登録お願い！"] },
+  { id: "hook", caption: ["神殿・遺跡・超高層ビル","共通する衝撃の建築の秘密"], bgType: "video", bgExt: "mp4" },
+  { id: "rank3", badge: "第3位", caption: ["パルテノン神殿は直線ゼロ","遠近法を計算した設計"], bgType: "image", bgExt: "jpg" },
+  { id: "rank2", badge: "第2位", caption: ["チチェン・イッツァ遺跡","手拍子が鳥の声に変化"], bgType: "image", bgExt: "jpg" },
+  { id: "rank1", badge: "第1位", caption: ["台北101・高さ300m","728トンの鉄球で制振"], bgType: "image", bgExt: "jpg" },
+  { id: "outro", caption: ["他の建築ミステリーも","チャンネル登録して待ってて"], bgType: "video", bgExt: "mp4" },
 ];

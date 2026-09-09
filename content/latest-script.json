@@ -1,75 +1,82 @@
 {
-  "title": "史上最高に得する裏技ベスト3",
+  "title": "史上最強の建築ミステリー、まさかの秘密",
   "topics": [
-    "靴の消臭は新聞紙で解決",
-    "機内モードで充電が加速",
-    "お湯の方が早く凍ることがある"
+    "パルテノン神殿の柱が直線でない理由",
+    "チチェン・イッツァの鳥のこだま現象",
+    "台北101の728トン制振ダンパー"
   ],
-  "descriptionHook": "靴の消臭・充電速度・氷の凍る速さ、今日から使える裏技ベスト3を一気に紹介。",
+  "descriptionHook": "パルテノン神殿、チチェン・イッツァ、台北101 ― 世界的建築に隠された仰天の設計の秘密を一気に解説。",
   "tags": [
-    "裏技",
-    "ライフハック",
-    "生活の知恵",
-    "時短術",
-    "便利技",
-    "豆知識",
-    "雑学",
-    "得する情報"
+    "建築雑学",
+    "パルテノン神殿",
+    "チチェン・イッツァ",
+    "台北101",
+    "古代遺跡",
+    "建築ミステリー",
+    "マヤ文明",
+    "制振装置",
+    "世界遺産",
+    "雑学ランキング"
   ],
-  "seoNotes": "タイトルでは結論の数字や具体的な方法を伏せて『得する裏技』とだけ示し、動画内で明かす構成にした。また終盤でお湯派か常温派かを問いかけるコメント誘導を入れ、エンゲージメントを狙った。",
+  "seoNotes": "タイトルでは各建造物の具体的な仕掛けの内容は伏せて『まさかの秘密』とだけ示し視聴完了率を優先しつつ、descriptionHook冒頭に建造物名を並べて検索性を確保した。outroでは『あなたが一番驚いたのはどれ？』とコメントを促しエンゲージメントを狙った。",
   "segments": [
     {
       "id": "hook",
       "badge": null,
       "caption": [
-        "面倒な家事が一瞬に",
-        "今日から得する裏技3選"
+        "神殿・遺跡・超高層ビル",
+        "共通する衝撃の建築の秘密"
       ],
-      "narration": "面倒な家事も一瞬で変わる、今日から使える裏技があります。知らないと損する3つを最後まで見てください。",
-      "pexelsQuery": "person doing household chores time lapse"
+      "narration": "神殿もピラミッドも超高層ビルも、完璧に見える世界の建築ほど、実は驚くほど常識外れの仕掛けで支えられている。",
+      "pexelsQuery": "ancient temple ruins architecture aerial",
+      "realPhotoSubject": null
     },
     {
       "id": "rank3",
       "badge": "第3位",
       "caption": [
-        "丸めた新聞紙で靴を消臭",
-        "一晩でにおいが激減"
+        "パルテノン神殿は直線ゼロ",
+        "遠近法を計算した設計"
       ],
-      "narration": "第3位、実は靴の臭いを消すのに特別な消臭剤は要りません。丸めた新聞紙を靴の中に入れて一晩置くだけで、湿気とにおいを吸収し翌朝には軽減します。",
-      "pexelsQuery": "shoes with newspaper inside closet"
+      "narration": "パルテノン神殿は完璧な直線美の象徴に見えるが、実は柱も床も1本もまっすぐではない。人の目に生じる遠近のゆがみを打ち消すため、あえて曲線で設計されている。",
+      "pexelsQuery": "Parthenon Athens columns ancient Greek temple",
+      "realPhotoSubject": "パルテノン神殿"
     },
     {
       "id": "rank2",
       "badge": "第2位",
       "caption": [
-        "機内モードで充電速度アップ",
-        "通信オフで消費電力減"
+        "チチェン・イッツァ遺跡",
+        "手拍子が鳥の声に変化"
       ],
-      "narration": "第2位、充電を急ぐときはコンセントの種類より先に見直すべき設定があります。機内モードにすると通信機能が止まり、消費電力が減るぶん充電速度が体感できるほど上がります。",
-      "pexelsQuery": "smartphone airplane mode charging"
+      "narration": "2つ目はメキシコのチチェン・イッツァ。ピラミッド前で手を叩くと、鳥の鳴き声のようなこだまが返ってくる。古代マヤ人が神聖な鳥を模して階段の角度を精密に計算した音響設計だ。",
+      "pexelsQuery": "Chichen Itza pyramid Mexico Mayan ruins",
+      "realPhotoSubject": "チチェン・イッツァ"
     },
     {
       "id": "rank1",
       "badge": "第1位",
       "caption": [
-        "常温水よりお湯が先に凍る",
-        "ムペンバ効果という現象"
+        "台北101・高さ300m",
+        "728トンの鉄球で制振"
       ],
-      "narration": "第1位、氷を早く作りたいなら常温水よりお湯を使うほうが有利です。条件がそろえば、高温の水が低温の水より先に凍るムペンバ効果と呼ばれる現象が実際に観測されています。",
-      "pexelsQuery": "ice cube freezing water close up"
+      "narration": "1位は台湾の台北101。地上300メートルの高さに、重さ728トンの巨大な鉄球がぶら下がっている。地震や台風の揺れを打ち消す制振装置で、ビル全体を守る仕組みだ。",
+      "pexelsQuery": "Taipei 101 skyscraper Taiwan cityscape",
+      "realPhotoSubject": "台北101"
     },
     {
       "id": "outro",
       "badge": null,
       "caption": [
-        "お湯派？常温派？",
-        "チャンネル登録して待ってます"
+        "他の建築ミステリーも",
+        "チャンネル登録して待ってて"
       ],
-      "narration": "氷を作るなら、お湯派？常温派？コメントで教えてください。もっと知りたい人はチャンネル登録して待っています。",
-      "pexelsQuery": "young woman smiling talking to camera"
+      "narration": "他の建築ミステリーも知りたいなら、ぜひチャンネル登録して待ってて。一番驚いたのはどれ？コメントで教えて。",
+      "pexelsQuery": "modern city skyline architecture sunset",
+      "realPhotoSubject": null
     }
   ],
-  "category": "ライフハック",
+  "category": "建築",
   "format": "ranking",
-  "displayGenre": "ライフハック"
+  "displayGenre": "建築"
 }

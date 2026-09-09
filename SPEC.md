@@ -216,8 +216,21 @@ git pull --rebase --autostash origin main || true
 | 要素 | 使用サービス | 詳細 |
 |---|---|---|
 | ナレーション | Google Cloud TTS(Chirp3-HD、`ja-JP-Chirp3-HD-Orus`) | 無料枠(月100万文字)の範囲内 |
-| 背景動画 | Pexels API | 各シーンの内容に応じた英語キーワードで検索・縦向き動画を自動取得 |
+| 背景素材 | Wikimedia Commons(実写真、優先) → Pexels API(動画、フォールバック) | 詳細は下記参照 |
 | BGM | 自前ライブラリ6曲(`scripts/bgm-library.json`) | すべてKevin MacLeod氏の楽曲、CC BY 3.0。曲ごとに動的にクレジット表記を概要欄へ挿入 |
+
+### 背景素材:実写真優先方式(2026-09-09追加)
+
+競合チャンネル(トリビアの沼 @torivia_numa、登録9.8万人)の分析から、Pexelsの抽象的なストック映像より「実物の証拠写真」の方が説得力・具体性で優れているという知見を得て導入。ただし「実写真かPexelsか」を二者択一で強制せず、話題に実在の対象物があるかどうかで自動的に使い分ける設計にしている(実在しない・抽象的な話題では従来通りPexelsを使う)。
+
+1. `generate-script.mjs`が各segmentに`realPhotoSubject`フィールドを出力する。実在の特定できる建物・ランドマーク・史跡等を扱っているsegmentのみ正式名称(日本語)を設定し、それ以外(抽象的な話題・実在の人物)は必ずnullにする(人物写真は肖像権の観点で使わない)
+2. `scripts/fetch-real-photo.mjs`(新規)が`realPhotoSubject`が設定されたsegmentについてWikimedia Commons(フリー素材のみを扱うWikipedia姉妹サイト)を検索し、CC0/パブリックドメイン/CC BY/CC BY-SA系のみ・低解像度画像除外というフィルタを通った写真を`public/bg/<segmentId>.jpg`に保存する。見つからない場合は何もしない(無理に対象物をでっち上げない)
+3. `scripts/auto-fetch-bg.mjs`は、既に実写真が保存済みのsegmentをスキップし、それ以外は従来通りPexelsで動画を取得する(実写真が見つからなかった場合の自動フォールバック)
+4. `scripts/write-segments.mjs`が、`public/bg/`に実際に存在するファイルを見て各segmentの`bgType`(`"image"` or `"video"`)を`src/segments.ts`に埋め込む
+5. `src/Composition.tsx`は`bgType`に応じて、動画ならループ再生(従来通り)、静止画ならゆっくりズームする「ケンバーンズ効果」で表示する
+6. CC BY / CC BY-SA系はクレジット表示が利用規約上必要なため、`scripts/write-description.mjs`が使用した写真の作者名・ライセンス・出典URLを概要欄に自動追記する(`content/current-photo-credits.json`)
+
+パイプライン上の実行順序: `generate-script.mjs` → `generate-tts.mjs` → `fetch-real-photo.mjs`(失敗しても後続をブロックしないソフト実行) → `auto-fetch-bg.mjs` → ... → `write-segments.mjs` → `write-description.mjs`
 
 ## 6. 書き出し
 
