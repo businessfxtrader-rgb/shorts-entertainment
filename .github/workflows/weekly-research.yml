@@ -5,8 +5,10 @@ on:
     - cron: "0 0 * * 1" # 00:00 UTC Monday = 09:00 JST Monday
   workflow_dispatch: {}
 
+# daily-pipeline.ymlと共通のグループ(2026-09-14追加): 両ワークフローともcontent/used-topics.jsonを
+# コミットするため、同時実行によるused-topics.jsonへの書き込み競合を防ぐ。詳細はdaily-pipeline.yml参照
 concurrency:
-  group: weekly-research
+  group: content-writers
   cancel-in-progress: false
 
 permissions:

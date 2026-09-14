@@ -14,8 +14,15 @@ on:
 # 動画生成・YouTubeアップロードを行ってしまう恐れがある(Actions分数の浪費、意図しない重複投稿の
 # リスク)。cancel-in-progressはfalseにし、実行中のジョブを強制終了せず、新しいトリガーは
 # 前の実行が終わるまでキュー待ちにする(アップロード処理を中断させないため)。
+#
+# グループ名をweekly-research.ymlと共通(content-writers)にしている(2026-09-14追加): 両ワークフローとも
+# content/used-topics.jsonをコミットするため、別グループのままだと両者が同時に走った際に
+# used-topics.jsonへの書き込みが競合しうる。実際に2026-08-30〜31、この競合と当時未修正だった
+# git pull --rebaseの リトライバグ(2026-09-01修正済み)が重なり、公開済み動画3本の記録が
+# used-topics.jsonから消失する実害が発生した(YouTube本体・管理シートには正常に記録されていた)。
+# 同じグループにすることで、そもそも2つのワークフローが同時にused-topics.jsonを触らないようにする。
 concurrency:
-  group: daily-pipeline
+  group: content-writers
   cancel-in-progress: false
 
 permissions:
