@@ -1201,5 +1201,18 @@
     "videoId": "HqeRLL3s30s",
     "category": "二択扉",
     "format": "choice"
+  },
+  {
+    "title": "新品なのに世界最古？建築ミステリー3選",
+    "topics": [
+      "珊瑚岩の庭園を一人で建造した謎",
+      "太平洋に沈む古代都市ナン・マドール",
+      "20年ごとに建て替わる伊勢神宮"
+    ],
+    "date": "2026-09-14",
+    "publishedAt": "2026-09-17T03:00:00.000Z",
+    "videoId": "UM_3DyF2MOE",
+    "category": "建築",
+    "format": "ranking"
   }
 ]
