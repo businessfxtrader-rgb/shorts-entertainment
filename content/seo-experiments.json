@@ -1,0 +1,53 @@
+[
+  {
+    "id": "exp-2026-09-08-competitor-insight",
+    "hypothesis": "youtube-seo-competitorスキルの考え方(実データに基づくタイトル型・フック型・テーマ傾向)を台本生成プロンプトに組み込むことで、公開初速(1日あたり再生数)・視聴維持率が向上する",
+    "scope": {
+      "type": "pipeline-wide",
+      "description": "research-competitors.mjs導入後は原則すべての新規生成動画に適用される(ジャンルを問わない)ため、対象群と対照群を同一期間で分離できない。導入前後の期間比較でのみ判定する(他の変更と時期が近いため、単独の効果として断定はできない)"
+    },
+    "change": "research-competitors.mjs(新規)を週次パイプラインに追加し、generate-script.mjsのプロンプトに実データに基づくタイトル型・フック型・テーマ傾向を注入するようにした",
+    "startedAt": "2026-09-08T00:00:00.000Z",
+    "baseline": {
+      "periodLabel": "導入前(2026-08-16〜2026-09-05、23本)",
+      "medianViewsPerDay": 48.75,
+      "medianAPV": 41,
+      "measuredAt": "2026-09-18"
+    },
+    "observationTarget": {
+      "type": "days-elapsed",
+      "minDays": 21,
+      "description": "導入から3週間経過後に判定する"
+    },
+    "status": "observing",
+    "result": null,
+    "judgedAt": null
+  },
+  {
+    "id": "exp-2026-09-09-real-photo-backgrounds",
+    "hypothesis": "実在の建物・ランドマーク等を扱うsegmentで、Pexelsの汎用ストック映像の代わりにWikimedia Commonsの実写真を使うことで、視聴維持率・再生数が向上する",
+    "scope": {
+      "type": "flagged-videos",
+      "flag": "usedRealPhoto",
+      "description": "used-topics.jsonのusedRealPhoto:trueが付いた動画のみを対象群とし、同期間のfalse動画(ベースライン)と比較する"
+    },
+    "change": "generate-script.mjsにrealPhotoSubjectフィールドを追加、fetch-real-photo.mjs(新規)がWikimedia Commonsから実写真を取得するようにした。見つからない場合のみ従来通りauto-fetch-bg.mjsがPexelsで補う",
+    "startedAt": "2026-09-09T00:00:00.000Z",
+    "baseline": {
+      "periodLabel": "導入前(2026-08-16〜2026-09-05、23本)",
+      "medianViewsPerDay": 48.75,
+      "medianAPV": 41,
+      "measuredAt": "2026-09-18"
+    },
+    "observationTarget": {
+      "type": "video-count",
+      "flag": "usedRealPhoto",
+      "minCount": 8,
+      "minAgeDays": 3,
+      "description": "usedRealPhoto:trueの動画が8本、かつ公開から3日以上経過するまで観察"
+    },
+    "status": "observing",
+    "result": null,
+    "judgedAt": null
+  }
+]

@@ -265,6 +265,15 @@ git pull --rebase --autostash origin main || true
 - 10回すべて失敗した場合のみ、管理シートに「エラー」として記録しパイプラインを終了する
 - サムネイル設定・コメント自動返信は失敗しても後続処理をブロックしない「ソフト」実行(`runNodeSoft`、リトライなし)
 
+### 8-2. SEO実験ログ(2026-09-18追加)
+
+WEBサイトSEO向けの「測定→1位に近いキーワードを1つ選ぶ→検索意図を調べる→改善→7日観察→実測で判定、を1位になるまで繰り返す」というループの考え方を参考に導入。ただしこのループの前提(Googleが公開済みページを継続的に再評価するので、公開後の編集で順位が動く)はYouTube Shortsの個別動画には当てはまらない(配信量は公開後48〜72時間でほぼ決まり、後からのメタデータ変更は実測上ほぼ無効、4-5章・8-1章参照)。そのため、**対象を「個別動画」ではなく「パイプラインの変更(ジャンルbrief・背景素材の選び方・タイトルの型など)」に置き換えて**このループの規律だけを再現している。パイプラインの設定はWEBページと同様に、変更後に生成される全ての新規動画に効き続ける「編集可能な対象」のため。
+
+- **`content/seo-experiments.json`**: 実験ログ。1エントリ=1つの仮説。`status`は`observing`(観察中)→`judged`(判定済み)の2値。観察中は`observationTarget`の条件(対象動画の本数・経過日数など)を満たすまで絶対に判定しない
+- **`scripts/review-seo-experiments.mjs`**(週次): 観察中の実験について、条件を満たしたものだけYouTube Analytics APIの実測データ(1日あたり再生数・視聴維持率の中央値)で判定する。条件未達の実験は毎回スキップし、無理に判定しない。判定結果は「改善傾向あり/悪化傾向/明確な差なし」の3種のみで、断定的な因果関係の主張はしない(同時期に複数の変更が重なっている場合はその旨を明記する)
+- **`scripts/track-search-queries.mjs`**(週次): YouTube Analytics APIの`insightTrafficSourceDetail`(`insightTrafficSourceType==YT_SEARCH`絞り込み)で、実際にこのチャンネルへの検索流入を生んだ言葉を取得し`content/search-queries.json`に保存。WEBサイトSEOのGoogle Search Consoleに近い、推測ではなく実測ベースのキーワードデータ。`generate-script.mjs`が台本生成のたびにランダムに1件参考として提示する(既存の`trend-insights.json`のkeywordsが「市場全体の推測」なのに対し、こちらは「このチャンネル自身の実績」という違いがある)
+- `content/used-topics.json`の各エントリに`usedRealPhoto`・`usedCompetitorInsight`フラグを追加(`youtube-upload.mjs`が記録)。実験の対象群・対照群を後から特定するために使う
+
 ## 9. エンゲージメント対応
 
 - **コメント自動返信**(`scripts/reply-comments.mjs`、2026-09-05よりコメント内容連動に変更)

@@ -67,6 +67,17 @@ const trendPattern =
 const trendKeyword =
   trendKeywords.length > 0 ? trendKeywords[Math.floor(Math.random() * trendKeywords.length)] : null;
 
+// 実際にこのチャンネルへの検索流入を生んだ言葉(scripts/track-search-queries.mjs、2026-09-18追加)。
+// WebSearchでの推測ではなく、YouTube Analytics APIから取得した実測データ。存在すればランダムに
+// 1件だけ「こういう言葉で検索されている実績がある」という参考情報として提示する
+const searchQueriesPath = path.join(root, "content", "search-queries.json");
+const searchQueriesData = fs.existsSync(searchQueriesPath)
+  ? JSON.parse(fs.readFileSync(searchQueriesPath, "utf-8"))
+  : { queries: [] };
+const searchQueries = searchQueriesData.queries ?? [];
+const searchQuery =
+  searchQueries.length > 0 ? searchQueries[Math.floor(Math.random() * Math.min(10, searchQueries.length))] : null;
+
 // 競合リサーチ結果(scripts/research-competitors.mjs)。実在の伸びているショート動画から
 // 抽出したタイトル型・フック型・テーマ傾向。存在すればランダムに1件ずつプロンプトに混ぜる
 // (youtube-seo-skillsのyoutube-seo-competitorスキルの考え方を軽量に取り込んだもの)
@@ -304,6 +315,11 @@ ${
     ? `- (今週のトレンド調査より)可能であれば次の検索キーワード選定の傾向を参考にすること: 『${trendKeyword.pattern}』── ${trendKeyword.description}(参考例: ${trendKeyword.example})。tags・descriptionHookへの反映を優先し、titleでのネタバレには使わないこと`
     : ""
 }
+${
+  searchQuery
+    ? `- (実測データより重要)このチャンネルは過去に実際に『${searchQuery.query}』という言葉で検索されて視聴されている(直近30日で${searchQuery.views}回)。今回の話題がこれに近い場合、tags・descriptionHookに同種の言葉を含めることを積極的に検討すること(推測ではなく実績のあるキーワードのため優先度が高い)。関係ない話題の場合は無理に使わなくてよい`
+    : ""
+}
 - descriptionHookは、検索結果・スマホ画面で最初に表示される部分なので、動画の内容とキーワードが一目で伝わる1文にすること(ただしtitle同様、核心の答えまでは書かない)
 - outro(締め)のnarrationには、「チャンネル登録」の呼びかけに加えて、コメント欄でのやり取りを促す一言(例:「あなたはどう思う？コメントで教えて」)も自然な形で含めること(エンゲージメントはアルゴリズム評価に直結するため)
 - title・caption・descriptionHookを含む全てのテキストで、感嘆符・疑問符は必ず全角(！／？)を使うこと。半角(!／?)は使わない
@@ -361,6 +377,9 @@ const script = extractJson(raw);
 script.category = category.name;
 script.format = chosenFormat;
 script.displayGenre = category.displayGenre ?? category.name;
+// SEO実験ログ(content/seo-experiments.json)が、この動画にどの実験的な仕組みが
+// 適用されたかを後から特定できるようにするための記録(2026-09-18追加)
+script.usedCompetitorInsight = Boolean(titleFormula || hookPattern || competitorTheme);
 
 const requiredIds = ["hook", "rank3", "rank2", "rank1", "outro"];
 const gotIds = script.segments.map((s) => s.id);

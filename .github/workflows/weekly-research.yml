@@ -45,6 +45,10 @@ jobs:
         continue-on-error: true
         run: node scripts/track-performance.mjs
 
+      - name: Track real search queries driving views
+        continue-on-error: true
+        run: node scripts/track-search-queries.mjs
+
       - name: Research new genres
         continue-on-error: true
         run: node scripts/research-genres.mjs
@@ -64,6 +68,10 @@ jobs:
       - name: Auto-retry SEO for underperforming videos
         continue-on-error: true
         run: node scripts/auto-retry-seo.mjs
+
+      - name: Review SEO experiment log
+        continue-on-error: true
+        run: node scripts/review-seo-experiments.mjs
 
       - name: Commit updated data
         if: always()

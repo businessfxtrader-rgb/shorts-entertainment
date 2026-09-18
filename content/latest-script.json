@@ -1,82 +1,79 @@
 {
-  "title": "史上最強の建築ミステリー、まさかの秘密",
+  "title": "石そっくりの植物、まさかの正体とは？",
   "topics": [
-    "パルテノン神殿の柱が直線でない理由",
-    "チチェン・イッツァの鳥のこだま現象",
-    "台北101の728トン制振ダンパー"
+    "過酷な砂漠環境/地中に埋もれた葉の構造/石に擬態するリトープスの秘密"
   ],
-  "descriptionHook": "パルテノン神殿、チチェン・イッツァ、台北101 ― 世界的建築に隠された仰天の設計の秘密を一気に解説。",
+  "descriptionHook": "南アフリカの砂漠に転がる小石そっくりの植物、その正体と生き残り戦略に迫る雑学動画です。",
   "tags": [
-    "建築雑学",
-    "パルテノン神殿",
-    "チチェン・イッツァ",
-    "台北101",
-    "古代遺跡",
-    "建築ミステリー",
-    "マヤ文明",
-    "制振装置",
-    "世界遺産",
-    "雑学ランキング"
+    "リトープス",
+    "生きる石",
+    "擬態植物",
+    "多肉植物",
+    "砂漠の植物",
+    "植物雑学",
+    "なりすまし植物",
+    "サバイバル植物"
   ],
-  "seoNotes": "タイトルでは各建造物の具体的な仕掛けの内容は伏せて『まさかの秘密』とだけ示し視聴完了率を優先しつつ、descriptionHook冒頭に建造物名を並べて検索性を確保した。outroでは『あなたが一番驚いたのはどれ？』とコメントを促しエンゲージメントを狙った。",
+  "seoNotes": "タイトルは「石そっくりの植物」という引っかかりだけ提示し、正体の名前(リトープス)は動画内まで伏せて視聴完了率を優先した。outroに驚いた雑学をコメントで聞く一言を入れてエンゲージメントを促した。",
   "segments": [
     {
       "id": "hook",
       "badge": null,
       "caption": [
-        "神殿・遺跡・超高層ビル",
-        "共通する衝撃の建築の秘密"
+        "南アフリカの過酷な砂漠に",
+        "小石そっくりの正体とは"
       ],
-      "narration": "神殿もピラミッドも超高層ビルも、完璧に見える世界の建築ほど、実は驚くほど常識外れの仕掛けで支えられている。",
-      "pexelsQuery": "ancient temple ruins architecture aerial",
+      "narration": "南アフリカの砂漠に転がる、ただの小石にしか見えないもの。実はそれ、根を張って生きている植物だと知っていますか？",
+      "pexelsQuery": "african desert rocks landscape close up",
       "realPhotoSubject": null
     },
     {
       "id": "rank3",
-      "badge": "第3位",
+      "badge": null,
       "caption": [
-        "パルテノン神殿は直線ゼロ",
-        "遠近法を計算した設計"
+        "気温50度を超える砂漠",
+        "動物に狙われる過酷な地"
       ],
-      "narration": "パルテノン神殿は完璧な直線美の象徴に見えるが、実は柱も床も1本もまっすぐではない。人の目に生じる遠近のゆがみを打ち消すため、あえて曲線で設計されている。",
-      "pexelsQuery": "Parthenon Athens columns ancient Greek temple",
-      "realPhotoSubject": "パルテノン神殿"
+      "narration": "この植物が暮らすのは、昼は50度を超え、雨もほとんど降らない南部アフリカの過酷な砂漠。動物に見つかれば一瞬で食べられてしまう場所です。周りには石ころしかありません。",
+      "pexelsQuery": "extreme desert heat cracked ground",
+      "realPhotoSubject": null
     },
     {
       "id": "rank2",
-      "badge": "第2位",
+      "badge": null,
       "caption": [
-        "チチェン・イッツァ遺跡",
-        "手拍子が鳥の声に変化"
+        "体のほとんどは地中に",
+        "表面に浮かぶ謎の模様"
       ],
-      "narration": "2つ目はメキシコのチチェン・イッツァ。ピラミッド前で手を叩くと、鳥の鳴き声のようなこだまが返ってくる。古代マヤ人が神聖な鳥を模して階段の角度を精密に計算した音響設計だ。",
-      "pexelsQuery": "Chichen Itza pyramid Mexico Mayan ruins",
-      "realPhotoSubject": "チチェン・イッツァ"
+      "narration": "体のほとんどは地中に埋まり、地上に出ているのはわずか数センチの分厚い葉の先端だけ。表面には光を通す不思議な模様が浮かび上がっているのです。",
+      "pexelsQuery": "succulent plant leaves macro texture",
+      "realPhotoSubject": null
     },
     {
       "id": "rank1",
-      "badge": "第1位",
+      "badge": null,
       "caption": [
-        "台北101・高さ300m",
-        "728トンの鉄球で制振"
+        "その正体はリトープス",
+        "石そっくりに擬態する多肉植物"
       ],
-      "narration": "1位は台湾の台北101。地上300メートルの高さに、重さ728トンの巨大な鉄球がぶら下がっている。地震や台風の揺れを打ち消す制振装置で、ビル全体を守る仕組みだ。",
-      "pexelsQuery": "Taipei 101 skyscraper Taiwan cityscape",
-      "realPhotoSubject": "台北101"
+      "narration": "正体はリトープス、通称「生きる石」。周囲の石とそっくりな色と模様に擬態して身を守り、たった一年分の水を体内にためて生き延びる多肉植物です。",
+      "pexelsQuery": "lithops living stones plant",
+      "realPhotoSubject": "リトープス"
     },
     {
       "id": "outro",
       "badge": null,
       "caption": [
-        "他の建築ミステリーも",
-        "チャンネル登録して待ってて"
+        "チャンネル登録で新知識を",
+        "驚いた雑学はコメントへ"
       ],
-      "narration": "他の建築ミステリーも知りたいなら、ぜひチャンネル登録して待ってて。一番驚いたのはどれ？コメントで教えて。",
-      "pexelsQuery": "modern city skyline architecture sunset",
+      "narration": "石に化けて生き延びる植物の知恵、驚きですよね。チャンネル登録して、驚いた雑学をコメントで教えてください。",
+      "pexelsQuery": "desert sunset succulent plants",
       "realPhotoSubject": null
     }
   ],
-  "category": "建築",
-  "format": "ranking",
-  "displayGenre": "建築"
+  "category": "植物",
+  "format": "qa",
+  "displayGenre": "植物",
+  "usedCompetitorInsight": true
 }

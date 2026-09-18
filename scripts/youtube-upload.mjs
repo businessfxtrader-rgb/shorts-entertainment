@@ -76,6 +76,15 @@ usedTopics.push({
   videoId,
   category: latestScript.category,
   format: latestScript.format,
+  // SEO実験ログ(content/seo-experiments.json)がこの動画を対象群に含めるかどうかの判定に使う。
+  // realPhotoSubjectは「要求した」だけで実際に見つかったとは限らないため、public/bg/に
+  // 実際に画像ファイルが存在するか(fetch-real-photo.mjsが成功したか)で判定する
+  usedRealPhoto: (latestScript.segments ?? []).some(
+    (s) =>
+      fs.existsSync(path.join(root, "public", "bg", `${s.id}.jpg`)) ||
+      fs.existsSync(path.join(root, "public", "bg", `${s.id}.png`))
+  ),
+  usedCompetitorInsight: Boolean(latestScript.usedCompetitorInsight),
 });
 fs.writeFileSync(usedTopicsPath, JSON.stringify(usedTopics, null, 2));
 console.log("OK: used-topics.json を更新しました");
