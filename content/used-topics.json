@@ -1377,5 +1377,20 @@
     "format": "qa",
     "usedRealPhoto": false,
     "usedCompetitorInsight": true
+  },
+  {
+    "title": "神々の最強武器3選、まさかの欠陥に驚愕",
+    "topics": [
+      "ポセイドンの三叉槍トライデント",
+      "オーディンの槍グングニル",
+      "トールの槌ムジョルニル"
+    ],
+    "date": "2026-09-19",
+    "publishedAt": "2026-09-22T09:00:00.000Z",
+    "videoId": "btLY4fRHMs0",
+    "category": "神話",
+    "format": "ranking",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
   }
 ]
