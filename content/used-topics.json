@@ -1407,5 +1407,20 @@
     "format": "ranking",
     "usedRealPhoto": false,
     "usedCompetitorInsight": true
+  },
+  {
+    "title": "人体のすきまを全部消したら、まさかの結果",
+    "topics": [
+      "原子はほぼ空っぽの空間",
+      "人体を原子核密度に圧縮",
+      "全人類80億人を圧縮"
+    ],
+    "date": "2026-09-20",
+    "publishedAt": "2026-09-23T09:00:00.000Z",
+    "videoId": "6ObVQpa4C7M",
+    "category": "宇宙",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true
   }
 ]
