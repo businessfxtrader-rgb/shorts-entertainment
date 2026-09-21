@@ -28,10 +28,13 @@ jobs:
 
       - uses: ./.github/actions/start-voicevox
 
-      - name: Generate voice samples
-        run: node scripts/voicevox-samples.mjs
+      # 全声が目標速度(6.2字/秒)の±3%以内に収まるかを確認する(超えた声があれば失敗にする)。
+      # 音声ファイルは作らずサマリーだけ出す(試聴は済んでいるため)
+      - name: Check speed of every voice in the pool
+        run: SUMMARY_ONLY=1 node scripts/voicevox-samples.mjs
 
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: voicevox-samples
           path: samples-out/

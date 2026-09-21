@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   TARGET_CPS,
+  creditLineFor,
   fetchSpeakers,
   pickRandomVoice,
   resolveStyleId,
@@ -29,7 +30,7 @@ fs.mkdirSync(outDir, { recursive: true });
 
 const voice = pickRandomVoice();
 const speakers = await fetchSpeakers();
-const styleId = resolveStyleId(speakers, voice.name);
+const styleId = resolveStyleId(speakers, voice);
 console.log(`声: ${voice.name} (styleId=${styleId})`);
 
 const result = await synthesizeSegments(segments, styleId, TARGET_CPS);
@@ -45,7 +46,7 @@ fs.writeFileSync(
   JSON.stringify(
     {
       character: voice.name,
-      creditLine: `VOICEVOX:${voice.name}`,
+      creditLine: creditLineFor(voice),
       speedScale: Number(result.speedScale.toFixed(3)),
       charsPerSecond: Number(result.cps.toFixed(2)),
     },
