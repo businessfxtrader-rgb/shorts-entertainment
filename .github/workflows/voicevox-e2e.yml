@@ -61,7 +61,9 @@ jobs:
         run: npx remotion render ShortsVideo out/final.mp4 --crf=18
 
       - name: Verify audio, speed and credit
-        run: node scripts/voicevox-verify.mjs
+        run: |
+          sudo apt-get install -y ffmpeg
+          node scripts/voicevox-verify.mjs
 
       - uses: actions/upload-artifact@v4
         if: always()

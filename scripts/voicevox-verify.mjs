@@ -39,11 +39,34 @@ check(Number.isFinite(videoSec) && Math.abs(videoSec - expected) <= 0.6, "動画
 const aud = remotion(["ffprobe", "-v", "error", "-select_streams", "a", "-show_entries", "stream=codec_name,channels", "-of", "default=nw=1", "out/final.mp4"]);
 check(/codec_name=/.test(aud.stdout), `最終動画に音声トラックがある (${aud.stdout.trim().replace(/\r?\n/g, " ")})`);
 
-const vol = remotion(["ffmpeg", "-i", "out/final.mp4", "-vn", "-af", "volumedetect", "-f", "null", "-"]);
-const mean = /mean_volume: (-?[\d.]+) dB/.exec(vol.stderr + vol.stdout);
-const max = /max_volume: (-?[\d.]+) dB/.exec(vol.stderr + vol.stdout);
-console.log(`音量: mean=${mean?.[1]}dB max=${max?.[1]}dB`);
-check(mean && parseFloat(mean[1]) > -50, "音声が無音ではない(平均音量 > -50dB)");
+// ナレーションが実際に鳴っているか: 最終動画の音声を16kHzモノラルのPCMに書き出し、
+// 各セグメントの「発話区間」と「発話の前後の余白(BGMだけの区間)」のRMS音量(dBFS)を比べる。
+// BGMは音量0.15で常に鳴っているため、ナレーションが入っていれば発話区間の方が明らかに大きくなる
+const pcmPath = path.join(root, "out", "audio.pcm");
+const dec = spawnSync("ffmpeg", ["-y", "-v", "error", "-i", "out/final.mp4", "-vn", "-ac", "1", "-ar", "16000", "-f", "s16le", pcmPath], { encoding: "utf-8", cwd: root });
+if (dec.status !== 0) console.log(`ffmpeg失敗: ${dec.stderr}`);
+const pcm = fs.readFileSync(pcmPath);
+const rmsDb = (fromSec, toSec) => {
+  const a = Math.max(0, Math.floor(fromSec * 16000));
+  const b = Math.min(pcm.length / 2, Math.floor(toSec * 16000));
+  let sum = 0;
+  for (let i = a; i < b; i++) sum += pcm.readInt16LE(i * 2) ** 2;
+  return 10 * Math.log10(sum / Math.max(1, b - a) / 32768 ** 2 + 1e-12);
+};
+const speech = [];
+const gap = [];
+let t = 0;
+for (const seg of script.segments) {
+  const wav = fs.readFileSync(path.join(root, "public", "audio", `${seg.id}.wav`));
+  const d = wavDurationSeconds(wav);
+  speech.push(rmsDb(t + 0.15 + d * 0.1, t + 0.15 + d * 0.9));
+  gap.push(rmsDb(t + 0.15 + d + 0.05, t + 0.15 + d + 0.4));
+  t += 0.15 + d + 0.45;
+}
+const avg = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+console.log(`発話区間RMS=${avg(speech).toFixed(1)}dBFS / 余白(BGMのみ)RMS=${avg(gap).toFixed(1)}dBFS`);
+check(avg(speech) > -40, `ナレーション区間が無音ではない (${avg(speech).toFixed(1)}dBFS)`);
+check(avg(speech) - avg(gap) >= 6, `発話区間が余白より6dB以上大きい=ナレーションが実際に鳴っている (差${(avg(speech) - avg(gap)).toFixed(1)}dB)`);
 
 // ③ 概要欄にクレジットが入る
 const desc = fs.readFileSync(path.join(root, "description.txt"), "utf-8");
