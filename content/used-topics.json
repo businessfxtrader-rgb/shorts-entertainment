@@ -1435,5 +1435,18 @@
     "format": "qa",
     "usedRealPhoto": true,
     "usedCompetitorInsight": true
+  },
+  {
+    "title": "解読不能なはずの暗号、まさかの弱点とは？",
+    "topics": [
+      "159垓通りの組み合わせを誇ったエニグマの構造/文字が自分自身には変換されない癖/天気予報から突破口が生まれた理由"
+    ],
+    "date": "2026-09-21",
+    "publishedAt": "2026-09-24T09:00:00.000Z",
+    "videoId": "32DQZks9kCA",
+    "category": "暗号",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true
   }
 ]
