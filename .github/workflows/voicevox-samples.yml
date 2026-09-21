@@ -1,0 +1,37 @@
+name: VOICEVOX Voice Samples (temporary, feature branch only)
+
+# 声のプール候補の試聴サンプルを作る一時ワークフロー(feature/voicevox-ttsへのpushでのみ動く)。
+# mainには入れない。成果物(WAV)をダウンロードして試聴する。
+on:
+  push:
+    branches: [feature/voicevox-tts]
+    paths:
+      - .github/workflows/voicevox-samples.yml
+      - .github/actions/start-voicevox/action.yml
+      - scripts/voicevox-samples.mjs
+      - scripts/lib/voicevox.mjs
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  samples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: ./.github/actions/start-voicevox
+
+      - name: Generate voice samples
+        run: node scripts/voicevox-samples.mjs
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voicevox-samples
+          path: samples-out/

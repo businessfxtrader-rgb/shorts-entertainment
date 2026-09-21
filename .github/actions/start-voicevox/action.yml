@@ -1,0 +1,22 @@
+name: Start VOICEVOX engine
+description: VOICEVOXエンジン(Docker)を起動し、/versionが返るまで待つ。TTSを呼ぶ全てのワークフローで使う
+
+runs:
+  using: composite
+  steps:
+    - name: Start VOICEVOX engine (docker)
+      shell: bash
+      run: |
+        ok=0
+        for i in 1 2 3; do
+          if docker pull voicevox/voicevox_engine:cpu-latest; then ok=1; break; fi
+          echo "docker pull failed (attempt $i/3)"; sleep 15
+        done
+        [ "$ok" = "1" ] || { echo "::error::VOICEVOXエンジンのdocker pullが3回失敗しました"; exit 1; }
+        docker run -d --name voicevox -p 50021:50021 voicevox/voicevox_engine:cpu-latest
+        up=0
+        for i in $(seq 1 60); do
+          if curl -sf http://localhost:50021/version; then up=1; echo; break; fi
+          sleep 5
+        done
+        [ "$up" = "1" ] || { echo "::error::VOICEVOXエンジンが5分以内に起動しませんでした"; docker logs voicevox | tail -50; exit 1; }
