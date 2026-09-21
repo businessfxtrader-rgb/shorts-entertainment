@@ -1,18 +1,22 @@
 {
-  "periodStart": "2026-08-19",
-  "periodEnd": "2026-09-18",
+  "periodStart": "2026-08-22",
+  "periodEnd": "2026-09-21",
   "queries": [
+    {
+      "query": "ドアを選んでください",
+      "views": 43
+    },
     {
       "query": "gpt6 astra",
       "views": 26
     },
     {
-      "query": "チャットgpt アストラ",
-      "views": 13
+      "query": "ほっと一息チャンネル",
+      "views": 14
     },
     {
-      "query": "ほっと一息チャンネル",
-      "views": 12
+      "query": "チャットgpt アストラ",
+      "views": 13
     },
     {
       "query": "gpt6",
@@ -32,6 +36,10 @@
     },
     {
       "query": "gtp6 astra",
+      "views": 8
+    },
+    {
+      "query": "ドアを選んで",
       "views": 8
     },
     {
@@ -79,10 +87,6 @@
       "views": 4
     },
     {
-      "query": "深海魚",
-      "views": 4
-    },
-    {
       "query": "gpt6 astra 使い方",
       "views": 3
     },
@@ -97,11 +101,7 @@
     {
       "query": "イカゲーム",
       "views": 3
-    },
-    {
-      "query": "チャットgpt アストラ 使い方",
-      "views": 3
     }
   ],
-  "updatedAt": "2026-09-18T11:43:16.855Z"
+  "updatedAt": "2026-09-21T03:48:34.812Z"
 }
