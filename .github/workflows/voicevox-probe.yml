@@ -1,0 +1,49 @@
+name: VOICEVOX Probe (temporary, feature branch only)
+
+# VOICEVOXへの切り替え開発用の一時ワークフロー(feature/voicevox-ttsブランチへのpushでのみ動く)。
+# エンジンの話者一覧と利用規約(policy)を取得して、成果物として保存する。mainには入れない。
+on:
+  push:
+    branches: [feature/voicevox-tts]
+    paths:
+      - .github/workflows/voicevox-probe.yml
+      - scripts/voicevox-probe.mjs
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Start VOICEVOX engine (docker)
+        run: |
+          ok=0
+          for i in 1 2 3; do
+            if docker pull voicevox/voicevox_engine:cpu-latest; then ok=1; break; fi
+            echo "docker pull failed (attempt $i/3)"; sleep 15
+          done
+          [ "$ok" = "1" ] || { echo "::error::docker pull が3回失敗しました"; exit 1; }
+          docker run -d --name voicevox -p 50021:50021 voicevox/voicevox_engine:cpu-latest
+          up=0
+          for i in $(seq 1 60); do
+            if curl -sf http://localhost:50021/version; then up=1; echo; break; fi
+            sleep 5
+          done
+          [ "$up" = "1" ] || { echo "::error::VOICEVOXエンジンが5分以内に起動しませんでした"; docker logs voicevox | tail -50; exit 1; }
+
+      - name: Dump speakers and policies
+        run: node scripts/voicevox-probe.mjs
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voicevox-probe
+          path: probe-out/
