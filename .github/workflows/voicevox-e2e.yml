@@ -51,7 +51,8 @@ jobs:
         run: |
           node scripts/generate-tts.mjs
           node scripts/fetch-real-photo.mjs || true
-          node scripts/auto-fetch-bg.mjs
+          # 本番はrunWithRetryで最大10回再試行される工程(Pexels APIの一時的な504等のため)。ここでも再現する
+          for i in 1 2 3 4 5; do node scripts/auto-fetch-bg.mjs && break; echo "retry $i"; sleep 20; done
           node scripts/select-bgm.mjs
           node scripts/write-segments.mjs
           node scripts/write-description.mjs
