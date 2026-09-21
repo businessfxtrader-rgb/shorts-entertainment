@@ -13,6 +13,14 @@ const { creditLine } = JSON.parse(
 );
 const template = fs.readFileSync(path.join(root, "description-template.txt"), "utf-8");
 
+// VOICEVOXの利用規約で必須のクレジット「VOICEVOX:キャラ名」(generate-tts.mjsが書き出す)。
+// 書き出されていない場合(古い実行環境など)は何も入れない
+const voiceCreditPath = path.join(root, "content", "current-voice-credit.json");
+const voiceCreditLine = fs.existsSync(voiceCreditPath)
+  ? JSON.parse(fs.readFileSync(voiceCreditPath, "utf-8")).creditLine
+  : null;
+const voiceCreditBlock = voiceCreditLine ? `\n${voiceCreditLine}` : "";
+
 const photoCreditsPath = path.join(root, "content", "current-photo-credits.json");
 const photoCredits = fs.existsSync(photoCreditsPath)
   ? JSON.parse(fs.readFileSync(photoCreditsPath, "utf-8"))
@@ -39,6 +47,7 @@ const hashtags = [...CORE_TAGS, ...extraTags].map((t) => `#${t}`).join(" ");
 const description = `${latestScript.descriptionHook}\n\n${template
   .replace("{{MUSIC_CREDIT}}", creditLine)
   .replace("{{PHOTO_CREDITS}}", photoCreditsBlock)
+  .replace("{{VOICE_CREDIT}}", voiceCreditBlock)
   .replace("{{HASHTAGS}}", hashtags)}`;
 
 fs.writeFileSync(path.join(root, "description.txt"), description);

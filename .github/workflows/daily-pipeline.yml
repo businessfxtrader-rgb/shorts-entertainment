@@ -53,9 +53,12 @@ jobs:
             libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 \
             libxkbcommon0 libpango-1.0-0 libcairo2 libasound2t64 libatspi2.0-0
 
+      # ナレーションはVOICEVOX(2026-09-21にGoogle Cloud TTSから切り替え)。TTSを呼ぶこのワークフローでは
+      # 必ず先にエンジンを起動する(docker pull 3回リトライ、/versionが返るまで最大5分待機)
+      - uses: ./.github/actions/start-voicevox
+
       - name: Reconstruct secret files
         run: |
-          echo "GOOGLE_TTS_API_KEY=${{ secrets.GOOGLE_TTS_API_KEY }}" >> .env
           echo "PEXELS_API_KEY=${{ secrets.PEXELS_API_KEY }}" >> .env
           echo "CLAUDE_CODE_OAUTH_TOKEN=${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}" >> .env
           echo '${{ secrets.GOOGLE_CLIENT_SECRET_JSON }}' > client_secret.json

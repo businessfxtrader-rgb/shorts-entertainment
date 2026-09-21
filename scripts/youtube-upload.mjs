@@ -85,6 +85,14 @@ usedTopics.push({
       fs.existsSync(path.join(root, "public", "bg", `${s.id}.png`))
   ),
   usedCompetitorInsight: Boolean(latestScript.usedCompetitorInsight),
+  // ナレーションに使ったVOICEVOXの声(声ごとの再生数・維持率の傾向を後から分析できるように記録)
+  voice: (() => {
+    try {
+      return JSON.parse(fs.readFileSync(path.join(root, "content", "current-voice-credit.json"), "utf-8")).character;
+    } catch {
+      return null;
+    }
+  })(),
 });
 fs.writeFileSync(usedTopicsPath, JSON.stringify(usedTopics, null, 2));
 console.log("OK: used-topics.json を更新しました");

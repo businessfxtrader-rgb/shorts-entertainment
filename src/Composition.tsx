@@ -43,7 +43,7 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async () => {
 
   for (const seg of segments) {
     const { durationInSeconds: audioDuration } = await parseMedia({
-      src: staticFile(`audio/${seg.id}.mp3`),
+      src: staticFile(`audio/${seg.id}.wav`),
       fields: { durationInSeconds: true },
       reader: webReader,
     });
@@ -154,7 +154,7 @@ const ShortsVideoComponent: React.FC<Props> = ({ timings }) => {
                 />
                 <Caption badge={seg.badge} lines={seg.caption} fontFamily={fontFamily} />
                 <Sequence from={timing.narrationStartFrame}>
-                  <Audio src={staticFile(`audio/${timing.id}.mp3`)} />
+                  <Audio src={staticFile(`audio/${timing.id}.wav`)} />
                 </Sequence>
               </AbsoluteFill>
             </Series.Sequence>

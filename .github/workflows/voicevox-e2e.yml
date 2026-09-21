@@ -1,0 +1,72 @@
+name: VOICEVOX E2E Render Check (temporary, feature branch only)
+
+# VOICEVOX切り替えのクラウド検証用の一時ワークフロー(feature/voicevox-ttsへのpushでのみ動く)。
+# 本番と同じ手順で音声生成→背景取得→BGM→字幕→概要欄→レンダリングまで行い、投稿・シート記入は一切しない。
+# mainには入れない。
+on:
+  push:
+    branches: [feature/voicevox-tts]
+    paths:
+      - .github/workflows/voicevox-e2e.yml
+      - .github/actions/start-voicevox/action.yml
+      - scripts/lib/voicevox.mjs
+      - scripts/generate-tts.mjs
+      - scripts/voicevox-verify.mjs
+      - scripts/write-description.mjs
+      - description-template.txt
+      - src/**
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install headless Chrome dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libnss3 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 libcups2 \
+            libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 \
+            libxkbcommon0 libpango-1.0-0 libcairo2 libasound2t64 libatspi2.0-0
+
+      - uses: ./.github/actions/start-voicevox
+
+      - name: Reconstruct .env (Pexels only)
+        run: echo "PEXELS_API_KEY=${{ secrets.PEXELS_API_KEY }}" >> .env
+
+      - name: Build assets (same order as the production pipeline)
+        run: |
+          node scripts/generate-tts.mjs
+          node scripts/fetch-real-photo.mjs || true
+          node scripts/auto-fetch-bg.mjs
+          node scripts/select-bgm.mjs
+          node scripts/write-segments.mjs
+          node scripts/write-description.mjs
+
+      - name: Render video
+        run: npx remotion render ShortsVideo out/final.mp4 --crf=18
+
+      - name: Verify audio, speed and credit
+        run: node scripts/voicevox-verify.mjs
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: voicevox-e2e
+          path: |
+            out/final.mp4
+            description.txt
+            content/current-voice-credit.json
