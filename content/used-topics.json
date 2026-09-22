@@ -1461,5 +1461,18 @@
     "format": "qa",
     "usedRealPhoto": false,
     "usedCompetitorInsight": true
+  },
+  {
+    "title": "雷が太陽より熱くなるって本当？",
+    "topics": [
+      "雷は放電現象で瞬間的に発生する/雲の摩擦で電気がたまる/雷の温度は太陽表面の5倍以上"
+    ],
+    "date": "2026-09-22",
+    "publishedAt": "2026-09-25T09:00:00.000Z",
+    "videoId": "7irXYkuoS-w",
+    "category": "気象",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
   }
 ]
