@@ -1487,5 +1487,20 @@
     "format": "qa",
     "usedRealPhoto": false,
     "usedCompetitorInsight": true
+  },
+  {
+    "title": "史上最も非常識な世界地理3選",
+    "topics": [
+      "メルカトル図法とアフリカ大陸の実際の面積",
+      "ダイオミード諸島の21時間の時差",
+      "陸地から最も遠いポイント・ネモ"
+    ],
+    "date": "2026-09-23",
+    "publishedAt": "2026-09-26T09:00:00.000Z",
+    "videoId": "1jpB1ZCKgBI",
+    "category": "地理",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true
   }
 ]
