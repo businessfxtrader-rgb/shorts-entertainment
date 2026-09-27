@@ -66,7 +66,9 @@ for (const seg of script.segments) {
 const avg = (a) => a.reduce((x, y) => x + y, 0) / a.length;
 console.log(`発話区間RMS=${avg(speech).toFixed(1)}dBFS / 余白(BGMのみ)RMS=${avg(gap).toFixed(1)}dBFS`);
 check(avg(speech) > -40, `ナレーション区間が無音ではない (${avg(speech).toFixed(1)}dBFS)`);
-check(avg(speech) - avg(gap) >= 6, `発話区間が余白より6dB以上大きい=ナレーションが実際に鳴っている (差${(avg(speech) - avg(gap)).toFixed(1)}dB)`);
+// 2026-09-28: ナレーション中はBGMを0.15→0.06に下げる(約-8dB)ため、声が無ければ発話区間は余白より約8dB小さくなる。
+// 余白より3dB以上大きければ、声が確実に鳴っている
+check(avg(speech) - avg(gap) >= 3, `発話区間が余白より3dB以上大きい=ナレーションが実際に鳴っている (差${(avg(speech) - avg(gap)).toFixed(1)}dB)`);
 
 // ③ 概要欄にクレジットが入る
 const desc = fs.readFileSync(path.join(root, "description.txt"), "utf-8");
