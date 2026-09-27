@@ -1603,5 +1603,18 @@
     "format": "choice",
     "usedRealPhoto": false,
     "usedCompetitorInsight": true
+  },
+  {
+    "title": "建物が鳥の声を返す、まさかの理由とは？",
+    "topics": [
+      "コロッセオの昇降機/マルタ地下神殿の共鳴/チチェン・イッツァの鳥の声トリック"
+    ],
+    "date": "2026-09-27",
+    "publishedAt": "2026-09-30T09:00:00.000Z",
+    "videoId": "oJY72Sw6Sy8",
+    "category": "建築",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true
   }
 ]
