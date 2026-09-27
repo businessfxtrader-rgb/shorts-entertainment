@@ -28,6 +28,11 @@ const HEIGHT = 1920;
 const LEAD_IN_SEC = 0.15;
 const TAIL_SEC = 0.45;
 const END_BUFFER_SEC = 1;
+// BGMの音量。ナレーション中は下げて(ダッキング)、声が埋もれないようにする(2026-09-28追加)。
+// 元気な曲だと、一定音量0.15のままではナレーションとの差が約5dBしかなく聞き取りにくかったため
+const BGM_VOLUME = 0.15;
+const BGM_VOLUME_UNDER_VOICE = 0.06;
+const DUCK_RAMP_FRAMES = 6;
 
 type SegmentTiming = {
   id: SegmentId;
@@ -127,6 +132,24 @@ const KenBurnsImage: React.FC<{ src: string; durationInFrames: number }> = ({
 
 const ShortsVideoComponent: React.FC<Props> = ({ timings }) => {
   const theme = themeFor(themeIndex);
+  // ナレーションが鳴っている区間(フレーム)
+  const voiceWindows: [number, number][] = [];
+  let offset = 0;
+  for (const t of timings) {
+    const start = offset + t.narrationStartFrame;
+    const end = offset + t.durationInFrames - Math.round(TAIL_SEC * FPS);
+    voiceWindows.push([start, end]);
+    offset += t.durationInFrames;
+  }
+  const bgmVolume = (f: number) => {
+    // 最も近い発話区間までの距離に応じて、なめらかに音量を下げる
+    let duck = 0;
+    for (const [s, e] of voiceWindows) {
+      const dist = f < s ? s - f : f > e ? f - e : 0;
+      duck = Math.max(duck, interpolate(dist, [0, DUCK_RAMP_FRAMES], [1, 0], { extrapolateRight: "clamp" }));
+    }
+    return BGM_VOLUME - (BGM_VOLUME - BGM_VOLUME_UNDER_VOICE) * duck;
+  };
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
       <Series>
@@ -171,7 +194,7 @@ const ShortsVideoComponent: React.FC<Props> = ({ timings }) => {
         })}
       </Series>
       <TitleBand lines={screenTitle} theme={theme} fontFamily={fontFamily} />
-      <Audio src={staticFile("bgm/bgm.mp3")} volume={0.15} loop />
+      <Audio src={staticFile("bgm/bgm.mp3")} volume={bgmVolume} loop />
     </AbsoluteFill>
   );
 };
