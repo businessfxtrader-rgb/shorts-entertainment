@@ -101,6 +101,10 @@ function computeUpcomingSlots(now, count) {
 
 log("========== パイプライン開始(バッファチェック) ==========");
 
+// 公開済みの動画にXと別チャンネルへの案内コメントを付ける(2026-09-28、視聴者コメントへの自動返信から置き換え)。
+// 動画は予約公開(JST 12:00/18:00)で、このパイプラインはその13分後に動くため、最初に実行して公開直後に付ける
+runNodeSoft("post-promo-comment.mjs");
+
 const usedTopicsPath = path.join(root, "content", "used-topics.json");
 const usedTopics = JSON.parse(fs.readFileSync(usedTopicsPath, "utf-8"));
 const now = new Date();
@@ -155,7 +159,5 @@ for (const slot of slotsToFill) {
     // このスロットの失敗で全体を止めない。バッファに余裕があるため次回実行時に再試行される。
   }
 }
-
-runNodeSoft("reply-comments.mjs");
 
 log("========== パイプライン終了 ==========");
