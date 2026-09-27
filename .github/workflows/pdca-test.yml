@@ -1,0 +1,38 @@
+name: PDCA Review Dry Run (temporary, feature branch only)
+
+# pdca-review.mjsの判定部分(claude -p)をクラウドで試す一時ワークフロー。mainには入れない。
+# 改善前(v0)の動画を「今の方針」とみなして判定させ、出てきた方針を表示するだけ(コミットしない)。
+on:
+  push:
+    branches: [feature/retention-v1]
+    paths:
+      - .github/workflows/pdca-test.yml
+      - scripts/pdca-review.mjs
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Reconstruct .env (Claude only)
+        run: echo "CLAUDE_CODE_OAUTH_TOKEN=${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}" >> .env
+      - name: Pretend the pre-improvement videos are the current policy
+        run: |
+          echo '{"version":0,"narrationChars":{"min":320,"max":345},"genreMultipliers":{},"pausedGenres":[],"promptAdditions":[]}' > content/pdca-directives.json
+          echo '[]' > content/pdca-log.json
+      - name: Run PDCA review
+        run: node scripts/pdca-review.mjs
+      - name: Show result
+        run: |
+          cat content/pdca-directives.json
+          cat content/pdca-log.json
