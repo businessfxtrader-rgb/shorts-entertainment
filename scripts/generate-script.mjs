@@ -371,9 +371,9 @@ ${segmentsExample}
 }
 (注: 各segmentオブジェクトには上記の例に加えて "realPhotoSubject": "実在対象物の正式名称またはnull" を必ず追加すること)`;
 
-function runClaude(promptText) {
+function runClaude(promptText, extraArgs = []) {
   return new Promise((resolve, reject) => {
-    const child = spawn("claude", ["-p", "--output-format", "text"], {
+    const child = spawn("claude", ["-p", "--output-format", "text", ...extraArgs], {
       shell: true,
       stdio: ["pipe", "pipe", "pipe"],
       env: { ...process.env, CLAUDE_CODE_OAUTH_TOKEN: env.CLAUDE_CODE_OAUTH_TOKEN },
@@ -427,6 +427,41 @@ const gotIds = script.segments.map((s) => s.id);
 for (const id of requiredIds) {
   if (!gotIds.includes(id)) {
     throw new Error(`生成結果に "${id}" セグメントがありません`);
+  }
+}
+
+// ファクトチェック(2026-09-28追加)。事実ベースのジャンルでは、台本ができた直後に別の呼び出しで
+// 事実・数字・単位換算(桁)を点検させ、誤りがあれば該当セグメントだけ最小限直す。
+// 実例: クラウド検証で「2の68乗、約3000京」(正しくは約3万京)という桁の誤りが出た。誤情報は
+// 視聴者の信頼と収益化審査の両方に響くため。点検に失敗しても台本はそのまま使う(動画作りは止めない)
+if (!category.fiction) {
+  try {
+    const checkPrompt = `あなたは雑学ショート動画の厳格なファクトチェッカーです。次の台本のnarrationとcaptionに、事実の誤り・数字や単位換算(桁)の誤り・年代の誤り・定説でないことの断定がないか確認してください。必要ならWeb検索で確かめてください。
+
+# 台本
+${JSON.stringify(script.segments.map((s) => ({ id: s.id, narration: s.narration, caption: s.caption })), null, 2)}
+
+# 出力(JSONのみ。説明文やコードフェンスは付けない)
+{"issues": ["見つけた誤りの説明(なければ空配列)"], "fixes": [{"id": "直すセグメントのid", "narration": "直した読み上げ文", "caption": ["直した1行目", "直した2行目"]}]}
+- 誤りがなければ fixes は空配列にする。誤りのあるセグメントだけを、元の文の形と長さ(±10字以内)を保って最小限直す
+- narrationで漢字をひらがなにしてある箇所(読み間違い防止)は、そのままにする
+- 感嘆符・疑問符は全角(！？)を使う。二重引用符(")は使わない`;
+    const check = extractJson(await runClaude(checkPrompt, ["--allowedTools", "WebSearch"]));
+    const fixed = [];
+    for (const f of check.fixes ?? []) {
+      const seg = script.segments.find((s) => s.id === f.id);
+      if (!seg || typeof f.narration !== "string" || !f.narration.trim()) continue;
+      if (Math.abs(f.narration.length - seg.narration.length) > 25) continue; // 尺が大きく変わる直しは採用しない
+      seg.narration = f.narration;
+      if (Array.isArray(f.caption) && f.caption.every((l) => typeof l === "string" && l.trim())) seg.caption = f.caption;
+      fixed.push(f.id);
+    }
+    script.factCheck = { issues: check.issues ?? [], fixed };
+    console.log(`ファクトチェック: 指摘${(check.issues ?? []).length}件 / 修正したセグメント: ${fixed.join(", ") || "なし"}`);
+    for (const issue of check.issues ?? []) console.log(`  - ${issue}`);
+  } catch (err) {
+    console.log(`警告: ファクトチェックに失敗しました(台本はそのまま使います): ${err.message}`);
+    script.factCheck = { error: err.message };
   }
 }
 
