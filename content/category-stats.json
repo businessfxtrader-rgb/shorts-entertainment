@@ -1,184 +1,198 @@
 {
   "雑学": {
-    "totalViews": 5686,
+    "totalViews": 5693,
     "videoCount": 13,
     "format": "ranking",
-    "avgViews": 437,
-    "avgRetentionPercentage": 70.6
+    "avgViews": 438,
+    "avgRetentionPercentage": 69.8
   },
   "文化": {
-    "totalViews": 3737,
+    "totalViews": 3882,
     "videoCount": 6,
     "format": "ranking",
-    "avgViews": 623,
-    "avgRetentionPercentage": 58.6
+    "avgViews": 647,
+    "avgRetentionPercentage": 55.1
   },
   "語源": {
-    "totalViews": 2709,
+    "totalViews": 3549,
     "videoCount": 7,
     "format": "ranking",
-    "avgViews": 387,
-    "avgRetentionPercentage": 50.2
+    "avgViews": 507,
+    "avgRetentionPercentage": 50.4
   },
   "歴史": {
-    "totalViews": 1569,
+    "totalViews": 2500,
     "videoCount": 7,
     "format": "simulation",
-    "avgViews": 224,
-    "avgRetentionPercentage": 61.7
+    "avgViews": 357,
+    "avgRetentionPercentage": 59.9
   },
   "ショートストーリー": {
-    "totalViews": 3278,
-    "videoCount": 7,
+    "totalViews": 3284,
+    "videoCount": 8,
     "format": "simulation",
-    "avgViews": 468,
-    "avgRetentionPercentage": 44
+    "avgViews": 411,
+    "avgRetentionPercentage": 44.1
   },
   "都市伝説": {
-    "totalViews": 5251,
+    "totalViews": 5423,
     "videoCount": 8,
     "format": "ranking",
-    "avgViews": 656,
-    "avgRetentionPercentage": 49.1
+    "avgViews": 678,
+    "avgRetentionPercentage": 49
   },
   "ライフハック": {
-    "totalViews": 2677,
-    "videoCount": 4,
+    "totalViews": 3572,
+    "videoCount": 5,
     "format": "ranking",
-    "avgViews": 669,
-    "avgRetentionPercentage": 38.5
+    "avgViews": 714,
+    "avgRetentionPercentage": 38.6
   },
   "心理学": {
     "totalViews": 2157,
-    "videoCount": 5,
+    "videoCount": 6,
     "format": "ranking",
-    "avgViews": 431,
+    "avgViews": 360,
     "avgRetentionPercentage": 45
   },
   "建築": {
-    "totalViews": 2333,
-    "videoCount": 5,
+    "totalViews": 2335,
+    "videoCount": 6,
     "format": "qa",
-    "avgViews": 467,
+    "avgViews": 389,
     "avgRetentionPercentage": 62.5
   },
   "人体": {
-    "totalViews": 9163,
+    "totalViews": 9166,
     "videoCount": 9,
     "format": "ranking",
     "avgViews": 1018,
-    "avgRetentionPercentage": 46.6
+    "avgRetentionPercentage": 56.6
   },
   "誕生秘話": {
-    "totalViews": 721,
-    "videoCount": 4,
+    "totalViews": 1783,
+    "videoCount": 5,
     "format": "qa",
-    "avgViews": 180,
+    "avgViews": 357,
     "avgRetentionPercentage": 31.8
   },
   "宇宙": {
-    "totalViews": 2241,
+    "totalViews": 3234,
     "videoCount": 4,
     "format": "simulation",
-    "avgViews": 560,
-    "avgRetentionPercentage": 60.4
+    "avgViews": 809,
+    "avgRetentionPercentage": 60.3
   },
   "怖い話": {
-    "totalViews": 1493,
-    "videoCount": 3,
+    "totalViews": 2467,
+    "videoCount": 4,
     "format": "ranking",
-    "avgViews": 498,
+    "avgViews": 617,
     "avgRetentionPercentage": 30.4
   },
   "動物": {
-    "totalViews": 2991,
+    "totalViews": 2963,
     "videoCount": 3,
     "format": "ranking",
-    "avgViews": 997,
-    "avgRetentionPercentage": 56
+    "avgViews": 988,
+    "avgRetentionPercentage": 56.1
   },
   "日本": {
-    "totalViews": 2740,
-    "videoCount": 3,
+    "totalViews": 2744,
+    "videoCount": 4,
     "format": "qa",
-    "avgViews": 913,
+    "avgViews": 686,
     "avgRetentionPercentage": 69.8
   },
   "生態": {
-    "totalViews": 2832,
-    "videoCount": 3,
+    "totalViews": 2836,
+    "videoCount": 4,
     "format": "qa",
-    "avgViews": 944,
-    "avgRetentionPercentage": 63.7
+    "avgViews": 709,
+    "avgRetentionPercentage": 63.5
   },
   "グルメ": {
-    "totalViews": 961,
+    "totalViews": 960,
     "videoCount": 3,
     "format": "qa",
     "avgViews": 320,
-    "avgRetentionPercentage": 18
+    "avgRetentionPercentage": 19.6
   },
   "深海": {
-    "totalViews": 2489,
+    "totalViews": 2488,
     "videoCount": 3,
     "format": "qa",
-    "avgViews": 830,
-    "avgRetentionPercentage": 87.1
+    "avgViews": 829,
+    "avgRetentionPercentage": 86.3
   },
   "二択扉": {
-    "totalViews": 1734,
-    "videoCount": 2,
+    "totalViews": 1741,
+    "videoCount": 3,
     "format": "choice",
-    "avgViews": 867,
-    "avgRetentionPercentage": 81.5
+    "avgViews": 580,
+    "avgRetentionPercentage": 80.5
   },
   "テック速報": {
-    "totalViews": 1049,
+    "totalViews": 1056,
     "videoCount": 2,
     "format": "qa",
-    "avgViews": 525,
+    "avgViews": 528,
     "avgRetentionPercentage": 70.9
   },
   "神話": {
-    "totalViews": 945,
+    "totalViews": 1932,
     "videoCount": 2,
     "format": "ranking",
-    "avgViews": 473,
-    "avgRetentionPercentage": 79.6
+    "avgViews": 966,
+    "avgRetentionPercentage": 62.4
   },
   "気象": {
-    "totalViews": 1011,
-    "videoCount": 1,
+    "totalViews": 1919,
+    "videoCount": 2,
     "format": "qa",
-    "avgViews": 1011,
+    "avgViews": 960,
     "avgRetentionPercentage": 49.1
   },
   "地理": {
-    "totalViews": 943,
-    "videoCount": 1,
+    "totalViews": 1130,
+    "videoCount": 2,
     "format": "qa",
-    "avgViews": 943,
-    "avgRetentionPercentage": 48.9
+    "avgViews": 565,
+    "avgRetentionPercentage": 48.8
   },
   "哲学": {
-    "totalViews": 1057,
+    "totalViews": 938,
     "videoCount": 1,
     "format": "qa",
-    "avgViews": 1057,
+    "avgViews": 938,
     "avgRetentionPercentage": 43.8
   },
   "恐竜": {
-    "totalViews": 0,
+    "totalViews": 943,
     "videoCount": 1,
     "format": "ranking",
-    "avgViews": 0,
-    "avgRetentionPercentage": null
+    "avgViews": 943,
+    "avgRetentionPercentage": 59.9
   },
   "植物": {
-    "totalViews": 0,
+    "totalViews": 1042,
     "videoCount": 1,
     "format": "qa",
-    "avgViews": 0,
-    "avgRetentionPercentage": null
+    "avgViews": 1042,
+    "avgRetentionPercentage": 76.6
+  },
+  "暗号": {
+    "totalViews": 958,
+    "videoCount": 1,
+    "format": "qa",
+    "avgViews": 958,
+    "avgRetentionPercentage": 96.5
+  },
+  "錯覚": {
+    "totalViews": 164,
+    "videoCount": 1,
+    "format": "qa",
+    "avgViews": 164,
+    "avgRetentionPercentage": 87.5
   }
 }

@@ -38,8 +38,23 @@ const misreadingList = Object.entries(misreadingDict)
   .map(([kanji, kana]) => `${kanji}→${kana}`)
   .join("、");
 
+// PDCAの改善方針(scripts/pdca-review.mjsが週2回、実測データを見て更新する。2026-09-28追加)。
+// 台本の長さ・ジャンルの重み/休止・台本への追加指示を、コードを書き換えずに調整するためのもの。
+// 値は安全な範囲に丸めて使う(PDCA側の出力が極端でも動画作りが壊れないように)
+const pdcaPath = path.join(root, "content", "pdca-directives.json");
+const pdca = fs.existsSync(pdcaPath) ? JSON.parse(fs.readFileSync(pdcaPath, "utf-8")) : {};
+const clampNum = (v, lo, hi, fallback) => (Number.isFinite(v) ? Math.min(hi, Math.max(lo, v)) : fallback);
+const charsMin = clampNum(pdca.narrationChars?.min, 150, 330, 210);
+const charsMax = Math.max(charsMin + 15, clampNum(pdca.narrationChars?.max, 165, 345, 240));
+const genreMultipliers = pdca.genreMultipliers ?? {};
+const promptAdditions = (pdca.promptAdditions ?? []).filter((s) => typeof s === "string").slice(0, 6);
+
 const categoriesPath = path.join(root, "scripts", "categories.json");
-const CATEGORIES = JSON.parse(fs.readFileSync(categoriesPath, "utf-8"));
+const ALL_CATEGORIES = JSON.parse(fs.readFileSync(categoriesPath, "utf-8"));
+// 休止中のジャンルを除く(ただし最低8ジャンルは残す)
+const paused = new Set(pdca.pausedGenres ?? []);
+const activeCategories = ALL_CATEGORIES.filter((c) => !paused.has(c.name));
+const CATEGORIES = activeCategories.length >= 8 ? activeCategories : ALL_CATEGORIES;
 
 const categoryStatsPath = path.join(root, "content", "category-stats.json");
 const categoryStats = fs.existsSync(categoryStatsPath)
@@ -120,7 +135,8 @@ const weights = candidateCategories.map((c) => {
     retention != null && overallRetention
       ? Math.min(2, Math.max(0.5, retention / overallRetention))
       : 1;
-  return avgViews * retentionMultiplier + BASELINE_WEIGHT;
+  const pdcaMultiplier = clampNum(genreMultipliers[c.name], 0.3, 3, 1);
+  return (avgViews * retentionMultiplier + BASELINE_WEIGHT) * pdcaMultiplier;
 });
 const totalWeight = weights.reduce((a, b) => a + b, 0);
 let pick = Math.random() * totalWeight;
@@ -245,7 +261,7 @@ const retentionInstructions =
 const prompt = `あなたはYouTubeショート動画の台本作家です。エンタメ・雑学系チャンネル用に、新しい1本分の台本をJSON形式だけで出力してください。説明文やコードフェンス(\`\`\`)は一切つけず、JSONのみを出力してください。
 
 # チャンネル設定
-- ナレーター: 20代女性の落ち着いたトーン
+- ナレーター: 落ち着いた語り口。声は動画ごとに変わる(男性・女性・キャラクター声)ため、特定の性別・年齢を前提にした一人称や言い回しは使わない
 ${formatInstructions}
 - 締めのセリフは必ず「チャンネル登録」を促す言葉を含める(「フォロー」ではなく「チャンネル登録」)
 
@@ -265,7 +281,10 @@ ${category.name}: ${category.brief}
 - 実在の人物(有名人・YouTuber等)の実名・私生活を扱う内容、著作権のあるキャラクター・作品への言及は、フィクションであっても絶対に含めない
 - 情報密度を高くすること。前置き・相槌・当たり障りのない一般論を削り、具体的な数字・固有名詞・比較を積極的に使って、短い時間により多くの情報を詰め込む
 - 各narrationは1〜2文で簡潔にしつつも、内容が薄くならないよう具体性を重視する(「〜と言われています」のような曖昧な言い回しより、断定的で情報量のある言い方を優先する)
-- 動画の尺は54〜59秒が目標。narration(読み上げ文)の合計文字数が320〜345字程度になるようにすること(目安: hook 50〜55字、rank3/rank2/rank1は各65〜85字、outroは50〜55字)。文字数が少なすぎても多すぎても尺がずれるので、この範囲を必ず守ること
+- narration(読み上げ文)の合計文字数は${charsMin}〜${charsMax}字にすること(目安: hook ${Math.round(charsMin * 0.18)}〜${Math.round(charsMax * 0.18)}字、rank3/rank2/rank1は各${Math.round(charsMin * 0.23)}〜${Math.round(charsMax * 0.23)}字、outroは${Math.round(charsMin * 0.11)}〜${Math.round(charsMax * 0.11)}字)。この範囲を必ず守ること。短く濃い動画ほど最後まで見られやすく、YouTubeからより多くの人に配信されるため、無駄な一言を削って密度を上げる
+- hookのnarrationの最初の一文は20字以内にし、1〜2秒で「え?」と思わせること(ショートは最初の1〜2秒で見るかスワイプするかが決まるため)
+- outro(締め)は短くし、「コメントを促す問いかけ→チャンネル登録の一言」の順にする。長い締めは離脱の原因になる。問いかけは、hookで投げた問いに戻る形にすると、ループ再生されたときに冒頭へ自然につながりやすい
+- screenTitleは、動画の最初から最後まで画面上部に出し続ける短い見出し(2行の配列、各行12字以内)。1コマ目で「何の動画か」「なぜ気になるか」が一目で分かる言葉にし、答え(ネタバレ)は書かない(例:["石にしか見えない","植物の正体"])。titleと同じ文言でなくてよい
 - (視聴維持率対策・常時適用)フックの最初の1文だけで惹きつけること。「〜について紹介します」のような前置きは厳禁で、具体的な数字・意外な事実・断定的な一言から入る。前半で間延びさせず、後半に行くほど情報の意外性・インパクトが強くなる(尻すぼみにならない)構成にする
 - (視聴維持率対策・常時適用)タイトルだけでなく、可能な場面ではnarrationの構成自体も「核心を先に明かさず、少し焦らしてから明かす」形にする(例:「〜な理由」「実は〜」のように、結論を保留してから見せる)。ランキング形式であっても、各順位の紹介文の冒頭で結論を言い切らず、一言タメを作ってから核心に入るとよい
 ${retentionInstructions}
@@ -302,7 +321,12 @@ ${
 # 重複コンテンツ判定を避けるための工夫(重要)
 - フックの言い回し・構成の型は、過去のネタと違うパターンにすること(問いかけ型・数字型・逆張り型など毎回変える)
 - ナレーションの語り口も、丁寧すぎる/フランクめ等、毎回少し変化をつける
-
+- (収益化審査対策・常時適用)YouTubeは、同じ型で大量生産された中身の薄い動画を収益化の対象外にする。どの動画にも、その題材ならではの具体的な説明(仕組み・理由・比較・身近なたとえ)を最低1つ入れ、単なる事実の羅列や、他の回と入れ替えても成り立つ定型文にしないこと
+${
+  promptAdditions.length > 0
+    ? `\n# 今週の改善方針(実測データに基づくPDCA。上のルールと矛盾する場合は上のルールを優先)\n${promptAdditions.map((s) => `- ${s}`).join("\n")}\n`
+    : ""
+}
 # 誤読防止ルール
 - narration(読み上げ用テキスト)の中に、次の漢字が含まれる場合は必ずひらがなに置き換えること: ${misreadingList}
 - telop(画面表示用テキスト)は通常の漢字表記のままでよい
@@ -327,8 +351,9 @@ ${
 
 # 背景素材のルール(重要・2026-09-09追加)
 - 各segmentのpexelsQueryに加えて、"realPhotoSubject"というフィールドを追加すること
-- そのsegmentが実在する特定の建物・ランドマーク・organization・史跡・自然地形・人工物など「固有名詞で特定できる実在の対象物」を扱っている場合のみ、その正式名称(日本語、Wikipediaで見つかりやすい名前)を設定する(例:「東京スカイツリー」「ホテル川久」「マチュピチュ」)
-- 該当する固有の実在対象物が無い(抽象的な概念・一般論・創作の場合)、または対象が「実在の人物」の場合は、必ずnullにすること。実在の人物の写真は絶対に使わないため
+- そのsegmentが実在する特定の建物・ランドマーク・史跡・自然地形・人工物、または実在の生き物の種(動物・植物・深海生物など)・食べ物・道具・天体・自然現象など「名前で特定でき、写真で見せられる実在の対象」を扱っている場合は、その名前(Wikipediaで見つかりやすい日本語名。生き物は和名、見つかりにくそうなら学名でもよい)を設定する(例:「東京スカイツリー」「マチュピチュ」「リトープス」「ダイオウイカ」「オーロラ」)
+- (2026-09-28改訂・最重要)hookセグメントでは、話題の中心となる対象を1コマ目から見せることが、スワイプされないために最も大事。対象が写真で見せられるものなら、hookのrealPhotoSubjectには必ずそれを設定すること。写真で見せられない題材では、hookのpexelsQueryを「雰囲気だけの風景」ではなく、話題の対象や状況そのものが映る具体的な英語キーワードにする
+- 該当する実在の対象が無い(抽象的な概念・一般論・創作の場合)、または対象が「実在の人物」の場合は、必ずnullにすること。実在の人物の写真は絶対に使わないため
 - realPhotoSubjectを設定した場合、実際の写真(Wikimedia Commonsのフリー素材)が見つかればそれを背景に使い、見つからなければ自動的にpexelsQueryへフォールバックする仕組みなので、無理に対象物をでっち上げないこと(該当なしなら素直にnull)
 
 # JSON出力上の重要な注意
@@ -337,6 +362,7 @@ ${
 # 出力JSON形式(このスキーマに厳密に従うこと。各segmentに"realPhotoSubject"フィールドを必ず含めること。上記の背景素材のルール参照)
 {
   "title": "${titleInstructions}",
+  "screenTitle": ["画面上部の見出し1行目(12字以内)", "2行目(12字以内)"],
   "topics": ["${topicsInstructions}"],
   "descriptionHook": "概要欄の1行目。動画の内容を要約した1文",
   "tags": ["タグ1", "タグ2", "... 具体的なキーワードを8個程度"],
@@ -380,6 +406,21 @@ script.displayGenre = category.displayGenre ?? category.name;
 // SEO実験ログ(content/seo-experiments.json)が、この動画にどの実験的な仕組みが
 // 適用されたかを後から特定できるようにするための記録(2026-09-18追加)
 script.usedCompetitorInsight = Boolean(titleFormula || hookPattern || competitorTheme);
+// どのPDCAの方針で作られた動画かを記録する(効果の判定で、方針ごとに動画を分けるため)
+script.pdcaVersion = pdca.version ?? 0;
+// 見た目のテーマ(src/theme.tsのTHEMES)を動画ごとにランダムに選ぶ。同じ見た目の量産動画に見えないようにするため
+script.visualTheme = Math.floor(Math.random() * 4);
+// 画面上部の見出し。形式が崩れていたら出さない(動画作り自体は止めない)
+if (
+  !Array.isArray(script.screenTitle) ||
+  script.screenTitle.length === 0 ||
+  script.screenTitle.some((l) => typeof l !== "string" || l.length === 0 || l.length > 16)
+) {
+  console.log(`警告: screenTitleの形式が不正なため、画面上部の見出しは出しません: ${JSON.stringify(script.screenTitle)}`);
+  script.screenTitle = [];
+} else {
+  script.screenTitle = script.screenTitle.slice(0, 2);
+}
 
 const requiredIds = ["hook", "rank3", "rank2", "rank1", "outro"];
 const gotIds = script.segments.map((s) => s.id);

@@ -27,7 +27,15 @@ const entries = latestScript.segments
   })
   .join("\n");
 
-const content = `export type SegmentId = "hook" | "rank3" | "rank2" | "rank1" | "outro";
+// 画面上部の見出し(generate-script.mjsのscreenTitle)と、見た目のテーマ番号。
+// テーマは動画ごとに変えて、同じ見た目の量産動画に見えないようにする(収益化審査対策、2026-09-28追加)
+const screenTitle = Array.isArray(latestScript.screenTitle) ? latestScript.screenTitle : [];
+const themeIndex = Number.isInteger(latestScript.visualTheme) ? latestScript.visualTheme : 0;
+
+const content = `export const screenTitle: string[] = ${JSON.stringify(screenTitle)};
+export const themeIndex = ${themeIndex};
+
+export type SegmentId = "hook" | "rank3" | "rank2" | "rank1" | "outro";
 
 export type Segment = {
   id: SegmentId;

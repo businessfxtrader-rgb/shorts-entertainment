@@ -93,6 +93,11 @@ usedTopics.push({
       return null;
     }
   })(),
+  // PDCA(scripts/pdca-review.mjs)が、どの方針で作った動画かを分けて効果を判定するための記録
+  pdcaVersion: latestScript.pdcaVersion ?? 0,
+  realPhotoInHook: ["jpg", "png"].some((ext) => fs.existsSync(path.join(root, "public", "bg", `hook.${ext}`))),
+  visualTheme: latestScript.visualTheme ?? null,
+  hasScreenTitle: (latestScript.screenTitle ?? []).length > 0,
 });
 fs.writeFileSync(usedTopicsPath, JSON.stringify(usedTopics, null, 2));
 console.log("OK: used-topics.json を更新しました");

@@ -4,7 +4,9 @@ export const Caption: React.FC<{
   badge?: string;
   lines: string[];
   fontFamily: string;
-}> = ({ badge, lines, fontFamily }) => {
+  captionBg?: string;
+  badgeColor?: string;
+}> = ({ badge, lines, fontFamily, captionBg = "rgba(0,0,0,0.55)", badgeColor = "#FFD400" }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const progress = spring({ frame, fps, config: { damping: 200 } });
@@ -33,7 +35,7 @@ export const Caption: React.FC<{
         style={{
           opacity,
           transform: `translateY(${translateY}px)`,
-          background: "rgba(0,0,0,0.55)",
+          background: captionBg,
           borderRadius: 24,
           padding: "28px 40px",
           maxWidth: 940,
@@ -46,7 +48,7 @@ export const Caption: React.FC<{
               fontFamily,
               fontWeight: 700,
               fontSize: 44,
-              color: "#FFD400",
+              color: badgeColor,
               marginBottom: 10,
               textShadow: stroke,
             }}

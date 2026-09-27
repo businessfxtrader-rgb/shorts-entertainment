@@ -1,3 +1,6 @@
+export const screenTitle: string[] = [];
+export const themeIndex = 0;
+
 export type SegmentId = "hook" | "rank3" | "rank2" | "rank1" | "outro";
 
 export type Segment = {
@@ -9,9 +12,9 @@ export type Segment = {
 };
 
 export const segments: Segment[] = [
-  { id: "hook", caption: ["神殿・遺跡・超高層ビル","共通する衝撃の建築の秘密"], bgType: "video", bgExt: "mp4" },
-  { id: "rank3", badge: "第3位", caption: ["パルテノン神殿は直線ゼロ","遠近法を計算した設計"], bgType: "image", bgExt: "jpg" },
-  { id: "rank2", badge: "第2位", caption: ["チチェン・イッツァ遺跡","手拍子が鳥の声に変化"], bgType: "image", bgExt: "jpg" },
-  { id: "rank1", badge: "第1位", caption: ["台北101・高さ300m","728トンの鉄球で制振"], bgType: "image", bgExt: "jpg" },
-  { id: "outro", caption: ["他の建築ミステリーも","チャンネル登録して待ってて"], bgType: "video", bgExt: "mp4" },
+  { id: "hook", caption: ["南アフリカの過酷な砂漠に","小石そっくりの正体とは"], bgType: "video", bgExt: "mp4" },
+  { id: "rank3", caption: ["気温50度を超える砂漠","動物に狙われる過酷な地"], bgType: "image", bgExt: "jpg" },
+  { id: "rank2", caption: ["体のほとんどは地中に","表面に浮かぶ謎の模様"], bgType: "image", bgExt: "jpg" },
+  { id: "rank1", caption: ["その正体はリトープス","石そっくりに擬態する多肉植物"], bgType: "image", bgExt: "jpg" },
+  { id: "outro", caption: ["チャンネル登録で新知識を","驚いた雑学はコメントへ"], bgType: "video", bgExt: "mp4" },
 ];

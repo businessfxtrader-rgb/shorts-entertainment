@@ -4,8 +4,8 @@
 export const VOICEVOX_URL = process.env.VOICEVOX_URL ?? "http://localhost:50021";
 
 // 目標の読み上げ速度(総文字数÷音声の合計秒数)。切り替え前のGoogle TTS(Orus、speakingRate 1.15)を
-// 8本の実台本で実測した平均6.19字/秒(5.97〜6.53)に合わせる。台本の文字数(320〜345字)から
-// 動画尺(54〜59秒)を見積もっているため、声が変わっても字/秒を揃える必要がある。
+// 8本の実台本で実測した平均6.19字/秒(5.97〜6.53)に合わせる。台本の文字数
+// (content/pdca-directives.jsonのnarrationChars)から動画尺を見積もっているため、声が変わっても字/秒を揃える必要がある。
 export const TARGET_CPS = 6.2;
 
 // 声のプール(動画ごとにランダムに1人選ぶ)。nameはエンジンの話者名そのもの。

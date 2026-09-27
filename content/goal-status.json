@@ -1,0 +1,14 @@
+{
+  "goal": "直近30日以内に投稿した動画で10,000回再生",
+  "achieved": false,
+  "achievedAt": null,
+  "achievedBy": null,
+  "recentBest": {
+    "videoId": "tYNzPSFF3hk",
+    "title": "人体はどこまで耐えられる？限界の記録3選",
+    "views": 1179,
+    "publishedAt": "2026-08-30T03:00:00.000Z"
+  },
+  "recentVideoCount": 64,
+  "checkedAt": "2026-09-27T17:14:27.190Z"
+}

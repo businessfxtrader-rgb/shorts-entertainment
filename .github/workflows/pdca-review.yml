@@ -1,0 +1,65 @@
+name: PDCA Review
+
+# 「直近30日以内に投稿した動画で1万回再生」を達成するまで、週2回、実測データで方針を見直す(2026-09-28追加)。
+# 成績を取り直してから(track-performance.mjs)、scripts/pdca-review.mjsが前の方針の効果を判定し、
+# content/pdca-directives.json(台本の長さ・ジャンルの重み・台本への追加指示)を更新する。
+# 目標を達成したら、pdca-review.mjsは方針を固定して何も変えなくなる。
+on:
+  schedule:
+    - cron: "30 1 * * 1,4" # 月・木 10:30 JST
+  workflow_dispatch: {}
+
+# content/をコミットするため、daily-pipeline・weekly-researchと同じグループで直列に動かす
+concurrency:
+  group: content-writers
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Reconstruct secret files
+        run: |
+          echo "CLAUDE_CODE_OAUTH_TOKEN=${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}" >> .env
+          echo '${{ secrets.GOOGLE_CLIENT_SECRET_JSON }}' > client_secret.json
+          echo '${{ secrets.YOUTUBE_TOKEN_JSON }}' > youtube-token.json
+          echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service-account.json
+
+      - name: Track video performance
+        run: node scripts/track-performance.mjs
+
+      - name: Review and update PDCA directives
+        run: node scripts/pdca-review.mjs
+
+      - name: Commit updated data
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/
+          git diff --staged --quiet && exit 0
+          git commit -m "chore: PDCA review [skip ci]"
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "push rejected (attempt $i/5), rebasing onto latest main..."
+            git pull --rebase --autostash origin main || true
+            sleep 5
+          done
+          echo "::error::PDCAの結果のpushが5回失敗しました"
+          exit 1

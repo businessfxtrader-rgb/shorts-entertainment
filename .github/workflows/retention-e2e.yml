@@ -1,0 +1,89 @@
+name: Retention v1 E2E Render Check (temporary, feature branch only)
+
+# 視聴維持率改善(PDCA v1)のクラウド検証用の一時ワークフロー(feature/retention-v1へのpushでのみ動く)。
+# 本番と同じ手順で台本生成→音声生成→背景取得→BGM→字幕→概要欄→レンダリングまで行い、投稿・シート記入は一切しない。
+# mainには入れない。
+on:
+  push:
+    branches: [feature/retention-v1]
+    paths:
+      - .github/workflows/retention-e2e.yml
+      - scripts/generate-script.mjs
+      - scripts/write-segments.mjs
+      - scripts/fetch-real-photo.mjs
+      - .github/actions/start-voicevox/action.yml
+      - scripts/lib/voicevox.mjs
+      - scripts/generate-tts.mjs
+      - scripts/voicevox-verify.mjs
+      - scripts/write-description.mjs
+      - description-template.txt
+      - src/**
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install headless Chrome dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libnss3 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 libcups2 \
+            libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 \
+            libxkbcommon0 libpango-1.0-0 libcairo2 libasound2t64 libatspi2.0-0
+
+      - uses: ./.github/actions/start-voicevox
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Reconstruct .env (Pexels + Claude only, no YouTube/Sheets credentials)
+        run: |
+          echo "PEXELS_API_KEY=${{ secrets.PEXELS_API_KEY }}" >> .env
+          echo "CLAUDE_CODE_OAUTH_TOKEN=${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}" >> .env
+
+      - name: Build assets (same order as the production pipeline)
+        run: |
+          node scripts/generate-script.mjs
+          node -e "const s=require('./content/latest-script.json');const n=s.segments.reduce((a,x)=>a+x.narration.length,0);console.log('title:',s.title);console.log('screenTitle:',JSON.stringify(s.screenTitle),'theme:',s.visualTheme,'pdcaVersion:',s.pdcaVersion);console.log('narration chars:',n);s.segments.forEach(x=>console.log(x.id,x.narration.length,x.realPhotoSubject,'|',x.narration));if(n<195||n>255)process.exit(1)"
+          node scripts/generate-tts.mjs
+          node scripts/fetch-real-photo.mjs || true
+          # 本番はrunWithRetryで最大10回再試行される工程(Pexels APIの一時的な504等のため)。ここでも再現する
+          for i in 1 2 3 4 5; do node scripts/auto-fetch-bg.mjs && break; echo "retry $i"; sleep 20; done
+          node scripts/select-bgm.mjs
+          node scripts/write-segments.mjs
+          node scripts/write-description.mjs
+
+      - name: Render video
+        run: npx remotion render ShortsVideo out/final.mp4 --crf=18
+
+      - name: Verify audio, speed and credit
+        run: |
+          sudo apt-get install -y ffmpeg
+          node scripts/voicevox-verify.mjs
+          for s in 0.3 1.5 15; do ffmpeg -loglevel error -y -ss $s -i out/final.mp4 -frames:v 1 -vf scale=540:-1 out/frame_$s.png; done
+          ffprobe -v error -show_entries format=duration -of csv=p=0 out/final.mp4
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: retention-e2e
+          path: |
+            out/final.mp4
+            out/frame_*.png
+            content/latest-script.json
+            description.txt
+            content/current-voice-credit.json

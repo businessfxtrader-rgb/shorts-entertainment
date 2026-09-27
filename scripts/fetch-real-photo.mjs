@@ -22,7 +22,7 @@ const MIN_DIMENSION = 480; // アイコン・ロゴ等の低解像度画像を�
 // Wikimedia側のUser-Agentポリシー(連絡先情報を含めることを推奨)に従い、かつ
 // 短時間の連続アクセスによる429(レート制限)を避けるため軽くスリープを挟む
 const USER_AGENT =
-  "shorts-entertainment-bot/1.0 (https://github.com/businessfxtrader-rgb/shorts-entertainment; non-commercial YouTube Shorts background image fetch)";
+  "shorts-entertainment-bot/1.0 (https://github.com/businessfxtrader-rgb/shorts-entertainment; YouTube Shorts background image fetch)";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
