@@ -1435,5 +1435,186 @@
     "format": "qa",
     "usedRealPhoto": true,
     "usedCompetitorInsight": true
+  },
+  {
+    "title": "解読不能なはずの暗号、まさかの弱点とは？",
+    "topics": [
+      "159垓通りの組み合わせを誇ったエニグマの構造/文字が自分自身には変換されない癖/天気予報から突破口が生まれた理由"
+    ],
+    "date": "2026-09-21",
+    "publishedAt": "2026-09-24T09:00:00.000Z",
+    "videoId": "32DQZks9kCA",
+    "category": "暗号",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "目と耳を騙す錯覚、まさかの理由とは？",
+    "topics": [
+      "チェッカーシャドー錯視は同じ灰色でも違って見える/シェパード・トーンは音程が上がり続ける錯覚/脳の予測処理が錯覚を生む理由"
+    ],
+    "date": "2026-09-22",
+    "publishedAt": "2026-09-25T03:00:00.000Z",
+    "videoId": "YACGFCOUhjY",
+    "category": "錯覚",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "雷が太陽より熱くなるって本当？",
+    "topics": [
+      "雷は放電現象で瞬間的に発生する/雲の摩擦で電気がたまる/雷の温度は太陽表面の5倍以上"
+    ],
+    "date": "2026-09-22",
+    "publishedAt": "2026-09-25T09:00:00.000Z",
+    "videoId": "7irXYkuoS-w",
+    "category": "気象",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "その裏ワザが効く、まさかの理由とは？",
+    "topics": [
+      "換気扇の油汚れ落とし/レモンの搾り方/靴の消臭"
+    ],
+    "date": "2026-09-23",
+    "publishedAt": "2026-09-26T03:00:00.000Z",
+    "videoId": "61j0F4gO-Rg",
+    "category": "ライフハック",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "史上最も非常識な世界地理3選",
+    "topics": [
+      "メルカトル図法とアフリカ大陸の実際の面積",
+      "ダイオミード諸島の21時間の時差",
+      "陸地から最も遠いポイント・ネモ"
+    ],
+    "date": "2026-09-23",
+    "publishedAt": "2026-09-26T09:00:00.000Z",
+    "videoId": "1jpB1ZCKgBI",
+    "category": "地理",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "背筋が凍る夜更けの怪奇現象3選",
+    "topics": [
+      "天井の足音/声のない着信/鍵穴の傷跡が示す3段階の予兆"
+    ],
+    "date": "2026-09-24",
+    "publishedAt": "2026-09-27T03:00:00.000Z",
+    "videoId": "RNQO1VZ1u-4",
+    "category": "怖い話",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "ビール工場と寿司、まさかの共通点とは？",
+    "topics": [
+      "職人不足からビール工場の光景がヒントになり誕生した回転寿司の秘密"
+    ],
+    "date": "2026-09-24",
+    "publishedAt": "2026-09-27T09:00:00.000Z",
+    "videoId": "ZDTEPGf7mrA",
+    "category": "誕生秘話",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "廃墟の写真機、もう一人多く写るまさかの理由",
+    "topics": [
+      "廃墟に残る写真機の都市伝説",
+      "写り込む清掃員の女性の正体",
+      "命日の時刻と一致するまさかの真相"
+    ],
+    "date": "2026-09-25",
+    "publishedAt": "2026-09-28T03:00:00.000Z",
+    "videoId": "6rm6T16eM4k",
+    "category": "ショートストーリー",
+    "format": "simulation",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "「トイレにボタンなんて不要でしょ」と鼻で笑ったミニマリスト旅行者が、日本のホテルで出会った温水洗浄便座の実態を知り価値観が一変した衝撃の結末",
+    "topics": [
+      "温水洗浄便座を見下すミニマリスト旅行者",
+      "日本のホテルでの温水洗浄体験",
+      "普及率80％超に価値観が一変"
+    ],
+    "date": "2026-09-25",
+    "publishedAt": "2026-09-28T09:00:00.000Z",
+    "videoId": "6Nnqby27vJY",
+    "category": "日本",
+    "format": "reversal",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "その決断、操られてるかもまさかの理由",
+    "topics": [
+      "カリギュラ効果:禁止されるほど惹かれる心理",
+      "スポットライト効果:注目されているという思い込み",
+      "アンカリング効果:最初の数字が判断を歪める"
+    ],
+    "date": "2026-09-26",
+    "publishedAt": "2026-09-29T03:00:00.000Z",
+    "videoId": "IxkAS4zzbdo",
+    "category": "心理学",
+    "format": "ranking",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "動物のかわいい仕草、まさかの正体3選",
+    "topics": [
+      "うさぎの後ろ脚キックの威力",
+      "フラミンゴの片脚立ちの理由",
+      "アライグマの手洗い仕草の正体"
+    ],
+    "date": "2026-09-26",
+    "publishedAt": "2026-09-29T09:00:00.000Z",
+    "videoId": "oCuUjNbonUI",
+    "category": "生態",
+    "format": "ranking",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "物音が罠かも 扉を選んでください Pick a door!",
+    "topics": [
+      "落盤が迫る坑道で左右の扉を選ぶ二択設定",
+      "左の扉は無数の羽音、生存率78%という伏線",
+      "右の扉は鱗が擦れる音、遭遇率0.3%という伏線"
+    ],
+    "date": "2026-09-27",
+    "publishedAt": "2026-09-30T03:00:00.000Z",
+    "videoId": "XUAtrgqlgTw",
+    "category": "二択扉",
+    "format": "choice",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
+  },
+  {
+    "title": "建物が鳥の声を返す、まさかの理由とは？",
+    "topics": [
+      "コロッセオの昇降機/マルタ地下神殿の共鳴/チチェン・イッツァの鳥の声トリック"
+    ],
+    "date": "2026-09-27",
+    "publishedAt": "2026-09-30T09:00:00.000Z",
+    "videoId": "oJY72Sw6Sy8",
+    "category": "建築",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true
   }
 ]
