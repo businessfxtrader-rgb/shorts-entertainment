@@ -1588,5 +1588,20 @@
     "format": "ranking",
     "usedRealPhoto": false,
     "usedCompetitorInsight": true
+  },
+  {
+    "title": "物音が罠かも 扉を選んでください Pick a door!",
+    "topics": [
+      "落盤が迫る坑道で左右の扉を選ぶ二択設定",
+      "左の扉は無数の羽音、生存率78%という伏線",
+      "右の扉は鱗が擦れる音、遭遇率0.3%という伏線"
+    ],
+    "date": "2026-09-27",
+    "publishedAt": "2026-09-30T03:00:00.000Z",
+    "videoId": "XUAtrgqlgTw",
+    "category": "二択扉",
+    "format": "choice",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true
   }
 ]
