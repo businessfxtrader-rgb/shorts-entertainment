@@ -1,6 +1,6 @@
 {
   "雑学": {
-    "totalViews": 5693,
+    "totalViews": 5696,
     "videoCount": 13,
     "format": "ranking",
     "avgViews": 438,
@@ -28,10 +28,10 @@
     "avgRetentionPercentage": 59.9
   },
   "ショートストーリー": {
-    "totalViews": 3284,
+    "totalViews": 3327,
     "videoCount": 8,
     "format": "simulation",
-    "avgViews": 411,
+    "avgViews": 416,
     "avgRetentionPercentage": 44.1
   },
   "都市伝説": {
@@ -98,7 +98,7 @@
     "avgRetentionPercentage": 56.1
   },
   "日本": {
-    "totalViews": 2744,
+    "totalViews": 2745,
     "videoCount": 4,
     "format": "qa",
     "avgViews": 686,
@@ -175,10 +175,10 @@
     "avgRetentionPercentage": 59.8
   },
   "植物": {
-    "totalViews": 1042,
+    "totalViews": 1043,
     "videoCount": 1,
     "format": "qa",
-    "avgViews": 1042,
+    "avgViews": 1043,
     "avgRetentionPercentage": 75.8
   },
   "暗号": {
