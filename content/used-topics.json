@@ -1616,5 +1616,25 @@
     "format": "qa",
     "usedRealPhoto": true,
     "usedCompetitorInsight": true
+  },
+  {
+    "title": "小学生でも分かる式が証明できない理由",
+    "topics": [
+      "提唱から90年変わらぬ検証記録",
+      "反例ゼロでも埋まらない証明の溝",
+      "一般化ルールに潜む証明不可能性"
+    ],
+    "date": "2026-09-28",
+    "publishedAt": "2026-10-01T03:00:00.000Z",
+    "videoId": "XnXdWu4pzPY",
+    "category": "未解決問題",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "雀松朱司",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true
   }
 ]
