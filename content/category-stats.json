@@ -11,17 +11,17 @@
     "videoCount": 6,
     "format": "ranking",
     "avgViews": 647,
-    "avgRetentionPercentage": 55.1
+    "avgRetentionPercentage": 55.4
   },
   "語源": {
     "totalViews": 3549,
     "videoCount": 7,
     "format": "ranking",
     "avgViews": 507,
-    "avgRetentionPercentage": 50.4
+    "avgRetentionPercentage": 50.5
   },
   "歴史": {
-    "totalViews": 2500,
+    "totalViews": 2501,
     "videoCount": 7,
     "format": "simulation",
     "avgViews": 357,
@@ -35,18 +35,18 @@
     "avgRetentionPercentage": 44.1
   },
   "都市伝説": {
-    "totalViews": 5423,
+    "totalViews": 5425,
     "videoCount": 8,
     "format": "ranking",
     "avgViews": 678,
     "avgRetentionPercentage": 49
   },
   "ライフハック": {
-    "totalViews": 3572,
+    "totalViews": 3605,
     "videoCount": 5,
     "format": "ranking",
-    "avgViews": 714,
-    "avgRetentionPercentage": 38.6
+    "avgViews": 721,
+    "avgRetentionPercentage": 37.1
   },
   "心理学": {
     "totalViews": 2157,
@@ -70,10 +70,10 @@
     "avgRetentionPercentage": 56.6
   },
   "誕生秘話": {
-    "totalViews": 1783,
+    "totalViews": 1821,
     "videoCount": 5,
     "format": "qa",
-    "avgViews": 357,
+    "avgViews": 364,
     "avgRetentionPercentage": 31.8
   },
   "宇宙": {
@@ -81,13 +81,13 @@
     "videoCount": 4,
     "format": "simulation",
     "avgViews": 809,
-    "avgRetentionPercentage": 60.3
+    "avgRetentionPercentage": 60.2
   },
   "怖い話": {
-    "totalViews": 2467,
+    "totalViews": 2453,
     "videoCount": 4,
     "format": "ranking",
-    "avgViews": 617,
+    "avgViews": 613,
     "avgRetentionPercentage": 30.4
   },
   "動物": {
@@ -137,27 +137,27 @@
     "videoCount": 2,
     "format": "qa",
     "avgViews": 528,
-    "avgRetentionPercentage": 70.9
+    "avgRetentionPercentage": 70.8
   },
   "神話": {
-    "totalViews": 1932,
+    "totalViews": 1934,
     "videoCount": 2,
     "format": "ranking",
-    "avgViews": 966,
-    "avgRetentionPercentage": 62.4
+    "avgViews": 967,
+    "avgRetentionPercentage": 62.5
   },
   "気象": {
     "totalViews": 1919,
     "videoCount": 2,
     "format": "qa",
     "avgViews": 960,
-    "avgRetentionPercentage": 49.1
+    "avgRetentionPercentage": 74.8
   },
   "地理": {
-    "totalViews": 1130,
+    "totalViews": 1128,
     "videoCount": 2,
     "format": "qa",
-    "avgViews": 565,
+    "avgViews": 564,
     "avgRetentionPercentage": 48.8
   },
   "哲学": {
@@ -172,27 +172,34 @@
     "videoCount": 1,
     "format": "ranking",
     "avgViews": 943,
-    "avgRetentionPercentage": 59.9
+    "avgRetentionPercentage": 59.8
   },
   "植物": {
     "totalViews": 1042,
     "videoCount": 1,
     "format": "qa",
     "avgViews": 1042,
-    "avgRetentionPercentage": 76.6
+    "avgRetentionPercentage": 75.8
   },
   "暗号": {
     "totalViews": 958,
     "videoCount": 1,
     "format": "qa",
     "avgViews": 958,
-    "avgRetentionPercentage": 96.5
+    "avgRetentionPercentage": 96.2
   },
   "錯覚": {
-    "totalViews": 164,
+    "totalViews": 163,
     "videoCount": 1,
     "format": "qa",
-    "avgViews": 164,
-    "avgRetentionPercentage": 87.5
+    "avgViews": 163,
+    "avgRetentionPercentage": 51.9
+  },
+  "未解決問題": {
+    "totalViews": 0,
+    "videoCount": 1,
+    "format": "qa",
+    "avgViews": 0,
+    "avgRetentionPercentage": null
   }
 }
