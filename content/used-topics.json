@@ -1636,5 +1636,25 @@
     "realPhotoInHook": false,
     "visualTheme": 3,
     "hasScreenTitle": true
+  },
+  {
+    "title": "象より力持ち？怪力昆虫、まさかの正体",
+    "topics": [
+      "アリの怪力伝説",
+      "2010年の衝撃の実験結果",
+      "フンコロガシの世界記録"
+    ],
+    "date": "2026-09-28",
+    "publishedAt": "2026-10-01T09:00:00.000Z",
+    "videoId": "aWvleHDZV0E",
+    "category": "昆虫",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "栗田まろん",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true
   }
 ]
