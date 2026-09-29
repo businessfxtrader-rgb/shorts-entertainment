@@ -1676,5 +1676,23 @@
     "realPhotoInHook": false,
     "visualTheme": 3,
     "hasScreenTitle": true
+  },
+  {
+    "title": "教室23人で誕生日が被る確率は？",
+    "topics": [
+      "直感は自分と同じ日で考えてしまう/23人だと253組のペアができる/確率は50.7％で被る方が多数派"
+    ],
+    "date": "2026-09-29",
+    "publishedAt": "2026-10-02T09:00:00.000Z",
+    "videoId": "JWsXDAQVl90",
+    "category": "パラドックス",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "春日部つむぎ",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true
   }
 ]
