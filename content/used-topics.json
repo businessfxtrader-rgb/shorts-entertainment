@@ -1656,5 +1656,25 @@
     "realPhotoInHook": false,
     "visualTheme": 2,
     "hasScreenTitle": true
+  },
+  {
+    "title": "史上最大の謎、忽然と消えた遺跡3選",
+    "topics": [
+      "モヘンジョダロ:全戸に井戸と下水道、文字は未解読",
+      "ペトラ:崖を彫った砂漠の都、1812年まで欧州に知られず",
+      "ゴベクリ・テペ:農耕前に築かれ、最後は土で埋められた"
+    ],
+    "date": "2026-09-29",
+    "publishedAt": "2026-10-02T03:00:00.000Z",
+    "videoId": "6eNECdJ_D1U",
+    "category": "遺跡",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "黒沢冴白",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true
   }
 ]
