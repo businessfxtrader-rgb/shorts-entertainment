@@ -1714,5 +1714,25 @@
     "realPhotoInHook": true,
     "visualTheme": 0,
     "hasScreenTitle": true
+  },
+  {
+    "title": "もし船の板を全部替えたら、同じ船？",
+    "topics": [
+      "板を1枚ずつ替え続けたら同じ船か",
+      "元の板ゼロ、古い板で組めばもう1隻",
+      "人体の赤血球も約120日で入れ替わる"
+    ],
+    "date": "2026-09-30",
+    "publishedAt": "2026-10-03T09:00:00.000Z",
+    "videoId": "5FCEy3woT-Y",
+    "category": "哲学",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "ずんだもん",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true
   }
 ]
