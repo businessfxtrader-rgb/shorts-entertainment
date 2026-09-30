@@ -1694,5 +1694,25 @@
     "realPhotoInHook": false,
     "visualTheme": 3,
     "hasScreenTitle": true
+  },
+  {
+    "title": "見た目に騙される危険な生態3選",
+    "topics": [
+      "スローロリスは肘の毒腺で毒を作る",
+      "ピストルシュリンプは泡で小魚を気絶させる",
+      "モンハナシャコは時速80キロのパンチを放つ"
+    ],
+    "date": "2026-09-30",
+    "publishedAt": "2026-10-03T03:00:00.000Z",
+    "videoId": "Lgh8zglbQGM",
+    "category": "動物",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "白上虎太郎",
+    "pdcaVersion": 1,
+    "realPhotoInHook": true,
+    "visualTheme": 0,
+    "hasScreenTitle": true
   }
 ]
