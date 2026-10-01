@@ -1734,5 +1734,25 @@
     "realPhotoInHook": false,
     "visualTheme": 0,
     "hasScreenTitle": true
+  },
+  {
+    "title": "史上最高に意外な江戸グルメ、もし食べたら？",
+    "topics": [
+      "握り寿司はおにぎり級の巨大ファストフード",
+      "天ぷらは串刺しで立ち食いする屋台の軽食",
+      "トロは猫またぎと呼ばれ捨てられていた"
+    ],
+    "date": "2026-10-01",
+    "publishedAt": "2026-10-04T03:00:00.000Z",
+    "videoId": "cYhHVz2EuIM",
+    "category": "グルメ",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "雨晴はう",
+    "pdcaVersion": 1,
+    "realPhotoInHook": true,
+    "visualTheme": 2,
+    "hasScreenTitle": true
   }
 ]
