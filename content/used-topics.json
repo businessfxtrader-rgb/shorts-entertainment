@@ -1754,5 +1754,23 @@
     "realPhotoInHook": true,
     "visualTheme": 2,
     "hasScreenTitle": true
+  },
+  {
+    "title": "世界一醜い深海魚、その顔はまさかの偽物？",
+    "topics": [
+      "水深600〜1200mの水圧は海面の約60〜120倍/浮き袋がなく体は海水とほぼ同じ密度/水圧から解放されると体が崩れて垂れ下がった顔になる"
+    ],
+    "date": "2026-10-01",
+    "publishedAt": "2026-10-04T09:00:00.000Z",
+    "videoId": "mLm8jVR-hr4",
+    "category": "深海",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "Voidoll",
+    "pdcaVersion": 1,
+    "realPhotoInHook": true,
+    "visualTheme": 1,
+    "hasScreenTitle": true
   }
 ]
