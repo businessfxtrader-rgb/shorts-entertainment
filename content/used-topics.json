@@ -1792,5 +1792,25 @@
     "realPhotoInHook": false,
     "visualTheme": 0,
     "hasScreenTitle": true
+  },
+  {
+    "title": "史上最高に有名な勘違い、まさかの真相とは？",
+    "topics": [
+      "カメレオンは背景に合わせて変色するわけではない",
+      "古い窓ガラスの下が厚いのは液体だからではない",
+      "闘牛の牛は赤い色ではなく動くマントに反応する"
+    ],
+    "date": "2026-10-02",
+    "publishedAt": "2026-10-05T09:00:00.000Z",
+    "videoId": "1-9QlxzuPH8",
+    "category": "都市伝説",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "雨晴はう",
+    "pdcaVersion": 1,
+    "realPhotoInHook": true,
+    "visualTheme": 0,
+    "hasScreenTitle": true
   }
 ]
