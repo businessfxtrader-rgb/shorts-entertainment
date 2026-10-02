@@ -1772,5 +1772,25 @@
     "realPhotoInHook": true,
     "visualTheme": 1,
     "hasScreenTitle": true
+  },
+  {
+    "title": "史上最高の人体ミステリー、まさかの未解明機能",
+    "topics": [
+      "虫垂は腸内細菌のシェルターという有力説",
+      "あくびの本当の目的は未確定",
+      "夢を見る理由はいまだ謎"
+    ],
+    "date": "2026-10-02",
+    "publishedAt": "2026-10-05T03:00:00.000Z",
+    "videoId": "IYzNtM9qQ6o",
+    "category": "雑学",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "東北イタコ",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true
   }
 ]
