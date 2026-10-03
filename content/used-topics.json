@@ -1812,5 +1812,25 @@
     "realPhotoInHook": true,
     "visualTheme": 0,
     "hasScreenTitle": true
+  },
+  {
+    "title": "史上最高に衝撃の人体記録3選、常識が覆る",
+    "topics": [
+      "水なしで生きられる日数の目安は約3日、記録はそれ以上",
+      "血液の約半分を失っても生存した医学記録",
+      "宇宙の無重力で背骨が伸び身長が数センチ増える"
+    ],
+    "date": "2026-10-03",
+    "publishedAt": "2026-10-06T03:00:00.000Z",
+    "videoId": "YG9IQYFN8gM",
+    "category": "人体",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "猫使ビィ",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true
   }
 ]
