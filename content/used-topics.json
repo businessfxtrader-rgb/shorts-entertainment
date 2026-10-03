@@ -1832,5 +1832,25 @@
     "realPhotoInHook": false,
     "visualTheme": 2,
     "hasScreenTitle": true
+  },
+  {
+    "title": "史上最高に意外な語源、毎日使うあの言葉の元ネタ",
+    "topics": [
+      "相槌は鍛冶の師匠と弟子が交互に打つ槌の呼吸が語源",
+      "おじゃんは火事の鎮火を知らせる半鐘の音ジャンが由来",
+      "十八番はおはこと読み、歌舞伎の得意演目十八を箱に納めた説"
+    ],
+    "date": "2026-10-03",
+    "publishedAt": "2026-10-06T09:00:00.000Z",
+    "videoId": "JTOpuh-dU2c",
+    "category": "語源",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "栗田まろん",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true
   }
 ]
