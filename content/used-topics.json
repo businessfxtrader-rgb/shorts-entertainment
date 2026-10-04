@@ -1852,5 +1852,25 @@
     "realPhotoInHook": false,
     "visualTheme": 3,
     "hasScreenTitle": true
+  },
+  {
+    "title": "史上最高に意外な恐竜の素顔3選",
+    "topics": [
+      "ティラノサウルスは10代で1日約2キロ増える急成長だった",
+      "ミクロラプトルは4枚翼で虹色に光る黒い羽毛を持っていた",
+      "化石のたんぱく質から鳥は恐竜の子孫と判明、現生約1万種が生き残り"
+    ],
+    "date": "2026-10-04",
+    "publishedAt": "2026-10-07T03:00:00.000Z",
+    "videoId": "WSEUD7HsRc4",
+    "category": "恐竜",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "白上虎太郎",
+    "pdcaVersion": 1,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true
   }
 ]
