@@ -1872,5 +1872,25 @@
     "realPhotoInHook": true,
     "visualTheme": 3,
     "hasScreenTitle": true
+  },
+  {
+    "title": "もし文字がなかったら人類はどうなる？",
+    "topics": [
+      "契約と税が崩れ都市が回らない",
+      "法が記憶頼みで土地ごとに変わる",
+      "知識を積み上げられず科学が育たない"
+    ],
+    "date": "2026-10-04",
+    "publishedAt": "2026-10-07T09:00:00.000Z",
+    "videoId": "K9NE9jXisXE",
+    "category": "歴史",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "春日部つむぎ",
+    "pdcaVersion": 1,
+    "realPhotoInHook": true,
+    "visualTheme": 1,
+    "hasScreenTitle": true
   }
 ]
