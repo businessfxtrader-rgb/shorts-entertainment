@@ -19,9 +19,14 @@
       "minDays": 21,
       "description": "導入から3週間経過後に判定する"
     },
-    "status": "observing",
-    "result": null,
-    "judgedAt": null
+    "status": "judged",
+    "result": {
+      "sampleSize": 49,
+      "afterMedianViewsPerDay": 34.53530991806194,
+      "afterMedianAPV": 49.02,
+      "verdict": "悪化傾向(1日あたり再生数が導入前の0.71倍)。ただしサンプル数が少ない場合は誤差の可能性もある"
+    },
+    "judgedAt": "2026-10-05T04:36:48.398Z"
   },
   {
     "id": "exp-2026-09-09-real-photo-backgrounds",

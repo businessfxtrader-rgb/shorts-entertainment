@@ -1,10 +1,10 @@
 {
-  "periodStart": "2026-08-29",
-  "periodEnd": "2026-09-28",
+  "periodStart": "2026-09-05",
+  "periodEnd": "2026-10-05",
   "queries": [
     {
       "query": "ドアを選んでください",
-      "views": 45
+      "views": 106
     },
     {
       "query": "gpt6 astra",
@@ -12,7 +12,15 @@
     },
     {
       "query": "ほっと一息チャンネル",
-      "views": 17
+      "views": 16
+    },
+    {
+      "query": "ドアを選んで",
+      "views": 15
+    },
+    {
+      "query": "ミニマリスト",
+      "views": 14
     },
     {
       "query": "チャットgpt アストラ",
@@ -40,10 +48,6 @@
     },
     {
       "query": "gtp6 astra",
-      "views": 8
-    },
-    {
-      "query": "ドアを選んで",
       "views": 8
     },
     {
@@ -75,33 +79,29 @@
       "views": 5
     },
     {
+      "query": "フォートナイトチャニ",
+      "views": 5
+    },
+    {
       "query": "gpt-6 astra",
       "views": 4
     },
     {
-      "query": "ミソフォニア",
+      "query": "アーチェリー 美人",
+      "views": 4
+    },
+    {
+      "query": "イカゲーム",
+      "views": 4
+    },
+    {
+      "query": "扉を選んで",
       "views": 4
     },
     {
       "query": "気圧とは",
       "views": 4
-    },
-    {
-      "query": "gpt6 astra 使い方",
-      "views": 3
-    },
-    {
-      "query": "openai bel",
-      "views": 3
-    },
-    {
-      "query": "testosterone",
-      "views": 3
-    },
-    {
-      "query": "あだると",
-      "views": 3
     }
   ],
-  "updatedAt": "2026-09-28T04:10:44.499Z"
+  "updatedAt": "2026-10-05T04:35:30.358Z"
 }
