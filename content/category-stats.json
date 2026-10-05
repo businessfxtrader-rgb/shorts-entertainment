@@ -1,9 +1,9 @@
 {
   "雑学": {
-    "totalViews": 5715,
+    "totalViews": 6067,
     "videoCount": 14,
     "format": "ranking",
-    "avgViews": 408,
+    "avgViews": 433,
     "avgRetentionPercentage": 69.8
   },
   "文化": {
@@ -35,7 +35,7 @@
     "avgRetentionPercentage": 45.7
   },
   "都市伝説": {
-    "totalViews": 5435,
+    "totalViews": 5436,
     "videoCount": 9,
     "format": "ranking",
     "avgViews": 604,
@@ -119,7 +119,7 @@
     "avgRetentionPercentage": 19.6
   },
   "深海": {
-    "totalViews": 3428,
+    "totalViews": 3429,
     "videoCount": 4,
     "format": "qa",
     "avgViews": 857,

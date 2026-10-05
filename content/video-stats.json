@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T04:35:29.083Z",
+  "updatedAt": "2026-10-05T07:25:39.371Z",
   "videos": [
     {
       "videoId": "cd_jOtDEF_Q",
@@ -113,7 +113,7 @@
     },
     {
       "videoId": "IxGsYkSbL9A",
-      "title": "ローマ数字とGPSの知られざる関係",
+      "title": "ローマ数字が消えたら世界はどうなる？",
       "publishedAt": "2026-07-26T14:34:23Z",
       "category": "歴史",
       "format": "simulation",
@@ -179,7 +179,7 @@
     },
     {
       "videoId": "93dLaMBmMZQ",
-      "title": "金魚・バミューダ・脳…衝撃の真相とは？",
+      "title": "金魚もバミューダも脳も…まさかの真実",
       "publishedAt": "2026-07-28T03:00:00.000Z",
       "category": "都市伝説",
       "format": "ranking",
@@ -201,7 +201,7 @@
     },
     {
       "videoId": "M4v-ZmNo8Ks",
-      "title": "胃・身長・虫垂に隠された共通の秘密",
+      "title": "体の中で起きてる意外な仕組み",
       "publishedAt": "2026-07-28T09:00:00.000Z",
       "category": "雑学",
       "format": "ranking",
@@ -1641,7 +1641,7 @@
       "visualTheme": null,
       "privacyStatus": "public",
       "duration": "PT58S",
-      "views": 900,
+      "views": 901,
       "engagedViews": 347,
       "engagedRate": 0.386,
       "averageViewPercentage": 43.74,
@@ -2829,7 +2829,7 @@
       "visualTheme": 1,
       "privacyStatus": "public",
       "duration": "PT42S",
-      "views": 934,
+      "views": 935,
       "engagedViews": null,
       "engagedRate": null,
       "averageViewPercentage": null,
@@ -2851,12 +2851,12 @@
       "visualTheme": 0,
       "privacyStatus": "public",
       "duration": "PT54S",
-      "views": 4,
+      "views": 356,
       "engagedViews": null,
       "engagedRate": null,
       "averageViewPercentage": null,
       "averageViewDuration": null,
-      "likes": 0,
+      "likes": 3,
       "comments": 1,
       "shares": null,
       "subscribersGained": null
