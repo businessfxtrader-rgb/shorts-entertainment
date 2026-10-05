@@ -1910,5 +1910,23 @@
     "realPhotoInHook": true,
     "visualTheme": 1,
     "hasScreenTitle": true
+  },
+  {
+    "title": "1兆秒って実は何年？数えると驚く理由",
+    "topics": [
+      "10億秒でも約32年/1兆秒前は約3万年前の洞窟壁画の時代/答えは約3万1700年"
+    ],
+    "date": "2026-10-05",
+    "publishedAt": "2026-10-08T09:00:00.000Z",
+    "videoId": "OdfB67v46qk",
+    "category": "数字",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "東北ずん子",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true
   }
 ]
