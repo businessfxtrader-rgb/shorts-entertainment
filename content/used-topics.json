@@ -1892,5 +1892,23 @@
     "realPhotoInHook": true,
     "visualTheme": 1,
     "hasScreenTitle": true
+  },
+  {
+    "title": "ヤマタノオロチは本当に実在したのか？",
+    "topics": [
+      "オロチは氾濫する斐伊川がモデルという通説/上流の砂鉄で川が赤く濁り、目が赤いという記述と重なる/草薙剣はたたら製鉄の象徴という説"
+    ],
+    "date": "2026-10-05",
+    "publishedAt": "2026-10-08T03:00:00.000Z",
+    "videoId": "juUsA9Rz-bo",
+    "category": "神話",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "九州そら",
+    "pdcaVersion": 1,
+    "realPhotoInHook": true,
+    "visualTheme": 1,
+    "hasScreenTitle": true
   }
 ]
