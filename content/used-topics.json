@@ -1948,5 +1948,23 @@
     "realPhotoInHook": false,
     "visualTheme": 3,
     "hasScreenTitle": true
+  },
+  {
+    "title": "○○がない国の電話帳が名前順な理由",
+    "topics": [
+      "親子や兄妹でも名字が違う/名字の正体はバイキング時代から続く習慣/父の名前に息子か娘を付ける仕組み"
+    ],
+    "date": "2026-10-06",
+    "publishedAt": "2026-10-09T09:00:00.000Z",
+    "videoId": "hERKX2KAOqc",
+    "category": "文化",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "春日部つむぎ",
+    "pdcaVersion": 1,
+    "realPhotoInHook": true,
+    "visualTheme": 2,
+    "hasScreenTitle": true
   }
 ]
