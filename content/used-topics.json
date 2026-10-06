@@ -1928,5 +1928,25 @@
     "realPhotoInHook": false,
     "visualTheme": 3,
     "hasScreenTitle": true
+  },
+  {
+    "title": "史上最高に意外な睡眠の雑学3選、寝てる間の真実",
+    "topics": [
+      "26分の昼寝で注意力が約54％向上するNASAの実験",
+      "睡眠時間は日本7時間22分で最短クラス、最長国とは2時間差",
+      "夢は一晩に約2時間見るのに起床10分で約9割忘れる"
+    ],
+    "date": "2026-10-06",
+    "publishedAt": "2026-10-09T03:00:00.000Z",
+    "videoId": "isjMzPX6RAk",
+    "category": "睡眠",
+    "format": "ranking",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "冥鳴ひまり",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true
   }
 ]
