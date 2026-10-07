@@ -1966,5 +1966,25 @@
     "realPhotoInHook": true,
     "visualTheme": 2,
     "hasScreenTitle": true
+  },
+  {
+    "title": "もし地球が突然止まったら？その1秒後の結末",
+    "topics": [
+      "赤道の自転速度は時速約1670kmで、慣性により人も建物も飛ばされる",
+      "大気と海が止まれず、時速1670kmの風と津波が地表を襲う",
+      "太陽に対する1日が1年になり、昼と夜がそれぞれ約半年続く"
+    ],
+    "date": "2026-10-07",
+    "publishedAt": "2026-10-10T03:00:00.000Z",
+    "videoId": "Z44HDDbuvfc",
+    "category": "宇宙",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "雨晴はう",
+    "pdcaVersion": 1,
+    "realPhotoInHook": true,
+    "visualTheme": 0,
+    "hasScreenTitle": true
   }
 ]
