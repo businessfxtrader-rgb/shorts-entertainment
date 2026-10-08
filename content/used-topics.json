@@ -2006,5 +2006,23 @@
     "realPhotoInHook": true,
     "visualTheme": 2,
     "hasScreenTitle": true
+  },
+  {
+    "title": "絶対に破れない暗号が存在する理由",
+    "topics": [
+      "換字式暗号は9世紀に破られていた/英語で最多のEは約12.7％という出現頻度の偏り/ワンタイムパッドは使い捨てのランダム鍵で解読不能"
+    ],
+    "date": "2026-10-08",
+    "publishedAt": "2026-10-11T03:00:00.000Z",
+    "videoId": "Yom9JVyCWrM",
+    "category": "暗号",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "玄野武宏",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true
   }
 ]
