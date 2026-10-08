@@ -2024,5 +2024,23 @@
     "realPhotoInHook": false,
     "visualTheme": 0,
     "hasScreenTitle": true
+  },
+  {
+    "title": "謎の巨大な月、見た目と事実が真逆な理由",
+    "topics": [
+      "月の見かけの大きさはどこでも約0.5度/地平線の月は真上より約6400キロ遠い/脳が空を平らな天井と誤認して月を補正する"
+    ],
+    "date": "2026-10-08",
+    "publishedAt": "2026-10-11T09:00:00.000Z",
+    "videoId": "dCejEOGPeB8",
+    "category": "錯覚",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "東北イタコ",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true
   }
 ]
