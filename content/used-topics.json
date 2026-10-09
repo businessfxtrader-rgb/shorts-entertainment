@@ -2042,5 +2042,23 @@
     "realPhotoInHook": false,
     "visualTheme": 2,
     "hasScreenTitle": true
+  },
+  {
+    "title": "空から降る氷の塊、その桁違いな大きさとは？",
+    "topics": [
+      "2010年の米サウスダコタ州で直径20.3センチの雹を観測/2013年の米オクラホマ州で幅約4.2キロの竜巻を観測/2020年のブラジル南部で約709キロの稲妻を観測"
+    ],
+    "date": "2026-10-09",
+    "publishedAt": "2026-10-12T03:00:00.000Z",
+    "videoId": "HW79uGnxhJg",
+    "category": "気象",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "九州そら",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true
   }
 ]
