@@ -2100,5 +2100,25 @@
     "realPhotoInHook": true,
     "visualTheme": 1,
     "hasScreenTitle": true
+  },
+  {
+    "title": "史上最高に不気味な夜更けの怪談3選",
+    "topics": [
+      "3位 止まらない足音の廊下",
+      "2位 誰もいない部屋の着信",
+      "1位 毎晩増えていく写真の人影"
+    ],
+    "date": "2026-10-10",
+    "publishedAt": "2026-10-13T09:00:00.000Z",
+    "videoId": "Eh5yc8UmL1Q",
+    "category": "怖い話",
+    "format": "ranking",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "ずんだもん",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true
   }
 ]
