@@ -2080,5 +2080,25 @@
     "realPhotoInHook": false,
     "visualTheme": 1,
     "hasScreenTitle": true
+  },
+  {
+    "title": "史上最高に極端な土地3選、まさかの数字",
+    "topics": [
+      "チリ:長さ約4300キロなのに幅は最大約440キロ",
+      "死海:海抜マイナス約430メートルで体が浮く",
+      "マウシンラム:年間降水量約1万1900ミリ"
+    ],
+    "date": "2026-10-10",
+    "publishedAt": "2026-10-13T03:00:00.000Z",
+    "videoId": "B1bQSOVcM08",
+    "category": "地理",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "中国うさぎ",
+    "pdcaVersion": 1,
+    "realPhotoInHook": true,
+    "visualTheme": 1,
+    "hasScreenTitle": true
   }
 ]
