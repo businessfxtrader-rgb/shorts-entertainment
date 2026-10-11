@@ -2120,5 +2120,25 @@
     "realPhotoInHook": false,
     "visualTheme": 3,
     "hasScreenTitle": true
+  },
+  {
+    "title": "史上最高の発明、始まりはまさかの失敗作",
+    "topics": [
+      "3位 放置した小麦生地から生まれた朝食の定番",
+      "2位 冷媒の実験で偶然できた焦げつかない素材",
+      "1位 青カビの混入が救った世界初の抗生物質"
+    ],
+    "date": "2026-10-11",
+    "publishedAt": "2026-10-14T03:00:00.000Z",
+    "videoId": "NFsjDH-Scj4",
+    "category": "誕生秘話",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "冥鳴ひまり",
+    "pdcaVersion": 1,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true
   }
 ]
