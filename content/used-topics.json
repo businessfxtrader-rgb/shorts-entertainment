@@ -2178,5 +2178,23 @@
     "realPhotoInHook": true,
     "visualTheme": 2,
     "hasScreenTitle": true
+  },
+  {
+    "title": "なぜ人は最初の数字に縛られるのか？",
+    "topics": [
+      "最初に見た数字が基準になる/専門家でも逃れられない実験結果/正体はアンカリング効果"
+    ],
+    "date": "2026-10-12",
+    "publishedAt": "2026-10-15T09:00:00.000Z",
+    "videoId": "kkN0O7B6ykw",
+    "category": "心理学",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "黒沢冴白",
+    "pdcaVersion": 2,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true
   }
 ]
