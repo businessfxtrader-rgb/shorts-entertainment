@@ -51,8 +51,13 @@
       "minAgeDays": 3,
       "description": "usedRealPhoto:trueの動画が8本、かつ公開から3日以上経過するまで観察"
     },
-    "status": "observing",
-    "result": null,
-    "judgedAt": null
+    "status": "judged",
+    "result": {
+      "sampleSize": 19,
+      "afterMedianViewsPerDay": 76.29559526667158,
+      "afterMedianAPV": 69.58,
+      "verdict": "改善傾向あり(1日あたり再生数が導入前の1.57倍、維持率差29pt)。ただし他の同時期の変更と要因を完全に切り分けられないため、これのみを唯一の原因と断定はしない"
+    },
+    "judgedAt": "2026-10-12T04:49:53.449Z"
   }
 ]

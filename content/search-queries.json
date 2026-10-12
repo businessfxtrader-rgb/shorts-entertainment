@@ -1,18 +1,10 @@
 {
-  "periodStart": "2026-09-05",
-  "periodEnd": "2026-10-05",
+  "periodStart": "2026-09-12",
+  "periodEnd": "2026-10-12",
   "queries": [
     {
       "query": "ドアを選んでください",
-      "views": 106
-    },
-    {
-      "query": "gpt6 astra",
-      "views": 26
-    },
-    {
-      "query": "ほっと一息チャンネル",
-      "views": 16
+      "views": 107
     },
     {
       "query": "ドアを選んで",
@@ -23,85 +15,93 @@
       "views": 14
     },
     {
-      "query": "チャットgpt アストラ",
+      "query": "ほっと一息チャンネル",
       "views": 13
     },
     {
-      "query": "gpt6",
-      "views": 11
-    },
-    {
-      "query": "アストラ gpt",
-      "views": 10
-    },
-    {
-      "query": "gpt-6 astra 使い方",
-      "views": 9
-    },
-    {
-      "query": "チャットgpt 6",
-      "views": 9
-    },
-    {
-      "query": "astra 6",
-      "views": 8
-    },
-    {
-      "query": "gtp6 astra",
-      "views": 8
-    },
-    {
-      "query": "astra",
+      "query": "アーチェリー 美人",
       "views": 7
-    },
-    {
-      "query": "gpt astra",
-      "views": 7
-    },
-    {
-      "query": "終末",
-      "views": 6
-    },
-    {
-      "query": "astra gpt",
-      "views": 5
-    },
-    {
-      "query": "astra 使い方",
-      "views": 5
-    },
-    {
-      "query": "アストラ",
-      "views": 5
-    },
-    {
-      "query": "アストラ gpt 使い方",
-      "views": 5
     },
     {
       "query": "フォートナイトチャニ",
       "views": 5
     },
     {
-      "query": "gpt-6 astra",
-      "views": 4
+      "query": "あだると",
+      "views": 3
     },
     {
-      "query": "アーチェリー 美人",
-      "views": 4
+      "query": "コロンビア 美女",
+      "views": 3
     },
     {
-      "query": "イカゲーム",
-      "views": 4
+      "query": "チェンソーマン",
+      "views": 3
+    },
+    {
+      "query": "ドリームコア 曲",
+      "views": 3
+    },
+    {
+      "query": "堀大輔",
+      "views": 3
+    },
+    {
+      "query": "恐竜",
+      "views": 3
+    },
+    {
+      "query": "扉を選ぶ",
+      "views": 3
     },
     {
       "query": "扉を選んで",
-      "views": 4
+      "views": 3
     },
     {
-      "query": "気圧とは",
-      "views": 4
+      "query": "江戸グルメ",
+      "views": 3
+    },
+    {
+      "query": "江戸時代 食事",
+      "views": 3
+    },
+    {
+      "query": "聞こえたらすぐ逃げろ",
+      "views": 3
+    },
+    {
+      "query": "選んでください",
+      "views": 3
+    },
+    {
+      "query": "鬼武者",
+      "views": 3
+    },
+    {
+      "query": "astra 6",
+      "views": 2
+    },
+    {
+      "query": "pick a door",
+      "views": 2
+    },
+    {
+      "query": "sixtones",
+      "views": 2
+    },
+    {
+      "query": "valentina acosta giraldo",
+      "views": 2
+    },
+    {
+      "query": "いいじゃん",
+      "views": 2
+    },
+    {
+      "query": "ちいかわ 鬱回",
+      "views": 2
     }
   ],
-  "updatedAt": "2026-10-05T04:35:30.358Z"
+  "updatedAt": "2026-10-12T04:48:40.535Z"
 }
