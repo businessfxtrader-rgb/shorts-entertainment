@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-12T04:48:39.436Z",
+  "updatedAt": "2026-10-12T07:43:54.164Z",
   "videos": [
     {
       "videoId": "cd_jOtDEF_Q",
@@ -289,7 +289,7 @@
     },
     {
       "videoId": "TblSZBoMqyk",
-      "title": "五重塔がスカイツリーに与えた影響",
+      "title": "五重塔とスカイツリーの意外な共通点",
       "publishedAt": "2026-07-30T09:00:00.000Z",
       "category": "建築",
       "format": "qa",
@@ -355,7 +355,7 @@
     },
     {
       "videoId": "aH_AP5kK76A",
-      "title": "ゾウ・ナマケモノ・カタツムリの仰天の秘密とは？",
+      "title": "ゾウ・ナマケモノ・カタツムリのまさかの生態",
       "publishedAt": "2026-08-01T03:00:00.000Z",
       "category": "雑学",
       "format": "ranking",
@@ -399,7 +399,7 @@
     },
     {
       "videoId": "XmT21-htesI",
-      "title": "知らずに操られる行動心理のワナ",
+      "title": "無意識に操られる心理学効果の正体",
       "publishedAt": "2026-08-02T03:00:00.000Z",
       "category": "心理学",
       "format": "ranking",
@@ -3159,12 +3159,12 @@
       "visualTheme": 1,
       "privacyStatus": "public",
       "duration": "PT48S",
-      "views": 16,
+      "views": 722,
       "engagedViews": null,
       "engagedRate": null,
       "averageViewPercentage": null,
       "averageViewDuration": null,
-      "likes": 0,
+      "likes": 3,
       "comments": 1,
       "shares": null,
       "subscribersGained": null
