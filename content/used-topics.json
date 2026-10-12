@@ -2160,5 +2160,23 @@
     "realPhotoInHook": false,
     "visualTheme": 3,
     "hasScreenTitle": true
+  },
+  {
+    "title": "電車の運転士が空を指さす謎の習慣",
+    "topics": [
+      "指差呼称は信号や速度を声に出して指さす確認作業/工場や工事現場にも広がる日本の習慣/鉄道総研の実験でミスが2.38％から0.38％に減少"
+    ],
+    "date": "2026-10-12",
+    "publishedAt": "2026-10-15T03:00:00.000Z",
+    "videoId": "RsiqDY3G2Z4",
+    "category": "日本",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "東北イタコ",
+    "pdcaVersion": 1,
+    "realPhotoInHook": true,
+    "visualTheme": 2,
+    "hasScreenTitle": true
   }
 ]
