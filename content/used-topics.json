@@ -2196,5 +2196,26 @@
     "realPhotoInHook": false,
     "visualTheme": 1,
     "hasScreenTitle": true
+  },
+  {
+    "title": "深海の常識が崩れる…第2弾・水圧の底の生き物たち",
+    "topics": [
+      "3位 自ら光る深海生物は全体の約4分の3",
+      "2位 シロナガスクジラ級の巨大さを持つ深海イカ",
+      "1位 マリアナ海溝の最深部で見つかった透明な生物"
+    ],
+    "date": "2026-10-13",
+    "publishedAt": "2026-10-16T03:00:00.000Z",
+    "videoId": "CDK0ykzsEFQ",
+    "category": "深海",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "後鬼",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": "nxqvNvM86qE"
   }
 ]
