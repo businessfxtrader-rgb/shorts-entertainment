@@ -56,9 +56,10 @@ function runRenderOnce() {
 
 // 生成・投稿・シート記入などの重要な工程は、失敗しても1〜3分待って最大10回まで再試行する
 async function runWithRetry(label, runFn) {
+  let result;
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     log(`開始(${attempt}/${MAX_ATTEMPTS}回目): ${label}`);
-    const result = runFn();
+    result = runFn();
     if (result.status === 0) {
       log(`完了: ${label}`);
       return;
@@ -70,7 +71,10 @@ async function runWithRetry(label, runFn) {
       await sleep(waitMs);
     }
   }
-  throw new Error(`${label} が${MAX_ATTEMPTS}回試行しても失敗しました`);
+  // 管理シートで原因の見当がつくよう、最後の失敗のエラー出力の末尾を添える(2026-10-13追加。
+  // 例: Claudeの認証トークンの期限切れなら「Invalid API key」等がここに出る)
+  const tail = `${result?.stderr ?? ""}`.trim().split(/\r?\n/).filter(Boolean).slice(-3).join(" / ").slice(-300);
+  throw new Error(`${label} が${MAX_ATTEMPTS}回試行しても失敗しました${tail ? `(最後のエラー: ${tail})` : ""}`);
 }
 
 function runNodeSoft(scriptName) {

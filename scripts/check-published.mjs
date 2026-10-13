@@ -36,24 +36,32 @@ const sheets = google.sheets({ version: "v4", auth });
 // 書き込んでしまうため、タブ名を直接指定する。
 const SHEET_NAME = "ほっと一息チャンネル";
 
-const [statusColumn, urlColumn] = await Promise.all([
+const [statusColumn, urlColumn, noteColumn] = await Promise.all([
   sheets.spreadsheets.values.get({ spreadsheetId: SPREADSHEET_ID, range: `${SHEET_NAME}!C:C` }),
   sheets.spreadsheets.values.get({ spreadsheetId: SPREADSHEET_ID, range: `${SHEET_NAME}!I:I` }),
+  sheets.spreadsheets.values.get({ spreadsheetId: SPREADSHEET_ID, range: `${SHEET_NAME}!K:K` }),
 ]);
 const statusValues = statusColumn.data.values ?? [];
 const urlValues = urlColumn.data.values ?? [];
+const noteValues = noteColumn.data.values ?? [];
+const OVERDUE_NOTE_PREFIX = "予約公開の予定時刻";
+// このスクリプト自身が「未公開」としてエラーにした行(K列の文言で判別)
+const isOverdueError = (row) =>
+  statusValues[row - 1]?.[0] === "エラー" && (noteValues[row - 1]?.[0] ?? "").startsWith(OVERDUE_NOTE_PREFIX);
 
 function findRow(videoId) {
   const rowIndex = urlValues.findIndex((row) => row[0]?.includes(videoId));
   return rowIndex === -1 ? null : rowIndex + 1; // 1-indexed行番号
 }
 
-// まだシート上で「予約済み」のままの行だけを対象にする(既に「投稿完了」「エラー」に
-// 確定済みの行を毎回チェックし直すのは無駄なAPI消費になるため)
+// シート上で「予約済み」のままの行と、このスクリプトが以前「未公開」でエラーにした行を対象にする。
+// 2026-10-13追加: 2026-09-28 18:00公開の動画が、確認時点のAPIでは非公開と返ってエラーになったが、実際は
+// 予定どおり公開されていた(YouTube側の反映の遅れとみられる)。一度エラーにした行も確認し直し、
+// 公開済みなら「投稿完了」に戻す(人が直さなくても自然に解消されるように)
 const candidates = overdue.filter((t) => {
   const row = findRow(t.videoId);
   if (!row) return false;
-  return statusValues[row - 1]?.[0] === "予約済み";
+  return statusValues[row - 1]?.[0] === "予約済み" || isOverdueError(row);
 });
 
 if (candidates.length === 0) {
@@ -85,16 +93,28 @@ for (const t of candidates) {
   const actualStatus = statusById.get(t.videoId);
 
   if (actualStatus === "public") {
+    const recovered = isOverdueError(row);
     await sheets.spreadsheets.values.update({
       spreadsheetId: SPREADSHEET_ID,
       range: `${SHEET_NAME}!C${row}:C${row}`,
       valueInputOption: "USER_ENTERED",
       requestBody: { values: [["投稿完了"]] },
     });
-    console.log(`OK: ${row}行目を「投稿完了」に更新しました (videoId: ${t.videoId})`);
+    if (recovered) {
+      await sheets.spreadsheets.values.update({
+        spreadsheetId: SPREADSHEET_ID,
+        range: `${SHEET_NAME}!K${row}:K${row}`,
+        valueInputOption: "USER_ENTERED",
+        requestBody: { values: [[""]] },
+      });
+    }
+    console.log(`OK: ${row}行目を「投稿完了」に更新しました${recovered ? "(以前のエラーは解消)" : ""} (videoId: ${t.videoId})`);
     publishedCount++;
     continue;
   }
+
+  // 以前エラーにした行で、まだ公開されていないものは、そのまま(同じ警告を書き直さない)
+  if (isOverdueError(row)) continue;
 
   // まだpublicになっていない(YouTube API上に存在しない=削除された可能性も含む)
   await sheets.spreadsheets.values.update({

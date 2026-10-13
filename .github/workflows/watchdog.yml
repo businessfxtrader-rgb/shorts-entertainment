@@ -30,7 +30,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -58,7 +58,7 @@ jobs:
 
       - name: Report expired token to sheet
         if: always() && steps.token.outcome == 'failure'
-        run: node scripts/report-status.mjs エラー "YouTube OAuthトークンが失効している可能性があります。ローカルPCでnode scripts/youtube-auth.mjsを実行して再認証し、新しいトークンをGitHub Secrets(YOUTUBE_TOKEN_JSON)に反映してください。" "(トークン失効警告)"
+        run: node scripts/report-status.mjs エラー "YouTube OAuthトークンが失効しています(Googleがinvalid_grantを返しました。一時的なエラーでは出ない警告です)。ローカルPCでnode scripts/youtube-auth.mjsを実行して再認証し、新しいトークンをGitHub Secrets(YOUTUBE_TOKEN_JSON)に反映してください。" "(トークン失効警告)"
 
       - name: Check remaining buffer of scheduled videos
         id: buffer
@@ -73,4 +73,18 @@ jobs:
       - name: Check for overdue unpublished videos
         if: always()
         run: node scripts/check-published.mjs
+        continue-on-error: true
+
+      # 期限のある認証情報(Claudeの認証トークンなど)の期限が近づいたら、管理シートに知らせる(2026-10-13追加)
+      - name: Remind upcoming credential expiry
+        if: always()
+        run: node scripts/check-expiry.mjs
+        continue-on-error: true
+
+      # 原因が解消したエラー行を管理シートから削除し、投稿日時の順に並べ直す(2026-10-13追加)
+      - name: Clean up resolved error rows in the sheet
+        if: always()
+        env:
+          TOKEN_OK: ${{ steps.token.outcome == 'success' && '1' || '0' }}
+        run: node scripts/cleanup-sheet.mjs
         continue-on-error: true
