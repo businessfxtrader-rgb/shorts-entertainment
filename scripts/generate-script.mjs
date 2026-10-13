@@ -488,6 +488,20 @@ for (const id of requiredIds) {
   }
 }
 
+// 台本の長さの確認(2026-10-13追加)。指示しても文字数を守らないことがあり、約40秒のはずが
+// 45〜53秒になる動画が出ていた(読み上げ速度は約6.2字/秒で固定のため、文字数がそのまま尺になる)。
+// 範囲から大きく外れたら失敗にして、pipeline.mjsの再試行で作り直させる
+const totalChars = script.segments.reduce((sum, s) => sum + (s.narration ?? "").length, 0);
+const LENGTH_SLACK_LOW = 20;
+const LENGTH_SLACK_HIGH = 25;
+if (totalChars < charsMin - LENGTH_SLACK_LOW || totalChars > charsMax + LENGTH_SLACK_HIGH) {
+  console.error(
+    `台本の文字数が範囲外のため作り直します: ${totalChars}字(目標${charsMin}〜${charsMax}字、許容${charsMin - LENGTH_SLACK_LOW}〜${charsMax + LENGTH_SLACK_HIGH}字)`
+  );
+  process.exit(1);
+}
+console.log(`台本の文字数: ${totalChars}字(目標${charsMin}〜${charsMax}字)`);
+
 // ファクトチェック(2026-09-28追加)。事実ベースのジャンルでは、台本ができた直後に別の呼び出しで
 // 事実・数字・単位換算(桁)を点検させ、誤りがあれば該当セグメントだけ最小限直す。
 // 実例: クラウド検証で「2の68乗、約3000京」(正しくは約3万京)という桁の誤りが出た。誤情報は
@@ -509,7 +523,7 @@ ${JSON.stringify(script.segments.map((s) => ({ id: s.id, narration: s.narration,
     for (const f of check.fixes ?? []) {
       const seg = script.segments.find((s) => s.id === f.id);
       if (!seg || typeof f.narration !== "string" || !f.narration.trim()) continue;
-      if (Math.abs(f.narration.length - seg.narration.length) > 25) continue; // 尺が大きく変わる直しは採用しない
+      if (Math.abs(f.narration.length - seg.narration.length) > 12) continue; // 尺が大きく変わる直しは採用しない
       seg.narration = f.narration;
       if (Array.isArray(f.caption) && f.caption.every((l) => typeof l === "string" && l.trim())) seg.caption = f.caption;
       fixed.push(f.id);
