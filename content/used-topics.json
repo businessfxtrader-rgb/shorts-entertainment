@@ -2217,5 +2217,24 @@
     "visualTheme": 1,
     "hasScreenTitle": true,
     "sequelOf": "nxqvNvM86qE"
+  },
+  {
+    "title": "光に釣られるな 扉を選んでください Pick a door！",
+    "topics": [
+      "崩れゆく古い劇場で金の扉と黒い扉から出口を選ぶ設定/金の扉は甘い香りと一方通行の足跡という伏線/黒い扉は秒針の音と取っ手に残る温もりという伏線"
+    ],
+    "date": "2026-10-13",
+    "publishedAt": "2026-10-16T09:00:00.000Z",
+    "videoId": "BnHYn-ZyrwA",
+    "category": "二択扉",
+    "format": "choice",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "白上虎太郎",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null
   }
 ]
