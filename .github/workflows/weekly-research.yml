@@ -65,9 +65,9 @@ jobs:
         continue-on-error: true
         run: node scripts/track-reach.mjs
 
-      - name: Auto-retry SEO for underperforming videos
-        continue-on-error: true
-        run: node scripts/auto-retry-seo.mjs
+      # 伸び悩み動画のタイトル・タグの自動書き直し(auto-retry-seo.mjs)は2026-10-13に停止(ユーザー判断)。
+      # 26本で実施して、書き直し後の再生の増加が中央値0回だった(ショートの配信は公開後2〜3日でほぼ決まるため)。
+      # スクリプト自体は手動で使えるよう残している
 
       - name: Review SEO experiment log
         continue-on-error: true
