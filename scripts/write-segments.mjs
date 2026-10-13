@@ -19,11 +19,18 @@ function detectBgType(segmentId) {
   return { bgType: "video", bgExt: "mp4" };
 }
 
+// 背景の追加カット(auto-fetch-bg.mjsが取る <id>_2.mp4・<id>_3.mp4。2026-10-13追加)。
+// 1本目(実写真またはPexels動画)の後ろに並べ、Composition.tsxが約3秒ごとに切り替える
+function detectExtraClips(segmentId) {
+  return [2, 3].map((k) => `${segmentId}_${k}.mp4`).filter((f) => fs.existsSync(path.join(bgDir, f)));
+}
+
 const entries = latestScript.segments
   .map((s) => {
     const badge = s.badge ? `, badge: ${JSON.stringify(s.badge)}` : "";
     const { bgType, bgExt } = detectBgType(s.id);
-    return `  { id: ${JSON.stringify(s.id)}${badge}, caption: ${JSON.stringify(s.caption)}, bgType: ${JSON.stringify(bgType)}, bgExt: ${JSON.stringify(bgExt)} },`;
+    const extraClips = detectExtraClips(s.id);
+    return `  { id: ${JSON.stringify(s.id)}${badge}, caption: ${JSON.stringify(s.caption)}, bgType: ${JSON.stringify(bgType)}, bgExt: ${JSON.stringify(bgExt)}, extraClips: ${JSON.stringify(extraClips)} },`;
   })
   .join("\n");
 
@@ -43,6 +50,7 @@ export type Segment = {
   caption: string[];
   bgType: "image" | "video";
   bgExt: "jpg" | "png" | "mp4";
+  extraClips: string[]; // public/bg/ 内の追加カットのファイル名
 };
 
 export const segments: Segment[] = [

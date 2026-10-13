@@ -148,11 +148,52 @@ for (let i = 0; i < weights.length; i++) {
     break;
   }
 }
-const category = candidateCategories[categoryIndex];
+let category = candidateCategories[categoryIndex];
 
 // ジャンルとフォーマットは独立した軸として扱う(1ジャンルが複数フォーマットを持てる)。
 // 同じジャンルでも毎回どのフォーマットで語るかをランダムに選ぶ
-const chosenFormat = category.formats[Math.floor(Math.random() * category.formats.length)];
+let chosenFormat = category.formats[Math.floor(Math.random() * category.formats.length)];
+
+// 続編(2026-10-13追加、PDCA v3)。直近30日で周りより明らかに伸びた動画があれば、一定の確率で
+// 同じジャンル・形式・切り口の続編を作る。1万再生は偶然の1本より「当たった型を続けること」から
+// 生まれやすいため。前回を見た人がまた開いてくれることも期待できる。
+// 伸びた動画 = 公開から3日以上たった直近30日の公開動画のうち、再生回数が上位10%以内かつ中央値の1.2倍以上。
+// 1本につき続編は2本まで。続編ばかりにならないよう、選ぶ確率は30%にしている
+const SEQUEL_PROBABILITY = process.env.FORCE_SEQUEL ? 1 : 0.3; // FORCE_SEQUELは検証用
+const MAX_SEQUELS_PER_VIDEO = 2;
+const videoStatsPath = path.join(root, "content", "video-stats.json");
+let sequelOf = null;
+if (fs.existsSync(videoStatsPath) && Math.random() < SEQUEL_PROBABILITY) {
+  const nowMs = Date.now();
+  const recent = (JSON.parse(fs.readFileSync(videoStatsPath, "utf-8")).videos ?? []).filter((v) => {
+    const age = v.publishedAt ? nowMs - new Date(v.publishedAt).getTime() : -1;
+    return v.privacyStatus === "public" && age >= 3 * 86400000 && age <= 30 * 86400000;
+  });
+  const sortedViews = recent.map((v) => v.views).sort((a, b) => a - b);
+  if (sortedViews.length >= 10) {
+    const median = sortedViews[Math.floor(sortedViews.length / 2)];
+    const p90 = sortedViews[Math.floor(sortedViews.length * 0.9)];
+    const sequelCount = (id) => usedTopics.filter((u) => u.sequelOf === id).length;
+    const breakout = recent
+      .filter((v) => v.views >= p90 && v.views >= median * 1.2 && sequelCount(v.videoId) < MAX_SEQUELS_PER_VIDEO)
+      .filter((v) => CATEGORIES.some((c) => c.name === v.category))
+      .sort((a, b) => b.views - a.views)[0];
+    if (breakout) {
+      const original = usedTopics.find((u) => u.videoId === breakout.videoId);
+      category = CATEGORIES.find((c) => c.name === breakout.category);
+      chosenFormat = category.formats.includes(breakout.format) ? breakout.format : chosenFormat;
+      sequelOf = {
+        videoId: breakout.videoId,
+        title: breakout.title,
+        views: breakout.views,
+        median,
+        topics: original?.topics ?? [],
+        number: sequelCount(breakout.videoId) + 2,
+      };
+      console.log(`続編を作ります: 「${breakout.title}」(${breakout.views}回、直近の中央値${median}回)の第${sequelOf.number}弾`);
+    }
+  }
+}
 
 // 選ばれたジャンルに関連するテーマ傾向があれば優先し、無ければランダムに1件だけ採用する
 const matchingThemes = trendThemes.filter((t) => t.relatedGenre === category.name);
@@ -199,7 +240,7 @@ const FORMAT_SPECS = {
   ranking: {
     formatInstructions: `- フォーマット: フック→第3位→第2位→第1位→締め、の5パート構成(ランキング型)`,
     titleInstructions:
-      "動画タイトル(30字以内、ベスト3形式が伝わる魅力的なもの。可能であれば『史上最高の』『歴代最強の』のような、このジャンルで繰り返し使える定番の枕詞を先頭に置くと、シリーズものとして視聴者に認識されやすい)",
+      "動画タイトル(30字以内、3つ紹介する動画だと伝わる魅力的なもの。『史上最高の』『歴代最強の』のような毎回同じ枕詞は使わず、その回の題材ならではの言葉で書く)",
     topicsInstructions: "3位/2位/1位の一言要約",
     segmentsExample: `  "segments": [
     { "id": "hook", "badge": null, "caption": ["画面表示1行目", "画面表示2行目"], "narration": "読み上げ文", "pexelsQuery": "背景動画検索用の英語キーワード" },
@@ -270,6 +311,21 @@ ${usedTitlesList || "(まだありません)"}
 
 # 今回のジャンル
 ${category.name}: ${category.brief}
+${
+  sequelOf
+    ? `
+# 今回は続編(重要)
+前回の動画『${sequelOf.title}』(${sequelOf.views}回再生。チャンネルの直近の中央値${sequelOf.median}回より明らかに伸びた)の続編を作る。
+- 前回が伸びた理由になっている切り口・構成・題材の方向性はそのまま引き継ぐ(前回の内容: ${sequelOf.topics.join("/")})
+- 紹介する事実・事例は前回と1つも重ねない。前回の焼き直しではなく、同じ型の新しい1本にする
+- タイトルとscreenTitleで続きものだと分かるようにしてよい(例: 「第${sequelOf.number}弾」)。ただし前回のタイトルの言い回しをそのままなぞらない
+`
+    : ""
+}
+# タイトルの書き出し(重要・2026-10-13追加)
+直近のタイトルが「史上最高に〜」「〜まさかの〜」のような同じ言い回しに偏り、同じ型で量産された動画に見えていた。直近のタイトルと書き出し・決まり文句が重ならないようにすること。「史上最高に」「まさかの」は使わない
+直近のタイトル:
+${usedTopics.slice(-15).map((u) => `- ${u.title}`).join("\n")}
 
 # ネタの条件
 - 上記ジャンルの範囲内で作ること。悩み相談・個別相談への誘導・アフィリエイト誘導は絶対に含めない
@@ -333,7 +389,7 @@ ${
 
 # SEO対策のルール(重要・2026-08-07改訂)
 - 検索キーワード最適化(tags・descriptionHookに具体的キーワードを含める)は引き続きSEOの中心的な柱として重視すること
-- ただしtitleについては、具体的すぎる数字・結論を言い切ってしまう「ネタバレ」は避けること(例:「〜は3つ！」「〜382日」のような断定)。見る前に答えが分かってしまうと視聴完了率が下がりスキップされやすくなるため。数字を使う場合も、答えそのものではなく「信じがたい・矛盾している」という引っかかりとして使うこと(例:「まさかの理由」「想定外の結末」のように、核心は動画を見ないとわからない状態を保つ)。検索キーワードは主にtags・descriptionHook側で担い、titleは視聴完了率(クリック後に最後まで見てもらえるか)を優先する役割分担にすること
+- ただしtitleについては、具体的すぎる数字・結論を言い切ってしまう「ネタバレ」は避けること(例:「〜は3つ！」「〜382日」のような断定)。見る前に答えが分かってしまうと視聴完了率が下がりスキップされやすくなるため。数字を使う場合も、答えそのものではなく「信じがたい・矛盾している」という引っかかりとして使うこと(例:結論の数字や名前だけを伏せて、核心は動画を見ないとわからない状態を保つ。「まさかの理由」のような毎回同じ決まり文句は使わない)。検索キーワードは主にtags・descriptionHook側で担い、titleは視聴完了率(クリック後に最後まで見てもらえるか)を優先する役割分担にすること
 ${
   trendKeyword
     ? `- (今週のトレンド調査より)可能であれば次の検索キーワード選定の傾向を参考にすること: 『${trendKeyword.pattern}』── ${trendKeyword.description}(参考例: ${trendKeyword.example})。tags・descriptionHookへの反映を優先し、titleでのネタバレには使わないこと`
@@ -347,10 +403,11 @@ ${
 - descriptionHookは、検索結果・スマホ画面で最初に表示される部分なので、動画の内容とキーワードが一目で伝わる1文にすること(ただしtitle同様、核心の答えまでは書かない)
 - outro(締め)のnarrationには、「チャンネル登録」の呼びかけに加えて、コメント欄でのやり取りを促す一言(例:「あなたはどう思う？コメントで教えて」)も自然な形で含めること(エンゲージメントはアルゴリズム評価に直結するため)
 - title・caption・descriptionHookを含む全てのテキストで、感嘆符・疑問符は必ず全角(！／？)を使うこと。半角(!／?)は使わない
-- seoNotesには、今回どう視聴維持率・エンゲージメントを意識したかを、日本語1〜2文で具体的に説明すること(例:「タイトルでは結論の数字を伏せて『まさかの理由』とだけ示し、動画内で明かす構成にした」)。抽象的な説明ではなく、実際の工夫を挙げて説明すること
+- seoNotesには、今回どう視聴維持率・エンゲージメントを意識したかを、日本語1〜2文で具体的に説明すること(例:「タイトルでは結論の数字を伏せて『〇〇の正体』とだけ示し、動画内で明かす構成にした」)。抽象的な説明ではなく、実際の工夫を挙げて説明すること
 
 # 背景素材のルール(重要・2026-09-09追加)
 - 各segmentのpexelsQueryに加えて、"realPhotoSubject"というフィールドを追加すること
+- (2026-10-13追加)各segmentに"extraPexelsQueries"(英語キーワード2つの配列)も追加すること。1つのsegmentの中で背景の映像を約3秒ごとに切り替えるための、2本目・3本目の映像用。pexelsQueryと同じ場面の別カット(寄り・別の角度・関連する物や人の動き)になるキーワードにし、3つとも別の映像が出るよう言葉を変える
 - そのsegmentが実在する特定の建物・ランドマーク・史跡・自然地形・人工物、または実在の生き物の種(動物・植物・深海生物など)・食べ物・道具・天体・自然現象など「名前で特定でき、写真で見せられる実在の対象」を扱っている場合は、その名前(Wikipediaで見つかりやすい日本語名。生き物は和名、見つかりにくそうなら学名でもよい)を設定する(例:「東京スカイツリー」「マチュピチュ」「リトープス」「ダイオウイカ」「オーロラ」)
 - (2026-09-28改訂・最重要)hookセグメントでは、話題の中心となる対象を1コマ目から見せることが、スワイプされないために最も大事。対象が写真で見せられるものなら、hookのrealPhotoSubjectには必ずそれを設定すること。写真で見せられない題材では、hookのpexelsQueryを「雰囲気だけの風景」ではなく、話題の対象や状況そのものが映る具体的な英語キーワードにする
 - 該当する実在の対象が無い(抽象的な概念・一般論・創作の場合)、または対象が「実在の人物」の場合は、必ずnullにすること。実在の人物の写真は絶対に使わないため
@@ -369,7 +426,7 @@ ${
   "seoNotes": "今回のSEO対策の具体的な説明(1〜2文)",
 ${segmentsExample}
 }
-(注: 各segmentオブジェクトには上記の例に加えて "realPhotoSubject": "実在対象物の正式名称またはnull" を必ず追加すること)`;
+(注: 各segmentオブジェクトには上記の例に加えて "realPhotoSubject": "実在対象物の正式名称またはnull" と "extraPexelsQueries": ["2本目の映像の英語キーワード", "3本目の映像の英語キーワード"] を必ず追加すること)`;
 
 function runClaude(promptText, extraArgs = []) {
   return new Promise((resolve, reject) => {
@@ -408,6 +465,7 @@ script.displayGenre = category.displayGenre ?? category.name;
 script.usedCompetitorInsight = Boolean(titleFormula || hookPattern || competitorTheme);
 // どのPDCAの方針で作られた動画かを記録する(効果の判定で、方針ごとに動画を分けるため)
 script.pdcaVersion = pdca.version ?? 0;
+script.sequelOf = sequelOf?.videoId ?? null;
 // 見た目のテーマ(src/theme.tsのTHEMES)を動画ごとにランダムに選ぶ。同じ見た目の量産動画に見えないようにするため
 script.visualTheme = Math.floor(Math.random() * 4);
 // 画面上部の見出し。形式が崩れていたら出さない(動画作り自体は止めない)

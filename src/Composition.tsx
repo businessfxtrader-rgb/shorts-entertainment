@@ -34,11 +34,21 @@ const BGM_VOLUME = 0.15;
 const BGM_VOLUME_UNDER_VOICE = 0.06;
 const DUCK_RAMP_FRAMES = 6;
 
+// 背景の切り替え間隔の目安(2026-10-13、PDCA v3)。以前は1つのsegment(約8秒)の間ずっと同じ映像で、
+// 画面の変化が遅かった。1つのsegmentを最大3カットに分け、約3秒ごとに映像を切り替える
+const TARGET_CUT_SEC = 2.8;
+
+type BgClip = {
+  src: string; // public/ からのパス
+  type: "image" | "video";
+  loopFrames: number; // 動画の長さ(ループ用)。静止画はカットの長さで上書きされる
+};
+
 type SegmentTiming = {
   id: SegmentId;
   durationInFrames: number;
   narrationStartFrame: number;
-  bgLoopFrames: number;
+  clips: BgClip[];
 };
 
 type Props = {
@@ -57,22 +67,32 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async () => {
 
     const segmentDurationInSeconds = LEAD_IN_SEC + (audioDuration ?? 2) + TAIL_SEC;
 
-    // 実写真(静止画)の場合はループ不要。Pexels動画のみ尺を調べてループフレーム数を決める
-    let bgLoopFrames = Math.round(segmentDurationInSeconds * FPS);
-    if (seg.bgType === "video") {
-      const { durationInSeconds: videoDuration } = await parseMedia({
-        src: staticFile(`bg/${seg.id}.${seg.bgExt}`),
-        fields: { durationInSeconds: true },
-        reader: webReader,
-      });
-      bgLoopFrames = Math.max(1, Math.round((videoDuration ?? 5) * FPS));
+    // 背景のカット: 1本目(実写真またはPexels動画)+追加カット。segmentの長さに応じて使う本数を決める
+    const allClips = [
+      { src: `bg/${seg.id}.${seg.bgExt}`, type: seg.bgType },
+      ...(seg.extraClips ?? []).map((f) => ({ src: `bg/${f}`, type: "video" as const })),
+    ];
+    const cutCount = Math.max(1, Math.min(allClips.length, Math.round(segmentDurationInSeconds / TARGET_CUT_SEC)));
+    const clips: BgClip[] = [];
+    for (const c of allClips.slice(0, cutCount)) {
+      // 静止画はループ不要。動画は尺を調べてループフレーム数を決める
+      let loopFrames = Math.round(segmentDurationInSeconds * FPS);
+      if (c.type === "video") {
+        const { durationInSeconds: videoDuration } = await parseMedia({
+          src: staticFile(c.src),
+          fields: { durationInSeconds: true },
+          reader: webReader,
+        });
+        loopFrames = Math.max(1, Math.round((videoDuration ?? 5) * FPS));
+      }
+      clips.push({ src: c.src, type: c.type, loopFrames });
     }
 
     timings.push({
       id: seg.id,
       durationInFrames: Math.round(segmentDurationInSeconds * FPS),
       narrationStartFrame: Math.round(LEAD_IN_SEC * FPS),
-      bgLoopFrames,
+      clips,
     });
   }
 
@@ -130,6 +150,50 @@ const KenBurnsImage: React.FC<{ src: string; durationInFrames: number }> = ({
   );
 };
 
+// カットごとに少しずつ寄る(または引く)動きを付け、切り替えを目立たせる
+const PunchIn: React.FC<{ durationInFrames: number; zoomIn: boolean; children: React.ReactNode }> = ({
+  durationInFrames,
+  zoomIn,
+  children,
+}) => {
+  const frame = useCurrentFrame();
+  const scale = interpolate(frame, [0, durationInFrames], zoomIn ? [1.0, 1.07] : [1.07, 1.0], {
+    extrapolateRight: "clamp",
+  });
+  return <AbsoluteFill style={{ transform: `scale(${scale})` }}>{children}</AbsoluteFill>;
+};
+
+// 1つのsegmentの背景を、カットの本数で等分して順番に出す
+const SegmentBackground: React.FC<{ timing: SegmentTiming }> = ({ timing }) => {
+  const n = timing.clips.length;
+  const base = Math.floor(timing.durationInFrames / n);
+  return (
+    <>
+      {timing.clips.map((clip, i) => {
+        const from = i * base;
+        const len = i === n - 1 ? timing.durationInFrames - from : base;
+        return (
+          <Sequence key={clip.src} from={from} durationInFrames={len}>
+            {clip.type === "image" ? (
+              <KenBurnsImage src={staticFile(clip.src)} durationInFrames={len} />
+            ) : (
+              <PunchIn durationInFrames={len} zoomIn={i % 2 === 0}>
+                <Loop durationInFrames={clip.loopFrames}>
+                  <OffthreadVideo
+                    src={staticFile(clip.src)}
+                    muted
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                </Loop>
+              </PunchIn>
+            )}
+          </Sequence>
+        );
+      })}
+    </>
+  );
+};
+
 const ShortsVideoComponent: React.FC<Props> = ({ timings }) => {
   const theme = themeFor(themeIndex);
   // ナレーションが鳴っている区間(フレーム)
@@ -158,20 +222,7 @@ const ShortsVideoComponent: React.FC<Props> = ({ timings }) => {
           return (
             <Series.Sequence key={timing.id} durationInFrames={timing.durationInFrames}>
               <AbsoluteFill>
-                {seg.bgType === "image" ? (
-                  <KenBurnsImage
-                    src={staticFile(`bg/${timing.id}.${seg.bgExt}`)}
-                    durationInFrames={timing.durationInFrames}
-                  />
-                ) : (
-                  <Loop durationInFrames={timing.bgLoopFrames}>
-                    <OffthreadVideo
-                      src={staticFile(`bg/${timing.id}.${seg.bgExt}`)}
-                      muted
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                    />
-                  </Loop>
-                )}
+                <SegmentBackground timing={timing} />
                 <AbsoluteFill
                   style={{
                     background:

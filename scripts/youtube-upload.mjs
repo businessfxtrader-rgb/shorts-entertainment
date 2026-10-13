@@ -98,6 +98,8 @@ usedTopics.push({
   realPhotoInHook: ["jpg", "png"].some((ext) => fs.existsSync(path.join(root, "public", "bg", `hook.${ext}`))),
   visualTheme: latestScript.visualTheme ?? null,
   hasScreenTitle: (latestScript.screenTitle ?? []).length > 0,
+  // 伸びた動画の続編として作った場合、元の動画のvideoId(generate-script.mjs、2026-10-13追加)
+  sequelOf: latestScript.sequelOf ?? null,
 });
 fs.writeFileSync(usedTopicsPath, JSON.stringify(usedTopics, null, 2));
 console.log("OK: used-topics.json を更新しました");

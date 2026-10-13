@@ -9,12 +9,13 @@ export type Segment = {
   caption: string[];
   bgType: "image" | "video";
   bgExt: "jpg" | "png" | "mp4";
+  extraClips: string[]; // public/bg/ 内の追加カットのファイル名
 };
 
 export const segments: Segment[] = [
-  { id: "hook", caption: ["南アフリカの過酷な砂漠に","小石そっくりの正体とは"], bgType: "video", bgExt: "mp4" },
-  { id: "rank3", caption: ["気温50度を超える砂漠","動物に狙われる過酷な地"], bgType: "image", bgExt: "jpg" },
-  { id: "rank2", caption: ["体のほとんどは地中に","表面に浮かぶ謎の模様"], bgType: "image", bgExt: "jpg" },
-  { id: "rank1", caption: ["その正体はリトープス","石そっくりに擬態する多肉植物"], bgType: "image", bgExt: "jpg" },
-  { id: "outro", caption: ["チャンネル登録で新知識を","驚いた雑学はコメントへ"], bgType: "video", bgExt: "mp4" },
+  { id: "hook", caption: ["南アフリカの過酷な砂漠に","小石そっくりの正体とは"], bgType: "video", bgExt: "mp4", extraClips: [] },
+  { id: "rank3", caption: ["気温50度を超える砂漠","動物に狙われる過酷な地"], bgType: "image", bgExt: "jpg", extraClips: [] },
+  { id: "rank2", caption: ["体のほとんどは地中に","表面に浮かぶ謎の模様"], bgType: "image", bgExt: "jpg", extraClips: [] },
+  { id: "rank1", caption: ["その正体はリトープス","石そっくりに擬態する多肉植物"], bgType: "image", bgExt: "jpg", extraClips: [] },
+  { id: "outro", caption: ["チャンネル登録で新知識を","驚いた雑学はコメントへ"], bgType: "video", bgExt: "mp4", extraClips: [] },
 ];
