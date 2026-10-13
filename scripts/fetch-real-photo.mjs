@@ -37,14 +37,20 @@ async function fetchWithRetry(url, options, retries = 2) {
   return fetch(url, options);
 }
 
-async function commonsSearch(query) {
-  const url = `https://commons.wikimedia.org/w/api.php?action=query&list=search&srnamespace=6&srsearch=${encodeURIComponent(
-    query
-  )}&srlimit=6&format=json`;
+// 題材名と完全に一致する日本語版Wikipediaの記事(転送ページ込み)の代表画像を探す(2026-10-13改訂)。
+// 以前はWikimedia Commonsを題材名で全文検索していたが、「ブラインプール」(海底の塩水湖)で
+// サッカー選手の写真が選ばれる取り違えが起きた(実在の人物の写真は使わないルールに反する)。
+// 記事の代表画像なら題材そのものが写っている。一致する記事が無ければ使わない(Pexelsに任せる)
+async function wikipediaPageImage(subject) {
+  const url = `https://ja.wikipedia.org/w/api.php?action=query&format=json&redirects=1&titles=${encodeURIComponent(
+    subject
+  )}&prop=pageimages&piprop=name`;
   const res = await fetchWithRetry(url, { headers: { "User-Agent": USER_AGENT } });
-  if (!res.ok) return [];
+  if (!res.ok) return null;
   const data = await res.json();
-  return (data.query?.search ?? []).map((s) => s.title);
+  const page = Object.values(data.query?.pages ?? {})[0];
+  if (!page || "missing" in page || !page.pageimage) return null;
+  return `File:${page.pageimage}`;
 }
 
 async function fetchImageInfo(title) {
@@ -96,14 +102,12 @@ for (const seg of latestScript.segments) {
   if (!subject || typeof subject !== "string") continue;
 
   try {
-    const titles = await commonsSearch(subject);
     let picked = null;
-    for (const title of titles) {
+    const title = await wikipediaPageImage(subject);
+    if (title) {
+      // 代表画像がCommons上のフリー素材でない(日本語版だけの非フリー画像など)場合は情報が取れず、使わない
       const info = await fetchImageInfo(title);
-      if (isUsable(info)) {
-        picked = { title, info };
-        break;
-      }
+      if (isUsable(info)) picked = { title, info };
     }
     if (!picked) {
       console.log(`[${seg.id}] "${subject}" の実写真は見つかりませんでした(Pexelsにフォールバック)`);
