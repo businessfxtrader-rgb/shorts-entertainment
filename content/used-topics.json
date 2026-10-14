@@ -2257,5 +2257,24 @@
     "visualTheme": 3,
     "hasScreenTitle": true,
     "sequelOf": null
+  },
+  {
+    "title": "夏に○○センチ伸びる鉄の塔、その原因とは？",
+    "topics": [
+      "20年後に取り壊す予定だった万博の塔/無線アンテナが救い、約1万8000個の部品を250万本のリベットで接合/熱膨張で夏は冬より最大約15センチ伸びる"
+    ],
+    "date": "2026-10-14",
+    "publishedAt": "2026-10-17T09:00:00.000Z",
+    "videoId": "QNZjwdZqN8Q",
+    "category": "建築",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "麒ヶ島宗麟",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null
   }
 ]
