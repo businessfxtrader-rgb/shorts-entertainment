@@ -2236,5 +2236,26 @@
     "visualTheme": 1,
     "hasScreenTitle": true,
     "sequelOf": null
+  },
+  {
+    "title": "かわいい顔の裏に何が！？動物ギャップの秘密3選",
+    "topics": [
+      "ヤギは笑顔の写真に自分から近づく",
+      "ヒクイドリの爪は約12センチ、時速約50キロで走る",
+      "カモノハシのオスは蹴爪に毒を持つ"
+    ],
+    "date": "2026-10-14",
+    "publishedAt": "2026-10-17T03:00:00.000Z",
+    "videoId": "THf0_7JpJ4o",
+    "category": "生態",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "雀松朱司",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null
   }
 ]
