@@ -2295,5 +2295,26 @@
     "visualTheme": 3,
     "hasScreenTitle": true,
     "sequelOf": null
+  },
+  {
+    "title": "深海ミステリー第3弾 透明な頭と海底の湖と…",
+    "topics": [
+      "デメニギスは頭が透明で、筒状の目が回転する",
+      "メキシコ湾の海底にはブラインプールという湖がある",
+      "ニシオンデンザメは推定寿命約400年"
+    ],
+    "date": "2026-10-15",
+    "publishedAt": "2026-10-18T09:00:00.000Z",
+    "videoId": "YLEwxjf3mh4",
+    "category": "深海",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "あんこもん",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": "nxqvNvM86qE"
   }
 ]
