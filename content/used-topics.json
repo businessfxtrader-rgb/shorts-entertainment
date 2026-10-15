@@ -2276,5 +2276,24 @@
     "visualTheme": 2,
     "hasScreenTitle": true,
     "sequelOf": null
+  },
+  {
+    "title": "お尻から熱湯を撃つ虫、なぜ平気なの？",
+    "topics": [
+      "ミイデラゴミムシは約100度の液体を尻から噴射する/噴射は1秒に約500回の連続パルスで狙いも定める/薬品を別々に貯め反応室でだけ混ぜる別室構造で体内は無事"
+    ],
+    "date": "2026-10-15",
+    "publishedAt": "2026-10-18T03:00:00.000Z",
+    "videoId": "JqPsm8USa-U",
+    "category": "昆虫",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "もち子さん",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null
   }
 ]
