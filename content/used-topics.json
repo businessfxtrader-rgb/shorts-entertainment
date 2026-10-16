@@ -2337,5 +2337,24 @@
     "visualTheme": 0,
     "hasScreenTitle": true,
     "sequelOf": null
+  },
+  {
+    "title": "270度回る首、脳に血が届く仕掛けとは？",
+    "topics": [
+      "筒状の目と人間の2倍ある14個の首の骨/人間は90度が限界で、無理に回すと脳が酸欠になる/血管が通る骨の穴は血管の約10倍太く、血管同士もつながっている"
+    ],
+    "date": "2026-10-16",
+    "publishedAt": "2026-10-19T09:00:00.000Z",
+    "videoId": "D3ZyOuD9RAU",
+    "category": "動物",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "九州そら",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null
   }
 ]
