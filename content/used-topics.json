@@ -2316,5 +2316,26 @@
     "visualTheme": 1,
     "hasScreenTitle": true,
     "sequelOf": "nxqvNvM86qE"
+  },
+  {
+    "title": "光速で旅した双子、なぜ兄だけ老けるのか？",
+    "topics": [
+      "光速の99％で船内5年、地球は約35年",
+      "光速の99.99％で船内5年、地球は約350年",
+      "倍率1万倍、船内10年で地球は10万年後"
+    ],
+    "date": "2026-10-16",
+    "publishedAt": "2026-10-19T03:00:00.000Z",
+    "videoId": "ZSDS7D6YFn8",
+    "category": "パラドックス",
+    "format": "simulation",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "東北きりたん",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null
   }
 ]
