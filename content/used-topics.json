@@ -2356,5 +2356,26 @@
     "visualTheme": 3,
     "hasScreenTitle": true,
     "sequelOf": null
+  },
+  {
+    "title": "今も解けない、世界の遺跡の謎3選",
+    "topics": [
+      "3位 ポンペイ:火山灰に埋もれ当時のまま残った街",
+      "2位 ストーンヘンジ:約240キロ先から運ばれた巨石",
+      "1位 ナスカの地上絵:全長約300メートルの謎の絵"
+    ],
+    "date": "2026-10-17",
+    "publishedAt": "2026-10-20T03:00:00.000Z",
+    "videoId": "K-bhTkG2Shs",
+    "category": "遺跡",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "麒ヶ島宗麟",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null
   }
 ]
