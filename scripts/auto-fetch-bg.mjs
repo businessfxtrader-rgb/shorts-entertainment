@@ -28,6 +28,12 @@ if (!apiKey) {
 const scriptPath = path.join(root, "content", "latest-script.json");
 const latestScript = JSON.parse(fs.readFileSync(scriptPath, "utf-8"));
 
+// 体験型(2026-10-18追加)は課題の映像をプログラムで描くので、背景の動画素材は取らない
+if (latestScript.format === "experience") {
+  console.log("体験型のため背景動画は取得しません");
+  process.exit(0);
+}
+
 async function search(query) {
   const res = await fetch(
     `https://api.pexels.com/videos/search?query=${encodeURIComponent(query)}&orientation=portrait&per_page=5`,

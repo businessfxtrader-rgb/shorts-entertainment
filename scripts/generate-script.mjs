@@ -3,6 +3,7 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { extractJson } from "./lib/extract-json.mjs";
+import { pickExperience, EXPERIENCE_CHARS, THINK_HOLD_SEC } from "./lib/experience.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -44,8 +45,8 @@ const misreadingList = Object.entries(misreadingDict)
 const pdcaPath = path.join(root, "content", "pdca-directives.json");
 const pdca = fs.existsSync(pdcaPath) ? JSON.parse(fs.readFileSync(pdcaPath, "utf-8")) : {};
 const clampNum = (v, lo, hi, fallback) => (Number.isFinite(v) ? Math.min(hi, Math.max(lo, v)) : fallback);
-const charsMin = clampNum(pdca.narrationChars?.min, 150, 330, 210);
-const charsMax = Math.max(charsMin + 15, clampNum(pdca.narrationChars?.max, 165, 345, 240));
+let charsMin = clampNum(pdca.narrationChars?.min, 150, 330, 210);
+let charsMax = Math.max(charsMin + 15, clampNum(pdca.narrationChars?.max, 165, 345, 240));
 const genreMultipliers = pdca.genreMultipliers ?? {};
 const promptAdditions = (pdca.promptAdditions ?? []).filter((s) => typeof s === "string").slice(0, 6);
 
@@ -149,6 +150,8 @@ for (let i = 0; i < weights.length; i++) {
   }
 }
 let category = candidateCategories[categoryIndex];
+// 検証用: FORCE_CATEGORY でジャンルを固定できる(クラウドでの動作確認用。本番では使わない)
+if (process.env.FORCE_CATEGORY) category = CATEGORIES.find((c) => c.name === process.env.FORCE_CATEGORY) ?? category;
 
 // ジャンルとフォーマットは独立した軸として扱う(1ジャンルが複数フォーマットを持てる)。
 // 同じジャンルでも毎回どのフォーマットで語るかをランダムに選ぶ
@@ -181,7 +184,9 @@ if (fs.existsSync(videoStatsPath) && Math.random() < SEQUEL_PROBABILITY) {
     if (breakout) {
       const original = usedTopics.find((u) => u.videoId === breakout.videoId);
       category = CATEGORIES.find((c) => c.name === breakout.category);
-      chosenFormat = category.formats.includes(breakout.format) ? breakout.format : chosenFormat;
+      chosenFormat = category.formats.includes(breakout.format)
+        ? breakout.format
+        : category.formats[Math.floor(Math.random() * category.formats.length)];
       sequelOf = {
         videoId: breakout.videoId,
         title: breakout.title,
@@ -206,7 +211,35 @@ const competitorThemePool = matchingCompetitorThemes.length > 0 ? matchingCompet
 const competitorTheme =
   competitorThemePool.length > 0 ? competitorThemePool[Math.floor(Math.random() * competitorThemePool.length)] : null;
 
+// 体験型(2026-10-18追加): 課題と正解はコードで決め、台本作家には事実として渡す。長さは約25〜30秒の動画になる分だけ
+const experience = chosenFormat === "experience" ? pickExperience() : null;
+if (experience) {
+  charsMin = EXPERIENCE_CHARS.min;
+  charsMax = EXPERIENCE_CHARS.max;
+  console.log(`体験型の課題: ${experience.type} ${JSON.stringify(experience.params)}`);
+}
+
 const FORMAT_SPECS = {
+  experience: {
+    formatInstructions: `- フォーマット: 体験型(見る人が自分の目で試す動画)。フック(課題を出す)→見るポイント→考える時間→種明かし→締め、の5パート構成。badgeはすべてnullにする
+- 画面にはプログラムで描いた課題の映像が最初から最後まで出ている。その映像の内容(事実。必ずこれに合わせ、映像に無いものを言わない): ${experience?.facts ?? ""}
+- 課題: ${experience?.question ?? ""}
+- hookは、見る人に直接問いかける短い一文から始める(例: 「どっちが大きく見えますか？」)。説明や前置きはしない
+- rank3は、どこを見ればいいか・どう試せばいいかを一言で(答えは言わない)
+- rank2は「よく見て」「答えは？」程度のごく短い一言。この後に4秒の無音の考える時間とカウントダウンが自動で入る
+- rank1で種明かし。映像が変化して正解が見える瞬間なので、驚きの一言から入り、なぜそう見えるのかを一言で
+- outroは、コメントで答えや感想を聞く一言と「チャンネル登録」。最後まで見た人がもう一度試したくなるように終える`,
+    titleInstructions:
+      "動画タイトル(30字以内。見る人が試したくなる挑戦の形にする。例: 『9割が騙される〇〇』『見抜けたら凄い〇〇テスト』。答えは書かない)",
+    topicsInstructions: "課題/見るポイント/種明かし、の一言要約(3つ)",
+    segmentsExample: `  "segments": [
+    { "id": "hook", "badge": null, "caption": ["画面表示1行目", "画面表示2行目"], "narration": "課題を出す問いかけ" },
+    { "id": "rank3", "badge": null, "caption": ["...", "..."], "narration": "見るポイント(答えは言わない)" },
+    { "id": "rank2", "badge": null, "caption": ["...", "..."], "narration": "ごく短い一言(この後カウントダウン)" },
+    { "id": "rank1", "badge": null, "caption": ["...", "..."], "narration": "種明かし(正解と、なぜそう見えるか)" },
+    { "id": "outro", "badge": null, "caption": ["...", "..."], "narration": "コメントを促す一言とチャンネル登録" }
+  ]`,
+  },
   simulation: {
     formatInstructions: `- フォーマット: フック(極端な仮定を提示)→段階1→段階2→クライマックス、の5パート構成(シミュレーション仮説型)。badgeはすべてnullにする(順位表示はしない)
 - 「もし〜だったら」「〜を1mmにしたら」のような、実在の科学的知見に基づく計算・比較を使った極端な思考実験にする。話が段階的にスケールアップしていく構成にする`,
@@ -405,18 +438,18 @@ ${
 - title・caption・descriptionHookを含む全てのテキストで、感嘆符・疑問符は必ず全角(！／？)を使うこと。半角(!／?)は使わない
 - seoNotesには、今回どう視聴維持率・エンゲージメントを意識したかを、日本語1〜2文で具体的に説明すること(例:「タイトルでは結論の数字を伏せて『〇〇の正体』とだけ示し、動画内で明かす構成にした」)。抽象的な説明ではなく、実際の工夫を挙げて説明すること
 
-# 背景素材のルール(重要・2026-09-09追加)
+${experience ? "" : `# 背景素材のルール(重要・2026-09-09追加)
 - 各segmentのpexelsQueryに加えて、"realPhotoSubject"というフィールドを追加すること
 - (2026-10-13追加)各segmentに"extraPexelsQueries"(英語キーワード2つの配列)も追加すること。1つのsegmentの中で背景の映像を約3秒ごとに切り替えるための、2本目・3本目の映像用。pexelsQueryと同じ場面の別カット(寄り・別の角度・関連する物や人の動き)になるキーワードにし、3つとも別の映像が出るよう言葉を変える。ただし、話している対象と違う生き物・物・場所がはっきり映るキーワードは使わない(例: タコの話の最中にクラゲが映ると誤解を招く)。対象そのものが映るキーワードにするか、対象が映らない場合はその場の環境(暗い海中、砂漠の地面など)を映すキーワードにする
 - そのsegmentが実在する特定の建物・ランドマーク・史跡・自然地形・人工物、または実在の生き物の種(動物・植物・深海生物など)・食べ物・道具・天体・自然現象など「名前で特定でき、写真で見せられる実在の対象」を扱っている場合は、その名前(Wikipediaで見つかりやすい日本語名。生き物は和名、見つかりにくそうなら学名でもよい)を設定する(例:「東京スカイツリー」「マチュピチュ」「リトープス」「ダイオウイカ」「オーロラ」)
 - (2026-09-28改訂・最重要)hookセグメントでは、話題の中心となる対象を1コマ目から見せることが、スワイプされないために最も大事。対象が写真で見せられるものなら、hookのrealPhotoSubjectには必ずそれを設定すること。写真で見せられない題材では、hookのpexelsQueryを「雰囲気だけの風景」ではなく、話題の対象や状況そのものが映る具体的な英語キーワードにする
 - 該当する実在の対象が無い(抽象的な概念・一般論・創作の場合)、または対象が「実在の人物」の場合は、必ずnullにすること。実在の人物の写真は絶対に使わないため
 - realPhotoSubjectを設定した場合、実際の写真(Wikimedia Commonsのフリー素材)が見つかればそれを背景に使い、見つからなければ自動的にpexelsQueryへフォールバックする仕組みなので、無理に対象物をでっち上げないこと(該当なしなら素直にnull)
-
+`}
 # JSON出力上の重要な注意
 - caption・narration・title等のテキスト内では、二重引用符(")を絶対に使わないこと。強調したい場合は「」(かぎ括弧)を使うこと。二重引用符を使うとJSONが壊れます。
 
-# 出力JSON形式(このスキーマに厳密に従うこと。各segmentに"realPhotoSubject"フィールドを必ず含めること。上記の背景素材のルール参照)
+# 出力JSON形式(このスキーマに厳密に従うこと${experience ? "" : "。各segmentに\"realPhotoSubject\"フィールドを必ず含めること。上記の背景素材のルール参照"})
 {
   "title": "${titleInstructions}",
   "screenTitle": ["画面上部の見出し1行目(12字以内)", "2行目(12字以内)"],
@@ -426,7 +459,7 @@ ${
   "seoNotes": "今回のSEO対策の具体的な説明(1〜2文)",
 ${segmentsExample}
 }
-(注: 各segmentオブジェクトには上記の例に加えて "realPhotoSubject": "実在対象物の正式名称またはnull" と "extraPexelsQueries": ["2本目の映像の英語キーワード", "3本目の映像の英語キーワード"] を必ず追加すること)`;
+${experience ? "" : `(注: 各segmentオブジェクトには上記の例に加えて "realPhotoSubject": "実在対象物の正式名称またはnull" と "extraPexelsQueries": ["2本目の映像の英語キーワード", "3本目の映像の英語キーワード"] を必ず追加すること)`}`;
 
 function runClaude(promptText, extraArgs = []) {
   return new Promise((resolve, reject) => {
@@ -466,6 +499,9 @@ script.usedCompetitorInsight = Boolean(titleFormula || hookPattern || competitor
 // どのPDCAの方針で作られた動画かを記録する(効果の判定で、方針ごとに動画を分けるため)
 script.pdcaVersion = pdca.version ?? 0;
 script.sequelOf = sequelOf?.videoId ?? null;
+// 体験型の課題(src/experience/ が描く)と、考える時間の秒数
+script.experience = experience ? { type: experience.type, params: experience.params } : null;
+script.thinkHoldSec = experience ? THINK_HOLD_SEC : 0;
 // 見た目のテーマ(src/theme.tsのTHEMES)を動画ごとにランダムに選ぶ。同じ見た目の量産動画に見えないようにするため
 script.visualTheme = Math.floor(Math.random() * 4);
 // 画面上部の見出し。形式が崩れていたら出さない(動画作り自体は止めない)
@@ -506,7 +542,8 @@ console.log(`台本の文字数: ${totalChars}字(目標${charsMin}〜${charsMax
 // 事実・数字・単位換算(桁)を点検させ、誤りがあれば該当セグメントだけ最小限直す。
 // 実例: クラウド検証で「2の68乗、約3000京」(正しくは約3万京)という桁の誤りが出た。誤情報は
 // 視聴者の信頼と収益化審査の両方に響くため。点検に失敗しても台本はそのまま使う(動画作りは止めない)
-if (!category.fiction) {
+// 体験型は事実の主張が映像の仕組み(コードで決めた正解)だけなので、ファクトチェックしない
+if (!category.fiction && !experience) {
   try {
     const checkPrompt = `あなたは雑学ショート動画の厳格なファクトチェッカーです。次の台本のnarrationとcaptionに、事実の誤り・数字や単位換算(桁)の誤り・年代の誤り・定説でないことの断定がないか確認してください。必要ならWeb検索で確かめてください。
 

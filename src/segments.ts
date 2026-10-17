@@ -1,4 +1,6 @@
 export const screenTitle: string[] = [];
+export const experience: { type: string; params: Record<string, unknown> } | null = null;
+export const thinkHoldSec = 0;
 export const themeIndex = 0;
 
 export type SegmentId = "hook" | "rank3" | "rank2" | "rank1" | "outro";
@@ -17,5 +19,5 @@ export const segments: Segment[] = [
   { id: "rank3", caption: ["気温50度を超える砂漠","動物に狙われる過酷な地"], bgType: "image", bgExt: "jpg", extraClips: [] },
   { id: "rank2", caption: ["体のほとんどは地中に","表面に浮かぶ謎の模様"], bgType: "image", bgExt: "jpg", extraClips: [] },
   { id: "rank1", caption: ["その正体はリトープス","石そっくりに擬態する多肉植物"], bgType: "image", bgExt: "jpg", extraClips: [] },
-  { id: "outro", caption: ["チャンネル登録で新知識を","驚いた雑学はコメントへ"], bgType: "video", bgExt: "mp4", extraClips: [] },
+  { id: "outro", caption: ["チャンネル登録で新知識を","驚いた雑学はコメントへ"], bgType: "image", bgExt: "jpg", extraClips: [] },
 ];

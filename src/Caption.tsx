@@ -6,7 +6,8 @@ export const Caption: React.FC<{
   fontFamily: string;
   captionBg?: string;
   badgeColor?: string;
-}> = ({ badge, lines, fontFamily, captionBg = "rgba(0,0,0,0.55)", badgeColor = "#FFD400" }) => {
+  position?: "center" | "bottom";
+}> = ({ badge, lines, fontFamily, captionBg = "rgba(0,0,0,0.55)", badgeColor = "#FFD400", position = "center" }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const progress = spring({ frame, fps, config: { damping: 200 } });
@@ -26,9 +27,10 @@ export const Caption: React.FC<{
     // アイコン列)が画面下〜25%程度を覆うため、テロップは画面中央付近に配置する
     <AbsoluteFill
       style={{
-        justifyContent: "center",
+        // 体験型(2026-10-18)は中央に課題の映像があるので、字幕は下(YouTubeの下部の表示より上)に置く
+        justifyContent: position === "bottom" ? "flex-end" : "center",
         alignItems: "center",
-        padding: "0 60px",
+        padding: position === "bottom" ? "0 60px 380px" : "0 60px",
       }}
     >
       <div

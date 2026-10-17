@@ -153,6 +153,7 @@ const videoStats = usedTopics
       pdcaVersion: t.pdcaVersion ?? 0,
       realPhotoInHook: t.realPhotoInHook ?? null,
       visualTheme: t.visualTheme ?? null,
+      experienceType: t.experienceType ?? null,
       privacyStatus: info.privacyStatus ?? null,
       duration: info.duration ?? null,
       views,

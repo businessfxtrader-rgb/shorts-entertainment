@@ -39,7 +39,13 @@ const entries = latestScript.segments
 const screenTitle = Array.isArray(latestScript.screenTitle) ? latestScript.screenTitle : [];
 const themeIndex = Number.isInteger(latestScript.visualTheme) ? latestScript.visualTheme : 0;
 
+// 体験型の課題(src/experience/が描く)と、rank2の後の考える時間(2026-10-18追加)
+const experience = latestScript.format === "experience" && latestScript.experience ? latestScript.experience : null;
+const thinkHoldSec = experience ? Number(latestScript.thinkHoldSec ?? 0) : 0;
+
 const content = `export const screenTitle: string[] = ${JSON.stringify(screenTitle)};
+export const experience: { type: string; params: Record<string, unknown> } | null = ${JSON.stringify(experience)};
+export const thinkHoldSec = ${thinkHoldSec};
 export const themeIndex = ${themeIndex};
 
 export type SegmentId = "hook" | "rank3" | "rank2" | "rank1" | "outro";

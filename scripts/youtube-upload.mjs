@@ -100,6 +100,8 @@ usedTopics.push({
   hasScreenTitle: (latestScript.screenTitle ?? []).length > 0,
   // 伸びた動画の続編として作った場合、元の動画のvideoId(generate-script.mjs、2026-10-13追加)
   sequelOf: latestScript.sequelOf ?? null,
+  // 体験型(錯覚ジャンル)の課題の種類(2026-10-18追加)。種類ごとの伸び方をPDCAで比べるため
+  experienceType: latestScript.experience?.type ?? null,
 });
 fs.writeFileSync(usedTopicsPath, JSON.stringify(usedTopics, null, 2));
 console.log("OK: used-topics.json を更新しました");

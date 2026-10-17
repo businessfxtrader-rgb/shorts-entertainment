@@ -15,7 +15,8 @@ import {
 import { parseMedia } from "@remotion/media-parser";
 import { webReader } from "@remotion/media-parser/web";
 import { loadFont } from "@remotion/google-fonts/NotoSansJP";
-import { segments, SegmentId, screenTitle, themeIndex } from "./segments";
+import { segments, SegmentId, screenTitle, themeIndex, experience, thinkHoldSec } from "./segments";
+import { ExperienceView } from "./experience/ExperienceView";
 import { Caption } from "./Caption";
 import { TitleBand } from "./TitleBand";
 import { themeFor } from "./theme";
@@ -65,14 +66,17 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async () => {
       reader: webReader,
     });
 
-    const segmentDurationInSeconds = LEAD_IN_SEC + (audioDuration ?? 2) + TAIL_SEC;
+    // 体験型(2026-10-18)は、rank2の読み上げの後に考える時間(無音・カウントダウン)を足す
+    const holdSec = experience && seg.id === "rank2" ? thinkHoldSec : 0;
+    const segmentDurationInSeconds = LEAD_IN_SEC + (audioDuration ?? 2) + holdSec + TAIL_SEC;
 
     // 背景のカット: 1本目(実写真またはPexels動画)+追加カット。segmentの長さに応じて使う本数を決める
-    const allClips = [
+    // 体験型は課題の映像をプログラムで描くので、背景素材は使わない
+    const allClips = experience ? [] : [
       { src: `bg/${seg.id}.${seg.bgExt}`, type: seg.bgType },
       ...(seg.extraClips ?? []).map((f) => ({ src: `bg/${f}`, type: "video" as const })),
     ];
-    const cutCount = Math.max(1, Math.min(allClips.length, Math.round(segmentDurationInSeconds / TARGET_CUT_SEC)));
+    const cutCount = Math.min(allClips.length, Math.max(1, Math.round(segmentDurationInSeconds / TARGET_CUT_SEC)));
     const clips: BgClip[] = [];
     for (const c of allClips.slice(0, cutCount)) {
       // 静止画はループ不要。動画は尺を調べてループフレーム数を決める
@@ -166,6 +170,7 @@ const PunchIn: React.FC<{ durationInFrames: number; zoomIn: boolean; children: R
 // 1つのsegmentの背景を、カットの本数で等分して順番に出す
 const SegmentBackground: React.FC<{ timing: SegmentTiming }> = ({ timing }) => {
   const n = timing.clips.length;
+  if (n === 0) return null;
   const base = Math.floor(timing.durationInFrames / n);
   return (
     <>
@@ -214,8 +219,30 @@ const ShortsVideoComponent: React.FC<Props> = ({ timings }) => {
     }
     return BGM_VOLUME - (BGM_VOLUME - BGM_VOLUME_UNDER_VOICE) * duck;
   };
+  // 体験型: 種明かし(rank1の開始)と、考える時間(rank2の読み上げ後)のフレーム位置
+  const startOf = (id: SegmentId) => {
+    let f = 0;
+    for (const t of timings) {
+      if (t.id === id) return f;
+      f += t.durationInFrames;
+    }
+    return f;
+  };
+  const rank2 = timings.find((t) => t.id === "rank2");
+  const holdFrames = experience ? Math.round(thinkHoldSec * FPS) : 0;
+  const holdStartFrame = rank2 ? startOf("rank2") + rank2.durationInFrames - Math.round(TAIL_SEC * FPS) - holdFrames : 0;
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
+      {experience ? (
+        <ExperienceView
+          type={experience.type}
+          params={experience.params}
+          revealFrame={startOf("rank1")}
+          holdStartFrame={holdStartFrame}
+          holdFrames={holdFrames}
+          fontFamily={fontFamily}
+        />
+      ) : null}
       <Series>
         {timings.map((timing) => {
           const seg = segments.find((s) => s.id === timing.id)!;
@@ -223,18 +250,21 @@ const ShortsVideoComponent: React.FC<Props> = ({ timings }) => {
             <Series.Sequence key={timing.id} durationInFrames={timing.durationInFrames}>
               <AbsoluteFill>
                 <SegmentBackground timing={timing} />
-                <AbsoluteFill
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0) 45%)",
-                  }}
-                />
+                {experience ? null : (
+                  <AbsoluteFill
+                    style={{
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0) 45%)",
+                    }}
+                  />
+                )}
                 <Caption
                   badge={seg.badge}
                   lines={seg.caption}
                   fontFamily={fontFamily}
                   captionBg={theme.captionBg}
                   badgeColor={theme.badgeColor}
+                  position={experience ? "bottom" : "center"}
                 />
                 <Sequence from={timing.narrationStartFrame}>
                   <Audio src={staticFile(`audio/${timing.id}.wav`)} />
