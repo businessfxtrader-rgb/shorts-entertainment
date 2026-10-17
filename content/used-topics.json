@@ -2377,5 +2377,24 @@
     "visualTheme": 3,
     "hasScreenTitle": true,
     "sequelOf": null
+  },
+  {
+    "title": "砂1粒は山じゃない、ならいつ山になる？",
+    "topics": [
+      "砂1粒は山ではなく1粒足しても山にならないという前提/正しい主張を繰り返すと1億粒でも山ではないという矛盾/山という言葉の境界が曖昧だったという結論"
+    ],
+    "date": "2026-10-17",
+    "publishedAt": "2026-10-20T09:00:00.000Z",
+    "videoId": "Mnb3z2J9WIA",
+    "category": "哲学",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "ずんだもん",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null
   }
 ]
