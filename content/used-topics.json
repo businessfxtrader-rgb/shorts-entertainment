@@ -2396,5 +2396,27 @@
     "visualTheme": 2,
     "hasScreenTitle": true,
     "sequelOf": null
+  },
+  {
+    "title": "電車で禁止、缶が膨らむ…臭い食品3選",
+    "topics": [
+      "3位 ドリアン:強烈なにおいで地下鉄は持ち込み禁止、でも果物の王様",
+      "2位 シュールストレミング:缶の中でも発酵が進みフタが膨らむ",
+      "1位 くさや:漬け液を何代も継ぎ足して使う"
+    ],
+    "date": "2026-10-18",
+    "publishedAt": "2026-10-21T03:00:00.000Z",
+    "videoId": "_RWRQlJxObs",
+    "category": "グルメ",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "雀松朱司",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null
   }
 ]
