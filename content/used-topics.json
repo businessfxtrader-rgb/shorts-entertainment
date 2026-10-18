@@ -2418,5 +2418,25 @@
     "hasScreenTitle": true,
     "sequelOf": null,
     "experienceType": null
+  },
+  {
+    "title": "自分の声が録音だと別人に聞こえるのはなぜ？",
+    "topics": [
+      "声は空気だけでなく頭の骨も震えて内側から届く/骨を伝わる音は低音が強く、普段の自分の声は低く加工されている/正体は骨伝導で、録音は他人が聞く声そのもの"
+    ],
+    "date": "2026-10-18",
+    "publishedAt": "2026-10-21T09:00:00.000Z",
+    "videoId": "_lor0d1Qn5E",
+    "category": "雑学",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "東北ずん子",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null
   }
 ]
