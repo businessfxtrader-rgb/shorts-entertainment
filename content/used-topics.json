@@ -2460,5 +2460,25 @@
     "hasScreenTitle": true,
     "sequelOf": null,
     "experienceType": null
+  },
+  {
+    "title": "重さの基準だった金属1個に起きた異変",
+    "topics": [
+      "1889年の白金イリジウム合金の原器が世界の1キログラムを決めていた/約130年で複製との質量差が数十マイクログラムずれた疑いが出た/2019年5月20日にプランク定数による定義へ改定"
+    ],
+    "date": "2026-10-19",
+    "publishedAt": "2026-10-22T09:00:00.000Z",
+    "videoId": "TaVUCrGFoxE",
+    "category": "単位",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "東北ずん子",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null
   }
 ]
