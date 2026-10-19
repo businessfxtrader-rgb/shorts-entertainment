@@ -2438,5 +2438,27 @@
     "hasScreenTitle": true,
     "sequelOf": null,
     "experienceType": null
+  },
+  {
+    "title": "もし月が突然消えたら、地球はどう変わる？",
+    "topics": [
+      "夜の明るさが100分の1以下に",
+      "潮の満ち引きが約3割に縮む",
+      "地軸が揺れ季節が不安定に"
+    ],
+    "date": "2026-10-19",
+    "publishedAt": "2026-10-22T03:00:00.000Z",
+    "videoId": "ZauNd--Dgiw",
+    "category": "もしも",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "中国うさぎ",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null
   }
 ]
