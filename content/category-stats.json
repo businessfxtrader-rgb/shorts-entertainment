@@ -7,10 +7,10 @@
     "avgRetentionPercentage": 69.9
   },
   "文化": {
-    "totalViews": 5014,
+    "totalViews": 5016,
     "videoCount": 7,
     "format": "ranking",
-    "avgViews": 716,
+    "avgViews": 717,
     "avgRetentionPercentage": 59.3
   },
   "語源": {
@@ -56,7 +56,7 @@
     "avgRetentionPercentage": 78.1
   },
   "建築": {
-    "totalViews": 3581,
+    "totalViews": 3582,
     "videoCount": 7,
     "format": "qa",
     "avgViews": 512,
@@ -217,10 +217,10 @@
     "avgRetentionPercentage": 75
   },
   "パラドックス": {
-    "totalViews": 905,
+    "totalViews": 1014,
     "videoCount": 2,
     "format": "qa",
-    "avgViews": 453,
+    "avgViews": 507,
     "avgRetentionPercentage": 41.2
   },
   "数字": {
