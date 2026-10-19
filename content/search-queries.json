@@ -1,25 +1,29 @@
 {
-  "periodStart": "2026-09-12",
-  "periodEnd": "2026-10-12",
+  "periodStart": "2026-09-19",
+  "periodEnd": "2026-10-19",
   "queries": [
     {
       "query": "ドアを選んでください",
-      "views": 107
+      "views": 66
     },
     {
-      "query": "ドアを選んで",
-      "views": 15
+      "query": "ほっと一息チャンネル",
+      "views": 16
     },
     {
       "query": "ミニマリスト",
       "views": 14
     },
     {
-      "query": "ほっと一息チャンネル",
-      "views": 13
+      "query": "アーチェリー 美人",
+      "views": 11
     },
     {
-      "query": "アーチェリー 美人",
+      "query": "バレンティナ アーチェリー",
+      "views": 9
+    },
+    {
+      "query": "ドアを選んで",
       "views": 7
     },
     {
@@ -27,7 +31,23 @@
       "views": 5
     },
     {
+      "query": "ラブ恋",
+      "views": 5
+    },
+    {
+      "query": "アイスランド",
+      "views": 4
+    },
+    {
+      "query": "ocgタイムズ",
+      "views": 3
+    },
+    {
       "query": "あだると",
+      "views": 3
+    },
+    {
+      "query": "めじるしアクセサリー",
       "views": 3
     },
     {
@@ -43,7 +63,7 @@
       "views": 3
     },
     {
-      "query": "堀大輔",
+      "query": "フェンリス",
       "views": 3
     },
     {
@@ -56,6 +76,10 @@
     },
     {
       "query": "扉を選んで",
+      "views": 3
+    },
+    {
+      "query": "松平容保",
       "views": 3
     },
     {
@@ -75,33 +99,9 @@
       "views": 3
     },
     {
-      "query": "鬼武者",
+      "query": "野獣先輩",
       "views": 3
-    },
-    {
-      "query": "astra 6",
-      "views": 2
-    },
-    {
-      "query": "pick a door",
-      "views": 2
-    },
-    {
-      "query": "sixtones",
-      "views": 2
-    },
-    {
-      "query": "valentina acosta giraldo",
-      "views": 2
-    },
-    {
-      "query": "いいじゃん",
-      "views": 2
-    },
-    {
-      "query": "ちいかわ 鬱回",
-      "views": 2
     }
   ],
-  "updatedAt": "2026-10-12T04:48:40.535Z"
+  "updatedAt": "2026-10-19T03:40:41.290Z"
 }
