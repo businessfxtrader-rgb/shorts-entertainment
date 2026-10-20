@@ -2480,5 +2480,26 @@
     "hasScreenTitle": true,
     "sequelOf": null,
     "experienceType": null
+  },
+  {
+    "title": "無音の部屋で人が最初に聞く音の正体",
+    "topics": [
+      "人の聞こえる限界は0デシベル付近/世界一静かな部屋は反響がほぼゼロ/聞こえるのは自分の体の音で平衡感覚も乱れる"
+    ],
+    "date": "2026-10-20",
+    "publishedAt": "2026-10-23T03:00:00.000Z",
+    "videoId": "2bkC7flUcK0",
+    "category": "音",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "猫使ビィ",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
