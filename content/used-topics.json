@@ -2501,5 +2501,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "気温より湿度が怖い？人体の限界記録3選",
+    "topics": [
+      "3位 持久力:長期のエネルギー消費は基礎代謝の約2.5倍が天井",
+      "2位 宇宙:無重力での連続滞在記録は437日",
+      "1位 暑さ:湿球温度35度が人体の限界"
+    ],
+    "date": "2026-10-20",
+    "publishedAt": "2026-10-23T09:00:00.000Z",
+    "videoId": "YYBUza4rho4",
+    "category": "人体",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "雨晴はう",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
