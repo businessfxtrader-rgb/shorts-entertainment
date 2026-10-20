@@ -22,11 +22,14 @@ export const ExperienceView: React.FC<{
 }> = ({ type, params, revealFrame, holdStartFrame, holdFrames, fontFamily }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  // 種明かしの進み具合 0→1(約1秒)
-  const p = interpolate(frame, [revealFrame, revealFrame + fps], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  // 種明かしの進み具合 0→1(約1秒)。答えを出さない回(探す系の半分、2026-10-20)は最後まで0のまま
+  const reveal = params.reveal !== false;
+  const p = reveal
+    ? interpolate(frame, [revealFrame, revealFrame + fps], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
+    : 0;
 
   let body: React.ReactNode = null;
   if (type === "ebbinghaus") body = <Ebbinghaus p={p} bigLeft={Boolean(params.bigSurroundOnLeft)} />;

@@ -7,6 +7,17 @@
 // rank1=種明かし(映像が変化して正解が見える) / outro=コメントを促す。最後まで見たらそのまま冒頭にループする
 
 const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+// 探す系(似た字・色違いタイル)は、答えを出す/出さないを半々で決める(2026-10-20、ユーザーの提案で比較実験)。
+// 出さない回は、見つけられなかった人がもう一度探す(ループ)、見つけた人が場所をコメントする、ことを狙う。
+// 錯視系は「同じだった」と驚く瞬間が面白さの中心なので、必ず種明かしする。
+// 検証用: FORCE_REVEAL=1/0 で固定できる(本番では使わない)
+const decideReveal = () =>
+  process.env.FORCE_REVEAL === "1" ? true : process.env.FORCE_REVEAL === "0" ? false : Math.random() < 0.5;
+
+// 答えを出さない回の、種明かし段落(rank1)の書き方
+const NO_REVEAL_NOTE =
+  "この回は種明かしをしない(映像にも答えは出ない)。答えの字・場所は最後まで絶対に言わないこと。rank1は答えを言う代わりに、まだ見つけていない人への最後のヒント(探し方のコツ)と「見つけた人は少ないです」のような挑発の一言にする";
 const randInt = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
 
 // 似た字の組(左が多数派、右が1つだけ混ざる)。どれも一般的な字で、見分けにくいもの
@@ -56,10 +67,13 @@ const TYPES = {
     const rows = 10;
     const row = randInt(1, rows - 2);
     const col = randInt(0, cols - 1);
+    const reveal = decideReveal();
     return {
       type: "odd-glyph",
-      params: { major, odd, cols, rows, row, col },
-      facts: `画面には「${major}」という字が縦${rows}行・横${cols}列にびっしり並んでいて、その中に1つだけ「${odd}」が混ざっている。場所は上から${row + 1}行目、左から${col + 1}列目。種明かしでその1文字に丸が付く。ナレーションでは答えの字(「${odd}」)と場所を、種明かしの段落まで言わないこと`,
+      params: { major, odd, cols, rows, row, col, reveal },
+      facts: reveal
+        ? `画面には「${major}」という字が縦${rows}行・横${cols}列にびっしり並んでいて、その中に1つだけ「${odd}」が混ざっている。場所は上から${row + 1}行目、左から${col + 1}列目。種明かしでその1文字に丸が付く。ナレーションでは答えの字(「${odd}」)と場所を、種明かしの段落まで言わないこと`
+        : `画面には「${major}」という字が縦${rows}行・横${cols}列にびっしり並んでいて、その中に1つだけ違う字が混ざっている。${NO_REVEAL_NOTE}`,
       question: `「${major}」の中に1つだけ混ざった違う字を探す`,
     };
   },
@@ -67,10 +81,13 @@ const TYPES = {
     const hue = randInt(0, 359);
     const cols = 6;
     const rows = 8;
+    const reveal = decideReveal();
     return {
       type: "odd-color",
-      params: { hue, cols, rows, row: randInt(1, rows - 2), col: randInt(0, cols - 1), delta: 7 },
-      facts: `画面には同じ色のタイルが縦${rows}行・横${cols}列に並んでいて、1枚だけほんの少し明るい色のタイルがある。種明かしでそのタイルに丸が付く。ナレーションでは場所を種明かしの段落まで言わないこと`,
+      params: { hue, cols, rows, row: randInt(1, rows - 2), col: randInt(0, cols - 1), delta: 7, reveal },
+      facts: reveal
+        ? `画面には同じ色のタイルが縦${rows}行・横${cols}列に並んでいて、1枚だけほんの少し明るい色のタイルがある。種明かしでそのタイルに丸が付く。ナレーションでは場所を種明かしの段落まで言わないこと`
+        : `画面には同じ色のタイルが縦${rows}行・横${cols}列に並んでいて、1枚だけほんの少し明るい色のタイルがある。${NO_REVEAL_NOTE}`,
       question: "1枚だけ色が違うタイルを探す",
     };
   },
@@ -78,9 +95,14 @@ const TYPES = {
 
 export const EXPERIENCE_TYPES = Object.keys(TYPES);
 
+// 検証用: FORCE_EXPERIENCE_TYPE で課題の種類を固定できる(本番では使わない)
 export function pickExperience() {
-  return TYPES[pick(EXPERIENCE_TYPES)]();
+  const forced = process.env.FORCE_EXPERIENCE_TYPE;
+  return TYPES[forced && TYPES[forced] ? forced : pick(EXPERIENCE_TYPES)]();
 }
+
+// 答えを出す回か(錯視系は常に出す)
+export const isRevealed = (experience) => experience?.params?.reveal !== false;
 
 // 体験型の台本の長さ(読み上げ約6.2字/秒。これに考える時間とループで、動画は約25〜30秒)
 export const EXPERIENCE_CHARS = { min: 100, max: 150 };

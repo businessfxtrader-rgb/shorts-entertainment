@@ -102,6 +102,8 @@ usedTopics.push({
   sequelOf: latestScript.sequelOf ?? null,
   // 体験型(錯覚ジャンル)の課題の種類(2026-10-18追加)。種類ごとの伸び方をPDCAで比べるため
   experienceType: latestScript.experience?.type ?? null,
+  // 答えを出した回か(探す系は半々の比較実験。錯視系は常にtrue)。2026-10-20追加
+  experienceReveal: latestScript.experience ? latestScript.experience.params?.reveal !== false : null,
 });
 fs.writeFileSync(usedTopicsPath, JSON.stringify(usedTopics, null, 2));
 console.log("OK: used-topics.json を更新しました");

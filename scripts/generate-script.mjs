@@ -3,7 +3,7 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { extractJson } from "./lib/extract-json.mjs";
-import { pickExperience, EXPERIENCE_CHARS, THINK_HOLD_SEC } from "./lib/experience.mjs";
+import { pickExperience, isRevealed, EXPERIENCE_CHARS, THINK_HOLD_SEC } from "./lib/experience.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -227,8 +227,11 @@ const FORMAT_SPECS = {
 - hookは、見る人に直接問いかける短い一文から始める(例: 「どっちが大きく見えますか？」)。説明や前置きはしない
 - rank3は、どこを見ればいいか・どう試せばいいかを一言で(答えは言わない)
 - rank2は「よく見て」「答えは？」程度のごく短い一言。この後に4秒の無音の考える時間とカウントダウンが自動で入る
-- rank1で種明かし。映像が変化して正解が見える瞬間なので、驚きの一言から入り、なぜそう見えるのかを一言で
-- outroは、コメントで答えや感想を聞く一言と「チャンネル登録」。最後まで見た人がもう一度試したくなるように終える`,
+${
+  isRevealed(experience)
+    ? "- rank1で種明かし。映像が変化して正解が見える瞬間なので、驚きの一言から入り、なぜそう見えるのかを一言で\n- outroは、コメントで答えや感想を聞く一言と「チャンネル登録」。最後まで見た人がもう一度試したくなるように終える"
+    : "- この回は答えを出さない。rank1は最後のヒントと挑発の一言(答えは言わない)\n- outroは「見つけた人は場所をコメントで教えて」と、見つけられなかった人に「もう一度探してみて」と促す一言、そして「チャンネル登録」。答えはコメント欄で分かる形にする"
+}`,
     titleInstructions:
       "動画タイトル(30字以内。見る人が試したくなる挑戦の形にする。例: 『9割が騙される〇〇』『見抜けたら凄い〇〇テスト』。答えは書かない)",
     topicsInstructions: "課題/見るポイント/種明かし、の一言要約(3つ)",

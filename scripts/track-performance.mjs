@@ -154,6 +154,7 @@ const videoStats = usedTopics
       realPhotoInHook: t.realPhotoInHook ?? null,
       visualTheme: t.visualTheme ?? null,
       experienceType: t.experienceType ?? null,
+      experienceReveal: t.experienceReveal ?? null,
       privacyStatus: info.privacyStatus ?? null,
       duration: info.duration ?? null,
       views,

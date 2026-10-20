@@ -157,6 +157,17 @@ ${JSON.stringify(versionSummaries, null, 2)}
 # 今の方針の動画のジャンル別
 ${JSON.stringify(genreSummary)}
 
+# 体験型(ジャンル「錯覚」)の、答えあり/なし別の成績(探す系で半々の比較実験中。公開から${MATURE_DAYS}日以上の動画)
+${JSON.stringify(
+  Object.fromEntries(
+    ["true", "false"].map((k) => [
+      k === "true" ? "答えあり" : "答えなし",
+      summarize(mature.filter((v) => v.experienceType && String(v.experienceReveal) === k)),
+    ])
+  )
+)}
+比較できる本数(各5本以上)がたまっていれば判定に含め、差がはっきりしていれば promptAdditions ではなくコード変更の案(codeSuggestions)として「答えあり/なしの比率」を書くこと
+
 # 全ジャンル名
 ${categories.map((c) => c.name).join("、")}
 
