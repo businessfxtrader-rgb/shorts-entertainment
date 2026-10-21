@@ -2524,5 +2524,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "木阿弥って誰？毎日使う言葉のルーツ3選",
+    "topics": [
+      "目白押しは小鳥メジロが枝に並んで押し合う姿が由来/二枚目は江戸の歌舞伎看板で美男役が二番目に書かれたのが由来/元の木阿弥は筒井順昭の影武者だった木阿弥が元の身分に戻った話が由来"
+    ],
+    "date": "2026-10-21",
+    "publishedAt": "2026-10-24T03:00:00.000Z",
+    "videoId": "CJ2sNSsTC7c",
+    "category": "語源",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "黒沢冴白",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
