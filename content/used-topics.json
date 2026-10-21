@@ -2545,5 +2545,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "恐竜は全滅、でも鳥だけ残れた分かれ道",
+    "topics": [
+      "小惑星衝突で日光が数年途絶えた/飢えの連鎖で大型動物から全滅/鳥はくちばしで硬い種子を食べて生き延びた"
+    ],
+    "date": "2026-10-21",
+    "publishedAt": "2026-10-24T09:00:00.000Z",
+    "videoId": "3cGc8ldJTw8",
+    "category": "恐竜",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "春日部つむぎ",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
