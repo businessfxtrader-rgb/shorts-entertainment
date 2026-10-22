@@ -2566,5 +2566,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "車輪がなかった世界、電気はなぜ消える？",
+    "topics": [
+      "車輪がなければ荷運びはラマ頼みで物流が崩壊",
+      "歯車・水車・滑車が消えて時計も製粉も紡績も成立しない",
+      "回転するタービンがなく現代の電力の大半が生まれない"
+    ],
+    "date": "2026-10-22",
+    "publishedAt": "2026-10-25T03:00:00.000Z",
+    "videoId": "uj5H65-Em80",
+    "category": "歴史",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "春日部つむぎ",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
