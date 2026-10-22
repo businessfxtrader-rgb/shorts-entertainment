@@ -2589,5 +2589,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "怪物伝説は誰かの見間違いだった？神話3選",
+    "topics": [
+      "3位 キュクロプス:矮小ゾウの頭蓋骨の鼻孔が一つ目に見えた説",
+      "2位 グリフィン:ゴビ砂漠のプロトケラトプス化石が元という説",
+      "1位 ユニコーン:イッカクの角は伸びた歯で長さ約3メートル"
+    ],
+    "date": "2026-10-22",
+    "publishedAt": "2026-10-25T09:00:00.000Z",
+    "videoId": "0W6paxSbSXg",
+    "category": "神話",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "もち子さん",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
