@@ -2633,5 +2633,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "旅先の1泊目だけ眠れない、脳の中で起きていること",
+    "topics": [
+      "第一夜効果は初めての環境で眠りが浅くなる現象/米ブラウン大の研究で左脳だけ活動が高く2日目には差が消えた/正体は左脳の見張り番という安全装置"
+    ],
+    "date": "2026-10-23",
+    "publishedAt": "2026-10-26T09:00:00.000Z",
+    "videoId": "hyJscnMKv9s",
+    "category": "睡眠",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "あんこもん",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
