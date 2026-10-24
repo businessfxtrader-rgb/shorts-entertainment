@@ -2675,5 +2675,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "太陽が消えても気づけない8分間の正体",
+    "topics": [
+      "8分20秒は何も起きない",
+      "軌道を外れ暗闇へ直進",
+      "最寄りの恒星まで4万年超"
+    ],
+    "date": "2026-10-24",
+    "publishedAt": "2026-10-27T09:00:00.000Z",
+    "videoId": "gCZ9-YRbgAo",
+    "category": "宇宙",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "ずんだもん",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
