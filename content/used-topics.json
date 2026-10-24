@@ -2654,5 +2654,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "日本人が驚く、海外のレストランでの合図とは？",
+    "topics": [
+      "ドイツでは手を挙げて店員を呼ばない/イタリアではカプチーノを昼以降に頼まない/日本では常識の「お冷や」が世界では有料"
+    ],
+    "date": "2026-10-24",
+    "publishedAt": "2026-10-27T03:00:00.000Z",
+    "videoId": "pnllBHGSs9k",
+    "category": "文化",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "冥鳴ひまり",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
