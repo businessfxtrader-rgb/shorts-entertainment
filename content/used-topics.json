@@ -2698,5 +2698,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "光合成をやめた植物が生きる、暗い森の裏ワザ",
+    "topics": [
+      "3位 ギンリョウソウ:光合成をやめ、菌から栄養を得る白い植物",
+      "2位 ハエトリソウ:30秒以内に2回触れると葉を閉じる",
+      "1位 ウェルウィッチア:2枚の葉で推定樹齢2000年"
+    ],
+    "date": "2026-10-25",
+    "publishedAt": "2026-10-28T03:00:00.000Z",
+    "videoId": "Zlu62j3zhgI",
+    "category": "植物",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "もち子さん",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
