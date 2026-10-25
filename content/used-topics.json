@@ -2721,5 +2721,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "革紐が暗号に？読めない仕掛け3選",
+    "topics": [
+      "3位 スキュタレー:棒に巻いた革紐で文字を隠す",
+      "2位 ヴィジュネル暗号:約280年破られなかった",
+      "1位 量子暗号:盗み見ると痕跡が残る"
+    ],
+    "date": "2026-10-25",
+    "publishedAt": "2026-10-28T09:00:00.000Z",
+    "videoId": "NlHBflMTI6w",
+    "category": "暗号",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "玄野武宏",
+    "pdcaVersion": 3,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
