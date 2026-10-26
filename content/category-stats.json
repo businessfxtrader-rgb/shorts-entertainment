@@ -168,17 +168,17 @@
     "avgRetentionPercentage": 49.3
   },
   "恐竜": {
-    "totalViews": 2892,
+    "totalViews": 2893,
     "videoCount": 3,
     "format": "ranking",
     "avgViews": 964,
     "avgRetentionPercentage": 66.7
   },
   "植物": {
-    "totalViews": 2082,
+    "totalViews": 2084,
     "videoCount": 3,
     "format": "qa",
-    "avgViews": 694,
+    "avgViews": 695,
     "avgRetentionPercentage": 82.3
   },
   "暗号": {
@@ -224,10 +224,10 @@
     "avgRetentionPercentage": 40
   },
   "数字": {
-    "totalViews": 494,
+    "totalViews": 990,
     "videoCount": 2,
     "format": "qa",
-    "avgViews": 247,
+    "avgViews": 495,
     "avgRetentionPercentage": 105.5
   },
   "睡眠": {

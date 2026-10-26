@@ -79,5 +79,66 @@
     "changes": "体験型の探す系(似た字・色違いタイル)で、答えを出す/出さないを半々のランダムに(ユーザーの提案)。錯視系は常に種明かし",
     "hypothesis": "答えを出さない回は、見つけられなかった人が見直して平均視聴率が上がり、見つけた人が場所をコメントする。ただし今の規模(約900回)ではコメントは増えにくく、効くのは主に見直し(ループ)と考える",
     "judge": "experienceReveal別に、再生・平均視聴率・コメント数を各5本以上たまってから比べる"
+  },
+  {
+    "type": "review",
+    "at": "2026-10-26T06:41:45.680Z",
+    "judgedVersion": 3,
+    "judgement": "明確な差なし",
+    "analysis": "v3(15本)は再生中央値865回でv1(29本)の950回より約9%低く、最高も1057回で1118回を下回る。エンゲージ率は0.315→0.264、平均視聴率は65→50.9%と、v1で改善した視聴維持の指標がv0並みまで戻っており、画面切り替えを速めた変更は効果が見えない。ただしv3は本数が少なく、ジャンルが14種に散らばり、続編・タイトル変更・カット変更を同時に入れているため原因は特定できない。0回や150回台の動画も混じり中央値を押し下げている。",
+    "metrics": {
+      "0": {
+        "count": 118,
+        "medianViews": 870.5,
+        "maxViews": 1434,
+        "medianEngagedRate": 0.26,
+        "medianAPV": 48.7,
+        "medianLikesPer1000": 3.5,
+        "totalComments": 615,
+        "totalShares": 6,
+        "totalSubscribersGained": 29
+      },
+      "1": {
+        "count": 29,
+        "medianViews": 950,
+        "maxViews": 1118,
+        "medianEngagedRate": 0.315,
+        "medianAPV": 65,
+        "medianLikesPer1000": 3.2,
+        "totalComments": 33,
+        "totalShares": 1,
+        "totalSubscribersGained": 11
+      },
+      "2": {
+        "count": 1,
+        "medianViews": 341,
+        "maxViews": 341,
+        "medianEngagedRate": 0.185,
+        "medianAPV": 51.8,
+        "medianLikesPer1000": 5.9,
+        "totalComments": 1,
+        "totalShares": 0,
+        "totalSubscribersGained": 0
+      },
+      "3": {
+        "count": 15,
+        "medianViews": 865,
+        "maxViews": 1057,
+        "medianEngagedRate": 0.264,
+        "medianAPV": 50.9,
+        "medianLikesPer1000": 2,
+        "totalComments": 18,
+        "totalShares": 0,
+        "totalSubscribersGained": 3
+      }
+    },
+    "nextVersion": 4,
+    "changes": "弱かった哲学・建築・雑学・音を休止ジャンルに加え、深海・生態・昆虫の重みを上げ、冒頭〜結末の構成を指示する追加指示を1つ足した。",
+    "hypothesis": "視聴維持が落ちた一因は、v3で入れた細かいカット切り替えが情報の理解を妨げた可能性があるため、台本側で冒頭の問いと『最後に答える』構造を強めれば平均視聴率がv1水準に戻る。また再生が伸び悩む弱いジャンルの比率を下げ、反応のあった深海・生態・昆虫などに寄せて、初期テストを越える動画の確率を上げる。",
+    "codeSuggestions": [
+      "v3の細かいカット切り替え(約3秒ごと)が平均視聴率の低下と関係していないか、カット数1〜3で動画ごとに記録しエンゲージ率・平均視聴率と比較できるようにする。",
+      "続編を作る機能は、元の動画が上位10%でも実際は1000回前後でノイズの範囲のため、続編の動画と元動画の再生を並べて記録し、効果があるか確認する。",
+      "再生0回の動画(動物『270度回る首』)が出ているため、公開失敗や設定不備(公開状態・音声など)がないか投稿後の自動チェックを追加する。"
+    ]
   }
 ]
