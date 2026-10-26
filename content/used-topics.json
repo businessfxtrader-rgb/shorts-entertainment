@@ -2767,5 +2767,28 @@
     "sequelOf": null,
     "experienceType": "odd-glyph",
     "experienceReveal": false
+  },
+  {
+    "title": "頭の上の雲は何トン？天気の数字3選",
+    "topics": [
+      "3位 雲の重さ:小さな積雲でも約500トン、象約100頭分",
+      "2位 雨粒:形はまんじゅう型、最大約5ミリで時速約32キロ",
+      "1位 風速記録:1996年に時速408キロ、新幹線より速い"
+    ],
+    "date": "2026-10-26",
+    "publishedAt": "2026-10-29T09:00:00.000Z",
+    "videoId": "eu8V9EBtgKM",
+    "category": "気象",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "雨晴はう",
+    "pdcaVersion": 4,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
