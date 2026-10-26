@@ -2744,5 +2744,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "ソの中に1つだけ違う字がある、見つけられる？",
+    "topics": [
+      "ソ70個の中に違う字が1つ混ざっている",
+      "端から順に一行ずつ目で追って探す",
+      "答えは出さず、最後のヒントだけ伝える"
+    ],
+    "date": "2026-10-26",
+    "publishedAt": "2026-10-29T03:00:00.000Z",
+    "videoId": "h01DfTzYOnU",
+    "category": "錯覚",
+    "format": "experience",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "青山龍星",
+    "pdcaVersion": 3,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": "odd-glyph",
+    "experienceReveal": false
   }
 ]
