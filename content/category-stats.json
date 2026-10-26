@@ -1,58 +1,58 @@
 {
   "雑学": {
-    "totalViews": 6752,
+    "totalViews": 6819,
     "videoCount": 15,
     "format": "ranking",
-    "avgViews": 450,
-    "avgRetentionPercentage": 69.9
+    "avgViews": 455,
+    "avgRetentionPercentage": 69.2
   },
   "文化": {
-    "totalViews": 5019,
-    "videoCount": 7,
+    "totalViews": 5022,
+    "videoCount": 8,
     "format": "ranking",
-    "avgViews": 717,
+    "avgViews": 628,
     "avgRetentionPercentage": 59.3
   },
   "語源": {
-    "totalViews": 4513,
+    "totalViews": 5526,
     "videoCount": 9,
     "format": "ranking",
-    "avgViews": 501,
-    "avgRetentionPercentage": 52.5
+    "avgViews": 614,
+    "avgRetentionPercentage": 53.9
   },
   "歴史": {
-    "totalViews": 3414,
+    "totalViews": 4335,
     "videoCount": 9,
     "format": "simulation",
-    "avgViews": 379,
-    "avgRetentionPercentage": 57.9
+    "avgViews": 482,
+    "avgRetentionPercentage": 57.5
   },
   "ショートストーリー": {
-    "totalViews": 4313,
+    "totalViews": 4314,
     "videoCount": 9,
     "format": "simulation",
     "avgViews": 479,
-    "avgRetentionPercentage": 48.9
+    "avgRetentionPercentage": 48.8
   },
   "都市伝説": {
-    "totalViews": 5523,
+    "totalViews": 5530,
     "videoCount": 9,
     "format": "ranking",
     "avgViews": 614,
     "avgRetentionPercentage": 45.6
   },
   "ライフハック": {
-    "totalViews": 4551,
+    "totalViews": 4554,
     "videoCount": 6,
     "format": "ranking",
     "avgViews": 759,
     "avgRetentionPercentage": 43.4
   },
   "心理学": {
-    "totalViews": 3495,
+    "totalViews": 3497,
     "videoCount": 7,
     "format": "ranking",
-    "avgViews": 499,
+    "avgViews": 500,
     "avgRetentionPercentage": 43
   },
   "建築": {
@@ -63,11 +63,11 @@
     "avgRetentionPercentage": 68.3
   },
   "人体": {
-    "totalViews": 10080,
+    "totalViews": 11135,
     "videoCount": 11,
     "format": "ranking",
-    "avgViews": 916,
-    "avgRetentionPercentage": 55.8
+    "avgViews": 1012,
+    "avgRetentionPercentage": 55.6
   },
   "誕生秘話": {
     "totalViews": 2834,
@@ -78,9 +78,9 @@
   },
   "宇宙": {
     "totalViews": 4308,
-    "videoCount": 5,
+    "videoCount": 6,
     "format": "simulation",
-    "avgViews": 862,
+    "avgViews": 718,
     "avgRetentionPercentage": 67
   },
   "怖い話": {
@@ -91,59 +91,59 @@
     "avgRetentionPercentage": 39.7
   },
   "動物": {
-    "totalViews": 3845,
+    "totalViews": 3846,
     "videoCount": 5,
     "format": "ranking",
     "avgViews": 769,
     "avgRetentionPercentage": 62.5
   },
   "日本": {
-    "totalViews": 4759,
+    "totalViews": 4767,
     "videoCount": 5,
     "format": "qa",
-    "avgViews": 952,
+    "avgViews": 953,
     "avgRetentionPercentage": 90.9
   },
   "生態": {
-    "totalViews": 3924,
+    "totalViews": 3925,
     "videoCount": 5,
     "format": "qa",
     "avgViews": 785,
     "avgRetentionPercentage": 61.2
   },
   "グルメ": {
-    "totalViews": 2825,
+    "totalViews": 2871,
     "videoCount": 5,
     "format": "qa",
-    "avgViews": 565,
-    "avgRetentionPercentage": 31
+    "avgViews": 574,
+    "avgRetentionPercentage": 34.4
   },
   "深海": {
-    "totalViews": 5367,
+    "totalViews": 5369,
     "videoCount": 6,
     "format": "qa",
     "avgViews": 895,
     "avgRetentionPercentage": 73
   },
   "二択扉": {
-    "totalViews": 3716,
+    "totalViews": 3720,
     "videoCount": 4,
     "format": "choice",
-    "avgViews": 929,
+    "avgViews": 930,
     "avgRetentionPercentage": 60.5
   },
   "テック速報": {
-    "totalViews": 1069,
+    "totalViews": 1071,
     "videoCount": 2,
     "format": "qa",
-    "avgViews": 535,
+    "avgViews": 536,
     "avgRetentionPercentage": 70.4
   },
   "神話": {
-    "totalViews": 2931,
-    "videoCount": 3,
+    "totalViews": 3878,
+    "videoCount": 4,
     "format": "ranking",
-    "avgViews": 977,
+    "avgViews": 970,
     "avgRetentionPercentage": 64.3
   },
   "気象": {
@@ -154,45 +154,45 @@
     "avgRetentionPercentage": 64.1
   },
   "地理": {
-    "totalViews": 2150,
+    "totalViews": 2151,
     "videoCount": 3,
     "format": "qa",
     "avgViews": 717,
     "avgRetentionPercentage": 48
   },
   "哲学": {
-    "totalViews": 2003,
+    "totalViews": 2042,
     "videoCount": 3,
     "format": "qa",
-    "avgViews": 668,
-    "avgRetentionPercentage": 46.3
+    "avgViews": 681,
+    "avgRetentionPercentage": 49.3
   },
   "恐竜": {
-    "totalViews": 1899,
+    "totalViews": 2892,
     "videoCount": 3,
     "format": "ranking",
-    "avgViews": 633,
+    "avgViews": 964,
     "avgRetentionPercentage": 66.7
   },
   "植物": {
-    "totalViews": 2081,
-    "videoCount": 2,
+    "totalViews": 2082,
+    "videoCount": 3,
     "format": "qa",
-    "avgViews": 1041,
+    "avgViews": 694,
     "avgRetentionPercentage": 82.3
   },
   "暗号": {
-    "totalViews": 1931,
-    "videoCount": 2,
+    "totalViews": 1934,
+    "videoCount": 3,
     "format": "qa",
-    "avgViews": 966,
-    "avgRetentionPercentage": 85
+    "avgViews": 645,
+    "avgRetentionPercentage": 85.1
   },
   "錯覚": {
     "totalViews": 1188,
-    "videoCount": 2,
+    "videoCount": 3,
     "format": "qa",
-    "avgViews": 594,
+    "avgViews": 396,
     "avgRetentionPercentage": 46.1
   },
   "未解決問題": {
@@ -203,59 +203,59 @@
     "avgRetentionPercentage": 63.9
   },
   "昆虫": {
-    "totalViews": 1821,
+    "totalViews": 1824,
     "videoCount": 2,
     "format": "qa",
-    "avgViews": 911,
+    "avgViews": 912,
     "avgRetentionPercentage": 61.8
   },
   "遺跡": {
-    "totalViews": 1908,
+    "totalViews": 1912,
     "videoCount": 2,
     "format": "ranking",
-    "avgViews": 954,
-    "avgRetentionPercentage": 65.7
+    "avgViews": 956,
+    "avgRetentionPercentage": 64.3
   },
   "パラドックス": {
-    "totalViews": 1792,
+    "totalViews": 1795,
     "videoCount": 2,
     "format": "qa",
-    "avgViews": 896,
+    "avgViews": 898,
     "avgRetentionPercentage": 40
   },
   "数字": {
-    "totalViews": 487,
-    "videoCount": 1,
+    "totalViews": 494,
+    "videoCount": 2,
     "format": "qa",
-    "avgViews": 487,
+    "avgViews": 247,
     "avgRetentionPercentage": 105.5
   },
   "睡眠": {
-    "totalViews": 932,
-    "videoCount": 1,
+    "totalViews": 934,
+    "videoCount": 2,
     "format": "ranking",
-    "avgViews": 932,
+    "avgViews": 467,
     "avgRetentionPercentage": 60.2
   },
   "もしも": {
-    "totalViews": 23,
+    "totalViews": 393,
     "videoCount": 1,
     "format": "simulation",
-    "avgViews": 23,
-    "avgRetentionPercentage": null
+    "avgViews": 393,
+    "avgRetentionPercentage": 40.9
   },
   "単位": {
-    "totalViews": 0,
+    "totalViews": 961,
     "videoCount": 1,
     "format": "qa",
-    "avgViews": 0,
-    "avgRetentionPercentage": null
+    "avgViews": 961,
+    "avgRetentionPercentage": 104
   },
   "音": {
-    "totalViews": 0,
+    "totalViews": 407,
     "videoCount": 1,
     "format": "qa",
-    "avgViews": 0,
-    "avgRetentionPercentage": null
+    "avgViews": 407,
+    "avgRetentionPercentage": 46.7
   }
 }

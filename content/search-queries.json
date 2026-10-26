@@ -1,30 +1,38 @@
 {
-  "periodStart": "2026-09-19",
-  "periodEnd": "2026-10-19",
+  "periodStart": "2026-09-26",
+  "periodEnd": "2026-10-26",
   "queries": [
     {
       "query": "ドアを選んでください",
-      "views": 66
+      "views": 68
+    },
+    {
+      "query": "アーチェリー 美人",
+      "views": 23
+    },
+    {
+      "query": "バレンティナ アーチェリー",
+      "views": 17
     },
     {
       "query": "ほっと一息チャンネル",
-      "views": 16
+      "views": 15
     },
     {
       "query": "ミニマリスト",
       "views": 14
     },
     {
-      "query": "アーチェリー 美人",
-      "views": 11
-    },
-    {
-      "query": "バレンティナ アーチェリー",
-      "views": 9
+      "query": "世界の謎",
+      "views": 8
     },
     {
       "query": "ドアを選んで",
       "views": 7
+    },
+    {
+      "query": "熱湯",
+      "views": 6
     },
     {
       "query": "フォートナイトチャニ",
@@ -35,6 +43,14 @@
       "views": 5
     },
     {
+      "query": "扉を選んで",
+      "views": 5
+    },
+    {
+      "query": "ゆっくり茶番劇 総集編",
+      "views": 4
+    },
+    {
       "query": "アイスランド",
       "views": 4
     },
@@ -43,7 +59,7 @@
       "views": 3
     },
     {
-      "query": "あだると",
+      "query": "valentina acosta giraldo",
       "views": 3
     },
     {
@@ -55,7 +71,7 @@
       "views": 3
     },
     {
-      "query": "チェンソーマン",
+      "query": "スクイーズ",
       "views": 3
     },
     {
@@ -67,41 +83,25 @@
       "views": 3
     },
     {
-      "query": "恐竜",
+      "query": "ヤマタノオロチ",
+      "views": 3
+    },
+    {
+      "query": "動物",
+      "views": 3
+    },
+    {
+      "query": "可愛い動物",
+      "views": 3
+    },
+    {
+      "query": "報道 1930",
       "views": 3
     },
     {
       "query": "扉を選ぶ",
       "views": 3
-    },
-    {
-      "query": "扉を選んで",
-      "views": 3
-    },
-    {
-      "query": "松平容保",
-      "views": 3
-    },
-    {
-      "query": "江戸グルメ",
-      "views": 3
-    },
-    {
-      "query": "江戸時代 食事",
-      "views": 3
-    },
-    {
-      "query": "聞こえたらすぐ逃げろ",
-      "views": 3
-    },
-    {
-      "query": "選んでください",
-      "views": 3
-    },
-    {
-      "query": "野獣先輩",
-      "views": 3
     }
   ],
-  "updatedAt": "2026-10-19T03:40:41.290Z"
+  "updatedAt": "2026-10-26T03:39:57.560Z"
 }
