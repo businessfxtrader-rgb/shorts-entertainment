@@ -2811,5 +2811,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "冷凍ご飯がパサパサになる原因と防ぐ手順",
+    "topics": [
+      "炊きたてを放置すると水分が逃げてデンプンが固まる/粗熱を取らず湯気ごと包むのが鍵/温め直しで水分が戻る"
+    ],
+    "date": "2026-10-27",
+    "publishedAt": "2026-10-30T09:00:00.000Z",
+    "videoId": "BLqCEVD_QA8",
+    "category": "ライフハック",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "東北ずん子",
+    "pdcaVersion": 4,
+    "realPhotoInHook": true,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
