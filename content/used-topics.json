@@ -2790,5 +2790,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "他国に丸ごと囲まれた国、世界に何か国ある？",
+    "topics": [
+      "世界最小の国は東京ドーム約9個分でローマの市内にある/イタリアの山上にある国は301年建国で最古の共和国/レソトは南アフリカに囲まれた標高1400m以上の天空の王国"
+    ],
+    "date": "2026-10-27",
+    "publishedAt": "2026-10-30T03:00:00.000Z",
+    "videoId": "QDmhe8Oy6tY",
+    "category": "地理",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "玄野武宏",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
