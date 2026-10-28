@@ -2832,5 +2832,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "ポテトチップスは客のクレームから生まれた？",
+    "topics": [
+      "1853年、レストランで客が厚いフライドポテトを突き返した/シェフが腹いせにフォークで刺せないほど薄く切って揚げた/客が大喜びして定番メニューになり、世界的スナックへ"
+    ],
+    "date": "2026-10-28",
+    "publishedAt": "2026-10-31T03:00:00.000Z",
+    "videoId": "N7dK9ixyE5Q",
+    "category": "誕生秘話",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "もち子さん",
+    "pdcaVersion": 4,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
