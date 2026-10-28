@@ -2853,5 +2853,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "空室の隣から毎朝6時に鳴る目覚ましの理由",
+    "topics": [
+      "空室から毎朝鳴る目覚まし",
+      "壁越しに聞こえる足音と管理会社の証言",
+      "開けた部屋にあった時計とメモ"
+    ],
+    "date": "2026-10-28",
+    "publishedAt": "2026-10-31T09:00:00.000Z",
+    "videoId": "n69-qUbX8bw",
+    "category": "ショートストーリー",
+    "format": "simulation",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "四国めたん",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
