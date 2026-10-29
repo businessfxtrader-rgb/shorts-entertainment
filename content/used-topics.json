@@ -2899,5 +2899,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "なぜ紫だけが王族の色だったのか？",
+    "topics": [
+      "古代フェニキアの港町ティルスのアクキガイが染料の原料/分泌液は日光で緑を経て紫に変わる/染料1.4グラムに貝約1万2000個が必要で、希少さが王族の色を生んだ"
+    ],
+    "date": "2026-10-29",
+    "publishedAt": "2026-11-01T09:00:00.000Z",
+    "videoId": "cUq-Nd6WTng",
+    "category": "色彩",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "東北イタコ",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
