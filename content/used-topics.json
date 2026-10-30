@@ -2920,5 +2920,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "なぜ人は「やりかけ」ほど頭から離れないのか？",
+    "topics": [
+      "ウェイトレスは未払い注文だけ覚えていた/完了すると記憶が消える/正体はツァイガルニク効果"
+    ],
+    "date": "2026-10-30",
+    "publishedAt": "2026-11-02T03:00:00.000Z",
+    "videoId": "Uo_PzytR5wc",
+    "category": "心理学",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "東北ずん子",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
