@@ -2941,5 +2941,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "音で選ぶなら最後まで耐えられる？扉を選んでください Pick a door!",
+    "topics": [
+      "崩れ始めた古い天文台で、白い扉と黒い扉から出口を選ぶ二択設定",
+      "白い扉は冷たい風と濡れた足跡、脱出成功率92%という伏線",
+      "黒い扉は暖かい灯りと内側からの鍵穴の傷、脱出成功率8%という伏線"
+    ],
+    "date": "2026-10-30",
+    "publishedAt": "2026-11-02T09:00:00.000Z",
+    "videoId": "mBEeGshS8Ng",
+    "category": "二択扉",
+    "format": "choice",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "東北ずん子",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
