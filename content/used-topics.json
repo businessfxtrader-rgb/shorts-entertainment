@@ -2964,5 +2964,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "犬と目が合うと起きる変化、実は人間側にも",
+    "topics": [
+      "犬と見つめ合うとオキシトシンが増える/馬は人間の声や表情から感情を読み取る/カラスは顔を覚えて仲間に伝える"
+    ],
+    "date": "2026-10-31",
+    "publishedAt": "2026-11-03T03:00:00.000Z",
+    "videoId": "_B7kJW2VjKM",
+    "category": "生態",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "猫使ビィ",
+    "pdcaVersion": 4,
+    "realPhotoInHook": true,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
