@@ -2985,5 +2985,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "誰もいない画面でインターホンが鳴る夜",
+    "topics": [
+      "黒い影が毎晩一歩ずつ玄関に近づく/六日目に影がドアの前に立つ/七日目に影は部屋の中にいた"
+    ],
+    "date": "2026-10-31",
+    "publishedAt": "2026-11-03T09:00:00.000Z",
+    "videoId": "hGa-QGFq8N8",
+    "category": "怖い話",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "東北ずん子",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
