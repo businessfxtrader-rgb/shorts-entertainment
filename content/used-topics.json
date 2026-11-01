@@ -3006,5 +3006,47 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "なぜ蚊は羽音がするのに気づけないのか？",
+    "topics": [
+      "ハチドリ級の羽ばたき回数/蚊の羽音は異性への信号/羽音が伝える意外な役割"
+    ],
+    "date": "2026-11-01",
+    "publishedAt": "2026-11-04T03:00:00.000Z",
+    "videoId": "L1khMesKMi8",
+    "category": "昆虫",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "青山龍星",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
+  },
+  {
+    "title": "クリオネの体が透明なのに赤い謎",
+    "topics": [
+      "クリオネは巨大な捕食者の貝類ハダカカメガイ/捕食時にバッカルコーンを6本伸ばす/オレンジ色の塊は内臓で1年以上絶食できる"
+    ],
+    "date": "2026-11-01",
+    "publishedAt": "2026-11-04T09:00:00.000Z",
+    "videoId": "Q4_-7x99QFM",
+    "category": "深海",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "WhiteCUL",
+    "pdcaVersion": 4,
+    "realPhotoInHook": true,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
