@@ -3048,5 +3048,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "扉が100枚に増えたら、それでも変えない？",
+    "topics": [
+      "3つの扉で司会者がハズレを1つ開ける",
+      "扉が100枚に増えると残りの1枚が怪しくなる",
+      "最初の選択は1％のまま、変えれば99％"
+    ],
+    "date": "2026-11-02",
+    "publishedAt": "2026-11-05T03:00:00.000Z",
+    "videoId": "LtfAJH8BpmA",
+    "category": "パラドックス",
+    "format": "simulation",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "ナースロボ＿タイプＴ",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
