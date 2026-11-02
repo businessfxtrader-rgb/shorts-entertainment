@@ -7,7 +7,7 @@
     "avgRetentionPercentage": 69.2
   },
   "文化": {
-    "totalViews": 6087,
+    "totalViews": 6089,
     "videoCount": 8,
     "format": "ranking",
     "avgViews": 761,
@@ -28,7 +28,7 @@
     "avgRetentionPercentage": 55.4
   },
   "ショートストーリー": {
-    "totalViews": 4470,
+    "totalViews": 4471,
     "videoCount": 10,
     "format": "simulation",
     "avgViews": 447,
@@ -42,17 +42,17 @@
     "avgRetentionPercentage": 45.9
   },
   "ライフハック": {
-    "totalViews": 5582,
+    "totalViews": 5583,
     "videoCount": 7,
     "format": "ranking",
-    "avgViews": 797,
+    "avgViews": 798,
     "avgRetentionPercentage": 46.9
   },
   "心理学": {
-    "totalViews": 3498,
+    "totalViews": 3709,
     "videoCount": 8,
     "format": "ranking",
-    "avgViews": 437,
+    "avgViews": 464,
     "avgRetentionPercentage": 43
   },
   "建築": {
@@ -98,7 +98,7 @@
     "avgRetentionPercentage": 62.5
   },
   "日本": {
-    "totalViews": 5724,
+    "totalViews": 5725,
     "videoCount": 6,
     "format": "qa",
     "avgViews": 954,
@@ -259,10 +259,10 @@
     "avgRetentionPercentage": 47
   },
   "色彩": {
-    "totalViews": 301,
+    "totalViews": 326,
     "videoCount": 1,
     "format": "qa",
-    "avgViews": 301,
+    "avgViews": 326,
     "avgRetentionPercentage": null
   }
 }
