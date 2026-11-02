@@ -1,33 +1,25 @@
 {
-  "periodStart": "2026-09-26",
-  "periodEnd": "2026-10-26",
+  "periodStart": "2026-10-03",
+  "periodEnd": "2026-11-02",
   "queries": [
     {
-      "query": "ドアを選んでください",
-      "views": 68
-    },
-    {
       "query": "アーチェリー 美人",
-      "views": 23
+      "views": 25
     },
     {
       "query": "バレンティナ アーチェリー",
-      "views": 17
+      "views": 24
     },
     {
       "query": "ほっと一息チャンネル",
-      "views": 15
-    },
-    {
-      "query": "ミニマリスト",
-      "views": 14
+      "views": 18
     },
     {
       "query": "世界の謎",
       "views": 8
     },
     {
-      "query": "ドアを選んで",
+      "query": "ドアを選んでください",
       "views": 7
     },
     {
@@ -35,15 +27,11 @@
       "views": 6
     },
     {
-      "query": "フォートナイトチャニ",
+      "query": "こち亀 ドラマ op",
       "views": 5
     },
     {
       "query": "ラブ恋",
-      "views": 5
-    },
-    {
-      "query": "扉を選んで",
       "views": 5
     },
     {
@@ -55,11 +43,15 @@
       "views": 4
     },
     {
+      "query": "スクイーズ",
+      "views": 4
+    },
+    {
       "query": "ocgタイムズ",
       "views": 3
     },
     {
-      "query": "valentina acosta giraldo",
+      "query": "そがちゃんねる",
       "views": 3
     },
     {
@@ -71,15 +63,11 @@
       "views": 3
     },
     {
-      "query": "スクイーズ",
-      "views": 3
-    },
-    {
-      "query": "ドリームコア 曲",
-      "views": 3
-    },
-    {
       "query": "フェンリス",
+      "views": 3
+    },
+    {
+      "query": "ブルーシー心霊",
       "views": 3
     },
     {
@@ -99,9 +87,21 @@
       "views": 3
     },
     {
-      "query": "扉を選ぶ",
+      "query": "扉を選んで",
+      "views": 3
+    },
+    {
+      "query": "松平容保",
+      "views": 3
+    },
+    {
+      "query": "江戸グルメ",
+      "views": 3
+    },
+    {
+      "query": "江戸時代 食事",
       "views": 3
     }
   ],
-  "updatedAt": "2026-10-26T03:39:57.560Z"
+  "updatedAt": "2026-11-02T04:52:47.254Z"
 }
