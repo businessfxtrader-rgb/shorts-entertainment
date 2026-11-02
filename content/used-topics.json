@@ -3071,5 +3071,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "窓の小さな穴から自転車まで 乗り物の工夫3選",
+    "topics": [
+      "3位 電車の車輪は円錐形でカーブを曲がる",
+      "2位 飛行機の窓は三層で、真ん中の穴が圧力を逃がす",
+      "1位 自転車が倒れない主役はジャイロ効果ではなく前輪の配置"
+    ],
+    "date": "2026-11-02",
+    "publishedAt": "2026-11-05T09:00:00.000Z",
+    "videoId": "jjFr8DsUwZc",
+    "category": "乗り物",
+    "format": "ranking",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "あんこもん",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
