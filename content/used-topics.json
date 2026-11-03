@@ -3094,5 +3094,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "同じ長さ？外向きと内向きの線テスト",
+    "topics": [
+      "上と下、どちらの線が長いか",
+      "矢羽根の向きに惑わされず線そのものを見る",
+      "矢羽根が消えて2本は同じ長さと判明"
+    ],
+    "date": "2026-11-03",
+    "publishedAt": "2026-11-06T03:00:00.000Z",
+    "videoId": "qM_EJxEqQnk",
+    "category": "錯覚",
+    "format": "experience",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "玄野武宏",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": "h01DfTzYOnU",
+    "experienceType": "muller-lyer",
+    "experienceReveal": true
   }
 ]
