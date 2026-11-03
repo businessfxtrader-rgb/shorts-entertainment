@@ -3117,5 +3117,28 @@
     "sequelOf": "h01DfTzYOnU",
     "experienceType": "muller-lyer",
     "experienceReveal": true
+  },
+  {
+    "title": "手のひら以下なのに桁外れ？小さな動物の生態3選",
+    "topics": [
+      "3位 クマムシ:乾燥で仮死状態になり、宇宙の真空でも復活",
+      "2位 ハチドリ:毎秒80回羽ばたき、夜は仮死状態で飢えをしのぐ",
+      "1位 キョクアジサシ:年7万キロ飛び、生涯で月まで3往復分"
+    ],
+    "date": "2026-11-03",
+    "publishedAt": "2026-11-06T09:00:00.000Z",
+    "videoId": "1l2kCP39Efo",
+    "category": "動物",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "玄野武宏",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
