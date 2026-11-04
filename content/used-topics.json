@@ -3163,5 +3163,28 @@
     "sequelOf": "h01DfTzYOnU",
     "experienceType": "odd-glyph",
     "experienceReveal": false
+  },
+  {
+    "title": "石の巨像は歩いた？失われた都の遺跡3選",
+    "topics": [
+      "3位 テオティワカン:建てた民族が不明の神々の都",
+      "2位 アンコール・ワット:幅約190mの堀に囲まれた12世紀の寺院",
+      "1位 イースター島のモアイ:約900体が歩いた伝承と再現実験"
+    ],
+    "date": "2026-11-04",
+    "publishedAt": "2026-11-07T09:00:00.000Z",
+    "videoId": "urWo3Whp0Tw",
+    "category": "遺跡",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "黒沢冴白",
+    "pdcaVersion": 4,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
