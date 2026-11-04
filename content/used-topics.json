@@ -3140,5 +3140,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "【第3弾】ソの海から1つだけ探せる？",
+    "topics": [
+      "ソの中に違う字が1つ混ざっている",
+      "縦に一列ずつ目で追って探す",
+      "答えは出さず最後のヒントだけ伝える"
+    ],
+    "date": "2026-11-04",
+    "publishedAt": "2026-11-07T03:00:00.000Z",
+    "videoId": "1yVNN_vgpuU",
+    "category": "錯覚",
+    "format": "experience",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "黒沢冴白",
+    "pdcaVersion": 4,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": "h01DfTzYOnU",
+    "experienceType": "odd-glyph",
+    "experienceReveal": false
   }
 ]
