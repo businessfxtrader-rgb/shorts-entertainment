@@ -3186,5 +3186,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "辛さを数字にしたら、差が桁違いだった唐辛子3選",
+    "topics": [
+      "3位 ハラペーニョ:約2500〜8000スコヴィル、ピーマンはゼロ",
+      "2位 ハバネロ:10万〜35万スコヴィル、辛さは受容体への刺激",
+      "1位 ペッパーX:平均約269万スコヴィルでギネス認定"
+    ],
+    "date": "2026-11-05",
+    "publishedAt": "2026-11-08T03:00:00.000Z",
+    "videoId": "OD4TU7sHbXQ",
+    "category": "グルメ",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "ナースロボ＿タイプＴ",
+    "pdcaVersion": 4,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
