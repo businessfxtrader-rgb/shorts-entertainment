@@ -140,5 +140,79 @@
       "続編を作る機能は、元の動画が上位10%でも実際は1000回前後でノイズの範囲のため、続編の動画と元動画の再生を並べて記録し、効果があるか確認する。",
       "再生0回の動画(動物『270度回る首』)が出ているため、公開失敗や設定不備(公開状態・音声など)がないか投稿後の自動チェックを追加する。"
     ]
+  },
+  {
+    "type": "review",
+    "at": "2026-11-05T08:12:43.493Z",
+    "judgedVersion": 4,
+    "judgement": "判定不能",
+    "analysis": "v4は8本のみで再生中央値465回(v3は953回、v1は950回)と低く見えるが、上位3本は1002〜1117回で従来の帯に収まっており、下位は気象189回・ショートストーリー145回・地理113回と、v4で重みを上げた深海・生態・昆虫などは1本も出ていない。ジャンルが8本で8種に散らばり、各1本のため中央値の低下は題材の偶然による影響が大きい。平均視聴率は60.3%(v3は53.8%)、エンゲージ率は0.31(v3は0.294)とやや改善しているが、本数が少なく有意とは言えない。1000回前後で頭打ちという構造は変わっていない。",
+    "metrics": {
+      "0": {
+        "count": 118,
+        "medianViews": 871,
+        "maxViews": 1436,
+        "medianEngagedRate": 0.261,
+        "medianAPV": 48.7,
+        "medianLikesPer1000": 3.5,
+        "totalComments": 615,
+        "totalShares": 6,
+        "totalSubscribersGained": 29
+      },
+      "1": {
+        "count": 29,
+        "medianViews": 950,
+        "maxViews": 1121,
+        "medianEngagedRate": 0.315,
+        "medianAPV": 65,
+        "medianLikesPer1000": 3.2,
+        "totalComments": 33,
+        "totalShares": 1,
+        "totalSubscribersGained": 11
+      },
+      "2": {
+        "count": 1,
+        "medianViews": 341,
+        "maxViews": 341,
+        "medianEngagedRate": 0.185,
+        "medianAPV": 51.8,
+        "medianLikesPer1000": 5.9,
+        "totalComments": 1,
+        "totalShares": 0,
+        "totalSubscribersGained": 0
+      },
+      "3": {
+        "count": 27,
+        "medianViews": 953,
+        "maxViews": 1174,
+        "medianEngagedRate": 0.294,
+        "medianAPV": 53.8,
+        "medianLikesPer1000": 3.5,
+        "totalComments": 34,
+        "totalShares": 0,
+        "totalSubscribersGained": 3
+      },
+      "4": {
+        "count": 8,
+        "medianViews": 465,
+        "maxViews": 1117,
+        "medianEngagedRate": 0.31,
+        "medianAPV": 60.3,
+        "medianLikesPer1000": 2.2,
+        "totalComments": 8,
+        "totalShares": 1,
+        "totalSubscribersGained": 3
+      }
+    },
+    "nextVersion": 5,
+    "changes": "v4の台本構造・重みは維持し、再生が100〜190回台と低かった地理・気象・ショートストーリーを休止ジャンルに加えた。",
+    "hypothesis": "v4で狙った深海・生態・昆虫などの題材がまだ十分に出ていないため、方針は変えずに本数をためて、重みを上げたジャンルの成績を確認する。弱かった地理・気象・ショートストーリーを休止して足を引っ張る動画を減らし、同じ手法で安定して1000回前後を取りつつ、突出する動画の確率を探る。",
+    "codeSuggestions": [
+      "v3の細かいカット切り替え(約3秒ごと)が平均視聴率の低下と関係していないか、カット数1〜3で動画ごとに記録しエンゲージ率・平均視聴率と比較できるようにする。",
+      "続編を作る機能は、元の動画と続編の再生を並べて記録し、1000回前後のノイズを超える効果があるか確認できるようにする。",
+      "再生0回や100〜190回台の動画が出ているため、公開状態・音声・サムネイルなどの設定不備を投稿後に自動チェックする仕組みを追加する。",
+      "体験型(錯覚)の答えあり/なし比較は答えなしが1本のみで判定できないため、各5本たまるまで比率(半々)を維持して記録を続ける。",
+      "ジャンル別の判定は1ジャンル1本では意味がないため、ジャンルを絞って同ジャンルを複数本連続で出す週を作り、ジャンル差を比較できるようにする。"
+    ]
   }
 ]
