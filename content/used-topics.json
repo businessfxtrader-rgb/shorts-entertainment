@@ -3209,5 +3209,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "1メートルは何を測って決まった？",
+    "topics": [
+      "1791年、北極から赤道までの距離の1000万分の1として決まった/測量に約7年かかり、約0.2ミリ短い1メートルになった/1983年から光の速さで定義されている"
+    ],
+    "date": "2026-11-05",
+    "publishedAt": "2026-11-08T09:00:00.000Z",
+    "videoId": "wp_h29J7zXY",
+    "category": "単位",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "春日部つむぎ",
+    "pdcaVersion": 5,
+    "realPhotoInHook": true,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
