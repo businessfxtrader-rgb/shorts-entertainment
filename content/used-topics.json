@@ -3251,5 +3251,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "体温が1℃ずつ上がり続けたら、○℃で体は壊れる",
+    "topics": [
+      "38℃で心拍が増え汗で熱を逃がす",
+      "40℃超で意識と臓器に危険信号",
+      "42℃でたんぱく質が変性し始める"
+    ],
+    "date": "2026-11-06",
+    "publishedAt": "2026-11-09T09:00:00.000Z",
+    "videoId": "pbuOgPN5id8",
+    "category": "人体",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "ずんだもん",
+    "pdcaVersion": 5,
+    "realPhotoInHook": true,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
