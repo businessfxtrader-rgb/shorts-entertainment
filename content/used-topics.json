@@ -3230,5 +3230,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "静かすぎる部屋で、最初に聞こえる音とは？",
+    "topics": [
+      "人が聞き取れる限界は0デシベル付近/世界一静かな部屋は反響がほぼゼロで、マイナスのデシベル/無音室では自分の体の音が聞こえる"
+    ],
+    "date": "2026-11-06",
+    "publishedAt": "2026-11-09T03:00:00.000Z",
+    "videoId": "62lt4coR5N0",
+    "category": "音",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "九州そら",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
