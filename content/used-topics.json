@@ -3274,5 +3274,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "氷が全部溶けた日、地図から消える街",
+    "topics": [
+      "グリーンランドの氷だけで海面約7m上昇",
+      "南極の氷でさらに約58m上昇",
+      "合計約65mで関東平野の広い範囲が水没"
+    ],
+    "date": "2026-11-07",
+    "publishedAt": "2026-11-10T03:00:00.000Z",
+    "videoId": "BcXIKnb2uEo",
+    "category": "もしも",
+    "format": "simulation",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "四国めたん",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
