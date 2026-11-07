@@ -3297,5 +3297,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "数十トンの恐竜が産んだ卵は○○サイズだった",
+    "topics": [
+      "アウカ・マウエボ遺跡の竜脚類の卵は直径約15センチ/別の恐竜は長さ約60センチの細長い卵を産んだ/卵が大きいほど殻が厚くなり酸素が通らず胚が窒息するため大きくできない"
+    ],
+    "date": "2026-11-07",
+    "publishedAt": "2026-11-10T09:00:00.000Z",
+    "videoId": "Dny1Abbo9ys",
+    "category": "恐竜",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "白上虎太郎",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
