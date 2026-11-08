@@ -3318,5 +3318,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "世界が死体でできた神話って知ってる？創世3選",
+    "topics": [
+      "古代エジプト:原初の水ヌンから丘が現れる/日本神話:天の沼矛の塩がオノゴロ島になる/北欧神話:巨人ユミルの体が世界の材料になる"
+    ],
+    "date": "2026-11-08",
+    "publishedAt": "2026-11-11T03:00:00.000Z",
+    "videoId": "p6m-HL6wp-k",
+    "category": "神話",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "猫使ビィ",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
