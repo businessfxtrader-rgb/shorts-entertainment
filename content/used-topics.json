@@ -3339,5 +3339,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "1円玉を積んだら何キロ？1億円の重さ",
+    "topics": [
+      "1円玉1枚は1グラムで1億枚は100トン/並べると約1万9千キロで地球半周近く/積み上げると約150キロで宇宙の入り口を超える"
+    ],
+    "date": "2026-11-08",
+    "publishedAt": "2026-11-11T09:00:00.000Z",
+    "videoId": "fP3uYBP6290",
+    "category": "数字",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "東北ずん子",
+    "pdcaVersion": 5,
+    "realPhotoInHook": true,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
