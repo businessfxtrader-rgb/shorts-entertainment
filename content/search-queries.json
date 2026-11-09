@@ -1,26 +1,30 @@
 {
-  "periodStart": "2026-10-03",
-  "periodEnd": "2026-11-02",
+  "periodStart": "2026-10-10",
+  "periodEnd": "2026-11-09",
   "queries": [
     {
-      "query": "アーチェリー 美人",
-      "views": 25
-    },
-    {
       "query": "バレンティナ アーチェリー",
-      "views": 24
+      "views": 29
     },
     {
-      "query": "ほっと一息チャンネル",
-      "views": 18
-    },
-    {
-      "query": "世界の謎",
-      "views": 8
+      "query": "アーチェリー 美人",
+      "views": 28
     },
     {
       "query": "ドアを選んでください",
+      "views": 25
+    },
+    {
+      "query": "ほっと一息チャンネル",
+      "views": 19
+    },
+    {
+      "query": "世界の謎",
       "views": 7
+    },
+    {
+      "query": "スクイーズ",
+      "views": 6
     },
     {
       "query": "熱湯",
@@ -35,19 +39,27 @@
       "views": 5
     },
     {
+      "query": "asmr",
+      "views": 4
+    },
+    {
       "query": "ゆっくり茶番劇 総集編",
       "views": 4
     },
     {
-      "query": "アイスランド",
+      "query": "扉を選んでください",
       "views": 4
     },
     {
-      "query": "スクイーズ",
+      "query": "野獣先輩",
       "views": 4
     },
     {
       "query": "ocgタイムズ",
+      "views": 3
+    },
+    {
+      "query": "お前やりますねスギィ",
       "views": 3
     },
     {
@@ -59,7 +71,7 @@
       "views": 3
     },
     {
-      "query": "コロンビア 美女",
+      "query": "アイスランド",
       "views": 3
     },
     {
@@ -71,10 +83,6 @@
       "views": 3
     },
     {
-      "query": "ヤマタノオロチ",
-      "views": 3
-    },
-    {
       "query": "動物",
       "views": 3
     },
@@ -83,25 +91,17 @@
       "views": 3
     },
     {
+      "query": "堀大輔",
+      "views": 3
+    },
+    {
       "query": "報道 1930",
       "views": 3
     },
     {
-      "query": "扉を選んで",
-      "views": 3
-    },
-    {
-      "query": "松平容保",
-      "views": 3
-    },
-    {
-      "query": "江戸グルメ",
-      "views": 3
-    },
-    {
-      "query": "江戸時代 食事",
+      "query": "太鼓の達人",
       "views": 3
     }
   ],
-  "updatedAt": "2026-11-02T04:52:47.254Z"
+  "updatedAt": "2026-11-09T05:02:28.963Z"
 }
