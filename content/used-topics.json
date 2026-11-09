@@ -3360,5 +3360,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "ガラスが消えた世界、最初に困るのは○○",
+    "topics": [
+      "眼鏡とレンズが消える",
+      "望遠鏡と顕微鏡が消える",
+      "光ファイバー通信が消える"
+    ],
+    "date": "2026-11-09",
+    "publishedAt": "2026-11-12T03:00:00.000Z",
+    "videoId": "SskhM9oBcSc",
+    "category": "歴史",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "猫使アル",
+    "pdcaVersion": 5,
+    "realPhotoInHook": true,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
