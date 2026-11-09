@@ -3383,5 +3383,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "「目白押し」って本当は何が押してるの？",
+    "topics": [
+      "目白押しは小鳥が枝に並ぶ姿が由来/「三下り半」ではなく別の言葉「ぼったくり」の由来は不明確だが「おじゃん」ではなく「やぶさか」を避け、「破天荒」は中国の科挙由来/「破天荒」の本来の意味は前人未到"
+    ],
+    "date": "2026-11-09",
+    "publishedAt": "2026-11-12T09:00:00.000Z",
+    "videoId": "-OIc55v5IGw",
+    "category": "語源",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "もち子さん",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
