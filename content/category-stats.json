@@ -140,10 +140,10 @@
     "avgRetentionPercentage": 70.1
   },
   "神話": {
-    "totalViews": 3942,
+    "totalViews": 3943,
     "videoCount": 5,
     "format": "ranking",
-    "avgViews": 788,
+    "avgViews": 789,
     "avgRetentionPercentage": 73.2
   },
   "気象": {
@@ -182,17 +182,17 @@
     "avgRetentionPercentage": 71.1
   },
   "暗号": {
-    "totalViews": 2337,
+    "totalViews": 2339,
     "videoCount": 3,
     "format": "qa",
-    "avgViews": 779,
+    "avgViews": 780,
     "avgRetentionPercentage": 71.6
   },
   "錯覚": {
-    "totalViews": 5084,
+    "totalViews": 5088,
     "videoCount": 5,
     "format": "qa",
-    "avgViews": 1017,
+    "avgViews": 1018,
     "avgRetentionPercentage": 55.4
   },
   "未解決問題": {
@@ -210,10 +210,10 @@
     "avgRetentionPercentage": 53.7
   },
   "遺跡": {
-    "totalViews": 2883,
+    "totalViews": 2885,
     "videoCount": 3,
     "format": "ranking",
-    "avgViews": 961,
+    "avgViews": 962,
     "avgRetentionPercentage": 64.3
   },
   "パラドックス": {
@@ -245,17 +245,17 @@
     "avgRetentionPercentage": 40.7
   },
   "単位": {
-    "totalViews": 1392,
+    "totalViews": 1555,
     "videoCount": 2,
     "format": "qa",
-    "avgViews": 696,
+    "avgViews": 778,
     "avgRetentionPercentage": 104
   },
   "音": {
-    "totalViews": 424,
+    "totalViews": 1131,
     "videoCount": 2,
     "format": "qa",
-    "avgViews": 212,
+    "avgViews": 566,
     "avgRetentionPercentage": 47
   },
   "色彩": {
