@@ -3427,5 +3427,28 @@
     "sequelOf": "1yVNN_vgpuU",
     "experienceType": "muller-lyer",
     "experienceReveal": true
+  },
+  {
+    "title": "縦の線で見抜ける？ミュラー・リヤー錯視の続編",
+    "topics": [
+      "課題:上と下、どちらの線が長いか",
+      "見るポイント:線の両端の位置を比べる",
+      "種明かし:補助線で2本は同じ長さと判明"
+    ],
+    "date": "2026-11-10",
+    "publishedAt": "2026-11-13T09:00:00.000Z",
+    "videoId": "Mz9ILW1agQg",
+    "category": "錯覚",
+    "format": "experience",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "Voidoll",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": "1yVNN_vgpuU",
+    "experienceType": "muller-lyer",
+    "experienceReveal": true
   }
 ]
