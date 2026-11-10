@@ -3404,5 +3404,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "第2弾 この横線、片方だけ長く見える？",
+    "topics": [
+      "上と下、どちらの線が長いか",
+      "矢羽根ではなく線そのものの両端を見る",
+      "矢羽根が消えて2本は同じ長さと判明"
+    ],
+    "date": "2026-11-10",
+    "publishedAt": "2026-11-13T03:00:00.000Z",
+    "videoId": "rBWMBQsDhq0",
+    "category": "錯覚",
+    "format": "experience",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "九州そら",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": "1yVNN_vgpuU",
+    "experienceType": "muller-lyer",
+    "experienceReveal": true
   }
 ]
