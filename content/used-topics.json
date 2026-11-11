@@ -3450,5 +3450,28 @@
     "sequelOf": "1yVNN_vgpuU",
     "experienceType": "muller-lyer",
     "experienceReveal": true
+  },
+  {
+    "title": "今度は左右、どっちが明るい？灰色の四角テスト",
+    "topics": [
+      "課題:左右の灰色の四角、どちらが明るいか",
+      "見るポイント:四角そのものの色と、背景の明るさの差を見比べる",
+      "種明かし:背景が一色になり、2つの四角はまったく同じ色と判明"
+    ],
+    "date": "2026-11-11",
+    "publishedAt": "2026-11-14T03:00:00.000Z",
+    "videoId": "zXOfkCXyaTI",
+    "category": "錯覚",
+    "format": "experience",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "東北ずん子",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": "qM_EJxEqQnk",
+    "experienceType": "contrast",
+    "experienceReveal": true
   }
 ]
