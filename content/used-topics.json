@@ -3473,5 +3473,28 @@
     "sequelOf": "qM_EJxEqQnk",
     "experienceType": "contrast",
     "experienceReveal": true
+  },
+  {
+    "title": "もし太陽が消えず、1秒で地球に落ちてきたら",
+    "topics": [
+      "太陽を地球の隣に置くと…",
+      "光速の99%で太陽に衝突",
+      "衝突の衝撃エネルギーの比較"
+    ],
+    "date": "2026-11-11",
+    "publishedAt": "2026-11-14T09:00:00.000Z",
+    "videoId": "qGviRD80yjs",
+    "category": "宇宙",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "雀松朱司",
+    "pdcaVersion": 5,
+    "realPhotoInHook": true,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
