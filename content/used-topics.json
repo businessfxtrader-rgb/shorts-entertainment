@@ -3496,5 +3496,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "第3弾　左右の四角、同じ色に見える？",
+    "topics": [
+      "課題:背景の上に並ぶ左右の灰色の四角、どちらが明るいか",
+      "見るポイント:四角と背景の境目だけを見て、四角の色を比べる",
+      "種明かし:背景が一色になり、2つの四角はまったく同じ色と判明"
+    ],
+    "date": "2026-11-12",
+    "publishedAt": "2026-11-15T03:00:00.000Z",
+    "videoId": "Le_0DLBAZHg",
+    "category": "錯覚",
+    "format": "experience",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "玄野武宏",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": "qM_EJxEqQnk",
+    "experienceType": "contrast",
+    "experienceReveal": true
   }
 ]
