@@ -3519,5 +3519,26 @@
     "sequelOf": "qM_EJxEqQnk",
     "experienceType": "contrast",
     "experienceReveal": true
+  },
+  {
+    "title": "絶対に破れないはずの暗号の落とし穴とは？",
+    "topics": [
+      "エニグマは約159垓通りの設定を持っていた/自分自身には変換されない癖が弱点になった/決まり文句の推測と機械で突破された"
+    ],
+    "date": "2026-11-12",
+    "publishedAt": "2026-11-15T09:00:00.000Z",
+    "videoId": "q6Fl0Ovl-zE",
+    "category": "暗号",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "WhiteCUL",
+    "pdcaVersion": 5,
+    "realPhotoInHook": true,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
