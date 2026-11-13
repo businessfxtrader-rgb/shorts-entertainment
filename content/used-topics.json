@@ -3561,5 +3561,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "夜中に目が覚めても大丈夫な理由は？睡眠の雑学3選",
+    "topics": [
+      "3位 昼寝:26分で注意力が約54％向上するNASAの実験",
+      "2位 イルカ:脳を半分ずつ休ませて泳ぎながら眠る",
+      "1位 夢:一晩に約2時間見るのに起床10分で約9割忘れる"
+    ],
+    "date": "2026-11-13",
+    "publishedAt": "2026-11-16T09:00:00.000Z",
+    "videoId": "RyN2vEY8oq0",
+    "category": "睡眠",
+    "format": "ranking",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "あんこもん",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
