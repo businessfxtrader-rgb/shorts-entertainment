@@ -3540,5 +3540,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "竹林が丸ごと枯れる年が来る理由とは？",
+    "topics": [
+      "竹は木ではなくイネ科の草/モウソウチクは1日に1メートル近く伸びる/マダケは約120年に一度開花して一斉に枯れる"
+    ],
+    "date": "2026-11-13",
+    "publishedAt": "2026-11-16T03:00:00.000Z",
+    "videoId": "1ZbC47vGuu8",
+    "category": "植物",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "WhiteCUL",
+    "pdcaVersion": 5,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
