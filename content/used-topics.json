@@ -3607,5 +3607,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "紅茶の小さな袋に隠された意外な始まりとは？",
+    "topics": [
+      "紅茶商が見本を絹の袋に詰めて送った/客が袋ごと湯に入れ苦情も届いた/ガーゼに変更し、客の勘違いがティーバッグの原型になった"
+    ],
+    "date": "2026-11-14",
+    "publishedAt": "2026-11-17T09:00:00.000Z",
+    "videoId": "REp8d6dvgvE",
+    "category": "誕生秘話",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "玄野武宏",
+    "pdcaVersion": 5,
+    "realPhotoInHook": true,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
