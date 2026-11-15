@@ -3649,5 +3649,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "外国人が驚く日本の自販機、なぜ冬に温かい？",
+    "topics": [
+      "自販機で温かい飲み物と冷たい飲み物が同時に買える/設置台数は約400万台で屋外でも壊されにくい/ホットとコールドを切り替える仕組み"
+    ],
+    "date": "2026-11-15",
+    "publishedAt": "2026-11-18T09:00:00.000Z",
+    "videoId": "8_iVbDcA4uA",
+    "category": "日本",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "東北きりたん",
+    "pdcaVersion": 5,
+    "realPhotoInHook": true,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
