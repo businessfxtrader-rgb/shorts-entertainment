@@ -3628,5 +3628,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "首なし馬が走る村祭りの正体とは？",
+    "topics": [
+      "那智の火祭りは重さ約50キロの大松明を担ぐ/松明は約12本、石段を駆け下りる/神様を迎えて清める祭り"
+    ],
+    "date": "2026-11-15",
+    "publishedAt": "2026-11-18T03:00:00.000Z",
+    "videoId": "KmxiIbp5pME",
+    "category": "祭り",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "もち子さん",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
