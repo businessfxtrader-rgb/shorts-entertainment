@@ -214,5 +214,90 @@
       "体験型(錯覚)の答えあり/なし比較は答えなしが1本のみで判定できないため、各5本たまるまで比率(半々)を維持して記録を続ける。",
       "ジャンル別の判定は1ジャンル1本では意味がないため、ジャンルを絞って同ジャンルを複数本連続で出す週を作り、ジャンル差を比較できるようにする。"
     ]
+  },
+  {
+    "type": "review",
+    "at": "2026-11-16T08:17:54.669Z",
+    "judgedVersion": 5,
+    "judgement": "判定不能",
+    "analysis": "v5は10本で再生中央値537回(v4は700.5回、v3は954回、v1は950回)と低いが、上位4本は970〜1033回で従来の約1000回の帯に収まっている。下位は語源3回・神話38回・恐竜106回で、再生が極端に低い動画が中央値を押し下げている。特に「目白押し」は3回・平均視聴率0%で、題材ではなく公開や配信の不具合の疑いがある。10本が10ジャンルに1本ずつ散らばっており、ジャンル差の比較はできない。エンゲージ率は中央値0.41でv4の0.249より高く、冒頭の指が止まる割合は改善した可能性がある。ただし平均視聴率は47.8%(v1は65%)で、視聴維持は改善していない。",
+    "metrics": {
+      "0": {
+        "count": 118,
+        "medianViews": 871,
+        "maxViews": 1438,
+        "medianEngagedRate": 0.261,
+        "medianAPV": 49,
+        "medianLikesPer1000": 3.5,
+        "totalComments": 615,
+        "totalShares": 6,
+        "totalSubscribersGained": 26
+      },
+      "1": {
+        "count": 29,
+        "medianViews": 950,
+        "maxViews": 1121,
+        "medianEngagedRate": 0.315,
+        "medianAPV": 65,
+        "medianLikesPer1000": 3.2,
+        "totalComments": 33,
+        "totalShares": 1,
+        "totalSubscribersGained": 11
+      },
+      "2": {
+        "count": 1,
+        "medianViews": 341,
+        "maxViews": 341,
+        "medianEngagedRate": 0.185,
+        "medianAPV": 51.8,
+        "medianLikesPer1000": 5.9,
+        "totalComments": 1,
+        "totalShares": 0,
+        "totalSubscribersGained": 0
+      },
+      "3": {
+        "count": 27,
+        "medianViews": 954,
+        "maxViews": 1178,
+        "medianEngagedRate": 0.294,
+        "medianAPV": 53.8,
+        "medianLikesPer1000": 3.5,
+        "totalComments": 33,
+        "totalShares": 0,
+        "totalSubscribersGained": 3
+      },
+      "4": {
+        "count": 20,
+        "medianViews": 700.5,
+        "maxViews": 1579,
+        "medianEngagedRate": 0.249,
+        "medianAPV": 45.9,
+        "medianLikesPer1000": 2.3,
+        "totalComments": 21,
+        "totalShares": 1,
+        "totalSubscribersGained": 9
+      },
+      "5": {
+        "count": 10,
+        "medianViews": 537,
+        "maxViews": 1033,
+        "medianEngagedRate": 0.41,
+        "medianAPV": 47.8,
+        "medianLikesPer1000": 3.9,
+        "totalComments": 11,
+        "totalShares": 0,
+        "totalSubscribersGained": 3
+      }
+    },
+    "nextVersion": 6,
+    "changes": "v5の重み・休止は維持し、平均視聴率を上げるため、冒頭の問いを最後に回収した後に1文だけ余韻を残す追加指示を1つ差し替えた。",
+    "hypothesis": "方針は変えずに本数を増やし、重みを上げた深海・生態・昆虫などの題材を実際に出して成績を確認する。台本末尾の余韻の指示を足すと、エンゲージ率の改善に加えて平均視聴率も上がり、ループ再生が増えると考える。",
+    "codeSuggestions": [
+      "再生3回・平均視聴率0%の動画(語源『目白押し』)が出ている。公開状態・音声・動画の再生可否を投稿後に自動チェックし、異常があれば再アップロードか通知を行う。",
+      "再生が100回以下の動画(神話38回・恐竜106回)は題材の問題より配信の不具合の可能性もあるため、投稿後24時間の再生数が極端に低い動画を自動で検出して記録する。",
+      "v3の細かいカット切り替え(約3秒ごと)が平均視聴率の低下と関係していないか、カット数1〜3で動画ごとに記録しエンゲージ率・平均視聴率と比較できるようにする。",
+      "体験型(錯覚)の答えあり/なしは各2本で判定できない(答えなしの中央値1378.5回、答えありの1104回と傾向はある)。各5本たまるまで半々の比率を維持し、記録を続ける。",
+      "ジャンル別の判定は1ジャンル1本では意味がないため、同じジャンルを複数本連続で出す週を作り、ジャンル差を比較できるようにする。"
+    ]
   }
 ]
