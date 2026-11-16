@@ -3691,5 +3691,26 @@
     "sequelOf": "N7dK9ixyE5Q",
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "なぜ人はブランコで遊べる？ポテチの次は「あの菓子」の誕生秘話",
+    "topics": [
+      "アイスクリームコーンは博覧会で皿が足りなくなった/隣の店主がワッフルを丸めて救った/世界的な食べ歩きおやつになった"
+    ],
+    "date": "2026-11-16",
+    "publishedAt": "2026-11-19T09:00:00.000Z",
+    "videoId": "rn-IDi0Tcb0",
+    "category": "誕生秘話",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "雀松朱司",
+    "pdcaVersion": 6,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": "N7dK9ixyE5Q",
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
