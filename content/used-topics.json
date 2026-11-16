@@ -3670,5 +3670,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "ナポリに無いナポリタン、生んだのは誰？第2弾",
+    "topics": [
+      "戦後の横浜、接収されたホテルで兵士がパスタを食べていた/料理長がケチャップをかけて食べる兵士の姿に目を留めた/兵士の食べ方をヒントに日本で生まれたナポリタン"
+    ],
+    "date": "2026-11-16",
+    "publishedAt": "2026-11-19T03:00:00.000Z",
+    "videoId": "Ebj8PyU9q88",
+    "category": "誕生秘話",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "あんこもん",
+    "pdcaVersion": 5,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": "N7dK9ixyE5Q",
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
