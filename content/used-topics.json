@@ -3735,5 +3735,28 @@
     "sequelOf": "zXOfkCXyaTI",
     "experienceType": "odd-glyph",
     "experienceReveal": true
+  },
+  {
+    "title": "チップも握手も違う？海外で通じない常識",
+    "topics": [
+      "3位 インド:左手は不浄とされ、食事や受け渡しに使わない",
+      "2位 ブルガリア・ギリシャ:ピースサインの手のひらを相手に向けると侮辱",
+      "1位 トルコ:食事を残すのではなく、満腹なら皿に少し残す"
+    ],
+    "date": "2026-11-17",
+    "publishedAt": "2026-11-20T09:00:00.000Z",
+    "videoId": "dTG02fVVcJQ",
+    "category": "文化",
+    "format": "ranking",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "四国めたん",
+    "pdcaVersion": 6,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
