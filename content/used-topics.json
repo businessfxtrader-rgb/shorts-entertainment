@@ -3712,5 +3712,28 @@
     "sequelOf": "N7dK9ixyE5Q",
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "第4弾 シの海に紛れた1文字、見つかる？",
+    "topics": [
+      "課題:シが並ぶ中に1つだけ混ざった違う字を探す",
+      "見るポイント:端から行ごとに目を動かして1文字ずつ確認する",
+      "種明かし:9行目の左端にツが混ざっていたと丸で示す"
+    ],
+    "date": "2026-11-17",
+    "publishedAt": "2026-11-20T03:00:00.000Z",
+    "videoId": "MLHdVLCpm28",
+    "category": "錯覚",
+    "format": "experience",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "猫使ビィ",
+    "pdcaVersion": 6,
+    "realPhotoInHook": false,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": "zXOfkCXyaTI",
+    "experienceType": "odd-glyph",
+    "experienceReveal": true
   }
 ]
