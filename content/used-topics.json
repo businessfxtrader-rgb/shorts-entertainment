@@ -3758,5 +3758,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "直感で選ぶ？疑うべき？扉を選んでください Pick a door!",
+    "topics": [
+      "浸水する貨物船の船倉で、白い扉と黒い扉から脱出口を選ぶ設定",
+      "白い扉は乾いた床と規則的な機械音、生存率97%という伏線",
+      "黒い扉は海水の流れ込む音と内側の手形、生存率3%という伏線"
+    ],
+    "date": "2026-11-18",
+    "publishedAt": "2026-11-21T03:00:00.000Z",
+    "videoId": "PDKjByJv5GA",
+    "category": "二択扉",
+    "format": "choice",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "猫使ビィ",
+    "pdcaVersion": 6,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
