@@ -3781,5 +3781,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "信号の「止まれ」が赤い、本当の理由",
+    "topics": [
+      "赤は波長が最も長く散乱されにくい/夕焼けが赤いのも同じ仕組み/遠くまで届くから停止の色になった"
+    ],
+    "date": "2026-11-18",
+    "publishedAt": "2026-11-21T09:00:00.000Z",
+    "videoId": "bsqOryJmt3g",
+    "category": "色彩",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "麒ヶ島宗麟",
+    "pdcaVersion": 6,
+    "realPhotoInHook": false,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
