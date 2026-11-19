@@ -3825,5 +3825,26 @@
     "sequelOf": "zXOfkCXyaTI",
     "experienceType": "contrast",
     "experienceReveal": true
+  },
+  {
+    "title": "第2弾 保温ご飯が黄ばむのは傷んだから？",
+    "topics": [
+      "保温は約70度で何時間も加熱され続ける/米のアミノ酸と糖が熱で茶色く変わる/正体はメイラード反応で保温は12時間以内が目安"
+    ],
+    "date": "2026-11-19",
+    "publishedAt": "2026-11-22T09:00:00.000Z",
+    "videoId": "20n56wba8uY",
+    "category": "ライフハック",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "雀松朱司",
+    "pdcaVersion": 6,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": "BLqCEVD_QA8",
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
