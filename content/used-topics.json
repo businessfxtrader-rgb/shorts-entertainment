@@ -3802,5 +3802,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "第5弾 左右の四角、本当に違う明るさ？",
+    "topics": [
+      "課題:左右の灰色の四角、どちらが明るいか",
+      "見るポイント:四角の周りの背景がどれだけ明るいか暗いかを意識して見比べる",
+      "種明かし:背景が一色になり、2つの四角はまったく同じ色と判明"
+    ],
+    "date": "2026-11-19",
+    "publishedAt": "2026-11-22T03:00:00.000Z",
+    "videoId": "QOYOz9rM3K4",
+    "category": "錯覚",
+    "format": "experience",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "四国めたん",
+    "pdcaVersion": 6,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": "zXOfkCXyaTI",
+    "experienceType": "contrast",
+    "experienceReveal": true
   }
 ]
