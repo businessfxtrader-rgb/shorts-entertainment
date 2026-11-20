@@ -3846,5 +3846,28 @@
     "sequelOf": "BLqCEVD_QA8",
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "数えるほど背筋が冷える、夜の怪談3話",
+    "topics": [
+      "第3位 毎朝一本ずつ増える歯ブラシ",
+      "第2位 押していない階で開くエレベーター",
+      "第1位 寝顔の動画に映った知らない手"
+    ],
+    "date": "2026-11-20",
+    "publishedAt": "2026-11-23T03:00:00.000Z",
+    "videoId": "boTMhKcry_w",
+    "category": "怖い話",
+    "format": "ranking",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "後鬼",
+    "pdcaVersion": 6,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
