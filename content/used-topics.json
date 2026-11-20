@@ -3869,5 +3869,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "なぜ人は「見られている」と感じるのか？",
+    "topics": [
+      "視線を感じる錯覚の正体/実験で人は自分への注目を過大評価した/スポットライト効果を超えた「透明性の錯覚」"
+    ],
+    "date": "2026-11-20",
+    "publishedAt": "2026-11-23T09:00:00.000Z",
+    "videoId": "KYoTOAAIv2Q",
+    "category": "心理学",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "麒ヶ島宗麟",
+    "pdcaVersion": 6,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
