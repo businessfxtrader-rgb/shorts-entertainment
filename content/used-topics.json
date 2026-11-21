@@ -3890,5 +3890,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "目が合うと危ない？かわいい動物の本当の顔",
+    "topics": [
+      "ナマケモノは天敵を避けるため動かない/コアラは1日20時間寝る/ヒクイドリは時速50kmで蹴る"
+    ],
+    "date": "2026-11-21",
+    "publishedAt": "2026-11-24T03:00:00.000Z",
+    "videoId": "8BQdGwmWluQ",
+    "category": "生態",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "東北ずん子",
+    "pdcaVersion": 6,
+    "realPhotoInHook": true,
+    "visualTheme": 1,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
