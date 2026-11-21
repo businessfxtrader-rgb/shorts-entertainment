@@ -3911,5 +3911,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "深海のイカ、目の大きさが桁違いだった",
+    "topics": [
+      "ダイオウイカの目は直径約27センチで動物界最大級/暗い深海で光を集めるため目が巨大化/目的はマッコウクジラの接近をいち早く察知すること"
+    ],
+    "date": "2026-11-21",
+    "publishedAt": "2026-11-24T09:00:00.000Z",
+    "videoId": "NsOgw3UVt8U",
+    "category": "深海",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "もち子さん",
+    "pdcaVersion": 6,
+    "realPhotoInHook": true,
+    "visualTheme": 2,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
