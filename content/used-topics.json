@@ -3932,5 +3932,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "自販機の「あの工夫」、冬の日本で気づいた？",
+    "topics": [
+      "自販機は災害時に飲み物を無料で出せるタイプがある/硬貨の偽物を見分けるセンサーが毎回働く/正体は小さな検査機を積んだ無人の店"
+    ],
+    "date": "2026-11-22",
+    "publishedAt": "2026-11-25T03:00:00.000Z",
+    "videoId": "F6o344mpyxI",
+    "category": "日本",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "後鬼",
+    "pdcaVersion": 6,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": "8_iVbDcA4uA",
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
