@@ -3953,5 +3953,28 @@
     "sequelOf": "8_iVbDcA4uA",
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "満室の無限ホテルに、無限の客が来たら？",
+    "topics": [
+      "新客1人は全員が1つ隣へ移れば泊まれる",
+      "無限人の客も2倍の部屋番号で全員泊まれる",
+      "無限台のバスも素数の累乗で全員泊まれる"
+    ],
+    "date": "2026-11-22",
+    "publishedAt": "2026-11-25T09:00:00.000Z",
+    "videoId": "BMgW7UOOkjI",
+    "category": "パラドックス",
+    "format": "simulation",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "後鬼",
+    "pdcaVersion": 6,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
