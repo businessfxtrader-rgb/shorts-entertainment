@@ -3976,5 +3976,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "海外で驚かれる日本の「あの光景」、なぜ起きる？第3弾",
+    "topics": [
+      "自販機の下に災害時の仕掛けがある/釣り銭の硬貨が毎回選別される/ゴミ箱がなくても街が清潔な理由"
+    ],
+    "date": "2026-11-23",
+    "publishedAt": "2026-11-26T03:00:00.000Z",
+    "videoId": "Wir0bD-OII8",
+    "category": "日本",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "もち子さん",
+    "pdcaVersion": 6,
+    "realPhotoInHook": true,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": "8_iVbDcA4uA",
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
