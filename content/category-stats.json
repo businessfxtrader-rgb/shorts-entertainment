@@ -28,7 +28,7 @@
     "avgRetentionPercentage": 43.1
   },
   "ショートストーリー": {
-    "totalViews": 4502,
+    "totalViews": 4503,
     "videoCount": 10,
     "format": "simulation",
     "avgViews": 450,
@@ -42,10 +42,10 @@
     "avgRetentionPercentage": 45.9
   },
   "ライフハック": {
-    "totalViews": 6782,
+    "totalViews": 7015,
     "videoCount": 9,
     "format": "ranking",
-    "avgViews": 754,
+    "avgViews": 779,
     "avgRetentionPercentage": 40.7
   },
   "心理学": {
@@ -84,10 +84,10 @@
     "avgRetentionPercentage": 67
   },
   "怖い話": {
-    "totalViews": 3192,
+    "totalViews": 3209,
     "videoCount": 7,
     "format": "ranking",
-    "avgViews": 456,
+    "avgViews": 458,
     "avgRetentionPercentage": 36.8
   },
   "動物": {
@@ -189,10 +189,10 @@
     "avgRetentionPercentage": 75.2
   },
   "錯覚": {
-    "totalViews": 11660,
+    "totalViews": 11730,
     "videoCount": 11,
     "format": "qa",
-    "avgViews": 1060,
+    "avgViews": 1066,
     "avgRetentionPercentage": 55.4
   },
   "未解決問題": {
@@ -259,10 +259,10 @@
     "avgRetentionPercentage": 46.6
   },
   "色彩": {
-    "totalViews": 1417,
+    "totalViews": 1492,
     "videoCount": 2,
     "format": "qa",
-    "avgViews": 709,
+    "avgViews": 746,
     "avgRetentionPercentage": 40
   },
   "乗り物": {
