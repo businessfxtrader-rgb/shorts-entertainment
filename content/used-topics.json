@@ -3997,5 +3997,28 @@
     "sequelOf": "8_iVbDcA4uA",
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "目が回らないのはなぜ？キツツキの頭の秘密",
+    "topics": [
+      "3位 ハシブトガラス:頭蓋骨とくちばしの衝撃吸収構造",
+      "2位 カメレオン:舌は体長の約2倍を0.07秒で発射",
+      "1位 キリン:心臓で血圧を調整し首の血流を保つ"
+    ],
+    "date": "2026-11-23",
+    "publishedAt": "2026-11-26T09:00:00.000Z",
+    "videoId": "VUKjjplRzx8",
+    "category": "動物",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "猫使アル",
+    "pdcaVersion": 6,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
