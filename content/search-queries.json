@@ -1,21 +1,17 @@
 {
-  "periodStart": "2026-10-17",
-  "periodEnd": "2026-11-16",
+  "periodStart": "2026-10-24",
+  "periodEnd": "2026-11-23",
   "queries": [
     {
       "query": "ドアを選んでください",
-      "views": 31
+      "views": 34
     },
     {
       "query": "アーチェリー 美人",
-      "views": 28
+      "views": 16
     },
     {
       "query": "バレンティナ アーチェリー",
-      "views": 21
-    },
-    {
-      "query": "ほっと一息チャンネル",
       "views": 13
     },
     {
@@ -23,11 +19,15 @@
       "views": 10
     },
     {
-      "query": "世界の謎",
-      "views": 7
+      "query": "ほっと一息チャンネル",
+      "views": 9
     },
     {
-      "query": "熱湯",
+      "query": "扉を選んでください",
+      "views": 8
+    },
+    {
+      "query": "犬爪切り方",
       "views": 6
     },
     {
@@ -35,19 +35,15 @@
       "views": 5
     },
     {
-      "query": "こち亀 ドラマ op",
-      "views": 5
-    },
-    {
-      "query": "スクイーズ",
-      "views": 5
-    },
-    {
-      "query": "扉を選んでください",
+      "query": "ちろぴの",
       "views": 5
     },
     {
       "query": "進撃の巨人",
+      "views": 5
+    },
+    {
+      "query": "雨と君と",
       "views": 5
     },
     {
@@ -63,11 +59,27 @@
       "views": 3
     },
     {
-      "query": "お前やりますねスギィ",
+      "query": "すなまい先生",
       "views": 3
     },
     {
       "query": "そがちゃんねる",
+      "views": 3
+    },
+    {
+      "query": "ともき",
+      "views": 3
+    },
+    {
+      "query": "ぽっぴんず",
+      "views": 3
+    },
+    {
+      "query": "オっぱイをみせる",
+      "views": 3
+    },
+    {
+      "query": "スクイーズ",
       "views": 3
     },
     {
@@ -79,29 +91,17 @@
       "views": 3
     },
     {
-      "query": "堀大輔",
+      "query": "マーラータン",
       "views": 3
     },
     {
-      "query": "幽遊白書最終回",
+      "query": "ワンタイムパッド",
       "views": 3
     },
     {
-      "query": "手話通訳者全国統一試験 場面通訳",
+      "query": "中井亜美",
       "views": 3
-    },
-    {
-      "query": "fnf スマホ mod",
-      "views": 2
-    },
-    {
-      "query": "valentina acosta giraldo",
-      "views": 2
-    },
-    {
-      "query": "vivant",
-      "views": 2
     }
   ],
-  "updatedAt": "2026-11-16T05:15:36.460Z"
+  "updatedAt": "2026-11-23T06:15:09.965Z"
 }
