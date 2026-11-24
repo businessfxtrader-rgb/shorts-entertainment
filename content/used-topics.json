@@ -4041,5 +4041,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "1個で数千円？世界一高いチーズの正体",
+    "topics": [
+      "3位 カース・マルツ:ウジ入りチーズ",
+      "2位 ステルトン系青カビチーズ:針で空気を入れる",
+      "1位 プーレ:ロバの乳1キロ分に約25リットル"
+    ],
+    "date": "2026-11-24",
+    "publishedAt": "2026-11-27T09:00:00.000Z",
+    "videoId": "wP2sPHPdp7o",
+    "category": "グルメ",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "黒沢冴白",
+    "pdcaVersion": 6,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
