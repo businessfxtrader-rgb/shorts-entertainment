@@ -4087,5 +4087,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "なぜ宇宙では叫んでも誰にも聞こえないのか？",
+    "topics": [
+      "音は空気の振動",
+      "地球の音の速さと比較",
+      "真空では音が伝わらない"
+    ],
+    "date": "2026-11-25",
+    "publishedAt": "2026-11-28T09:00:00.000Z",
+    "videoId": "LTCFqqzW6YY",
+    "category": "音",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "四国めたん",
+    "pdcaVersion": 6,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
