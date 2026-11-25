@@ -4064,5 +4064,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "1秒の定義、実は地球の自転をやめた？",
+    "topics": [
+      "3位 1リットル:一辺10cmの立方体の容積として定義",
+      "2位 1秒:1967年に原子の振動で定義し直された",
+      "1位 1キログラム:2019年に物理定数で定義された"
+    ],
+    "date": "2026-11-25",
+    "publishedAt": "2026-11-28T03:00:00.000Z",
+    "videoId": "x3Amu1y5JmI",
+    "category": "単位",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "Voidoll",
+    "pdcaVersion": 6,
+    "realPhotoInHook": true,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
