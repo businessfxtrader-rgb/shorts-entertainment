@@ -4110,5 +4110,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "高さ20mの石の都市が1200年前に捨てられた理由",
+    "topics": [
+      "ティカルは高さ70mの神殿を持つ都市だった/9世紀ごろ人口が急減し放棄された/原因は干ばつと森林伐採の複合説"
+    ],
+    "date": "2026-11-26",
+    "publishedAt": "2026-11-29T03:00:00.000Z",
+    "videoId": "5KXsn1wQLqs",
+    "category": "遺跡",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "ナースロボ＿タイプＴ",
+    "pdcaVersion": 6,
+    "realPhotoInHook": true,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
