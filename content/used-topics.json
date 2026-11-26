@@ -4131,5 +4131,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "体温が極限まで下がった記録3選、人体の限界",
+    "topics": [
+      "3位 低体温:心停止から数時間後に蘇生した記録",
+      "2位 高温:気温約120度のサウナ実験の記録",
+      "1位 無重力:宇宙滞在で骨密度が月1％減る"
+    ],
+    "date": "2026-11-26",
+    "publishedAt": "2026-11-29T09:00:00.000Z",
+    "videoId": "bH13EVhUx3w",
+    "category": "人体",
+    "format": "ranking",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "雀松朱司",
+    "pdcaVersion": 6,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
