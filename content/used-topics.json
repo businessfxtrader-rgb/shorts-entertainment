@@ -4154,5 +4154,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "新幹線のパンタグラフが騒音を減らす形の理由",
+    "topics": [
+      "パンタグラフは高速走行で騒音の最大の発生源になる/フクロウの羽の構造を応用して風切り音を抑えた/翼型の断面と細かな溝が空気の渦を整える"
+    ],
+    "date": "2026-11-27",
+    "publishedAt": "2026-11-30T03:00:00.000Z",
+    "videoId": "BthbTCPoQp8",
+    "category": "乗り物",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "Voidoll",
+    "pdcaVersion": 7,
+    "realPhotoInHook": true,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
