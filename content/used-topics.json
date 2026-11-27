@@ -4175,5 +4175,28 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "もし1日が突然30時間になったら？",
+    "topics": [
+      "体内時計が約24時間のまま、毎日6時間ずれていく",
+      "地球の自転が止まりかけ、遠心力と潮汐が激変",
+      "1日が1年になり、昼夜が約半年ずつ続く"
+    ],
+    "date": "2026-11-27",
+    "publishedAt": "2026-11-30T09:00:00.000Z",
+    "videoId": "9UavSeiQRLI",
+    "category": "もしも",
+    "format": "simulation",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "あんこもん",
+    "pdcaVersion": 7,
+    "realPhotoInHook": false,
+    "visualTheme": 0,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
