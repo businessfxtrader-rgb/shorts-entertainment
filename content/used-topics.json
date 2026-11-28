@@ -4219,5 +4219,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "心臓と羽根を比べる神話、重いと何が起きる？",
+    "topics": [
+      "アヌビスが死者の心臓を取り出す/羽根はマアトのもので、トトが結果を記録する/心臓が重いと怪物アメミットに食べられる"
+    ],
+    "date": "2026-11-28",
+    "publishedAt": "2026-12-01T09:00:00.000Z",
+    "videoId": "7qgBVTX-JHc",
+    "category": "神話",
+    "format": "qa",
+    "usedRealPhoto": false,
+    "usedCompetitorInsight": true,
+    "voice": "後鬼",
+    "pdcaVersion": 7,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
