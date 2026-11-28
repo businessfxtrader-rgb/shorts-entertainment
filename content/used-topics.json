@@ -4198,5 +4198,26 @@
     "sequelOf": null,
     "experienceType": null,
     "experienceReveal": null
+  },
+  {
+    "title": "1億円を1円玉の山にしたら高さは何キロ？",
+    "topics": [
+      "1万円札1枚の厚さは約0.1ミリ/1億円の札束は約1センチ/1兆円を積むと約10キロでエベレストを超える"
+    ],
+    "date": "2026-11-28",
+    "publishedAt": "2026-12-01T03:00:00.000Z",
+    "videoId": "u5IqikL7fjI",
+    "category": "数字",
+    "format": "qa",
+    "usedRealPhoto": true,
+    "usedCompetitorInsight": true,
+    "voice": "中部つるぎ",
+    "pdcaVersion": 7,
+    "realPhotoInHook": false,
+    "visualTheme": 3,
+    "hasScreenTitle": true,
+    "sequelOf": null,
+    "experienceType": null,
+    "experienceReveal": null
   }
 ]
